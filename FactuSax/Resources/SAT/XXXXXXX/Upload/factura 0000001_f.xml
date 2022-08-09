@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="3.3" Serie="f" Folio="0000001" Fecha="2020-12-04T17:29:22" Sello="faltante" FormaPago="01" NoCertificado="00000" Certificado="faltante" CondicionesDePago="en un solo pago" SubTotal="1753.92" Moneda="MXN" TipoCambio="1" Total="2034.55" TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="11111" xmlns="http://www.sat.gob.mx/cfd/3">
+  <Emisor Rfc="ASDASDASDASD" Nombre="123123" RegimenFiscal="601" />
+  <Receptor Rfc="123123" Nombre="ESDRFJ" UsoCFDI="P01" />
+  <Conceptos>
+    <Concepto ClaveProdServ="85121800 - Laboratorios médicos" NoIdentificacion="ANT5" Cantidad="6" ClaveUnidad="E48" Descripcion="ANTIDOPING 5 DROGAS" ValorUnitario="292.320000" Importe="1753.920000">
+      <Impuestos>
+        <Traslados>
+          <Traslado Base="1753.920000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="280.6272" />
+        </Traslados>
+      </Impuestos>
+    </Concepto>
+  </Conceptos>
+  <Impuestos TotalImpuestosTrasladados="280.63">
+    <Traslados>
+      <Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="280.6272" />
+    </Traslados>
+  </Impuestos>
+</Comprobante>

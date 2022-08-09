@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="FactuSax_WebService_Timbres_Timbres" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://74.208.239.165/WebService_Timbres/Timbres.asmx</Value>
+    </Setting>
+    <Setting Name="FactuSax_ExpideTuFactura_TimbradoWSService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://pruebastimbrado.expidetufactura.com.mx:8451/preproduccion/TimbradoWS</Value>
+    </Setting>
+    <Setting Name="FactuSax_WebService_InsercionSISLAB_Actualizar_Estatus" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://74.208.239.165/WebService_iSISLAB/Actualizar_Estatus.asmx</Value>
+    </Setting>
+    <Setting Name="FactuSax_localhostSISLAB_Actualizar_Estatus" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:13675/Actualizar_Estatus.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

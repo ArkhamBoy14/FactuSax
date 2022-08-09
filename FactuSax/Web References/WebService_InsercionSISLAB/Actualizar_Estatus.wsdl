@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://Sislab_actualizo.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://Sislab_actualizo.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Sislab_actualizo.org/">
+      <s:element name="Actualizar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="folio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="uuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="estatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rfc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folio_movimiento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fecha_facturado" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ActualizarSoapIn">
+    <wsdl:part name="parameters" element="tns:Actualizar" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Actualizar_EstatusSoap">
+    <wsdl:operation name="Actualizar">
+      <wsdl:input message="tns:ActualizarSoapIn" />
+      <wsdl:output message="tns:ActualizarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Actualizar_EstatusSoap" type="tns:Actualizar_EstatusSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Actualizar">
+      <soap:operation soapAction="http://Sislab_actualizo.org/Actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Actualizar_EstatusSoap12" type="tns:Actualizar_EstatusSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Actualizar">
+      <soap12:operation soapAction="http://Sislab_actualizo.org/Actualizar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Actualizar_Estatus">
+    <wsdl:port name="Actualizar_EstatusSoap" binding="tns:Actualizar_EstatusSoap">
+      <soap:address location="http://74.208.239.165/WebService_iSISLAB/Actualizar_Estatus.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Actualizar_EstatusSoap12" binding="tns:Actualizar_EstatusSoap12">
+      <soap12:address location="http://74.208.239.165/WebService_iSISLAB/Actualizar_Estatus.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

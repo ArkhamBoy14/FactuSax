@@ -1,0 +1,101 @@
+<cfdi:Comprobante xsi:schemaLocation="http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd"
+                	Version="3.3"
+                	Serie="VHSA"
+                	Folio="168"
+                	Fecha="2020-12-10T00:38:16"
+                	Sello="CwRHglQAd3Lf06Za2bmTr9STdC5uHwIc7ao7JyQXYz8mRJjr1Vwxv0UReao1UkIF2NQtv8mPFdvvuM2bCeschZO+Qmsed2GY6M89mvGjgX1PfUn+LGJsZDMmYGzFwxXcpHiSW75eimlFTvHzu7xklB7NrsqyAfAq+Y8Qr7KXYAF9HU73xdJg9AzU8cMhIE3sk6dMpZbUKaa3b9hTxbGIIOegXcg3pisWMHMyJ+EnPOl4mSVPu8ylxpjlrhemMykRLcaFspoD1MhlCPqBz98Rh5MSNmpYjKzb0PTHjkCDv1KLcO44JsQjKYS2IHNMjMj4unKXvslvXQQtFymgYNuIlQ=="
+                	FormaPago="01"
+                	NoCertificado="30001000000400002450"
+                	Certificado="MIIFyjCCA7KgAwIBAgIUMzAwMDEwMDAwMDA0MDAwMDI0NTAwDQYJKoZIhvcNAQELBQAwggErMQ8wDQYDVQQDDAZBQyBVQVQxLjAsBgNVBAoMJVNFUlZJQ0lPIERFIEFETUlOSVNUUkFDSU9OIFRSSUJVVEFSSUExGjAYBgNVBAsMEVNBVC1JRVMgQXV0aG9yaXR5MSgwJgYJKoZIhvcNAQkBFhlvc2Nhci5tYXJ0aW5lekBzYXQuZ29iLm14MR0wGwYDVQQJDBQzcmEgY2VycmFkYSBkZSBjYWRpejEOMAwGA1UEEQwFMDYzNzAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBDSVVEQUQgREUgTUVYSUNPMREwDwYDVQQHDAhDT1lPQUNBTjERMA8GA1UELRMIMi41LjQuNDUxJTAjBgkqhkiG9w0BCQITFnJlc3BvbnNhYmxlOiBBQ0RNQS1TQVQwHhcNMTkwNjE3MjIzNzI2WhcNMjMwNjE3MjIzNzI2WjCB8TEoMCYGA1UEAxMfRVNDVUVMQSBXSUxTT04gRVNRVUlWRUwgUyBERSBDVjEoMCYGA1UEKRMfRVNDVUVMQSBXSUxTT04gRVNRVUlWRUwgUyBERSBDVjEoMCYGA1UEChMfRVNDVUVMQSBXSUxTT04gRVNRVUlWRUwgUyBERSBDVjElMCMGA1UELRMcRVdFMTcwOTA0NVUwIC8gS0FITzY0MTEwMUIzOTEeMBwGA1UEBRMVIC8gS0FITzY0MTEwMUhOVExLUzA2MSowKAYDVQQLEyFFU0NVRUxBIFdJTFNPTiBFU1FVSVZFTCBTQSBERSBDViAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCLj3cfTdaZZ9jG6QuPrLPdDz5195DtZGJAyexmk76Fg33M4iFbSM3RInG8XHyDeCNzKgSKqOVBiE/qMxiSMkIWbvJ5q+6Jt2CUSGzKQPiHmrTv3HGlxTdmc2AYOmE8+kg5lyUqX79Km+iV39qg6pzYfZq/sZF4DGtExWTnfrQqS1ZFlmT7Ol32lHjNp+PA4r1NCO8q2usgQJJb55rqLrJ20c+vIDfwXh7AcmFxeXNgWtduMWfLADnk9Lv0pyhJC0qU6BPA5XFH8HJBa52i3Cxx9Uv5ZYYjGvrC1SJviqD5Yoxo5DqyeOj5BTqX05ZGgNhAxLVHfcPQTFh6el3hid8DAgMBAAGjHTAbMAwGA1UdEwEB/wQCMAAwCwYDVR0PBAQDAgbAMA0GCSqGSIb3DQEBCwUAA4ICAQDPV6N6o+2U36FhExy2C8nmQyFAsxKw9TO5GSsc/dNVYrq6kd86vZvjryO4knSwTFa2S06Trw4FpIJB4/gBp3I5wp0cxKZNrtzjD28yGqD69b/bj7qDkksQt8TmC/wnDidNK8HaZmDu1keeDtWGT4+ZbINXfynvME5uh+xpvJDk46xfpDOUqC8f2k19yGhLjGxOfjnm62MFG63rW7n35WEMGvFCJfxNMIFJP/ynNPedxjoYiStk0jBlNvRj3KbOBnfSycfMOcksrU7PEGzCQCtSGDosLOTEBS35d0Z3PXraasASY6egQwwt4FP5bRR+8+Ij8Kg2ldhhvbQBeXFvwHRT6sLXxOz7lF4sOnvpCWAJAXtEWnxEbrCg+Ii74o1E9X3lCxJ9keTiL+luX3CK0GbeaMVdJEBGykTRecUhyuyYgfMDKbce1wO6MHyuFRx6etkSwqeoPQp1tIovFwsWUiIPDUWV2bO7c5+sOiAX8lzt5eM1eC46lqhQCATFGi3PvyTBhNLPY+AHJQIWqBKQWXMtJl//HysPDADsLXehjP8ebRss9TqXlM8viKen3gu3PiR2cujqGvpaD6YlVckHd49KEwKU6reEsoeA/LVonMjsL2qMR9IqfFm7QtIS8fJCmKWjbXdwDAI0AtBeUmPbsGXdOJcwlYY6mXeJAk5ORrqpBQ=="
+                	SubTotal="504.00"
+                	Descuento="60.00"
+                	Moneda="MXN"
+                	Total="515.04"
+                	TipoDeComprobante="I"
+                	MetodoPago="PUE"
+                	LugarExpedicion="86280"
+                	xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital"
+                	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                	xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+	<cfdi:Emisor Rfc="EWE1709045U0"
+           		Nombre="ESCUELA_WILSON_ESQUIVEL_SA_DE_CV"
+           		RegimenFiscal="601"/>
+	<cfdi:Receptor Rfc="AAAA0111054N2"
+             		Nombre="asda"
+             		UsoCFDI="P01"/>
+	<cfdi:Conceptos>
+		<cfdi:Concepto ClaveProdServ="85121800"
+             			NoIdentificacion="EGO"
+             			Cantidad="1"
+             			ClaveUnidad="E48"
+             			Descripcion="EXAMEN GENERAL DE ORINA"
+             			ValorUnitario="84.000000"
+             			Importe="84.000000"
+             			Descuento="10">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="74"
+             						Impuesto="002"
+             						TipoFactor="Tasa"
+             						TasaOCuota="0.160000"
+             						Importe="11.84"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="85121800"
+             			NoIdentificacion="BH"
+             			Cantidad="1"
+             			ClaveUnidad="E48"
+             			Descripcion="CITOMETRIA HEMATICA"
+             			ValorUnitario="117.600000"
+             			Importe="117.600000"
+             			Descuento="14">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="103.6"
+             						Impuesto="002"
+             						TipoFactor="Tasa"
+             						TasaOCuota="0.160000"
+             						Importe="16.58"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="85121800"
+             			NoIdentificacion="QS6"
+             			Cantidad="1"
+             			ClaveUnidad="E48"
+             			Descripcion="QU&#205;MICA SANGU&#205;NEA 6 ELEMENTOS"
+             			ValorUnitario="302.400000"
+             			Importe="302.400000"
+             			Descuento="36">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="266.4"
+             						Impuesto="002"
+             						TipoFactor="Tasa"
+             						TasaOCuota="0.160000"
+             						Importe="42.62"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+	</cfdi:Conceptos>
+	<cfdi:Impuestos TotalImpuestosTrasladados="71.04">
+		<cfdi:Traslados>
+			<cfdi:Traslado Impuesto="002"
+             				TipoFactor="Tasa"
+             				TasaOCuota="0.160000"
+             				Importe="71.04"/>
+		</cfdi:Traslados>
+	</cfdi:Impuestos>
+	<cfdi:Complemento>
+		<tfd:TimbreFiscalDigital FechaTimbrado="2020-12-10T00:38:27"
+                       			UUID="30c74a4c-89f5-4643-95fe-9c97c7a6494c"
+                       			NoCertificadoSAT="20001000000300022323"
+                       			SelloCFD="CwRHglQAd3Lf06Za2bmTr9STdC5uHwIc7ao7JyQXYz8mRJjr1Vwxv0UReao1UkIF2NQtv8mPFdvvuM2bCeschZO+Qmsed2GY6M89mvGjgX1PfUn+LGJsZDMmYGzFwxXcpHiSW75eimlFTvHzu7xklB7NrsqyAfAq+Y8Qr7KXYAF9HU73xdJg9AzU8cMhIE3sk6dMpZbUKaa3b9hTxbGIIOegXcg3pisWMHMyJ+EnPOl4mSVPu8ylxpjlrhemMykRLcaFspoD1MhlCPqBz98Rh5MSNmpYjKzb0PTHjkCDv1KLcO44JsQjKYS2IHNMjMj4unKXvslvXQQtFymgYNuIlQ=="
+                       			SelloSAT="ah0qNzkCy9jmA5PjwBKtSnvR+G1ZkfVYOE7hePo+vp28mWLt9i2O4Zbtx1SKdpXBZwWrPgFPhgSZTxa7ezim/s3mPJ6P9sXvpMQ0A1Z+TxPvh+cdNFEMmfS/LstcEXDUE1DOyhOyxXwJr/KLItcjXhZ4pJ3uAIHM16JJWaYwBsrqXbQjAV65tBjTgjyAUwbYSzNUa0EVIXFOuzznvae1gftdfLpkSP2eVSpCdJc1rAC5lDUPjD6i4nTnw/dDkMemhTD4WHYOJa4pHFxezWq5kQlzONWJNwJukZ6xq1SmSih39ddnwkKvv6CRcuA4nkiDmREP5rV/nVZnHHRbP5n+/g=="
+                       			Version="1.1"
+                       			RfcProvCertif="DAL050601L35"
+                       			Leyenda="Timbre de Prueba"
+                       			xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd"/>
+	</cfdi:Complemento>
+</cfdi:Comprobante>

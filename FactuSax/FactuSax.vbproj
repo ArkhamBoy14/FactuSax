@@ -1,0 +1,1637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FactuSax</RootNamespace>
+    <AssemblyName>FactuSax</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <ProjectGuid>{E3AB05CE-E8ED-4B64-87F1-33805FCEF8DB}</ProjectGuid>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.SignalR.Core">
+      <Version>2.4.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin">
+      <Version>4.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="Wisej-2-RibbonBar">
+      <Version>2.5.32</Version>
+    </PackageReference>
+    <Reference Include="DevExpress.BonusSkins.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.BonusSkins.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.Designer.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Charts.Designer.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Charts.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeConverter.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.CodeConverter.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.CodeParser.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Dashboard.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v21.2.Web, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Dashboard.v21.2.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v21.2.Web.Mvc, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Dashboard.v21.2.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v21.2.Web.Mvc5, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Dashboard.v21.2.Web.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v21.2.Web.WebForms, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Dashboard.v21.2.Web.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v21.2.Win, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Dashboard.v21.2.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v21.2.Wpf, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Dashboard.v21.2.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Data.Desktop.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Data.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.DataAccess.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v21.2.UI, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.DataAccess.v21.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataVisualization.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.DataVisualization.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DemoData.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.DemoData.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DemoReports.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=4c3bc44151be4b47, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.DemoReports.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DevAV.v21.2.Data, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.DevAV.v21.2.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DevAV.v21.2.Reports, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.DevAV.v21.2.Reports.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Diagram.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Diagram.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dialogs.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Dialogs.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Docs.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Docs.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.EasyTest.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.EasyTest.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.AuditTrail.Xpo.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.AuditTrail.Xpo.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Chart.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Chart.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Chart.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Chart.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Chart.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Chart.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.CloneObject.Xpo.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.CloneObject.Xpo.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ConditionalAppearance.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.ConditionalAppearance.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Dashboards.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Dashboards.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Dashboards.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Dashboards.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Dashboards.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Dashboards.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.EasyTest.SeleniumWebAdapter.v21.2, Version=21.2.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.EasyTest.SeleniumWebAdapter.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.EasyTest.WebAdapter.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.EasyTest.WebAdapter.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.EasyTest.WinAdapter.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.EasyTest.WinAdapter.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.EF6.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.EF6.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.FileAttachment.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.FileAttachment.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.FileAttachment.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.FileAttachment.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.HtmlPropertyEditor.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.HtmlPropertyEditor.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.HtmlPropertyEditor.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.HtmlPropertyEditor.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Kpi.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Kpi.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Maps.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Maps.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Notifications.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Notifications.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Notifications.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Notifications.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Notifications.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Notifications.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Objects.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Objects.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Office.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Office.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Office.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Office.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Office.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Office.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotChart.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.PivotChart.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotChart.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.PivotChart.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotChart.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.PivotChart.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotGrid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.PivotGrid.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotGrid.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.PivotGrid.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotGrid.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.PivotGrid.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Reports.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Reports.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Reports.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Reports.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Reports.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Reports.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.ReportsV2.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.ReportsV2.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.ReportsV2.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Scheduler.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Scheduler.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Scheduler.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Scheduler.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Scheduler.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Scheduler.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ScriptRecorder.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.ScriptRecorder.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ScriptRecorder.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.ScriptRecorder.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ScriptRecorder.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.ScriptRecorder.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.EF6.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Security.EF6.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Security.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.Xpo.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Security.Xpo.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.StateMachine.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.StateMachine.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.TreeListEditors.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.TreeListEditors.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.TreeListEditors.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.TreeListEditors.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.TreeListEditors.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.TreeListEditors.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Validation.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Validation.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Validation.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Validation.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Validation.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Validation.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ViewVariantsModule.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.ViewVariantsModule.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Workflow.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Workflow.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Workflow.Win.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Workflow.Win.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Xpo.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.ExpressApp.Xpo.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Images.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Map.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Map.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Mvvm.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v21.2.DataModel, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Mvvm.v21.2.DataModel.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v21.2.DataModel.EF6, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Mvvm.v21.2.DataModel.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v21.2.DataModel.EFCore, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Mvvm.v21.2.DataModel.EFCore.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v21.2.DataModel.WCF, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Mvvm.v21.2.DataModel.WCF.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v21.2.ViewModel, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Mvvm.v21.2.ViewModel.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Office.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Pdf.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v21.2.Drawing, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Pdf.v21.2.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v21.2.SkiaRenderer, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Pdf.v21.2.SkiaRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.Base.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Persistent.Base.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.BaseImpl.EF6.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Persistent.BaseImpl.EF6.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.BaseImpl.Xpo.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Persistent.BaseImpl.Xpo.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.PivotGrid.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Printing.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.RichEdit.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v21.2.Export, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.RichEdit.v21.2.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.SharePoint.2013.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.SharePoint.2013.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.SharePoint.2016.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.SharePoint.2016.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Snap.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Snap.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Snap.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Snap.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Snap.v21.2.Extensions, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Snap.v21.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Sparkline.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.SpellChecker.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.SpellChecker.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Spreadsheet.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.TreeMap.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.TreeMap.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Tutorials.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Tutorials.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Utils.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v21.2.UI, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Utils.v21.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxDiagram.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Web.ASPxDiagram.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.Resources.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DevExpress.Web.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraPrinting.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraReports.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v21.2.CodeCompletion, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraReports.v21.2.CodeCompletion.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v21.2.Extensions, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraReports.v21.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v21.2.Service, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraReports.v21.2.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v21.2.Web, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraReports.v21.2.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v21.2.Web.Azure, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraReports.v21.2.Web.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v21.2.Web.WebForms, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraReports.v21.2.Web.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraRichEdit.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraScheduler.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraScheduler.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Core.Desktop, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraScheduler.v21.2.Core.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Core.Reporting, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraScheduler.v21.2.Core.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Extensions, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraScheduler.v21.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v21.2.GoogleCalendar, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraScheduler.v21.2.GoogleCalendar.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Reporting, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraScheduler.v21.2.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Reporting.Extensions, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraScheduler.v21.2.Reporting.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraSpellChecker.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraSpreadsheet.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraTreeList.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeMap.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraTreeMap.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeMap.v21.2.UI, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraTreeMap.v21.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraVerticalGrid.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraWizard.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraWizard.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="NumaletNet">
+      <HintPath>..\packages\NumaletNet.dll</HintPath>
+    </Reference>
+    <Reference Include="opencl">
+      <HintPath>..\packages\opencl.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.DataExport">
+      <HintPath>..\packages\Spire.DataExport.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.DataExport.ResourceMgr">
+      <HintPath>..\packages\Spire.DataExport.ResourceMgr.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.License">
+      <HintPath>..\packages\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf">
+      <HintPath>..\packages\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.XLS">
+      <HintPath>..\packages\Spire.XLS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <PackageReference Include="Wisej-2" Version="2.5.*" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Themes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Web" />
+    <Import Include="Wisej.Web" />
+    <Import Include="Wisej.Web.VisualBasic" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.html" />
+    <Content Include="Resources\Plantillas\ASAMBLEAS\Plantilla_Agremiados_ColumnasFaltantes.xlsx" />
+    <Content Include="Resources\Plantillas\ASAMBLEAS\Plantilla_AsistenciaEventos.xlsx" />
+    <Content Include="Datasets\DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.xsc">
+      <DependentUpon>DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pCAT_OPERADORES_B.xsc">
+      <DependentUpon>DataSet_pCAT_OPERADORES_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.xsc">
+      <DependentUpon>DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.xss">
+      <DependentUpon>DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pCAT_OPERADORES_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pCAT_OPERADORES_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pCAT_OPERADORES_B.xss">
+      <DependentUpon>DataSet_pCAT_OPERADORES_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.xss">
+      <DependentUpon>DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_CFDI_B.xsc">
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pFACTURA_SAT_CFDI_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pFACTURA_SAT_CFDI_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_CFDI_B.xss">
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="DocumentViewer.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Resources\Add List Filled-64.png" />
+    <Content Include="Resources\Generated\Pdf\nuevo.txt" />
+    <Content Include="Resources\Icons\Anciano.png" />
+    <Content Include="Resources\Icons\Asociaciones.png" />
+    <Content Include="Resources\Icons\Bill Filled-18.png" />
+    <Content Include="Resources\Icons\Cambiar Menu.png" />
+    <Content Include="Resources\Icons\Cambiar Tema.png" />
+    <Content Include="Resources\Icons\Cambiar.png" />
+    <Content Include="Resources\Icons\Cartas.png" />
+    <Content Include="Resources\Icons\Cash Register Filled.png" />
+    <Content Include="Resources\Icons\Contabilidad.png" />
+    <Content Include="Resources\Icons\Estudiante.png" />
+    <Content Include="Resources\Icons\Eventos.png" />
+    <Content Include="Resources\Icons\favicon.ico" />
+    <Content Include="Resources\Icons\Herramientas.png" />
+    <Content Include="Resources\Icons\Icon Asociaciones.png" />
+    <Content Include="Resources\Icons\Icon Bill Filled-18.png" />
+    <Content Include="Resources\Icons\Icon Cartas.png" />
+    <Content Include="Resources\Icons\Icon Cash Register Filled.png" />
+    <Content Include="Resources\Icons\Icon Colegio.png" />
+    <Content Include="Resources\Icons\Icon Eventos.png" />
+    <Content Include="Resources\Icons\Icon Panel.png" />
+    <Content Include="Resources\Icons\icons8-caja-registradora-26.png" />
+    <Content Include="Resources\Icons\Interfaz.png" />
+    <Content Include="Resources\Icons\Museum Filled.png" />
+    <Content Include="Resources\Icons\Panel.png" />
+    <Content Include="Resources\Icons\Perfil.png" />
+    <Content Include="Resources\Icons\Socios.png" />
+    <Content Include="Resources\Icons\vista_carta_18.png" />
+    <Content Include="Resources\Images\Combo\BOTON.jpg" />
+    <Content Include="Resources\Images\Combo\BOTON40.jpg" />
+    <Content Include="Resources\Images\Combo\BOTONELIMINAR.jpg" />
+    <Content Include="Resources\Images\Combo\BOTONELIMINAR40.jpg" />
+    <Content Include="Resources\Images\Combo\Combobox.jpg" />
+    <Content Include="Resources\Images\Combo\equis_sax_2.png" />
+    <Content Include="Resources\Images\Combo\flecha_sax_2.png" />
+    <Content Include="Resources\Images\filtro grilla\delete.png" />
+    <Content Include="Resources\Images\filtro grilla\icono_buscar.png" />
+    <Content Include="Resources\Images\filtro grilla\icono_limpiar.png" />
+    <Content Include="Resources\Images\Firmas\0072.jpg" />
+    <Content Include="Resources\Images\Firmas\0072_1.jpg" />
+    <Content Include="Resources\Images\Firmas\0129.jpg" />
+    <Content Include="Resources\Images\Firmas\0129_2.jpg" />
+    <Content Include="Resources\Images\Firmas\539.png" />
+    <Content Include="Resources\Images\Firmas\dsdfsdf.jpg" />
+    <Content Include="Resources\Images\Firmas\empty.txt" />
+    <Content Include="Resources\Images\Firmas\StyleSheet1.css" />
+    <Content Include="Resources\Images\Fotografias\default.png" />
+    <Content Include="Resources\Images\Fotografias\Fingerprint Scan Filled-64.png" />
+    <Content Include="Resources\Images\Fotografias\user.png" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\ENCABEZADO1_20220525134924.png" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\ENCABEZADO_IMG_121032018140454.jpg" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\ENCABEZADO_IMG_123032018143123.jpg" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\FCARM_encabezado_Reporte_TIRAS.jpg" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\FCARM_pie_Reporte2_1.jpg" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\LOGO CACHAC - 21-22.png" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\marca de agua.png" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\PIE DE HOJA.png" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\PIE_PAGINA_1_20220525134931.png" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\PIE_PAGINA_IMG16072019113650.jpg" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\PIE_PAGINA_IMG21032018140148.jpg" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\PLECA SUPERIOR.png" />
+    <Content Include="Resources\Images\LOGOS\CACHAC\reverso_credenciales.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\ENCABEZADO_CICTAB.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\ENCABEZADO_IMG_112062019113231.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\ENCABEZADO_IMG_117062019150709.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\ENCABEZADO_IMG_127062019115648.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\ENCABEZADO_IMG_127062019121531.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\ENCABEZADO_IMG_227062019115656.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\ENCABEZADO_IMG_227062019121536.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\FONDO_IMG27062019121542.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\logo-cicch.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\PIE_PAGINA_IMG17062019150727.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\PIE_PAGINA_IMG27062019115715.jpg" />
+    <Content Include="Resources\Images\LOGOS\CICCH\PIE_PAGINA_IMG27062019121548.jpg" />
+    <Content Include="Resources\Images\LOGOS\CIME\ENCABEZADO1_20220315150244.jpg" />
+    <Content Include="Resources\Images\LOGOS\CIME\ENCABEZADO1_20220315151721.png" />
+    <Content Include="Resources\Images\LOGOS\CIME\ENCABEZADO1_20220517164105.png" />
+    <Content Include="Resources\Images\LOGOS\CIME\ENCABEZADO_IMG_121032018174403.jpg" />
+    <Content Include="Resources\Images\LOGOS\CIME\ENCABEZADO_IMG_124042019125807.jpg" />
+    <Content Include="Resources\Images\LOGOS\CIME\ENCABEZADO_IMG_221032018174409.jpg" />
+    <Content Include="Resources\Images\LOGOS\CIME\ENCABEZADO_IMG_224042019125818.jpg" />
+    <Content Include="Resources\Images\LOGOS\CIME\FONDO_20220323125219.png" />
+    <Content Include="Resources\Images\LOGOS\CIME\FONDO_20220517164108.png" />
+    <Content Include="Resources\Images\LOGOS\CIME\FONDO_IMG24042019125926.jpg" />
+    <Content Include="Resources\Images\LOGOS\CIME\Imagen2.png" />
+    <Content Include="Resources\Images\LOGOS\CIME\LogoCIME.png" />
+    <Content Include="Resources\Images\LOGOS\CIME\PIE_PAGINA_IMG21032018174418.jpg" />
+    <Content Include="Resources\Images\LOGOS\CIME\PIE_PAGINA_IMG24042019125933.jpg" />
+    <Content Include="Resources\Images\LOGOS\CITAB\12032018140412.png" />
+    <Content Include="Resources\Images\LOGOS\CITAB\12032018140517.png" />
+    <Content Include="Resources\Images\LOGOS\CITAB\12032018141125.png" />
+    <Content Include="Resources\Images\LOGOS\CITAB\21421241.png" />
+    <Content Include="Resources\Images\LOGOS\CITAB\FECIC.png" />
+    <Content Include="Resources\Images\LOGOS\CITAB\Logo.png" />
+    <Content Include="Resources\Images\LOGOS\CITAB\LOGOCAPACIT.JPG" />
+    <Content Include="Resources\Images\LOGOS\CITAB\LOGOTCITABTABASCO.jpg" />
+    <Content Include="Resources\Images\LOGOS\CITAB\Logo_CICT_HD.jpg" />
+    <Content Include="Resources\Images\LOGOS\CITAB\Logo_Fecic_HD.png" />
+    <Content Include="Resources\Images\LOGOS\CITAB\MEMBRETADO_REPORTE_IMG14082019135546.jpg" />
+    <Content Include="Resources\Images\LOGOS\CITAB\plantillaConstancia.png" />
+    <Content Include="Resources\Images\LOGOS\CITAB\plantillaConstancia2.png" />
+    <Content Include="Resources\Images\LOGOS\IMCP\CONSTANCIA_IMCP.png" />
+    <Content Include="Resources\Images\LOGOS\IMCP\CONSTANCIA_LETRA.png" />
+    <Content Include="Resources\Images\LOGOS\IMCP\ENCABEZADO_H_IMCP.jpg" />
+    <Content Include="Resources\Images\LOGOS\IMCP\ENCABEZADO_V_IMCP.jpg.png" />
+    <Content Include="Resources\Images\LOGOS\IMCP\IMCPT Logo.png" />
+    <Content Include="Resources\Images\LOGOS\IMCP\LOGO_H_IMCP.png" />
+    <Content Include="Resources\Images\LOGOS\IMCP\LOGO_V_IMCP.jpg" />
+    <Content Include="Resources\Images\LOGOS\IMCP\PIE DE PAGINA_H_IMCP.png" />
+    <Content Include="Resources\Images\LOGOS\IMCP\PIE DE PAGINA_V_IMCP.png" />
+    <Content Include="Resources\Images\LOGOS\ITC\Edificio.png" />
+    <Content Include="Resources\Images\LOGOS\ITC\LOGO_ITC_1.png" />
+    <Content Include="Resources\Images\LOGOS\ITC\LOGO_ITC_2.jpg" />
+    <Content Include="Resources\Images\LOGOS\ITC\LOGO_ITC_ANTERIOR.png" />
+    <Content Include="Resources\Images\LOGOS\Wallpaper\isiscol_portada.jpeg" />
+    <Content Include="Resources\Images\Menu\16\Accounting Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Add File Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Add User Male Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Bank-16.png" />
+    <Content Include="Resources\Images\Menu\16\Barcode-16.png" />
+    <Content Include="Resources\Images\Menu\16\Bill Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Box Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Card in Use-16.png" />
+    <Content Include="Resources\Images\Menu\16\Caro 2 Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Check Book-16.png" />
+    <Content Include="Resources\Images\Menu\16\Check File Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Check Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Comments Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Contact Card Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Delete-25.png" />
+    <Content Include="Resources\Images\Menu\16\Diploma Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Documents Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Edit File Filled.png" />
+    <Content Include="Resources\Images\Menu\16\Edit Property Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Eliminar.png" />
+    <Content Include="Resources\Images\Menu\16\Event Accepted Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Family Man Woman-16.png" />
+    <Content Include="Resources\Images\Menu\16\Google Classroom Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Health Book Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Heart Health Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Home-16.png" />
+    <Content Include="Resources\Images\Menu\16\icons8-Combo Chart-16.png" />
+    <Content Include="Resources\Images\Menu\16\iexcel.png" />
+    <Content Include="Resources\Images\Menu\16\Invoice Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Law Book Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Parse From Clipboard Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Paste Special Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Permanent Job Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Property Time Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Purchase Order Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Receipt Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Request Money-16.png" />
+    <Content Include="Resources\Images\Menu\16\School Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Settings Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\subir-archivo.png" />
+    <Content Include="Resources\Images\Menu\16\Trabajo Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\Training Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\User Folder-16.png" />
+    <Content Include="Resources\Images\Menu\16\User Groups Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\User Location Filled-16.png" />
+    <Content Include="Resources\Images\Menu\16\vision.png" />
+    <Content Include="Resources\Images\Menu\16\whatsapp.png" />
+    <Content Include="Resources\Images\Menu\16\Worker Male Filled-16.png" />
+    <Content Include="Resources\Images\Menu\18\Asociaciones.png" />
+    <Content Include="Resources\Images\Menu\18\Bill Filled-18.png" />
+    <Content Include="Resources\Images\Menu\18\Cash Register Filled.png" />
+    <Content Include="Resources\Images\Menu\18\Colegio.png" />
+    <Content Include="Resources\Images\Menu\18\Contacto.png" />
+    <Content Include="Resources\Images\Menu\18\Panel.png" />
+    <Content Include="Resources\Images\Menu\18\Socios.png" />
+    <Content Include="Resources\Images\Menu\18\User Group Man Woman-18.png" />
+    <Content Include="Resources\Images\Menu\18\vista_carta_18.png" />
+    <Content Include="Resources\Images\Menu\18\vista_columna_18.png" />
+    <Content Include="Resources\Images\Menu\18\vista_detalle_18.png" />
+    <Content Include="Resources\Images\Menu\18\vista_edicion_18.png" />
+    <Content Include="Resources\Images\Menu\25\add-image.png" />
+    <Content Include="Resources\Images\Menu\25\add.png" />
+    <Content Include="Resources\Images\Menu\25\carta.png" />
+    <Content Include="Resources\Images\Menu\25\Contabilidad.png" />
+    <Content Include="Resources\Images\Menu\25\delete-image.png" />
+    <Content Include="Resources\Images\Menu\25\delete.png" />
+    <Content Include="Resources\Images\Menu\25\eye-slash.png" />
+    <Content Include="Resources\Images\Menu\25\eye.png" />
+    <Content Include="Resources\Images\Menu\25\subir-archivo.png" />
+    <Content Include="Resources\Images\Menu\25\tap.png" />
+    <Content Include="Resources\Images\Menu\30\add.png" />
+    <Content Include="Resources\Images\Menu\30\Cartas.png" />
+    <Content Include="Resources\Images\Menu\30\Cash Register Filled.png" />
+    <Content Include="Resources\Images\Menu\30\editar.png" />
+    <Content Include="Resources\Images\Menu\30\Eventos.png" />
+    <Content Include="Resources\Images\Menu\30\Herramientas.png" />
+    <Content Include="Resources\Images\Menu\30\Museum Filled.png" />
+    <Content Include="Resources\Images\Menu\30\Panel.png" />
+    <Content Include="Resources\Images\Menu\30\report.png" />
+    <Content Include="Resources\Images\Menu\30\Salir.png" />
+    <Content Include="Resources\Images\Menu\64\actualizar.png" />
+    <Content Include="Resources\Images\Menu\64\actualizar_64.png" />
+    <Content Include="Resources\Images\Menu\64\Add List Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\ayuda.png" />
+    <Content Include="Resources\Images\Menu\64\caja-registradora.png" />
+    <Content Include="Resources\Images\Menu\64\Cancel File Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\carta.png" />
+    <Content Include="Resources\Images\Menu\64\Cash Register Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\colegio.png" />
+    <Content Include="Resources\Images\Menu\64\ColorFacturaNoPagada.png" />
+    <Content Include="Resources\Images\Menu\64\ColorFacturaPagada.png" />
+    <Content Include="Resources\Images\Menu\64\ColorSinFactura.png" />
+    <Content Include="Resources\Images\Menu\64\configuraciones.png" />
+    <Content Include="Resources\Images\Menu\64\cotizacion.png" />
+    <Content Include="Resources\Images\Menu\64\cumpleanos.png" />
+    <Content Include="Resources\Images\Menu\64\Delete File Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\edit.png" />
+    <Content Include="Resources\Images\Menu\64\editar.png" />
+    <Content Include="Resources\Images\Menu\64\email.png" />
+    <Content Include="Resources\Images\Menu\64\End Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\error.png" />
+    <Content Include="Resources\Images\Menu\64\eventos.png" />
+    <Content Include="Resources\Images\Menu\64\Exit Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\exit_sign.png" />
+    <Content Include="Resources\Images\Menu\64\factura.png" />
+    <Content Include="Resources\Images\Menu\64\grupo.png" />
+    <Content Include="Resources\Images\Menu\64\hidden1.png" />
+    <Content Include="Resources\Images\Menu\64\icons8-Combo Chart-64.png" />
+    <Content Include="Resources\Images\Menu\64\Imagen1.png" />
+    <Content Include="Resources\Images\Menu\64\Imagen2.png" />
+    <Content Include="Resources\Images\Menu\64\imprimir.png" />
+    <Content Include="Resources\Images\Menu\64\intersection_color.png" />
+    <Content Include="Resources\Images\Menu\64\kardex.png" />
+    <Content Include="Resources\Images\Menu\64\kardex_1.png" />
+    <Content Include="Resources\Images\Menu\64\Lock Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\Logo.png" />
+    <Content Include="Resources\Images\Menu\64\Logo_Siscol.png" />
+    <Content Include="Resources\Images\Menu\64\lupa.png" />
+    <Content Include="Resources\Images\Menu\64\Microsoft Excel Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\nuevo.png" />
+    <Content Include="Resources\Images\Menu\64\ocultar panel.png" />
+    <Content Include="Resources\Images\Menu\64\Payment History Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\Print Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\referencia.png" />
+    <Content Include="Resources\Images\Menu\64\report.png" />
+    <Content Include="Resources\Images\Menu\64\reportes detallado.png" />
+    <Content Include="Resources\Images\Menu\64\salir.png" />
+    <Content Include="Resources\Images\Menu\64\Save Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\serie.png" />
+    <Content Include="Resources\Images\Menu\64\Upload Filled-64.png" />
+    <Content Include="Resources\Images\Menu\64\vistas.png" />
+    <Content Include="Resources\Images\Menu\64\vista_carta_64.png" />
+    <Content Include="Resources\Images\Menu\64\vista_columna_64.png" />
+    <Content Include="Resources\Images\Menu\64\vista_detalle_64.png" />
+    <Content Include="Resources\Images\Menu\64\vista_edicion_64.png" />
+    <Content Include="Resources\Images\Menu\64\wallpaper.png" />
+    <Content Include="Resources\Images\User.png" />
+    <Content Include="Resources\Save Filled-64.png" />
+    <Content Include="Resources\Upload\empty.txt" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <None Include="Web References\localhostSISLAB\Actualizar_Estatus.wsdl" />
+    <Content Include="Web References\localhostSISLAB\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <None Include="Web References\WebService_InsercionSISLAB\Actualizar_Estatus.disco" />
+    <None Include="Web References\localhostSISLAB\Actualizar_Estatus.disco" />
+    <Content Include="Web References\WebService_Timbres\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <Content Include="Datasets\DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.xsc">
+      <DependentUpon>DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pREPRESENTACION_FISICA_CFDI_3_3_pagos_B.xsc">
+      <DependentUpon>DataSet_pREPRESENTACION_FISICA_CFDI_3_3_pagos_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pREPRESENTACION_FISICA_CFDI_3_3_pagos_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pREPRESENTACION_FISICA_CFDI_3_3_pagos_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pREPRESENTACION_FISICA_CFDI_3_3_pagos_B.xss">
+      <DependentUpon>DataSet_pREPRESENTACION_FISICA_CFDI_3_3_pagos_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.xss">
+      <DependentUpon>DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pCAT_SERIE_FOLIO_SAT_FACTURACION_B.xsc">
+      <DependentUpon>DataSet_pCAT_SERIE_FOLIO_SAT_FACTURACION_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pCAT_SERIE_FOLIO_SAT_FACTURACION_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pCAT_SERIE_FOLIO_SAT_FACTURACION_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pCAT_SERIE_FOLIO_SAT_FACTURACION_B.xss">
+      <DependentUpon>DataSet_pCAT_SERIE_FOLIO_SAT_FACTURACION_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_CFDI_PAGOS_B.xsc">
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_PAGOS_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pFACTURACION_CAPTURA_EGRESOS.xsc">
+      <DependentUpon>DataSet_pFACTURACION_CAPTURA_EGRESOS.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pFACTURACION_CAPTURA_EGRESOS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pFACTURACION_CAPTURA_EGRESOS.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pFACTURACION_CAPTURA_EGRESOS.xss">
+      <DependentUpon>DataSet_pFACTURACION_CAPTURA_EGRESOS.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pFACTURA_SAT_CFDI_PAGOS_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pFACTURA_SAT_CFDI_PAGOS_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_CFDI_PAGOS_B.xss">
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_PAGOS_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B.xsc">
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B.xss">
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B.xsc">
+      <DependentUpon>DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B.xss">
+      <DependentUpon>DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Web References\ExpideTuFactura\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Web References\ExpideTuFactura\respuestaTimbrado1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\ExpideTuFactura\TimbradoWS.wsdl" />
+    <None Include="Web References\ExpideTuFactura\TimbradoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\WebService_InsercionSISLAB\Actualizar_Estatus.wsdl" />
+    <None Include="Web References\WebService_InsercionSISLAB\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\WebService_Timbres\Timbres.disco" />
+    <Content Include="Web.config" />
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Datasets\DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pCAT_OPERADORES_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pCAT_OPERADORES_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pFACTURA_SAT_CFDI_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_CATALOGOS\Cat_Operadores.Designer.vb">
+      <DependentUpon>Cat_Operadores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_CATALOGOS\Cat_Operadores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_CATALOGOS\Cat_Retenciones.Designer.vb">
+      <DependentUpon>Cat_Retenciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_CATALOGOS\Cat_Retenciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\catCFDI_tdCFDI_catPagos_Pagos10.vb" />
+    <Compile Include="MOD_FACTURACION\Cat_Busqueda_Facturas.Designer.vb">
+      <DependentUpon>Cat_Busqueda_Facturas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Cat_Busqueda_Facturas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Cat_RFC_EMISOR_SAT_FACTURACION.designer.vb">
+      <DependentUpon>Cat_RFC_EMISOR_SAT_FACTURACION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Cat_RFC_EMISOR_SAT_FACTURACION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\CAT_SERIE_FOLIO_SAT_FACTURACION.Designer.vb">
+      <DependentUpon>CAT_SERIE_FOLIO_SAT_FACTURACION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\CAT_SERIE_FOLIO_SAT_FACTURACION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\cfdv33_tdCFDI_catCFDI.vb" />
+    <Compile Include="MOD_FACTURACION\Factura.vb" />
+    <Compile Include="MOD_FACTURACION\Facturacion Nota_Credito.Designer.vb">
+      <DependentUpon>Facturacion Nota_Credito.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion Nota_Credito.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion REPS.Designer.vb">
+      <DependentUpon>Facturacion REPS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion REPS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion_Electronica_CFD_33.Designer.vb">
+      <DependentUpon>Facturacion_Electronica_CFD_33.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion_Electronica_CFD_33.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion_Electronica_Folio_Movimiento.Designer.vb">
+      <DependentUpon>Facturacion_Electronica_Folio_Movimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion_Electronica_Folio_Movimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Sellodigital.vb" />
+    <Compile Include="MOD_FACTURACION\tdCFDI_TimbreFiscalDigitalv11.vb" />
+    <Compile Include="MOD_FACTURACION\Utilidad_Sat.vb" />
+    <Compile Include="Class\BanamexLayout.vb" />
+    <Compile Include="Class\ElementoExportar.vb" />
+    <Compile Include="Class\Extensiones\DataGridViewExtension.vb" />
+    <Compile Include="Class\Extensiones\GenericTypeExtension.vb" />
+    <Compile Include="Class\Extensiones\ListExtension.vb" />
+    <Compile Include="Class\Extensiones\StringExtension.vb" />
+    <Compile Include="Class\Extensiones\TextBoxExtension.vb" />
+    <Compile Include="Class\LayOut_C.vb" />
+    <Compile Include="Class\Notification.vb" />
+    <Compile Include="Class\RenderizadorPlantillas.vb" />
+    <Compile Include="Class\Startup.vb" />
+    <Compile Include="Controles\AspNetPanelII.Designer.vb">
+      <DependentUpon>AspNetPanelII.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\AspNetPanelII.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\ComboGridSax.Designer.vb">
+      <DependentUpon>ComboGridSax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ComboGridSax.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\combosax.Designer.vb">
+      <DependentUpon>combosax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\combosax.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ComboSaxWisej.Designer.vb">
+      <DependentUpon>ComboSaxWisej.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ComboSaxWisej.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\Combosax_B.Designer.vb">
+      <DependentUpon>Combosax_B.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\Combosax_B.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ComboWisax.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\DGVSpan.Designer.vb">
+      <DependentUpon>DGVSpan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\DGVSpan.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\FiltroGrillaCheck.Designer.vb">
+      <DependentUpon>FiltroGrillaCheck.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\FiltroGrillaCheck.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\filtroGrillaSax.Designer.vb">
+      <DependentUpon>filtroGrillaSax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\filtroGrillaSax.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\MessageB.Designer.vb">
+      <DependentUpon>MessageB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\MessageB.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles\SaxNavigator.Designer.vb">
+      <DependentUpon>SaxNavigator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\SaxNavigator.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UserControl1.Designer.vb">
+      <DependentUpon>UserControl1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UserControl1.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pREPRESENTACION_FISICA_CFDI_3_3_pagos_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pREPRESENTACION_FISICA_CFDI_3_3_pagos_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pCAT_SERIE_FOLIO_SAT_FACTURACION_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pCAT_SERIE_FOLIO_SAT_FACTURACION_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pFACTURACION_CAPTURA_EGRESOS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pFACTURACION_CAPTURA_EGRESOS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pFACTURA_SAT_CFDI_PAGOS_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_PAGOS_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer.aspx.designer.vb">
+      <DependentUpon>DocumentViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer.aspx.vb">
+      <DependentUpon>DocumentViewer.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mostrar_Asp.Designer.vb">
+      <DependentUpon>Mostrar_Asp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Mostrar_Asp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Notificaciones.Designer.vb">
+      <DependentUpon>Notificaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Notificaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.vb" />
+    <Compile Include="MyDesktop.Designer.vb">
+      <DependentUpon>MyDesktop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MyDesktop.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33.Designer.vb">
+      <DependentUpon>R_Representacion_Fisica_CFDi33.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Complementos.Designer.vb">
+      <DependentUpon>R_Representacion_Fisica_CFDi33_Complementos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Complementos.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Egreso.Designer.vb">
+      <DependentUpon>R_Representacion_Fisica_CFDi33_Egreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Egreso.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_pagos.Designer.vb">
+      <DependentUpon>R_Representacion_Fisica_CFDi33_Pagos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Pagos.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utilidades\Utilidades.vb" />
+    <Compile Include="Web References\ExpideTuFactura\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\localhostSISLAB\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebService_InsercionSISLAB\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebService_Timbres\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window1.Designer.vb">
+      <DependentUpon>Window1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MOD_CATALOGOS\Cat_Operadores.resx">
+      <DependentUpon>Cat_Operadores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_CATALOGOS\Cat_Retenciones.resx">
+      <DependentUpon>Cat_Retenciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_FACTURACION\Cat_Busqueda_Facturas.resx">
+      <DependentUpon>Cat_Busqueda_Facturas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_FACTURACION\Cat_RFC_EMISOR_SAT_FACTURACION.resx">
+      <DependentUpon>Cat_RFC_EMISOR_SAT_FACTURACION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_FACTURACION\CAT_SERIE_FOLIO_SAT_FACTURACION.resx">
+      <DependentUpon>CAT_SERIE_FOLIO_SAT_FACTURACION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_FACTURACION\Facturacion Nota_Credito.resx">
+      <DependentUpon>Facturacion Nota_Credito.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_FACTURACION\Facturacion REPS.resx">
+      <DependentUpon>Facturacion REPS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_FACTURACION\Facturacion_Electronica_CFD_33.resx">
+      <DependentUpon>Facturacion_Electronica_CFD_33.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_FACTURACION\Facturacion_Electronica_Folio_Movimiento.resx">
+      <DependentUpon>Facturacion_Electronica_Folio_Movimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\AspNetPanelII.resx">
+      <DependentUpon>AspNetPanelII.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ComboGridSax.resx">
+      <DependentUpon>ComboGridSax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\combosax.resx">
+      <DependentUpon>combosax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ComboSaxWisej.resx">
+      <DependentUpon>ComboSaxWisej.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\Combosax_B.resx">
+      <DependentUpon>Combosax_B.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ComboWisax.resx">
+      <DependentUpon>ComboWisax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\DGVSpan.resx">
+      <DependentUpon>DGVSpan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\FiltroGrillaCheck.resx">
+      <DependentUpon>FiltroGrillaCheck.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\filtroGrillaSax.resx">
+      <DependentUpon>filtroGrillaSax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\MessageB.resx">
+      <DependentUpon>MessageB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\SaxNavigator.resx">
+      <DependentUpon>SaxNavigator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UserControl1.resx">
+      <DependentUpon>UserControl1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mostrar_Asp.resx">
+      <DependentUpon>Mostrar_Asp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyDesktop.resx">
+      <DependentUpon>MyDesktop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notificaciones.resx">
+      <DependentUpon>Notificaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33.resx">
+      <DependentUpon>R_Representacion_Fisica_CFDi33.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Complementos.resx">
+      <DependentUpon>R_Representacion_Fisica_CFDi33_Complementos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Egreso.resx">
+      <DependentUpon>R_Representacion_Fisica_CFDi33_Egreso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_pagos.resx">
+      <DependentUpon>R_Representacion_Fisica_CFDi33_Pagos.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.json" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\WebService_Timbres\Timbres.wsdl" />
+    <Content Include="Web References\WebService_Timbres\Timbres11.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://74.208.239.165/WebService_iSISLAB/Actualizar_Estatus.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebService_InsercionSISLAB\</RelPath>
+      <UpdateFromURL>http://74.208.239.165/WebService_iSISLAB/Actualizar_Estatus.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FactuSax_WebService_InsercionSISLAB_Actualizar_Estatus</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://74.208.239.165/WebService_Timbres/Timbres.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebService_Timbres\</RelPath>
+      <UpdateFromURL>http://74.208.239.165/WebService_Timbres/Timbres.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FactuSax_WebService_Timbres_Timbres</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:13675/Actualizar_Estatus.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\localhostSISLAB\</RelPath>
+      <UpdateFromURL>http://localhost:13675/Actualizar_Estatus.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FactuSax_localhostSISLAB_Actualizar_Estatus</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://pruebastimbrado.expidetufactura.com.mx:8451/preproduccion/TimbradoWS%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ExpideTuFactura\</RelPath>
+      <UpdateFromURL>https://pruebastimbrado.expidetufactura.com.mx:8451/preproduccion/TimbradoWS%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FactuSax_ExpideTuFactura_TimbradoWSService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49969/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
