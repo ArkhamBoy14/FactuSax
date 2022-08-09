@@ -36,6 +36,8 @@ Public Class Cat_Retenciones
         CBSRISR.SelectedValue = "002"
         CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
         CBSRIVA.SelectedValue = "003"
+
+
     End Sub
 
     Sub ColocarDatos()
