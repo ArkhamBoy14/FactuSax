@@ -723,6 +723,17 @@
     <Content Include="Datasets\DataSet_pCAT_OPERADORES_B.xss">
       <DependentUpon>DataSet_pCAT_OPERADORES_B.xsd</DependentUpon>
     </Content>
+    <Content Include="Datasets\DataSet_pCAT_RETENCIONES_B.xsc">
+      <DependentUpon>DataSet_pCAT_RETENCIONES_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pCAT_RETENCIONES_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pCAT_RETENCIONES_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pCAT_RETENCIONES_B.xss">
+      <DependentUpon>DataSet_pCAT_RETENCIONES_B.xsd</DependentUpon>
+    </Content>
     <None Include="Datasets\DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -1126,6 +1137,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_pCAT_OPERADORES_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pCAT_RETENCIONES_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pCAT_RETENCIONES_B.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\DataSet_pFACTURA_SAT_CFDI_B.Designer.vb">
       <AutoGen>True</AutoGen>

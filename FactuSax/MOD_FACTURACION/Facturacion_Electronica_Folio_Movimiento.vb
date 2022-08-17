@@ -16,6 +16,9 @@ Public Class Facturacion_Electronica_Folio_Movimiento
     Public DESCUENTO_COBRANZA As String
     Dim Alertas As New Notificaciones
     Private ME_FOLIO_FACTURAS As String
+    Dim AplicaIVA, AplicaISR, AplicaIEPS As Boolean
+    Dim ValorIVA, ValorISR, ValorIEPS As String
+    Dim TasaIVA, TasaISR, TasaIEPS As String
     Public Function getFolioFactura() As String
         Return ME_FOLIO_FACTURAS
     End Function
@@ -56,14 +59,45 @@ Public Class Facturacion_Electronica_Folio_Movimiento
                 Me.Close()
         End Select
     End Sub
-    Private Sub CBTraslado_CheckedChanged(sender As Object, e As EventArgs) Handles CBRetencion.CheckedChanged
-        Select Case sender.name
+    Sub CargarRetenciones()
+        If CbxClientes.SelectedIndex = -1 Then Exit Sub
+        Utilidades.Conectar()
+        Dim DataReader As Data.SqlClient.SqlDataReader
+        Dim Command As New SqlCommand
 
-            Case "CBRetencion"
-                GBRetencionISR.Visible = CBRetencion.Checked
-                GBRetencionIVA.Visible = CBRetencion.Checked
-        End Select
+        Try
+            Command = New SqlClient.SqlCommand("pCAT_RETENCIONES_B", Utilidades.cConnect)
+            Command.CommandType = CommandType.StoredProcedure
+            Command.Parameters.AddWithValue("@Cve_Cliente", CbxClientes.SelectedValue)
+            DataReader = Command.ExecuteReader(CommandBehavior.CloseConnection)
+            If DataReader.HasRows Then
+                While (DataReader.Read)
 
+
+                    TasaIVA = DataReader.Item("TasaCuotaIVA")
+                    ValorIVA = DataReader.Item("ValorIVA")
+                    AplicaIVA = DataReader.Item("AplicaIVA")
+                    AplicaISR = DataReader.Item("AplicaISR")
+                    TasaISR = DataReader.Item("TasaCuotaISR")
+                    ValorISR = DataReader.Item("ValorISR")
+                    AplicaIEPS = DataReader.Item("AplicaIEPS")
+                    TasaIEPS = DataReader.Item("TasaCuotaIEPS")
+                    ValorIEPS = DataReader.Item("ValorIEPS")
+
+
+                End While
+            Else
+
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        Finally
+            If IsNothing(DataReader) = False Then
+                If DataReader.IsClosed = False Then DataReader.Close()
+            End If
+            Utilidades.Desconectar()
+        End Try
     End Sub
 
 
@@ -78,7 +112,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         myDA.Fill(Me.DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO)
         myDA.Dispose()
 
-        CbxReceptor.Clear()
+        'CbxReceptor.Clear()
         'CbxReceptor.LlenarListBox("pFACTURACION_EMPRESA", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
     End Sub
     Private Sub FactuSax_CFD_33_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -96,9 +130,9 @@ Public Class Facturacion_Electronica_Folio_Movimiento
 
         CbxClientes.LlenarListBox("pCAT_CLIENTES_B", "Cve_Cliente", "Nombre_Cliente", Utilidades.ParametersX_Global)
         CbxClientes.SelectedIndex = 0
-        CBSIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
-        CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
-        CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
+        'CBSIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
+        'CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
+        'CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
         ReDim Utilidades.ParametersX_Global(0)
         CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
         SplitContainer1.Panel1MinSize = 340
@@ -141,7 +175,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
             Consultar()
             conceptos(FOLIO_COBRANZA, "", DESCUENTO_COBRANZA)
             SplitContainer1.Panel1Collapsed = True
-            SplitContainer3.Visible = False
+            'SplitContainer3.Visible = False
             Me.WindowState = FormWindowState.Normal
 
         End If
@@ -202,7 +236,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
     End Sub
 
 
-    Private Sub DataGridView2_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DGVConceptos.CellClick
+    Private Sub DataGridView2_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs)
         If e.ColumnIndex = 5 Then
 
 
@@ -320,14 +354,17 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         End If
 
         'If CBTraslado.Checked = True Then
-        imptraslado.Add(CBSIVA.SelectedValue & "|" & MTBIVA.Text & "|" & TasaoCuotaIVA.Text)
+        imptraslado.Add("002" & "|" & ValorIVA & "|" & TasaIVA)
         'End If
 
-        If CBRetencion.Checked = True Then
-            impretencciones.Add(CBSRISR.SelectedValue & "|" & MTBRISR.Text & "|" & TasaoCuotaISR.Text)
-            impretencciones.Add(CBSRIVA.SelectedValue & "|" & MTBRIVA.Text & "|" & TasaoCuotaRIVA.Text)
+        If AplicaISR = True Then
+            impretencciones.Add("001" & "|" & ValorISR & "|" & TasaISR)
+            If AplicaIEPS = True Then
+                impretencciones.Add("003" & "|" & ValorIEPS & "|" & TasaIEPS)
+
+            End If
             Dim totalretenciones = TBRISR.Text + TBRIVA.Text
-            FACTURA.factura_Movimiento_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, totalretenciones, impretencciones, ME_FOLIO_FACTURAS)
+            FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, totalretenciones, impretencciones, ME_FOLIO_FACTURAS)
         Else
             Dim respuesta As String = FACTURA.factura_Movimiento_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura,,, ME_FOLIO_FACTURAS)
             If respuesta <> Nothing Then
@@ -394,7 +431,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
 
 
         If CBSTipoComprobante.SelectedValue = "P" Then
-            GroupBox2.Visible = False
+            'GroupBox2.Visible = False
             SplitContainer1.Panel1Collapsed = True
             DGVConceptos.Rows.Clear()
             CBSMoneda.SelectedValue = "XXX"
@@ -413,7 +450,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
 
             c = 1
         Else
-            GroupBox2.Visible = True
+            'GroupBox2.Visible = True
             SplitContainer1.Panel1Collapsed = False
             DGVConceptos.Rows.Clear()
             PREDETERMINADOS()
@@ -477,6 +514,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         Application.Session("Facturauser") = CbxClientes.ObtenerDescripcion("FACTORUM_USER")
         Application.Session("FacturaContrasena") = CbxClientes.ObtenerDescripcion("ContrasenaFact")
         Application.Session("Cve_Cliente") = CbxClientes.ObtenerDescripcion("Cve_Cliente")
+        CargarRetenciones()
         Consultar(CbxClientes.SelectedValue)
         limpiar(False)
         serie()
@@ -486,7 +524,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
     End Sub
 
 
-    Private Sub DGVConceptos_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DGVConceptos.CellEndEdit
+    Private Sub DGVConceptos_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs)
         If e.ColumnIndex = cDescuento.Index Or e.ColumnIndex = cValorUnitario.Index Or e.ColumnIndex = cCantidad.Index Then
             Dim valor = DGVConceptos.Item(e.ColumnIndex, e.RowIndex).Value
             Dim DescuentoManual As Double
@@ -503,12 +541,12 @@ Public Class Facturacion_Electronica_Folio_Movimiento
 
                     Next
                     totaldesc = total - DescuentoManual
-                    iva = totaldesc * Double.Parse(MTBIVA.Text)
+                    iva = totaldesc * Double.Parse(ValorIVA)
                     SUBTOTAL = totaldesc
-                    If CBRetencion.Checked Then
-                        risr = SUBTOTAL * (MTBRISR.Text)
-                        riva = SUBTOTAL * (MTBRIVA.Text)
-                    End If
+                    'If CBRetencion.Checked Then
+                    '    risr = SUBTOTAL * (MTBRISR.Text)
+                    '    riva = SUBTOTAL * (MTBRIVA.Text)
+                    'End If
 
 
                     TBSubTotal.Text = FormatCurrency(total)
@@ -526,7 +564,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
 
     End Sub
 
-    Private Sub DGVConceptos_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DGVConceptos.RowsAdded
+    Private Sub DGVConceptos_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs)
         DGVConceptos.Item(cImporte.Name, e.RowIndex).Value = 0
         DGVConceptos.Item(cDescuento.Name, e.RowIndex).Value = 0
     End Sub
@@ -619,13 +657,13 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         CBSUsoCFDI.SelectedValue = "P01"
         CBSFormaPago.SelectedValue = "01"
         CBSMetodoPago.SelectedValue = "PUE"
-        CBSIVA.SelectedValue = "002"
-        MTBIVA.Text = "0.160000"
-        MTBRIVA.Text = "0.106666"
-        MTBRISR.Text = "0.100000"
-        CBSRIVA.SelectedValue = "002"
+        'CBSIVA.SelectedValue = "002"
+        'MTBIVA.Text = "0.160000"
+        'MTBRIVA.Text = "0.106666"
+        'MTBRISR.Text = "0.100000"
+        'CBSRIVA.SelectedValue = "002"
         RDBSolicitrud.Checked = True
-        CBSRISR.SelectedValue = "001"
+        'CBSRISR.SelectedValue = "001"
         Dim dt_defecto = CBEmisor.dataTable
         For i As Integer = 0 To dt_defecto.Rows.Count - 1
             If dt_defecto.Rows(i).Item("pordefecto") = True Then
@@ -641,7 +679,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         TBTipoCambio.Text = 1
         TBTipoCambio.Enabled = True
         RTBCondicionPago.Enabled = True
-        TasaoCuotaIVA.SelectedItem = "Tasa"
+        'TasaoCuotaIVA.SelectedItem = "Tasa"
         CBSMetodoPago.SelectedValue = "PUE"
         CBSMetodoPago.Enabled = True
         CBSFormaPago.Enabled = True
@@ -690,11 +728,14 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         Next
         'Dim totalDescuento = descuento +
         totaldesc = total - DESCUENTOX
-        iva = total * Double.Parse(MTBIVA.Text)
+        iva = total * Double.Parse(ValorIVA)
         SUBTOTAL = totaldesc
-        If CBRetencion.Checked Then
-            risr = SUBTOTAL * (MTBRISR.Text)
-            riva = SUBTOTAL * (MTBRIVA.Text)
+        'SUBTOTAL = total
+        If AplicaISR = True Then
+            risr = SUBTOTAL * (ValorISR)
+        End If
+        If AplicaIEPS = True Then
+            riva = SUBTOTAL * (ValorIEPS)
         End If
         TBSubTotal.Text = FormatCurrency(total)
         TBDescuento.Text = FormatCurrency(DESCUENTOX)
@@ -732,11 +773,14 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         Next
 
         totaldesc = total - Descuento
-        iva = total * Double.Parse(MTBIVA.Text)
+        iva = total * Double.Parse(ValorIVA)
         Subtotal = totaldesc
-        If CBRetencion.Checked Then
-            risr = Subtotal * (MTBRISR.Text)
-            riva = Subtotal * (MTBRIVA.Text)
+        If AplicaISR = True Then
+            risr = Subtotal * (ValorISR)
+        End If
+        If AplicaIEPS = True Then
+            riva = Subtotal * (ValorIEPS)
+
         End If
         TBSubTotal.Text = FormatCurrency(total)
         TBDescuento.Text = FormatCurrency(Descuento)

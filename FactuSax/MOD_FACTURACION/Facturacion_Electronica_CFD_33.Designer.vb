@@ -21,7 +21,7 @@ Partial Class Facturacion_Electronica_CFD_33
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar7 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
@@ -29,6 +29,9 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RBBBuscar = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBPFacturar = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBSerie = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
+        Me.RibbonBarGroup2 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
+        Me.RBBImpuestos = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
+        Me.RibbonBarGroup3 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
         Me.RBBSalir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.SplitContainer1 = New Wisej.Web.SplitContainer()
         Me.DataGridView1 = New Wisej.Web.DataGridView()
@@ -56,7 +59,6 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.cFecha1 = New Wisej.Web.DateTimePicker()
         Me.cFecha2 = New Wisej.Web.DateTimePicker()
         Me.Label19 = New Wisej.Web.Label()
-        Me.SplitContainer3 = New Wisej.Web.SplitContainer()
         Me.TabControl1 = New Wisej.Web.TabControl()
         Me.TPCONCEPTO = New Wisej.Web.TabPage()
         Me.DGVConceptos = New Wisej.Web.DataGridView()
@@ -82,33 +84,9 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.Label24 = New Wisej.Web.Label()
         Me.Label21 = New Wisej.Web.Label()
         Me.Label23 = New Wisej.Web.Label()
-        Me.GroupBox2 = New Wisej.Web.GroupBox()
-        Me.GBRetencionIVA = New Wisej.Web.GroupBox()
-        Me.TasaoCuotaRIVA = New Wisej.Web.ComboBox()
-        Me.Label14 = New Wisej.Web.Label()
-        Me.MTBRISR = New Wisej.Web.MaskedTextBox()
-        Me.Label15 = New Wisej.Web.Label()
-        Me.Label16 = New Wisej.Web.Label()
-        Me.CBSRIVA = New FactuSax.ComboWisax()
-        Me.GBRetencionISR = New Wisej.Web.GroupBox()
-        Me.TasaoCuotaISR = New Wisej.Web.ComboBox()
-        Me.Label11 = New Wisej.Web.Label()
-        Me.CBSRISR = New FactuSax.ComboWisax()
-        Me.Label13 = New Wisej.Web.Label()
-        Me.Label12 = New Wisej.Web.Label()
-        Me.MTBRIVA = New Wisej.Web.MaskedTextBox()
-        Me.GBIVA = New Wisej.Web.GroupBox()
-        Me.TasaoCuotaIVA = New Wisej.Web.ComboBox()
-        Me.MTBIVA = New Wisej.Web.MaskedTextBox()
-        Me.Label10 = New Wisej.Web.Label()
-        Me.Label9 = New Wisej.Web.Label()
-        Me.Label8 = New Wisej.Web.Label()
-        Me.CBSIVA = New FactuSax.ComboWisax()
         Me.Panel2 = New Wisej.Web.GroupBox()
         Me.RbDescuentoAplicado = New Wisej.Web.RadioButton()
         Me.RbDescuentoVisible = New Wisej.Web.RadioButton()
-        Me.Panel1 = New Wisej.Web.Panel()
-        Me.CBRetencion = New Wisej.Web.CheckBox()
         Me.SplitContainer2 = New Wisej.Web.SplitContainer()
         Me.GroupBox3 = New Wisej.Web.GroupBox()
         Me.CBEmisor = New FactuSax.ComboWisax()
@@ -152,20 +130,11 @@ Partial Class Facturacion_Electronica_CFD_33
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpPersonalizado.SuspendLayout()
-        CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer3.Panel1.SuspendLayout()
-        Me.SplitContainer3.Panel2.SuspendLayout()
-        Me.SplitContainer3.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TPCONCEPTO.SuspendLayout()
         CType(Me.DGVConceptos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.GBRetencionIVA.SuspendLayout()
-        Me.GBRetencionISR.SuspendLayout()
-        Me.GBIVA.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer2.Panel1.SuspendLayout()
         Me.SplitContainer2.Panel2.SuspendLayout()
@@ -182,11 +151,13 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RibbonBar7.Cursor = Wisej.Web.Cursors.Arrow
         Me.RibbonBar7.Name = "RibbonBar7"
         Me.RibbonBar7.Pages.Add(Me.RibbonBarPage1)
-        Me.RibbonBar7.Size = New System.Drawing.Size(1185, 102)
+        Me.RibbonBar7.Size = New System.Drawing.Size(1453, 102)
         '
         'RibbonBarPage1
         '
         Me.RibbonBarPage1.Groups.Add(Me.RibbonBarGroup1)
+        Me.RibbonBarPage1.Groups.Add(Me.RibbonBarGroup2)
+        Me.RibbonBarPage1.Groups.Add(Me.RibbonBarGroup3)
         Me.RibbonBarPage1.Name = "RibbonBarPage1"
         Me.RibbonBarPage1.Text = "Menú"
         '
@@ -196,7 +167,6 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RibbonBarGroup1.Items.Add(Me.RBBBuscar)
         Me.RibbonBarGroup1.Items.Add(Me.RBBPFacturar)
         Me.RibbonBarGroup1.Items.Add(Me.RBBSerie)
-        Me.RibbonBarGroup1.Items.Add(Me.RBBSalir)
         Me.RibbonBarGroup1.Name = "RibbonBarGroup1"
         '
         'RBBNuevo
@@ -223,17 +193,34 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RBBSerie.Name = "RBBSerie"
         Me.RBBSerie.Text = "Serie"
         '
+        'RibbonBarGroup2
+        '
+        Me.RibbonBarGroup2.Items.Add(Me.RBBImpuestos)
+        Me.RibbonBarGroup2.Name = "RibbonBarGroup2"
+        Me.RibbonBarGroup2.Text = "Retenciones"
+        '
+        'RBBImpuestos
+        '
+        Me.RBBImpuestos.ImageSource = "Resources\Images\Menu\64\cotizacion.png"
+        Me.RBBImpuestos.Name = "RBBImpuestos"
+        Me.RBBImpuestos.Text = "Impuestos"
+        '
+        'RibbonBarGroup3
+        '
+        Me.RibbonBarGroup3.Items.Add(Me.RBBSalir)
+        Me.RibbonBarGroup3.Name = "RibbonBarGroup3"
+        Me.RibbonBarGroup3.Text = "Salir"
+        '
         'RBBSalir
         '
         Me.RBBSalir.ImageSource = "Resources\Images\Menu\64\exit_sign.png"
         Me.RBBSalir.Name = "RBBSalir"
-        Me.RBBSalir.Text = "Salir"
+        Me.RBBSalir.Text = "  "
         '
         'SplitContainer1
         '
         Me.SplitContainer1.AutoValidate = Wisej.Web.AutoValidate.EnablePreventFocusChange
         Me.SplitContainer1.Dock = Wisej.Web.DockStyle.Fill
-        Me.SplitContainer1.IsSplitterFixed = True
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 102)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
@@ -244,11 +231,13 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer3)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.TabControl1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Panel3)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Panel2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1185, 767)
-        Me.SplitContainer1.SplitterDistance = 347
+        Me.SplitContainer1.Size = New System.Drawing.Size(1453, 767)
+        Me.SplitContainer1.SplitterDistance = 426
         Me.SplitContainer1.TabIndex = 7
         '
         'DataGridView1
@@ -263,16 +252,17 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.DataGridView1.Location = New System.Drawing.Point(0, 173)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(345, 592)
+        Me.DataGridView1.Size = New System.Drawing.Size(424, 592)
         Me.DataGridView1.TabIndex = 0
         '
         'cCHK
         '
-        DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.NullValue = False
-        Me.cCHK.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.NullValue = False
+        Me.cCHK.DefaultCellStyle = DataGridViewCellStyle3
         Me.cCHK.HeaderText = "      "
         Me.cCHK.Name = "cCHK"
+        Me.cCHK.Width = 35
         '
         'cFolio
         '
@@ -287,11 +277,12 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.DataGridViewTextBoxColumn3.HeaderText = "Cliente"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Visible = False
         '
         'Descuento_Factura
         '
         Me.Descuento_Factura.DataPropertyName = "Descuento_Factura"
-        Me.Descuento_Factura.HeaderText = "Descuento_Factura"
+        Me.Descuento_Factura.HeaderText = "Descuento"
         Me.Descuento_Factura.Name = "Descuento_Factura"
         Me.Descuento_Factura.ReadOnly = True
         '
@@ -319,16 +310,16 @@ Partial Class Facturacion_Electronica_CFD_33
         'cImporteTotal
         '
         Me.cImporteTotal.DataPropertyName = "IMPORTE"
-        Me.cImporteTotal.HeaderText = "cImporteTotal"
+        Me.cImporteTotal.HeaderText = "Importe"
         Me.cImporteTotal.Name = "cImporteTotal"
         Me.cImporteTotal.ReadOnly = True
-        Me.cImporteTotal.Visible = False
         '
         'cFolio_Movimiento
         '
         Me.cFolio_Movimiento.DataPropertyName = "Folio_Movimiento"
         Me.cFolio_Movimiento.HeaderText = "cFolio_Movimiento"
         Me.cFolio_Movimiento.Name = "cFolio_Movimiento"
+        Me.cFolio_Movimiento.Visible = False
         '
         'cUnitario
         '
@@ -340,9 +331,9 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         'CheckBox1
         '
-        Me.CheckBox1.Location = New System.Drawing.Point(36, 5)
+        Me.CheckBox1.Location = New System.Drawing.Point(4, 3)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(32, 22)
+        Me.CheckBox1.Size = New System.Drawing.Size(30, 22)
         Me.CheckBox1.TabIndex = 8
         '
         'BindingSource1
@@ -371,7 +362,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.grpPersonalizado.Dock = Wisej.Web.DockStyle.Top
         Me.grpPersonalizado.Location = New System.Drawing.Point(0, 0)
         Me.grpPersonalizado.Name = "grpPersonalizado"
-        Me.grpPersonalizado.Size = New System.Drawing.Size(345, 173)
+        Me.grpPersonalizado.Size = New System.Drawing.Size(424, 173)
         Me.grpPersonalizado.TabIndex = 2
         '
         'Label2
@@ -393,7 +384,7 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         Me.RB_Detallada.Location = New System.Drawing.Point(145, 113)
         Me.RB_Detallada.Name = "RB_Detallada"
-        Me.RB_Detallada.Size = New System.Drawing.Size(135, 22)
+        Me.RB_Detallada.Size = New System.Drawing.Size(133, 22)
         Me.RB_Detallada.TabIndex = 7
         Me.RB_Detallada.Text = "Factura Detallada"
         '
@@ -402,7 +393,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RB_Sencilla.Checked = True
         Me.RB_Sencilla.Location = New System.Drawing.Point(5, 113)
         Me.RB_Sencilla.Name = "RB_Sencilla"
-        Me.RB_Sencilla.Size = New System.Drawing.Size(126, 22)
+        Me.RB_Sencilla.Size = New System.Drawing.Size(124, 22)
         Me.RB_Sencilla.TabIndex = 6
         Me.RB_Sencilla.TabStop = True
         Me.RB_Sencilla.Text = "Factura Sencilla"
@@ -460,43 +451,23 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.Label19.TabIndex = 2
         Me.Label19.Text = "Fin"
         '
-        'SplitContainer3
-        '
-        Me.SplitContainer3.AutoValidate = Wisej.Web.AutoValidate.EnablePreventFocusChange
-        Me.SplitContainer3.Dock = Wisej.Web.DockStyle.Fill
-        Me.SplitContainer3.FixedPanel = Wisej.Web.FixedPanel.Panel2
-        Me.SplitContainer3.Location = New System.Drawing.Point(0, 244)
-        Me.SplitContainer3.Name = "SplitContainer3"
-        '
-        'SplitContainer3.Panel1
-        '
-        Me.SplitContainer3.Panel1.Controls.Add(Me.TabControl1)
-        Me.SplitContainer3.Panel1.Controls.Add(Me.Panel3)
-        '
-        'SplitContainer3.Panel2
-        '
-        Me.SplitContainer3.Panel2.Controls.Add(Me.GroupBox2)
-        Me.SplitContainer3.Size = New System.Drawing.Size(833, 521)
-        Me.SplitContainer3.SplitterDistance = 564
-        Me.SplitContainer3.TabIndex = 4
-        '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TPCONCEPTO)
         Me.TabControl1.Dock = Wisej.Web.DockStyle.Fill
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 296)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.PageInsets = New Wisej.Web.Padding(1, 35, 1, 1)
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(562, 345)
-        Me.TabControl1.TabIndex = 4
+        Me.TabControl1.Size = New System.Drawing.Size(1019, 295)
+        Me.TabControl1.TabIndex = 6
         '
         'TPCONCEPTO
         '
         Me.TPCONCEPTO.Controls.Add(Me.DGVConceptos)
         Me.TPCONCEPTO.Location = New System.Drawing.Point(1, 35)
         Me.TPCONCEPTO.Name = "TPCONCEPTO"
-        Me.TPCONCEPTO.Size = New System.Drawing.Size(560, 309)
+        Me.TPCONCEPTO.Size = New System.Drawing.Size(1017, 259)
         Me.TPCONCEPTO.Text = "CONCEPTO"
         '
         'DGVConceptos
@@ -505,7 +476,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.DGVConceptos.Dock = Wisej.Web.DockStyle.Fill
         Me.DGVConceptos.Location = New System.Drawing.Point(0, 0)
         Me.DGVConceptos.Name = "DGVConceptos"
-        Me.DGVConceptos.Size = New System.Drawing.Size(560, 309)
+        Me.DGVConceptos.Size = New System.Drawing.Size(1017, 259)
         Me.DGVConceptos.TabIndex = 3
         '
         'dgvEliminar
@@ -579,10 +550,10 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.Panel3.Controls.Add(Me.Label21)
         Me.Panel3.Controls.Add(Me.Label23)
         Me.Panel3.Dock = Wisej.Web.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 345)
+        Me.Panel3.Location = New System.Drawing.Point(0, 591)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(562, 174)
-        Me.Panel3.TabIndex = 5
+        Me.Panel3.Size = New System.Drawing.Size(1019, 174)
+        Me.Panel3.TabIndex = 7
         Me.Panel3.TabStop = True
         '
         'Label33
@@ -681,271 +652,34 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.Label23.TabIndex = 0
         Me.Label23.Text = "Subtotal"
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.GBRetencionIVA)
-        Me.GroupBox2.Controls.Add(Me.GBRetencionISR)
-        Me.GroupBox2.Controls.Add(Me.GBIVA)
-        Me.GroupBox2.Controls.Add(Me.Panel2)
-        Me.GroupBox2.Controls.Add(Me.Panel1)
-        Me.GroupBox2.Dock = Wisej.Web.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(261, 519)
-        Me.GroupBox2.TabIndex = 2
-        Me.GroupBox2.Text = "Impuestos"
-        '
-        'GBRetencionIVA
-        '
-        Me.GBRetencionIVA.Controls.Add(Me.TasaoCuotaRIVA)
-        Me.GBRetencionIVA.Controls.Add(Me.Label14)
-        Me.GBRetencionIVA.Controls.Add(Me.MTBRISR)
-        Me.GBRetencionIVA.Controls.Add(Me.Label15)
-        Me.GBRetencionIVA.Controls.Add(Me.Label16)
-        Me.GBRetencionIVA.Controls.Add(Me.CBSRIVA)
-        Me.GBRetencionIVA.Dock = Wisej.Web.DockStyle.Top
-        Me.GBRetencionIVA.Location = New System.Drawing.Point(3, 337)
-        Me.GBRetencionIVA.Name = "GBRetencionIVA"
-        Me.GBRetencionIVA.Size = New System.Drawing.Size(255, 102)
-        Me.GBRetencionIVA.TabIndex = 1
-        Me.GBRetencionIVA.Text = "Retencion IVA"
-        '
-        'TasaoCuotaRIVA
-        '
-        Me.TasaoCuotaRIVA.FormattingEnabled = True
-        Me.TasaoCuotaRIVA.Items.AddRange(New Object() {"Tasa", "Cuota"})
-        Me.TasaoCuotaRIVA.Location = New System.Drawing.Point(97, 46)
-        Me.TasaoCuotaRIVA.Name = "TasaoCuotaRIVA"
-        Me.TasaoCuotaRIVA.Size = New System.Drawing.Size(129, 22)
-        Me.TasaoCuotaRIVA.TabIndex = 10
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(7, 77)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(35, 15)
-        Me.Label14.TabIndex = 3
-        Me.Label14.Text = "Valor "
-        '
-        'MTBRISR
-        '
-        Me.MTBRISR.Location = New System.Drawing.Point(97, 70)
-        Me.MTBRISR.Mask = "0.000000"
-        Me.MTBRISR.Name = "MTBRISR"
-        Me.MTBRISR.Size = New System.Drawing.Size(129, 22)
-        Me.MTBRISR.TabIndex = 9
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(7, 54)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(83, 15)
-        Me.Label15.TabIndex = 3
-        Me.Label15.Text = "Tasa o Cuota"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(7, 33)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(58, 15)
-        Me.Label16.TabIndex = 3
-        Me.Label16.Text = "Impuesto"
-        '
-        'CBSRIVA
-        '
-        Me.CBSRIVA.BackColor = System.Drawing.Color.Transparent
-        Me.CBSRIVA.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSRIVA.Location = New System.Drawing.Point(97, 23)
-        Me.CBSRIVA.Name = "CBSRIVA"
-        Me.CBSRIVA.Size = New System.Drawing.Size(129, 22)
-        Me.CBSRIVA.TabIndex = 7
-        '
-        'GBRetencionISR
-        '
-        Me.GBRetencionISR.Controls.Add(Me.TasaoCuotaISR)
-        Me.GBRetencionISR.Controls.Add(Me.Label11)
-        Me.GBRetencionISR.Controls.Add(Me.CBSRISR)
-        Me.GBRetencionISR.Controls.Add(Me.Label13)
-        Me.GBRetencionISR.Controls.Add(Me.Label12)
-        Me.GBRetencionISR.Controls.Add(Me.MTBRIVA)
-        Me.GBRetencionISR.Dock = Wisej.Web.DockStyle.Top
-        Me.GBRetencionISR.Location = New System.Drawing.Point(3, 237)
-        Me.GBRetencionISR.Name = "GBRetencionISR"
-        Me.GBRetencionISR.Size = New System.Drawing.Size(255, 100)
-        Me.GBRetencionISR.TabIndex = 1
-        Me.GBRetencionISR.Text = "Retencion del ISR"
-        '
-        'TasaoCuotaISR
-        '
-        Me.TasaoCuotaISR.FormattingEnabled = True
-        Me.TasaoCuotaISR.Items.AddRange(New Object() {"Tasa", "Cuota"})
-        Me.TasaoCuotaISR.Location = New System.Drawing.Point(97, 45)
-        Me.TasaoCuotaISR.Name = "TasaoCuotaISR"
-        Me.TasaoCuotaISR.Size = New System.Drawing.Size(129, 22)
-        Me.TasaoCuotaISR.TabIndex = 10
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(7, 79)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(35, 15)
-        Me.Label11.TabIndex = 3
-        Me.Label11.Text = "Valor "
-        '
-        'CBSRISR
-        '
-        Me.CBSRISR.BackColor = System.Drawing.Color.Transparent
-        Me.CBSRISR.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSRISR.Location = New System.Drawing.Point(97, 22)
-        Me.CBSRISR.Name = "CBSRISR"
-        Me.CBSRISR.Size = New System.Drawing.Size(129, 22)
-        Me.CBSRISR.TabIndex = 7
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(9, 32)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(58, 15)
-        Me.Label13.TabIndex = 3
-        Me.Label13.Text = "Impuesto"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(7, 53)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(83, 15)
-        Me.Label12.TabIndex = 3
-        Me.Label12.Text = "Tasa o Cuota"
-        '
-        'MTBRIVA
-        '
-        Me.MTBRIVA.Location = New System.Drawing.Point(97, 72)
-        Me.MTBRIVA.Mask = "0.000000"
-        Me.MTBRIVA.Name = "MTBRIVA"
-        Me.MTBRIVA.Size = New System.Drawing.Size(129, 22)
-        Me.MTBRIVA.TabIndex = 9
-        '
-        'GBIVA
-        '
-        Me.GBIVA.Controls.Add(Me.TasaoCuotaIVA)
-        Me.GBIVA.Controls.Add(Me.MTBIVA)
-        Me.GBIVA.Controls.Add(Me.Label10)
-        Me.GBIVA.Controls.Add(Me.Label9)
-        Me.GBIVA.Controls.Add(Me.Label8)
-        Me.GBIVA.Controls.Add(Me.CBSIVA)
-        Me.GBIVA.Dock = Wisej.Web.DockStyle.Top
-        Me.GBIVA.Location = New System.Drawing.Point(3, 133)
-        Me.GBIVA.Name = "GBIVA"
-        Me.GBIVA.Size = New System.Drawing.Size(255, 104)
-        Me.GBIVA.TabIndex = 1
-        Me.GBIVA.Text = "IVA"
-        '
-        'TasaoCuotaIVA
-        '
-        Me.TasaoCuotaIVA.FormattingEnabled = True
-        Me.TasaoCuotaIVA.Items.AddRange(New Object() {"Tasa", "Cuota"})
-        Me.TasaoCuotaIVA.Location = New System.Drawing.Point(97, 47)
-        Me.TasaoCuotaIVA.Name = "TasaoCuotaIVA"
-        Me.TasaoCuotaIVA.Size = New System.Drawing.Size(129, 22)
-        Me.TasaoCuotaIVA.TabIndex = 10
-        '
-        'MTBIVA
-        '
-        Me.MTBIVA.Location = New System.Drawing.Point(97, 73)
-        Me.MTBIVA.Mask = "0.000000"
-        Me.MTBIVA.Name = "MTBIVA"
-        Me.MTBIVA.Size = New System.Drawing.Size(129, 22)
-        Me.MTBIVA.TabIndex = 9
-        Me.MTBIVA.TextAlign = Wisej.Web.HorizontalAlignment.Center
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(7, 80)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(35, 15)
-        Me.Label10.TabIndex = 3
-        Me.Label10.Text = "Valor "
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(7, 55)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(83, 15)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "Tasa o Cuota"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(7, 29)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(58, 15)
-        Me.Label8.TabIndex = 3
-        Me.Label8.Text = "Impuesto"
-        '
-        'CBSIVA
-        '
-        Me.CBSIVA.BackColor = System.Drawing.Color.Transparent
-        Me.CBSIVA.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSIVA.Location = New System.Drawing.Point(97, 19)
-        Me.CBSIVA.Name = "CBSIVA"
-        Me.CBSIVA.Size = New System.Drawing.Size(129, 22)
-        Me.CBSIVA.TabIndex = 7
-        '
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.RbDescuentoAplicado)
         Me.Panel2.Controls.Add(Me.RbDescuentoVisible)
         Me.Panel2.Dock = Wisej.Web.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(3, 63)
+        Me.Panel2.Location = New System.Drawing.Point(0, 244)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(255, 70)
-        Me.Panel2.TabIndex = 2
-        Me.Panel2.Text = "Descuento"
+        Me.Panel2.Size = New System.Drawing.Size(1019, 52)
+        Me.Panel2.TabIndex = 5
         '
         'RbDescuentoAplicado
         '
-        Me.RbDescuentoAplicado.Location = New System.Drawing.Point(4, 41)
+        Me.RbDescuentoAplicado.Location = New System.Drawing.Point(155, 21)
         Me.RbDescuentoAplicado.Name = "RbDescuentoAplicado"
-        Me.RbDescuentoAplicado.Size = New System.Drawing.Size(148, 22)
+        Me.RbDescuentoAplicado.Size = New System.Drawing.Size(146, 22)
         Me.RbDescuentoAplicado.TabIndex = 1
         Me.RbDescuentoAplicado.Text = "Descuento Aplicado"
         '
         'RbDescuentoVisible
         '
+        Me.RbDescuentoVisible.Anchor = Wisej.Web.AnchorStyles.Left
         Me.RbDescuentoVisible.Checked = True
-        Me.RbDescuentoVisible.Location = New System.Drawing.Point(4, 21)
+        Me.RbDescuentoVisible.Location = New System.Drawing.Point(6, 21)
         Me.RbDescuentoVisible.Name = "RbDescuentoVisible"
-        Me.RbDescuentoVisible.Size = New System.Drawing.Size(137, 22)
+        Me.RbDescuentoVisible.Size = New System.Drawing.Size(135, 22)
         Me.RbDescuentoVisible.TabIndex = 0
         Me.RbDescuentoVisible.TabStop = True
         Me.RbDescuentoVisible.Text = "Descuento Visible"
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.CBRetencion)
-        Me.Panel1.Dock = Wisej.Web.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(3, 18)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(255, 45)
-        Me.Panel1.TabIndex = 0
-        Me.Panel1.TabStop = True
-        '
-        'CBRetencion
-        '
-        Me.CBRetencion.Location = New System.Drawing.Point(4, 16)
-        Me.CBRetencion.Name = "CBRetencion"
-        Me.CBRetencion.Size = New System.Drawing.Size(91, 22)
-        Me.CBRetencion.TabIndex = 0
-        Me.CBRetencion.Text = "Retención"
         '
         'SplitContainer2
         '
@@ -962,7 +696,7 @@ Partial Class Facturacion_Electronica_CFD_33
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox4)
-        Me.SplitContainer2.Size = New System.Drawing.Size(833, 94)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1019, 94)
         Me.SplitContainer2.SplitterDistance = 416
         Me.SplitContainer2.TabIndex = 1
         '
@@ -1003,7 +737,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.GroupBox4.Dock = Wisej.Web.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(409, 92)
+        Me.GroupBox4.Size = New System.Drawing.Size(595, 92)
         Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.Text = "Receptor"
         '
@@ -1062,13 +796,13 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.GroupBox1.Dock = Wisej.Web.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(833, 150)
+        Me.GroupBox1.Size = New System.Drawing.Size(1019, 150)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.Text = "Informacion Basica"
         '
         'MaskedTextBox2
         '
-        Me.MaskedTextBox2.Location = New System.Drawing.Point(162, 28)
+        Me.MaskedTextBox2.Location = New System.Drawing.Point(180, 28)
         Me.MaskedTextBox2.Mask = "00:00"
         Me.MaskedTextBox2.Name = "MaskedTextBox2"
         Me.MaskedTextBox2.Size = New System.Drawing.Size(40, 22)
@@ -1079,7 +813,7 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         Me.DTPFechaEmision.CustomFormat = "dd/MM/yy"
         Me.DTPFechaEmision.Format = Wisej.Web.DateTimePickerFormat.Custom
-        Me.DTPFechaEmision.Location = New System.Drawing.Point(83, 28)
+        Me.DTPFechaEmision.Location = New System.Drawing.Point(101, 28)
         Me.DTPFechaEmision.Name = "DTPFechaEmision"
         Me.DTPFechaEmision.Size = New System.Drawing.Size(76, 22)
         Me.DTPFechaEmision.TabIndex = 1
@@ -1116,6 +850,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.TBTipoCambio.Name = "TBTipoCambio"
         Me.TBTipoCambio.Size = New System.Drawing.Size(95, 22)
         Me.TBTipoCambio.TabIndex = 1
+        Me.TBTipoCambio.Visible = False
         '
         'Label20
         '
@@ -1125,6 +860,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.Label20.Size = New System.Drawing.Size(96, 15)
         Me.Label20.TabIndex = 3
         Me.Label20.Text = "Tipo de Cambio"
+        Me.Label20.Visible = False
         '
         'MTBCP
         '
@@ -1150,16 +886,16 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         Me.CBSMetodoPago.BackColor = System.Drawing.Color.Transparent
         Me.CBSMetodoPago.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSMetodoPago.Location = New System.Drawing.Point(316, 26)
+        Me.CBSMetodoPago.Location = New System.Drawing.Point(332, 26)
         Me.CBSMetodoPago.Name = "CBSMetodoPago"
-        Me.CBSMetodoPago.Size = New System.Drawing.Size(184, 22)
+        Me.CBSMetodoPago.Size = New System.Drawing.Size(283, 22)
         Me.CBSMetodoPago.TabIndex = 7
         '
         'CBSFormaPago
         '
         Me.CBSFormaPago.BackColor = System.Drawing.Color.Transparent
         Me.CBSFormaPago.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSFormaPago.Location = New System.Drawing.Point(604, 26)
+        Me.CBSFormaPago.Location = New System.Drawing.Point(718, 26)
         Me.CBSFormaPago.Name = "CBSFormaPago"
         Me.CBSFormaPago.Size = New System.Drawing.Size(202, 22)
         Me.CBSFormaPago.TabIndex = 6
@@ -1167,7 +903,7 @@ Partial Class Facturacion_Electronica_CFD_33
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(212, 33)
+        Me.Label6.Location = New System.Drawing.Point(228, 33)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(100, 15)
         Me.Label6.TabIndex = 3
@@ -1194,7 +930,7 @@ Partial Class Facturacion_Electronica_CFD_33
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(503, 31)
+        Me.Label4.Location = New System.Drawing.Point(621, 31)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(94, 15)
         Me.Label4.TabIndex = 3
@@ -1215,7 +951,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RDBManual.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.RDBManual.Location = New System.Drawing.Point(3, 24)
         Me.RDBManual.Name = "RDBManual"
-        Me.RDBManual.Size = New System.Drawing.Size(83, 27)
+        Me.RDBManual.Size = New System.Drawing.Size(81, 27)
         Me.RDBManual.TabIndex = 9
         Me.RDBManual.Text = "Manual"
         '
@@ -1225,7 +961,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RDBSolicitrud.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.RDBSolicitrud.Location = New System.Drawing.Point(92, 24)
         Me.RDBSolicitrud.Name = "RDBSolicitrud"
-        Me.RDBSolicitrud.Size = New System.Drawing.Size(92, 27)
+        Me.RDBSolicitrud.Size = New System.Drawing.Size(90, 27)
         Me.RDBSolicitrud.TabIndex = 9
         Me.RDBSolicitrud.TabStop = True
         Me.RDBSolicitrud.Text = "Solicitud"
@@ -1278,7 +1014,7 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         'Facturacion_Electronica_CFD_33
         '
-        Me.ClientSize = New System.Drawing.Size(1185, 869)
+        Me.ClientSize = New System.Drawing.Size(1453, 869)
         Me.Controls.Add(Me.AspPageBox1)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Label3)
@@ -1298,31 +1034,19 @@ Partial Class Facturacion_Electronica_CFD_33
         CType(Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpPersonalizado.ResumeLayout(False)
         Me.grpPersonalizado.PerformLayout()
-        Me.SplitContainer3.Panel1.ResumeLayout(False)
-        Me.SplitContainer3.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer3.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
         Me.TPCONCEPTO.ResumeLayout(False)
         CType(Me.DGVConceptos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GBRetencionIVA.ResumeLayout(False)
-        Me.GBRetencionIVA.PerformLayout()
-        Me.GBRetencionISR.ResumeLayout(False)
-        Me.GBRetencionISR.PerformLayout()
-        Me.GBIVA.ResumeLayout(False)
-        Me.GBIVA.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -1337,25 +1061,6 @@ Partial Class Facturacion_Electronica_CFD_33
 
     Friend WithEvents RibbonBar7 As Ext.RibbonBar.RibbonBar
     Friend WithEvents SplitContainer1 As SplitContainer
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents GBRetencionIVA As GroupBox
-    Friend WithEvents MTBRISR As MaskedTextBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents CBSRIVA As ComboWisax
-    Friend WithEvents GBRetencionISR As GroupBox
-    Friend WithEvents CBSRISR As ComboWisax
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents MTBRIVA As MaskedTextBox
-    Friend WithEvents GBIVA As GroupBox
-    Friend WithEvents MTBIVA As MaskedTextBox
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents CBSIVA As ComboWisax
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents CBRetencion As CheckBox
     Friend WithEvents SplitContainer2 As SplitContainer
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents MTBCP As MaskedTextBox
@@ -1380,20 +1085,6 @@ Partial Class Facturacion_Electronica_CFD_33
     Friend WithEvents RDBManual As RadioButton
     Friend WithEvents RDBSolicitrud As RadioButton
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents TasaoCuotaIVA As ComboBox
-    Friend WithEvents TasaoCuotaRIVA As ComboBox
-    Friend WithEvents TasaoCuotaISR As ComboBox
-    Friend WithEvents DGVConceptos As Wisej.Web.DataGridView
-    Friend WithEvents cCantidad As DataGridViewTextBoxColumn
-    Friend WithEvents cbClaveProdServ As DataGridViewComboBoxColumn
-    Friend WithEvents cbClaveUnidad As DataGridViewComboBoxColumn
-    Friend WithEvents cDescripcion As DataGridViewTextBoxColumn
-    Friend WithEvents cValorUnitario As DataGridViewTextBoxColumn
-    Friend WithEvents cImporte As DataGridViewTextBoxColumn
-    Friend WithEvents cNoIdentificacion As DataGridViewTextBoxColumn
-    Friend WithEvents SplitContainer3 As SplitContainer
     Friend WithEvents grpPersonalizado As GroupBox
     Friend WithEvents Label18 As Label
     Friend WithEvents cFecha1 As DateTimePicker
@@ -1406,18 +1097,13 @@ Partial Class Facturacion_Electronica_CFD_33
     Friend WithEvents RBBBuscar As Ext.RibbonBar.RibbonBarItemButton
     Friend WithEvents RBBPFacturar As Ext.RibbonBar.RibbonBarItemButton
     Friend WithEvents RBBSerie As Ext.RibbonBar.RibbonBarItemButton
-    Friend WithEvents RBBSalir As Ext.RibbonBar.RibbonBarItemButton
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents cCHK As DataGridViewCheckBoxColumn
     Friend WithEvents Descuento_Factura As DataGridViewTextBoxColumn
-    Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents TPCONCEPTO As TabPage
     Friend WithEvents TBTipoCambio As TextBox
     Friend WithEvents Label20 As Label
     Friend WithEvents RTBCondicionPago As TextBox
     Friend WithEvents Label22 As Label
-    'Friend WithEvents DataSet_pPACIENTES_SOLICITUDES_B_CAPTURA_SAT_FACTURACION As DataSet_pPACIENTES_SOLICITUDES_B_CAPTURA_SAT_FACTURACION
-    Friend WithEvents cDescuento As DataGridViewTextBoxColumn
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents Label30 As Label
     Friend WithEvents DTPFechaEmision As DateTimePicker
@@ -1430,6 +1116,34 @@ Partial Class Facturacion_Electronica_CFD_33
     Friend WithEvents Estatus As DataGridViewTextBoxColumn
     Friend WithEvents Label1 As Label
     Friend WithEvents CbxClientes As ComboWisax
+    Friend WithEvents RB_Detallada As RadioButton
+    Friend WithEvents RB_Sencilla As RadioButton
+    Friend WithEvents cSaldo As DataGridViewTextBoxColumn
+    Friend WithEvents cImporteTotal As DataGridViewTextBoxColumn
+    Friend WithEvents Descuento As DataGridViewTextBoxColumn
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents cFolio_Movimiento As DataGridViewTextBoxColumn
+    Friend WithEvents Label2 As Label
+    Friend WithEvents CbxReceptor As ComboWisax
+    Friend WithEvents cUnitario As DataGridViewTextBoxColumn
+    Friend WithEvents RibbonBarGroup2 As Ext.RibbonBar.RibbonBarGroup
+    Friend WithEvents RBBImpuestos As Ext.RibbonBar.RibbonBarItemButton
+    Friend WithEvents RibbonBarGroup3 As Ext.RibbonBar.RibbonBarGroup
+    Friend WithEvents RBBSalir As Ext.RibbonBar.RibbonBarItemButton
+    Friend WithEvents RbDescuentoAplicado As RadioButton
+    Friend WithEvents RbDescuentoVisible As RadioButton
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TPCONCEPTO As TabPage
+    Friend WithEvents DGVConceptos As DataGridView
+    Friend WithEvents dgvEliminar As DataGridViewImageColumn
+    Friend WithEvents cCantidad As DataGridViewTextBoxColumn
+    Friend WithEvents cbClaveProdServ As DataGridViewComboBoxColumn
+    Friend WithEvents cbClaveUnidad As DataGridViewComboBoxColumn
+    Friend WithEvents cDescripcion As DataGridViewTextBoxColumn
+    Friend WithEvents cValorUnitario As DataGridViewTextBoxColumn
+    Friend WithEvents cImporte As DataGridViewTextBoxColumn
+    Friend WithEvents cDescuento As DataGridViewTextBoxColumn
+    Friend WithEvents cNoIdentificacion As DataGridViewTextBoxColumn
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label33 As Label
     Friend WithEvents TBDescuento As TextBox
@@ -1443,18 +1157,5 @@ Partial Class Facturacion_Electronica_CFD_33
     Friend WithEvents Label24 As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents Label23 As Label
-    Friend WithEvents RB_Detallada As RadioButton
-    Friend WithEvents RB_Sencilla As RadioButton
-    Friend WithEvents cSaldo As DataGridViewTextBoxColumn
-    Friend WithEvents cImporteTotal As DataGridViewTextBoxColumn
-    Friend WithEvents Descuento As DataGridViewTextBoxColumn
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents cFolio_Movimiento As DataGridViewTextBoxColumn
-    Friend WithEvents Label2 As Label
-    Friend WithEvents CbxReceptor As ComboWisax
-    Friend WithEvents cUnitario As DataGridViewTextBoxColumn
     Friend WithEvents Panel2 As GroupBox
-    Friend WithEvents RbDescuentoAplicado As RadioButton
-    Friend WithEvents RbDescuentoVisible As RadioButton
-    Friend WithEvents dgvEliminar As DataGridViewImageColumn
 End Class
