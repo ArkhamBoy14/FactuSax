@@ -10,17 +10,40 @@ Public Class ComboWisax
     'It can be modified using the Wisej Designer.  
     'Do not modify it using the code editor.
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ComboWisax))
         Dim ComponentTool1 As Wisej.Web.ComponentTool = New Wisej.Web.ComponentTool()
+        Me.ContextMenu1 = New Wisej.Web.ContextMenu()
+        Me.itmActualziar = New Wisej.Web.MenuItem()
+        Me.itmProcedure = New Wisej.Web.MenuItem()
         Me.SuspendLayout()
+        '
+        'ContextMenu1
+        '
+        Me.ContextMenu1.MenuItems.AddRange(New Wisej.Web.MenuItem() {Me.itmActualziar, Me.itmProcedure})
+        Me.ContextMenu1.Name = "ContextMenu1"
+        Me.ContextMenu1.RightToLeft = Wisej.Web.RightToLeft.No
+        '
+        'itmActualziar
+        '
+        Me.itmActualziar.IconSource = "Resources\Images\32x32\refresh_32.png"
+        Me.itmActualziar.Index = 0
+        Me.itmActualziar.Name = "itmActualziar"
+        Me.itmActualziar.Text = "Actualizar"
+        '
+        'itmProcedure
+        '
+        Me.itmProcedure.IconSource = "Resources\Images\64x64\copy2.png"
+        Me.itmProcedure.Index = 1
+        Me.itmProcedure.Name = "itmProcedure"
+        Me.itmProcedure.Text = "Copiar procedure"
         '
         'ComboWisax
         '
         Me.AutoCompleteMode = Wisej.Web.AutoCompleteMode.Filter
-        'Me.InitScript = resources.GetString("$this.InitScript")
+        Me.ContextMenu = Me.ContextMenu1
+        Me.EnableNativeContextMenu = False
         Me.Name = "ComboWisax"
         Me.Size = New System.Drawing.Size(290, 22)
-        ComponentTool1.ImageSource = "Resources\Images\Combo\BOTONELIMINAR.png"
+        ComponentTool1.ImageSource = "menu-overflow"
         ComponentTool1.Name = "toolBorrar"
         ComponentTool1.Visible = False
         Me.Tools.AddRange(New Wisej.Web.ComponentTool() {ComponentTool1})
@@ -30,12 +53,10 @@ Public Class ComboWisax
 
 
 
-    ''' <summary>
-    Private ME_ICON_BORRAR As String = "iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV+/aJFKBzuIiGSoThZERRylikWwUNoKrTqYXPoFTRqSFBdHwbXg4Mdi1cHFWVcHV0EQ/ABxcnRSdJES/5cUWsR4cNyPd/ced+8Ab6vGFMM/ASiqqWeSCSFfWBWCrwghgAhG4BeZoaWyizm4jq97ePh6F+dZ7uf+HP1y0WCARyCeY5puEm8Qz2yaGud94iiriDLxOfG4ThckfuS65PAb57LNXp4Z1XOZeeIosVDuYamHWUVXiKeJY7KiUr4377DMeYuzUmuwzj35C8NFdSXLdZrDSGIJKaQhQEIDVdRgIk6rSoqBDO0nXPxDtj9NLolcVTByLKAOBaLtB/+D390apalJJymcAAIvlvUxCgR3gXbTsr6PLat9AviegSu166+3gNlP0ptdLXYERLaBi+uuJu0BlzvA4JMm6qIt+Wh6SyXg/Yy+qQAM3AJ9a05vnX2cPgA56mr5Bjg4BMbKlL3u8u5Qb2//nun09wMlTHKIQw/ptgAAAAZiS0dEANEAzwDOq/nTXAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+QIBQ8tLSgGCWAAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAQklEQVQ4y2NgGAUjANTX1/+vr6//T0gMGTARYygyjQ8wEmMQMmhsbGQkyzB0A/EZRHWXMZHqIooiAGYQIS+OguEGAIdYJHY6vYpjAAAAAElFTkSuQmCC"
-    ''' </summary>    '
+    '''
+    '
     ' 
     ''''
-
     Private ME_CONEXION As New SqlConnection
     Private ME_DESCRIPCION_COMBO As String
     Private ME_DATATABLE_FILL As DataTable
@@ -46,8 +67,12 @@ Public Class ComboWisax
     Private ME_READ_ONLY As Boolean
     Private ME_MOSTRAR_MENSAJE As Boolean
     Private ME_ASCENDER_EVENT As Boolean
-    Private ME_ASCENDER_LOAD_EVENT As Boolean
     Private ME_TOOL_LIMPIAR As ComponentTool
+    Friend WithEvents ContextMenu1 As ContextMenu
+    Friend WithEvents itmActualziar As MenuItem
+    Friend WithEvents itmProcedure As MenuItem
+    Private ME_ICON_BORRAR As String = "iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV+/aJFKBzuIiGSoThZERRylikWwUNoKrTqYXPoFTRqSFBdHwbXg4Mdi1cHFWVcHV0EQ/ABxcnRSdJES/5cUWsR4cNyPd/ced+8Ab6vGFMM/ASiqqWeSCSFfWBWCrwghgAhG4BeZoaWyizm4jq97ePh6F+dZ7uf+HP1y0WCARyCeY5puEm8Qz2yaGud94iiriDLxOfG4ThckfuS65PAb57LNXp4Z1XOZeeIosVDuYamHWUVXiKeJY7KiUr4377DMeYuzUmuwzj35C8NFdSXLdZrDSGIJKaQhQEIDVdRgIk6rSoqBDO0nXPxDtj9NLolcVTByLKAOBaLtB/+D390apalJJymcAAIvlvUxCgR3gXbTsr6PLat9AviegSu166+3gNlP0ptdLXYERLaBi+uuJu0BlzvA4JMm6qIt+Wh6SyXg/Yy+qQAM3AJ9a05vnX2cPgA56mr5Bjg4BMbKlL3u8u5Qb2//nun09wMlTHKIQw/ptgAAAAZiS0dEANEAzwDOq/nTXAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+QIBQ8tLSgGCWAAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAQklEQVQ4y2NgGAUjANTX1/+vr6//T0gMGTARYygyjQ8wEmMQMmhsbGQkyzB0A/EZRHWXMZHqIooiAGYQIS+OguEGAIdYJHY6vYpjAAAAAElFTkSuQmCC"
+    Public Shadows Event SelectedIndexChanged As EventHandler
     'Private ME_LABEL_COMBO As LabelWrapper
 
     '
@@ -115,14 +140,14 @@ Public Class ComboWisax
         InitializeComponent()
         ScriptSearch()
         ME_TOOL_LIMPIAR = Me.Tools("toolBorrar")
+
         Dim icono As Drawing.Image = Nothing
         Dim imgBytes As Byte() = Nothing
         imgBytes = Convert.FromBase64String(ME_ICON_BORRAR)
         Dim ms As New IO.MemoryStream(imgBytes)
         icono = Drawing.Image.FromStream(ms)
         ME_TOOL_LIMPIAR.Image = icono
-        ME_ASCENDER_LOAD_EVENT = True
-
+        Me.Label.Position = LabelPosition.Left
     End Sub
 
     Private Sub ScriptSearch()
@@ -187,7 +212,6 @@ Public Class ComboWisax
             Me.DisplayMember = ColumnaDescripcion
             ME_ASCENDER_EVENT = False
             Me.DataSource = ME_DATATABLE_FILL
-            Me.SelectedIndex = -1
             ME_PUEDE_ACTUALIZAR = True
         Catch ex As Exception
             MessageBox.Show("Error: la consulta del combo " & Me.DescripcionCampo & " no pudo realizarse." & vbCrLf & ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -273,14 +297,6 @@ Public Class ComboWisax
             End If
         End If
     End Sub
-    Private Sub txtProcedure_ToolClick(sender As TextBox, e As ToolClickEventArgs)
-        If sender.Text <> "" Then
-            Clipboard.SetClientText(sender.Text)
-            If Clipboard.GetText IsNot Nothing Then
-                Application.Eval("Wisej.Core.copy();")
-            End If
-        End If
-    End Sub
     Public Sub LlenarConList(lista As List(Of String), column As String, procedure As String)
 
         Dim tablaList As New DataTable("Lista")
@@ -334,6 +350,7 @@ Public Class ComboWisax
             ME_DATATABLE_FILL.Clear()
         End If
 
+        Me.ME_TOOL_LIMPIAR.Visible = False
         Me.DataSource = Nothing
         Me.DisplayMember = Nothing
         Me.ValueMember = Nothing
@@ -347,7 +364,6 @@ Public Class ComboWisax
                 Dim rs As SqlDataReader = SqlComm.ExecuteReader
                 ME_ASCENDER_EVENT = False
                 Me.SelectedIndex = -1
-                ME_ASCENDER_EVENT = False
                 ME_DATATABLE_FILL = New DataTable
                 ME_DATATABLE_FILL.Load(rs)
                 Me.DataSource = ME_DATATABLE_FILL
@@ -364,92 +380,58 @@ Public Class ComboWisax
         End If
     End Sub
 
-    Private Sub comboPrincipal_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Me.SelectedIndexChanged
+    Private Sub evento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MyBase.SelectedIndexChanged
 
         If ME_ASCENDER_EVENT Then
-            If MyBase.SelectedIndex <> -1 Then
+            If Me.SelectedIndex <> -1 Then
                 Me.ME_TOOL_LIMPIAR.Visible = True
             Else
                 Me.ME_TOOL_LIMPIAR.Visible = False
             End If
-
-        Else
-            If ME_ASCENDER_LOAD_EVENT Then
-                Me.SelectedIndex = -1
-                ME_ASCENDER_LOAD_EVENT = False
-            End If
+            RaiseEvent SelectedIndexChanged(sender, e)
+        ElseIf Me.SelectedIndex <> -1 Then
+            Me.ME_TOOL_LIMPIAR.Visible = False
+            Me.SelectedIndex = -1
             ME_ASCENDER_EVENT = True
         End If
     End Sub
-
-    Private Sub ComboWisax_MouseClick(sender As Object, e As MouseEventArgs) Handles MyBase.MouseClick
-        If e.Button = MouseButtons.Right Then
-            Dim txtProcedure As TextBox = Nothing
-            Dim ToolCopy As New ComponentTool
-
-            Dim popProcedure As New UserPopup()
-            AddHandler popProcedure.Leave, AddressOf popProcedure_Leave
-            popProcedure.Height = 25
-            popProcedure.Width = 250
-
-            Dim pnl As Panel = New Panel
-            pnl.Dock = DockStyle.Fill
-            pnl.AutoScroll = True
-            pnl.BackColor = Drawing.Color.FromArgb(245, 245, 245)
-            pnl.Padding = New Padding(1)
-
-            Dim lblActualizar As New Label()
-            lblActualizar.Text = "Actualizar"
-            lblActualizar.TextAlign = Drawing.ContentAlignment.MiddleLeft
-            lblActualizar.Height = 24
-            lblActualizar.Margin = New Padding(0)
-            lblActualizar.Font = New System.Drawing.Font("default", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-            AddHandler lblActualizar.Click, AddressOf Actualizar
-            pnl.Controls.Add(lblActualizar)
-            lblActualizar.Dock = DockStyle.Top
-            lblActualizar.BringToFront()
-
-            If Application.Session("Cve_Operador") <> Nothing Then
-                If Application.Session("Cve_Operador").ToString.ToUpper = "NA" Then
-                    txtProcedure = New TextBox()
-                    txtProcedure.Text = ME_PROCEDURE
-                    txtProcedure.Height = 25
-                    txtProcedure.Width = 300
-                    pnl.Controls.Add(txtProcedure)
-                    txtProcedure.Dock = DockStyle.Top
-                    ToolCopy.ImageSource = "Resources\Images\64x64\copy2.png"
-                    ToolCopy.Name = "ToolCopy"
-                    ToolCopy.ToolTipText = "Copiar"
-                    txtProcedure.Tools.Add(ToolCopy)
-                    txtProcedure.BringToFront()
-
-                    AddHandler txtProcedure.ToolClick, AddressOf txtProcedure_ToolClick
+    Private Sub ContextMenu1_MenuItemClicked(sender As Object, e As MenuItemEventArgs) Handles ContextMenu1.MenuItemClicked
+        Dim item As MenuItem = e.MenuItem
+        If item.Equals(itmActualziar) Then
+            Actualizar()
+        ElseIf item.Equals(itmProcedure) Then
+            If ME_PROCEDURE IsNot Nothing Then
+                Clipboard.SetClientText(Me.ME_PROCEDURE)
+                If Clipboard.GetText IsNot Nothing Then
+                    Application.Eval("Wisej.Core.copy();")
                 End If
             End If
+        End If
 
-            popProcedure.CssStyle = "border-style:solid; border-Width: 1px;border-color: #bdbfbf;"
-            'popProcedure.AutoSize = True
-            popProcedure.AutoSizeMode = AutoSizeMode.GrowAndShrink
-            popProcedure.AutoScroll = True
-            popProcedure.Controls.Add(pnl)
-            popProcedure.ShowPopup(Me) '.Location.X + Me.Width, Me.Location.Y)
-            If txtProcedure IsNot Nothing Then
-                popProcedure.Height = 52
-                txtProcedure.Focus()
-                txtProcedure.SelectAll()
-            End If
+
+    End Sub
+
+
+    Private Sub ContextMenu1_Popup(sender As Object, e As EventArgs) Handles ContextMenu1.Popup
+        If (Application.Session("Cve_Operador") & "").ToString.ToUpper = "0" Then
+            itmProcedure.Visible = True
+        Else
+            itmProcedure.Visible = False
         End If
     End Sub
-    Private Sub popProcedure_Leave(sender As UserPopup, e As EventArgs)
-        sender.Dispose()
+
+    Private Sub ComboWisax_EnabledChanged(sender As Object, e As EventArgs) Handles MyBase.EnabledChanged
+        For Each t As ComponentTool In Me.Tools
+            t.Enabled = Me.Enabled
+        Next
     End Sub
-    Property MostrarMensaje() As Boolean
+
+    Public Property MostrarMensaje As Boolean
         Get
-            Return True
+
         End Get
         Set(value As Boolean)
 
         End Set
     End Property
-
 End Class

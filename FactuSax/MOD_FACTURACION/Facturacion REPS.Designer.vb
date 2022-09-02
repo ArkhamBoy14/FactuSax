@@ -109,6 +109,7 @@ Partial Class Facturacion_REPS
         Me.AspPageBox1 = New Wisej.Web.AspNetPanel()
         Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B1 = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_B()
         Me.PFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter()
+        Me.BtnAnexarPago = New Wisej.Web.Button()
         Me.CbxReceptor = New FactuSax.ComboWisax()
         Me.CbxClientes = New FactuSax.ComboWisax()
         Me.CBSBancoEmisor = New FactuSax.ComboWisax()
@@ -119,7 +120,6 @@ Partial Class Facturacion_REPS
         Me.CBSFormaPago = New FactuSax.ComboWisax()
         Me.CBSTipoComprobante = New FactuSax.ComboWisax()
         Me.CBSMoneda = New FactuSax.ComboWisax()
-        Me.Button1 = New Wisej.Web.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -488,6 +488,9 @@ Partial Class Facturacion_REPS
         '
         'DGVConceptosUUID
         '
+        Me.DGVConceptosUUID.AutoGenerateColumns = False
+        Me.DGVConceptosUUID.AutoSize = True
+        Me.DGVConceptosUUID.AutoSizeColumnsMode = Wisej.Web.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DGVConceptosUUID.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.colUUID_1, Me.colSERIE, Me.colFOLIO_1, Me.colMONEDA, Me.colMETODOPAGO, Me.colPARCIALIDAD, Me.colIMPORTE_PAGADO, Me.colSALDO_ANTERIOR, Me.colSALDO_INSOLUTO})
         Me.DGVConceptosUUID.DataSource = Me.BindingSource2
         Me.DGVConceptosUUID.Dock = Wisej.Web.DockStyle.Fill
@@ -505,52 +508,52 @@ Partial Class Facturacion_REPS
         'colSERIE
         '
         Me.colSERIE.DataPropertyName = "SERIE"
-        Me.colSERIE.HeaderText = "SERIE"
+        Me.colSERIE.HeaderText = "Serie"
         Me.colSERIE.Name = "colSERIE"
         '
         'colFOLIO_1
         '
         Me.colFOLIO_1.DataPropertyName = "FOLIO"
-        Me.colFOLIO_1.HeaderText = "FOLIO"
+        Me.colFOLIO_1.HeaderText = "Folio"
         Me.colFOLIO_1.Name = "colFOLIO_1"
         '
         'colMONEDA
         '
         Me.colMONEDA.DataPropertyName = "MONEDA"
-        Me.colMONEDA.HeaderText = "MONEDA"
+        Me.colMONEDA.HeaderText = "Moneda"
         Me.colMONEDA.Name = "colMONEDA"
         '
         'colMETODOPAGO
         '
         Me.colMETODOPAGO.DataPropertyName = "METODOPAGO"
-        Me.colMETODOPAGO.HeaderText = "METODOPAGO"
+        Me.colMETODOPAGO.HeaderText = "Método de Pago"
         Me.colMETODOPAGO.Name = "colMETODOPAGO"
         '
         'colPARCIALIDAD
         '
         Me.colPARCIALIDAD.DataPropertyName = "PARCIALIDAD"
-        Me.colPARCIALIDAD.HeaderText = "PARCIALIDAD"
+        Me.colPARCIALIDAD.HeaderText = "No. Parcialidad"
         Me.colPARCIALIDAD.Name = "colPARCIALIDAD"
         Me.colPARCIALIDAD.ReadOnly = True
         '
         'colIMPORTE_PAGADO
         '
         Me.colIMPORTE_PAGADO.DataPropertyName = "IMPORTE_PAGADO"
-        Me.colIMPORTE_PAGADO.HeaderText = "IMPORTE_PAGADO"
+        Me.colIMPORTE_PAGADO.HeaderText = "Importe Pagado"
         Me.colIMPORTE_PAGADO.Name = "colIMPORTE_PAGADO"
         Me.colIMPORTE_PAGADO.ReadOnly = True
         '
         'colSALDO_ANTERIOR
         '
         Me.colSALDO_ANTERIOR.DataPropertyName = "SALDO_ANTERIOR"
-        Me.colSALDO_ANTERIOR.HeaderText = "SALDO_ANTERIOR"
+        Me.colSALDO_ANTERIOR.HeaderText = "Saldo Anterior"
         Me.colSALDO_ANTERIOR.Name = "colSALDO_ANTERIOR"
         Me.colSALDO_ANTERIOR.ReadOnly = True
         '
         'colSALDO_INSOLUTO
         '
         Me.colSALDO_INSOLUTO.DataPropertyName = "SALDO_INSOLUTO"
-        Me.colSALDO_INSOLUTO.HeaderText = "SALDO_INSOLUTO"
+        Me.colSALDO_INSOLUTO.HeaderText = "Saldo Insoluto"
         Me.colSALDO_INSOLUTO.Name = "colSALDO_INSOLUTO"
         Me.colSALDO_INSOLUTO.ReadOnly = True
         '
@@ -730,7 +733,7 @@ Partial Class Facturacion_REPS
         '
         'Panel6
         '
-        Me.Panel6.Controls.Add(Me.Button1)
+        Me.Panel6.Controls.Add(Me.BtnAnexarPago)
         Me.Panel6.Controls.Add(Me.RTBObservaciones)
         Me.Panel6.Controls.Add(Me.Label1)
         Me.Panel6.Controls.Add(Me.CBSFormaPago)
@@ -924,6 +927,14 @@ Partial Class Facturacion_REPS
         '
         Me.PFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter.ClearBeforeFill = True
         '
+        'BtnAnexarPago
+        '
+        Me.BtnAnexarPago.Location = New System.Drawing.Point(248, 76)
+        Me.BtnAnexarPago.Name = "BtnAnexarPago"
+        Me.BtnAnexarPago.Size = New System.Drawing.Size(31, 27)
+        Me.BtnAnexarPago.TabIndex = 14
+        Me.BtnAnexarPago.Text = "+"
+        '
         'CbxReceptor
         '
         Me.CbxReceptor.Location = New System.Drawing.Point(9, 122)
@@ -1011,14 +1022,6 @@ Partial Class Facturacion_REPS
         Me.CBSMoneda.Size = New System.Drawing.Size(474, 22)
         Me.CBSMoneda.TabIndex = 5
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(248, 76)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(31, 27)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "+"
-        '
         'Facturacion_REPS
         '
         Me.ClientSize = New System.Drawing.Size(1192, 755)
@@ -1029,6 +1032,7 @@ Partial Class Facturacion_REPS
         Me.Text = "Facturacion_REPS"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.DGVUUID, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1163,5 +1167,5 @@ Partial Class Facturacion_REPS
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents RbEmpresa As RadioButton
     Friend WithEvents RbParticular As RadioButton
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnAnexarPago As Button
 End Class
