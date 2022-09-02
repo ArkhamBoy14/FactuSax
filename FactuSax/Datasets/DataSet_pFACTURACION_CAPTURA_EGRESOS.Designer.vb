@@ -297,13 +297,23 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
         
         Private columnDescuento As Global.System.Data.DataColumn
         
-        Private columnsaldo As Global.System.Data.DataColumn
-        
         Private columnIMPORTE As Global.System.Data.DataColumn
         
         Private columnFolio_Movimiento As Global.System.Data.DataColumn
         
         Private columnUnitario As Global.System.Data.DataColumn
+        
+        Private columnChecked As Global.System.Data.DataColumn
+        
+        Private _columnSaldo As Global.System.Data.DataColumn
+        
+        Private columnFecha1 As Global.System.Data.DataColumn
+        
+        Private columnRFC As Global.System.Data.DataColumn
+        
+        Private columnImporte_Total As Global.System.Data.DataColumn
+        
+        Private columnTipo_Pago As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
@@ -398,14 +408,6 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property saldoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnsaldo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public ReadOnly Property IMPORTEColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnIMPORTE
@@ -425,6 +427,54 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
         Public ReadOnly Property UnitarioColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnUnitario
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CheckedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnChecked
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property _SaldoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me._columnSaldo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Fecha1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFecha1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property RFCColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRFC
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Importe_TotalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnImporte_Total
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Tipo_PagoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTipo_Pago
             End Get
         End Property
         
@@ -465,9 +515,25 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddpFACTURACION_CAPTURA_EGRESOSRow(ByVal Folio As String, ByVal Fecha As Date, ByVal Cve_Cliente As String, ByVal Estatus As String, ByVal Cve_Receptor As String, ByVal Descuento_Factura As Decimal, ByVal Descuento As Double, ByVal saldo As Decimal, ByVal IMPORTE As Decimal, ByVal Folio_Movimiento As String, ByVal Unitario As Decimal) As pFACTURACION_CAPTURA_EGRESOSRow
+        Public Overloads Function AddpFACTURACION_CAPTURA_EGRESOSRow( _
+                    ByVal Folio As String,  _
+                    ByVal Fecha As Date,  _
+                    ByVal Cve_Cliente As String,  _
+                    ByVal Estatus As String,  _
+                    ByVal Cve_Receptor As String,  _
+                    ByVal Descuento_Factura As Decimal,  _
+                    ByVal Descuento As Double,  _
+                    ByVal IMPORTE As Decimal,  _
+                    ByVal Folio_Movimiento As String,  _
+                    ByVal Unitario As Decimal,  _
+                    ByVal Checked As Integer,  _
+                    ByVal _Saldo As Decimal,  _
+                    ByVal Fecha1 As Date,  _
+                    ByVal RFC As String,  _
+                    ByVal Importe_Total As Decimal,  _
+                    ByVal Tipo_Pago As String) As pFACTURACION_CAPTURA_EGRESOSRow
             Dim rowpFACTURACION_CAPTURA_EGRESOSRow As pFACTURACION_CAPTURA_EGRESOSRow = CType(Me.NewRow,pFACTURACION_CAPTURA_EGRESOSRow)
-            Dim columnValuesArray() As Object = New Object() {Folio, Fecha, Cve_Cliente, Estatus, Cve_Receptor, Descuento_Factura, Descuento, saldo, IMPORTE, Folio_Movimiento, Unitario}
+            Dim columnValuesArray() As Object = New Object() {Folio, Fecha, Cve_Cliente, Estatus, Cve_Receptor, Descuento_Factura, Descuento, IMPORTE, Folio_Movimiento, Unitario, Checked, _Saldo, Fecha1, RFC, Importe_Total, Tipo_Pago}
             rowpFACTURACION_CAPTURA_EGRESOSRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowpFACTURACION_CAPTURA_EGRESOSRow)
             Return rowpFACTURACION_CAPTURA_EGRESOSRow
@@ -497,10 +563,15 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
             Me.columnCve_Receptor = MyBase.Columns("Cve_Receptor")
             Me.columnDescuento_Factura = MyBase.Columns("Descuento_Factura")
             Me.columnDescuento = MyBase.Columns("Descuento")
-            Me.columnsaldo = MyBase.Columns("saldo")
             Me.columnIMPORTE = MyBase.Columns("IMPORTE")
             Me.columnFolio_Movimiento = MyBase.Columns("Folio_Movimiento")
             Me.columnUnitario = MyBase.Columns("Unitario")
+            Me.columnChecked = MyBase.Columns("Checked")
+            Me._columnSaldo = MyBase.Columns("Saldo")
+            Me.columnFecha1 = MyBase.Columns("Fecha1")
+            Me.columnRFC = MyBase.Columns("RFC")
+            Me.columnImporte_Total = MyBase.Columns("Importe_Total")
+            Me.columnTipo_Pago = MyBase.Columns("Tipo_Pago")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -520,26 +591,47 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
             MyBase.Columns.Add(Me.columnDescuento_Factura)
             Me.columnDescuento = New Global.System.Data.DataColumn("Descuento", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDescuento)
-            Me.columnsaldo = New Global.System.Data.DataColumn("saldo", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnsaldo)
             Me.columnIMPORTE = New Global.System.Data.DataColumn("IMPORTE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIMPORTE)
             Me.columnFolio_Movimiento = New Global.System.Data.DataColumn("Folio_Movimiento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFolio_Movimiento)
             Me.columnUnitario = New Global.System.Data.DataColumn("Unitario", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUnitario)
+            Me.columnChecked = New Global.System.Data.DataColumn("Checked", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnChecked)
+            Me._columnSaldo = New Global.System.Data.DataColumn("Saldo", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me._columnSaldo.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "_Saldo")
+            Me._columnSaldo.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "_SaldoColumn")
+            Me._columnSaldo.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnSaldo")
+            Me._columnSaldo.ExtendedProperties.Add("Generator_UserColumnName", "Saldo")
+            MyBase.Columns.Add(Me._columnSaldo)
+            Me.columnFecha1 = New Global.System.Data.DataColumn("Fecha1", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFecha1)
+            Me.columnRFC = New Global.System.Data.DataColumn("RFC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRFC)
+            Me.columnImporte_Total = New Global.System.Data.DataColumn("Importe_Total", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnImporte_Total)
+            Me.columnTipo_Pago = New Global.System.Data.DataColumn("Tipo_Pago", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTipo_Pago)
             Me.columnFolio.AllowDBNull = false
             Me.columnFolio.MaxLength = 50
             Me.columnFecha.AllowDBNull = false
             Me.columnCve_Cliente.AllowDBNull = false
             Me.columnCve_Cliente.MaxLength = 50
             Me.columnEstatus.MaxLength = 50
+            Me.columnCve_Receptor.AllowDBNull = false
             Me.columnCve_Receptor.MaxLength = 50
             Me.columnDescuento.ReadOnly = true
-            Me.columnsaldo.ReadOnly = true
             Me.columnIMPORTE.ReadOnly = true
             Me.columnFolio_Movimiento.MaxLength = 50
             Me.columnUnitario.ReadOnly = true
+            Me._columnSaldo.ReadOnly = true
+            Me.columnFecha1.AllowDBNull = false
+            Me.columnRFC.ReadOnly = true
+            Me.columnRFC.MaxLength = 50
+            Me.columnImporte_Total.ReadOnly = true
+            Me.columnTipo_Pago.ReadOnly = true
+            Me.columnTipo_Pago.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -737,12 +829,7 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property Cve_Receptor() As String
             Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Cve_ReceptorColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Cve_Receptor' de la tabla 'pFACTURACION_CAPTURA_EGRESOS' "& _ 
-                            "es DBNull.", e)
-                End Try
+                Return CType(Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Cve_ReceptorColumn),String)
             End Get
             Set
                 Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Cve_ReceptorColumn) = value
@@ -778,22 +865,6 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
             End Get
             Set
                 Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.DescuentoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property saldo() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.saldoColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'saldo' de la tabla 'pFACTURACION_CAPTURA_EGRESOS' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.saldoColumn) = value
             End Set
         End Property
         
@@ -847,6 +918,97 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Checked() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.CheckedColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Checked' de la tabla 'pFACTURACION_CAPTURA_EGRESOS' es DB"& _ 
+                            "Null.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.CheckedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property _Saldo() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablepFACTURACION_CAPTURA_EGRESOS._SaldoColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Saldo' de la tabla 'pFACTURACION_CAPTURA_EGRESOS' es DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepFACTURACION_CAPTURA_EGRESOS._SaldoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Fecha1() As Date
+            Get
+                Return CType(Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Fecha1Column),Date)
+            End Get
+            Set
+                Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Fecha1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property RFC() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.RFCColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RFC' de la tabla 'pFACTURACION_CAPTURA_EGRESOS' es DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.RFCColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Importe_Total() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Importe_TotalColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Importe_Total' de la tabla 'pFACTURACION_CAPTURA_EGRESOS'"& _ 
+                            " es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Importe_TotalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Tipo_Pago() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Tipo_PagoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tipo_Pago' de la tabla 'pFACTURACION_CAPTURA_EGRESOS' es "& _ 
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Tipo_PagoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsEstatusNull() As Boolean
             Return Me.IsNull(Me.tablepFACTURACION_CAPTURA_EGRESOS.EstatusColumn)
         End Function
@@ -855,18 +1017,6 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetEstatusNull()
             Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.EstatusColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsCve_ReceptorNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURACION_CAPTURA_EGRESOS.Cve_ReceptorColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetCve_ReceptorNull()
-            Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Cve_ReceptorColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -891,18 +1041,6 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetDescuentoNull()
             Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.DescuentoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IssaldoNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURACION_CAPTURA_EGRESOS.saldoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetsaldoNull()
-            Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.saldoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -939,6 +1077,66 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetUnitarioNull()
             Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.UnitarioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCheckedNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURACION_CAPTURA_EGRESOS.CheckedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCheckedNull()
+            Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.CheckedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Is_SaldoNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURACION_CAPTURA_EGRESOS._SaldoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Set_SaldoNull()
+            Me(Me.tablepFACTURACION_CAPTURA_EGRESOS._SaldoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsRFCNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURACION_CAPTURA_EGRESOS.RFCColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetRFCNull()
+            Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.RFCColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsImporte_TotalNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURACION_CAPTURA_EGRESOS.Importe_TotalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetImporte_TotalNull()
+            Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Importe_TotalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsTipo_PagoNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURACION_CAPTURA_EGRESOS.Tipo_PagoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetTipo_PagoNull()
+            Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Tipo_PagoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1115,10 +1313,15 @@ Namespace DataSet_pFACTURACION_CAPTURA_EGRESOSTableAdapters
             tableMapping.ColumnMappings.Add("Cve_Receptor", "Cve_Receptor")
             tableMapping.ColumnMappings.Add("Descuento_Factura", "Descuento_Factura")
             tableMapping.ColumnMappings.Add("Descuento", "Descuento")
-            tableMapping.ColumnMappings.Add("saldo", "saldo")
             tableMapping.ColumnMappings.Add("IMPORTE", "IMPORTE")
             tableMapping.ColumnMappings.Add("Folio_Movimiento", "Folio_Movimiento")
             tableMapping.ColumnMappings.Add("Unitario", "Unitario")
+            tableMapping.ColumnMappings.Add("Checked", "Checked")
+            tableMapping.ColumnMappings.Add("Saldo", "Saldo")
+            tableMapping.ColumnMappings.Add("Fecha1", "Fecha1")
+            tableMapping.ColumnMappings.Add("RFC", "RFC")
+            tableMapping.ColumnMappings.Add("Importe_Total", "Importe_Total")
+            tableMapping.ColumnMappings.Add("Tipo_Pago", "Tipo_Pago")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1143,13 +1346,15 @@ Namespace DataSet_pFACTURACION_CAPTURA_EGRESOSTableAdapters
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cve_Cliente", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Folio_Movimiento", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cve_Receptor", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RFC", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AplicaSaldo", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 1, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet_pFACTURACION_CAPTURA_EGRESOS.pFACTURACION_CAPTURA_EGRESOSDataTable, ByVal Fecha1 As String, ByVal Fecha2 As String, ByVal Cve_Cliente As String, ByVal Folio_Movimiento As String, ByVal Cve_Receptor As String) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet_pFACTURACION_CAPTURA_EGRESOS.pFACTURACION_CAPTURA_EGRESOSDataTable, ByVal Fecha1 As String, ByVal Fecha2 As String, ByVal Cve_Cliente As String, ByVal Folio_Movimiento As String, ByVal Cve_Receptor As String, ByVal RFC As String, ByVal AplicaSaldo As Global.System.Nullable(Of Boolean)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Fecha1 Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -1175,6 +1380,16 @@ Namespace DataSet_pFACTURACION_CAPTURA_EGRESOSTableAdapters
                 Me.Adapter.SelectCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(5).Value = CType(Cve_Receptor,String)
+            End If
+            If (RFC Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(6).Value = CType(RFC,String)
+            End If
+            If (AplicaSaldo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(7).Value = CType(AplicaSaldo.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1187,7 +1402,7 @@ Namespace DataSet_pFACTURACION_CAPTURA_EGRESOSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal Fecha1 As String, ByVal Fecha2 As String, ByVal Cve_Cliente As String, ByVal Folio_Movimiento As String, ByVal Cve_Receptor As String) As DataSet_pFACTURACION_CAPTURA_EGRESOS.pFACTURACION_CAPTURA_EGRESOSDataTable
+        Public Overloads Overridable Function GetData(ByVal Fecha1 As String, ByVal Fecha2 As String, ByVal Cve_Cliente As String, ByVal Folio_Movimiento As String, ByVal Cve_Receptor As String, ByVal RFC As String, ByVal AplicaSaldo As Global.System.Nullable(Of Boolean)) As DataSet_pFACTURACION_CAPTURA_EGRESOS.pFACTURACION_CAPTURA_EGRESOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Fecha1 Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -1213,6 +1428,16 @@ Namespace DataSet_pFACTURACION_CAPTURA_EGRESOSTableAdapters
                 Me.Adapter.SelectCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(5).Value = CType(Cve_Receptor,String)
+            End If
+            If (RFC Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(6).Value = CType(RFC,String)
+            End If
+            If (AplicaSaldo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(7).Value = CType(AplicaSaldo.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             Dim dataTable As DataSet_pFACTURACION_CAPTURA_EGRESOS.pFACTURACION_CAPTURA_EGRESOSDataTable = New DataSet_pFACTURACION_CAPTURA_EGRESOS.pFACTURACION_CAPTURA_EGRESOSDataTable()
             Me.Adapter.Fill(dataTable)

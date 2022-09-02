@@ -4,6 +4,8 @@ Imports System.Data
 Imports System.Data.SqlClient
 
 Public Class Cat_Busqueda_Facturas
+    Dim ME_CARGADO As Boolean = False
+
     Private Sub RibbonBar1_ItemClick(sender As Object, e As Ext.RibbonBar.RibbonBarItemEventArgs) Handles RibbonBar1.ItemClick
         Select Case e.Item.Name
             Case RBBBuscar.Name
@@ -13,7 +15,10 @@ Public Class Cat_Busqueda_Facturas
         End Select
     End Sub
     Private Sub Cat_Busqueda_Facturas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cFecha1.Value = Now
+        cFecha2.Value = Now
         CargarCombos()
+        ME_CARGADO = True
     End Sub
 
     Sub CargarCombos()
@@ -39,16 +44,22 @@ Public Class Cat_Busqueda_Facturas
         myDA.Fill(Me.DataSet_pFACTURA_SAT_CFDI_B.pFACTURA_SAT_CFDI_B)
         myDA.Dispose()
         CargaParent()
+
+
     End Sub
 
     Sub CargaParent()
         Try
             If DGV_Busqueda.Rows.Count > 0 Then
-                For i = 0 To DGV_Busqueda.Rows.Count - 1
+                For i = DGV_Busqueda.Rows.Count To 0
                     If DGV_Busqueda.Item(colParent.Index, i).Value = "HIJO" Then
-                        DGV_Busqueda.Rows(i).ParentRow = DGV_Busqueda.Rows(i - 1)
-                        DGV_Busqueda.Rows(i)(0).Style.ColSpan = DGV_Busqueda.Columns.GetColumnCount(DataGridViewElementStates.None) - 1
-                        DGV_Busqueda.Rows(i - 1).Collapse()
+                        If DGV_Busqueda.Item(cMetodoPago.Index, i).Value = "PUE" Then
+                            DGV_Busqueda.Rows.RemoveAt(i)
+                        Else
+                            DGV_Busqueda.Rows(i).ParentRow = DGV_Busqueda.Rows(i - 1)
+                            DGV_Busqueda.Rows(i)(0).Style.ColSpan = DGV_Busqueda.Columns.GetColumnCount(DataGridViewElementStates.None) - 1
+                            DGV_Busqueda.Rows(i - 1).Collapse()
+                        End If
                     End If
                 Next
             End If
@@ -58,17 +69,31 @@ Public Class Cat_Busqueda_Facturas
     End Sub
     Private Sub DGV_Busqueda_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_Busqueda.CellClick
         If e.ColumnIndex <> -1 Then
-            If e.ColumnIndex = 1 Then
-                DocumentDownload(DGV_Busqueda.Item(cNombre_Archivo.Name, e.RowIndex).Value, DGV_Busqueda.Item(cMetodoPago.Name, e.RowIndex).Value)
+            If e.ColumnIndex = cPDF.Index Then
+                DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value)
+            End If
+            If e.ColumnIndex = cXML.Index Then
+
             End If
         End If
     End Sub
-    Sub DocumentDownload(ByVal NombreDocumento As String, MetodoPago As String)
-        Dim wSTproyecto As String = Application.StartupPath
-        Dim RutaFaturas As String = "\Resources\SAT\FACTURAS"
-        Dim pdf As String = NombreDocumento & ".pdf"
-        Dim ruta As String = wSTproyecto & RutaFaturas & "\" & MetodoPago & "\" & pdf
-        Application.Download(ruta)
+    Sub DocumentDownload(ByVal UUID As String)
+        'Dim wSTproyecto As String = Application.StartupPath
+        'Dim RutaFaturas As String = "\Resources\SAT\FACTURAS"
+        'Dim pdf As String = NombreDocumento & ".pdf"
+        'Dim ruta As String = wSTproyecto & RutaFaturas & "\" & MetodoPago & "\" & pdf
+        'Application.Download(ruta)
+        Application.Session("UUID_SAT") = UUID
+        Dim sReportName = "R_Representacion_Fisica_CFDi33"
+        If Trim(sReportName <> Nothing) Then
+            Application.Session("ReportName") = sReportName
+            Application.Session("DocumentCached") = Nothing
+            Application.Session("Modulo") = "DocumentViewer.aspx"
+            Dim Asp As New Mostrar_Asp()
+            Asp.Actualizar()
+            Asp.Show()
+        End If
+
     End Sub
 
     Private Sub DGV_Busqueda_RowExpanded(sender As Object, e As DataGridViewRowEventArgs) Handles DGV_Busqueda.RowExpanded
@@ -108,6 +133,13 @@ Public Class Cat_Busqueda_Facturas
         End Try
         Return BSPagos
     End Function
+
+    Private Sub cFecha1_ValueChanged(sender As Object, e As EventArgs) Handles cFecha1.ValueChanged, cFecha2.ValueChanged
+        If ME_CARGADO = True Then
+            Cargar()
+        End If
+    End Sub
+
 
 
 End Class

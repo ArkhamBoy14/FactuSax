@@ -21,7 +21,8 @@ Partial Class Facturacion_Electronica_CFD_33
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar7 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
@@ -34,21 +35,18 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RibbonBarGroup3 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
         Me.RBBSalir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.SplitContainer1 = New Wisej.Web.SplitContainer()
-        Me.DataGridView1 = New Wisej.Web.DataGridView()
-        Me.cCHK = New Wisej.Web.DataGridViewCheckBoxColumn()
-        Me.cFolio = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.Descuento_Factura = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.Descuento = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.Estatus = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.cSaldo = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.cImporteTotal = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.cFolio_Movimiento = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.cUnitario = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.CheckBox1 = New Wisej.Web.CheckBox()
-        Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
-        Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1 = New FactuSax.DataSet_pFACTURACION_CAPTURA_EGRESOS()
+        Me.DGV_Receptor = New Wisej.Web.DataGridView()
+        Me.Column0 = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cCheckPadre = New Wisej.Web.DataGridViewCheckBoxColumn()
+        Me.colRFC = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colRazon_Social = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colRFCX = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colTIPO_PARENT = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colChecked = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.BS_Receptor = New Wisej.Web.BindingSource(Me.components)
+        Me.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO = New FactuSax.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO()
         Me.grpPersonalizado = New Wisej.Web.GroupBox()
+        Me.Chk_SaldoPendiente = New Wisej.Web.CheckBox()
         Me.Label2 = New Wisej.Web.Label()
         Me.CbxReceptor = New FactuSax.ComboWisax()
         Me.RB_Detallada = New Wisej.Web.RadioButton()
@@ -112,6 +110,22 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.CBSMoneda = New FactuSax.ComboWisax()
         Me.Label5 = New Wisej.Web.Label()
         Me.Label4 = New Wisej.Web.Label()
+        Me.DGV_Facturas = New Wisej.Web.DataGridView()
+        Me.cCHK = New Wisej.Web.DataGridViewCheckBoxColumn()
+        Me.cFolio = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.Descuento_Factura = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.Descuento = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colImporte_Total = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.Estatus = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cSaldo = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cImporteTotal = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cFolio_Movimiento = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cUnitario = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colTipo_Pago = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.CheckBox1 = New Wisej.Web.CheckBox()
+        Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
+        Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1 = New FactuSax.DataSet_pFACTURACION_CAPTURA_EGRESOS()
         Me.Label3 = New Wisej.Web.Label()
         Me.RDBManual = New Wisej.Web.RadioButton()
         Me.RDBSolicitrud = New Wisej.Web.RadioButton()
@@ -119,16 +133,17 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.ErrorProvider1 = New Wisej.Web.ErrorProvider(Me.components)
         Me.Label30 = New Wisej.Web.Label()
         Me.AspPageBox1 = New Wisej.Web.AspNetPanel()
+        Me.PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter = New FactuSax.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJOTableAdapters.pFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter()
         Me.PFACTURACION_CAPTURA_EGRESOSTableAdapter = New FactuSax.DataSet_pFACTURACION_CAPTURA_EGRESOSTableAdapters.pFACTURACION_CAPTURA_EGRESOSTableAdapter()
         Me.CBSTipoComprobante = New FactuSax.ComboWisax()
+        Me.colFecha1 = New Wisej.Web.DataGridViewDateTimePickerColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.DataGridView1.SuspendLayout()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGV_Receptor, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BS_Receptor, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpPersonalizado.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TPCONCEPTO.SuspendLayout()
@@ -142,6 +157,10 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DGV_Facturas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DGV_Facturas.SuspendLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -226,7 +245,7 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.DataGridView1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.DGV_Receptor)
         Me.SplitContainer1.Panel1.Controls.Add(Me.grpPersonalizado)
         '
         'SplitContainer1.Panel2
@@ -240,115 +259,83 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.SplitContainer1.SplitterDistance = 426
         Me.SplitContainer1.TabIndex = 7
         '
-        'DataGridView1
+        'DGV_Receptor
         '
-        Me.DataGridView1.AllowUserToResizeColumns = False
-        Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.cCHK, Me.cFolio, Me.DataGridViewTextBoxColumn3, Me.Descuento_Factura, Me.Descuento, Me.Estatus, Me.cSaldo, Me.cImporteTotal, Me.cFolio_Movimiento, Me.cUnitario})
-        Me.DataGridView1.Controls.Add(Me.CheckBox1)
-        Me.DataGridView1.DataSource = Me.BindingSource1
-        Me.DataGridView1.Dock = Wisej.Web.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 173)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(424, 592)
-        Me.DataGridView1.TabIndex = 0
+        Me.DGV_Receptor.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.Column0, Me.cCheckPadre, Me.colRFC, Me.colRazon_Social, Me.colRFCX, Me.colTIPO_PARENT, Me.colChecked})
+        Me.DGV_Receptor.DataSource = Me.BS_Receptor
+        Me.DGV_Receptor.Dock = Wisej.Web.DockStyle.Fill
+        Me.DGV_Receptor.Focusable = False
+        Me.DGV_Receptor.Location = New System.Drawing.Point(0, 173)
+        Me.DGV_Receptor.Name = "DGV_Receptor"
+        Me.DGV_Receptor.RowHeadersVisible = False
+        Me.DGV_Receptor.Size = New System.Drawing.Size(424, 592)
+        Me.DGV_Receptor.TabIndex = 3
         '
-        'cCHK
+        'Column0
         '
-        DataGridViewCellStyle3.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.NullValue = False
-        Me.cCHK.DefaultCellStyle = DataGridViewCellStyle3
-        Me.cCHK.HeaderText = "      "
-        Me.cCHK.Name = "cCHK"
-        Me.cCHK.Width = 35
+        Me.Column0.HeaderText = "  "
+        Me.Column0.Name = "Column0"
+        Me.Column0.Width = 35
         '
-        'cFolio
+        'cCheckPadre
         '
-        Me.cFolio.DataPropertyName = "Folio"
-        Me.cFolio.HeaderText = "Folio"
-        Me.cFolio.Name = "cFolio"
+        Me.cCheckPadre.HeaderText = "  "
+        Me.cCheckPadre.Name = "cCheckPadre"
+        Me.cCheckPadre.Width = 30
         '
-        'DataGridViewTextBoxColumn3
+        'colRFC
         '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = Wisej.Web.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Cve_Receptor"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Cliente"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Visible = False
+        Me.colRFC.AutoSizeMode = Wisej.Web.DataGridViewAutoSizeColumnMode.AllCells
+        Me.colRFC.DataPropertyName = "RFC"
+        Me.colRFC.HeaderText = "RFC"
+        Me.colRFC.Name = "colRFC"
+        Me.colRFC.ReadOnly = True
         '
-        'Descuento_Factura
+        'colRazon_Social
         '
-        Me.Descuento_Factura.DataPropertyName = "Descuento_Factura"
-        Me.Descuento_Factura.HeaderText = "Descuento"
-        Me.Descuento_Factura.Name = "Descuento_Factura"
-        Me.Descuento_Factura.ReadOnly = True
+        Me.colRazon_Social.AutoSizeMode = Wisej.Web.DataGridViewAutoSizeColumnMode.Fill
+        Me.colRazon_Social.DataPropertyName = "Razon_Social"
+        Me.colRazon_Social.HeaderText = "Razon_Social"
+        Me.colRazon_Social.Name = "colRazon_Social"
+        Me.colRazon_Social.ReadOnly = True
         '
-        'Descuento
+        'colRFCX
         '
-        Me.Descuento.DataPropertyName = "Descuento"
-        Me.Descuento.HeaderText = "Descuento"
-        Me.Descuento.Name = "Descuento"
-        Me.Descuento.ReadOnly = True
-        Me.Descuento.Visible = False
+        Me.colRFCX.DataPropertyName = "RFCX"
+        Me.colRFCX.HeaderText = "RFCX"
+        Me.colRFCX.Name = "colRFCX"
+        Me.colRFCX.ReadOnly = True
+        Me.colRFCX.Visible = False
         '
-        'Estatus
+        'colTIPO_PARENT
         '
-        Me.Estatus.DataPropertyName = "Estatus"
-        Me.Estatus.HeaderText = "Estatus"
-        Me.Estatus.Name = "Estatus"
+        Me.colTIPO_PARENT.DataPropertyName = "TIPO_PARENT"
+        Me.colTIPO_PARENT.HeaderText = "TIPO_PARENT"
+        Me.colTIPO_PARENT.Name = "colTIPO_PARENT"
+        Me.colTIPO_PARENT.ReadOnly = True
+        Me.colTIPO_PARENT.Visible = False
         '
-        'cSaldo
+        'colChecked
         '
-        Me.cSaldo.DataPropertyName = "saldo"
-        Me.cSaldo.HeaderText = "Saldo"
-        Me.cSaldo.Name = "cSaldo"
-        Me.cSaldo.ReadOnly = True
+        Me.colChecked.DataPropertyName = "Checked"
+        Me.colChecked.HeaderText = "Checked"
+        Me.colChecked.Name = "colChecked"
+        Me.colChecked.ReadOnly = True
+        Me.colChecked.Visible = False
         '
-        'cImporteTotal
+        'BS_Receptor
         '
-        Me.cImporteTotal.DataPropertyName = "IMPORTE"
-        Me.cImporteTotal.HeaderText = "Importe"
-        Me.cImporteTotal.Name = "cImporteTotal"
-        Me.cImporteTotal.ReadOnly = True
+        Me.BS_Receptor.DataMember = "pFACTURACION_RECEPTOR_PADRE_HIJO"
+        Me.BS_Receptor.DataSource = Me.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO
         '
-        'cFolio_Movimiento
+        'DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO
         '
-        Me.cFolio_Movimiento.DataPropertyName = "Folio_Movimiento"
-        Me.cFolio_Movimiento.HeaderText = "cFolio_Movimiento"
-        Me.cFolio_Movimiento.Name = "cFolio_Movimiento"
-        Me.cFolio_Movimiento.Visible = False
-        '
-        'cUnitario
-        '
-        Me.cUnitario.DataPropertyName = "Unitario"
-        Me.cUnitario.HeaderText = "Unitario"
-        Me.cUnitario.Name = "cUnitario"
-        Me.cUnitario.ReadOnly = True
-        Me.cUnitario.Visible = False
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.Location = New System.Drawing.Point(4, 3)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(30, 22)
-        Me.CheckBox1.TabIndex = 8
-        '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataMember = "pFACTURACION_CAPTURA_EGRESOS"
-        Me.BindingSource1.DataSource = Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1
-        '
-        'DataSet_pFACTURACION_CAPTURA_EGRESOS1
-        '
-        Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1.DataSetName = "DataSet_pFACTURACION_CAPTURA_EGRESOS"
-        Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1.EnforceConstraints = False
-        Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO.DataSetName = "DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO"
+        Me.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'grpPersonalizado
         '
+        Me.grpPersonalizado.Controls.Add(Me.Chk_SaldoPendiente)
         Me.grpPersonalizado.Controls.Add(Me.Label2)
         Me.grpPersonalizado.Controls.Add(Me.CbxReceptor)
         Me.grpPersonalizado.Controls.Add(Me.RB_Detallada)
@@ -365,6 +352,14 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.grpPersonalizado.Size = New System.Drawing.Size(424, 173)
         Me.grpPersonalizado.TabIndex = 2
         '
+        'Chk_SaldoPendiente
+        '
+        Me.Chk_SaldoPendiente.Location = New System.Drawing.Point(286, 115)
+        Me.Chk_SaldoPendiente.Name = "Chk_SaldoPendiente"
+        Me.Chk_SaldoPendiente.Size = New System.Drawing.Size(167, 22)
+        Me.Chk_SaldoPendiente.TabIndex = 10
+        Me.Chk_SaldoPendiente.Text = "Aplica Saldo Pendiente"
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -373,18 +368,20 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.Label2.Size = New System.Drawing.Size(57, 15)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Receptor"
+        Me.Label2.Visible = False
         '
         'CbxReceptor
         '
         Me.CbxReceptor.Location = New System.Drawing.Point(8, 78)
         Me.CbxReceptor.Name = "CbxReceptor"
         Me.CbxReceptor.TabIndex = 8
+        Me.CbxReceptor.Visible = False
         '
         'RB_Detallada
         '
         Me.RB_Detallada.Location = New System.Drawing.Point(145, 113)
         Me.RB_Detallada.Name = "RB_Detallada"
-        Me.RB_Detallada.Size = New System.Drawing.Size(133, 22)
+        Me.RB_Detallada.Size = New System.Drawing.Size(135, 22)
         Me.RB_Detallada.TabIndex = 7
         Me.RB_Detallada.Text = "Factura Detallada"
         '
@@ -393,7 +390,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RB_Sencilla.Checked = True
         Me.RB_Sencilla.Location = New System.Drawing.Point(5, 113)
         Me.RB_Sencilla.Name = "RB_Sencilla"
-        Me.RB_Sencilla.Size = New System.Drawing.Size(124, 22)
+        Me.RB_Sencilla.Size = New System.Drawing.Size(126, 22)
         Me.RB_Sencilla.TabIndex = 6
         Me.RB_Sencilla.TabStop = True
         Me.RB_Sencilla.Text = "Factura Sencilla"
@@ -495,16 +492,13 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         'cbClaveProdServ
         '
-        Me.cbClaveProdServ.FillWeight = 200.0!
-        Me.cbClaveProdServ.HeaderText = "ClaveProdServ"
+        Me.cbClaveProdServ.HeaderText = "Clave Servicio"
         Me.cbClaveProdServ.Name = "cbClaveProdServ"
-        Me.cbClaveProdServ.Width = 300
         '
         'cbClaveUnidad
         '
         Me.cbClaveUnidad.HeaderText = "Unidad"
         Me.cbClaveUnidad.Name = "cbClaveUnidad"
-        Me.cbClaveUnidad.Width = 70
         '
         'cDescripcion
         '
@@ -666,7 +660,7 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         Me.RbDescuentoAplicado.Location = New System.Drawing.Point(155, 21)
         Me.RbDescuentoAplicado.Name = "RbDescuentoAplicado"
-        Me.RbDescuentoAplicado.Size = New System.Drawing.Size(146, 22)
+        Me.RbDescuentoAplicado.Size = New System.Drawing.Size(148, 22)
         Me.RbDescuentoAplicado.TabIndex = 1
         Me.RbDescuentoAplicado.Text = "Descuento Aplicado"
         '
@@ -676,7 +670,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RbDescuentoVisible.Checked = True
         Me.RbDescuentoVisible.Location = New System.Drawing.Point(6, 21)
         Me.RbDescuentoVisible.Name = "RbDescuentoVisible"
-        Me.RbDescuentoVisible.Size = New System.Drawing.Size(135, 22)
+        Me.RbDescuentoVisible.Size = New System.Drawing.Size(137, 22)
         Me.RbDescuentoVisible.TabIndex = 0
         Me.RbDescuentoVisible.TabStop = True
         Me.RbDescuentoVisible.Text = "Descuento Visible"
@@ -697,7 +691,7 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox4)
         Me.SplitContainer2.Size = New System.Drawing.Size(1019, 94)
-        Me.SplitContainer2.SplitterDistance = 416
+        Me.SplitContainer2.SplitterDistance = 498
         Me.SplitContainer2.TabIndex = 1
         '
         'GroupBox3
@@ -707,7 +701,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.GroupBox3.Dock = Wisej.Web.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(414, 92)
+        Me.GroupBox3.Size = New System.Drawing.Size(496, 92)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.Text = "Emisor"
         '
@@ -717,12 +711,12 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.CBEmisor.Cursor = Wisej.Web.Cursors.Hand
         Me.CBEmisor.Location = New System.Drawing.Point(8, 19)
         Me.CBEmisor.Name = "CBEmisor"
-        Me.CBEmisor.Size = New System.Drawing.Size(360, 22)
+        Me.CBEmisor.Size = New System.Drawing.Size(431, 22)
         Me.CBEmisor.TabIndex = 0
         '
         'BTEm
         '
-        Me.BTEm.Location = New System.Drawing.Point(372, 17)
+        Me.BTEm.Location = New System.Drawing.Point(445, 17)
         Me.BTEm.Name = "BTEm"
         Me.BTEm.Size = New System.Drawing.Size(41, 23)
         Me.BTEm.TabIndex = 1
@@ -737,7 +731,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.GroupBox4.Dock = Wisej.Web.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(595, 92)
+        Me.GroupBox4.Size = New System.Drawing.Size(513, 92)
         Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.Text = "Receptor"
         '
@@ -747,7 +741,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.CBSReceptor.Cursor = Wisej.Web.Cursors.Hand
         Me.CBSReceptor.Location = New System.Drawing.Point(9, 19)
         Me.CBSReceptor.Name = "CBSReceptor"
-        Me.CBSReceptor.Size = New System.Drawing.Size(364, 22)
+        Me.CBSReceptor.Size = New System.Drawing.Size(431, 22)
         Me.CBSReceptor.TabIndex = 0
         '
         'CBSUsoCFDI
@@ -761,7 +755,7 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         'BTRec
         '
-        Me.BTRec.Location = New System.Drawing.Point(373, 17)
+        Me.BTRec.Location = New System.Drawing.Point(446, 17)
         Me.BTRec.Name = "BTRec"
         Me.BTRec.Size = New System.Drawing.Size(33, 23)
         Me.BTRec.TabIndex = 1
@@ -936,6 +930,148 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Forma de Pago"
         '
+        'DGV_Facturas
+        '
+        Me.DGV_Facturas.AllowUserToResizeColumns = False
+        Me.DGV_Facturas.AllowUserToResizeRows = False
+        Me.DGV_Facturas.AutoGenerateColumns = False
+        DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        Me.DGV_Facturas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DGV_Facturas.ColumnHeadersHeight = 20
+        Me.DGV_Facturas.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.cCHK, Me.cFolio, Me.DataGridViewTextBoxColumn3, Me.Descuento_Factura, Me.Descuento, Me.colImporte_Total, Me.Estatus, Me.cSaldo, Me.cImporteTotal, Me.cFolio_Movimiento, Me.cUnitario, Me.colTipo_Pago, Me.colFecha1})
+        Me.DGV_Facturas.Controls.Add(Me.CheckBox1)
+        Me.DGV_Facturas.DataSource = Me.BindingSource1
+        Me.DGV_Facturas.Location = New System.Drawing.Point(1078, 15)
+        Me.DGV_Facturas.Name = "DGV_Facturas"
+        Me.DGV_Facturas.RowHeadersVisible = False
+        Me.DGV_Facturas.RowHeadersWidth = 20
+        Me.DGV_Facturas.RowTemplate.Height = 20
+        Me.DGV_Facturas.Size = New System.Drawing.Size(298, 434)
+        Me.DGV_Facturas.TabIndex = 0
+        Me.DGV_Facturas.Visible = False
+        '
+        'cCHK
+        '
+        Me.cCHK.DataPropertyName = "Checked"
+        DataGridViewCellStyle2.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.NullValue = False
+        Me.cCHK.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cCHK.HeaderText = "      "
+        Me.cCHK.Name = "cCHK"
+        Me.cCHK.Width = 35
+        '
+        'cFolio
+        '
+        Me.cFolio.DataPropertyName = "Folio"
+        Me.cFolio.HeaderText = "Folio"
+        Me.cFolio.Name = "cFolio"
+        Me.cFolio.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = Wisej.Web.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Cve_Receptor"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Cliente"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn3.Visible = False
+        '
+        'Descuento_Factura
+        '
+        Me.Descuento_Factura.DataPropertyName = "Descuento_Factura"
+        Me.Descuento_Factura.HeaderText = "Descuento"
+        Me.Descuento_Factura.Name = "Descuento_Factura"
+        Me.Descuento_Factura.ReadOnly = True
+        Me.Descuento_Factura.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        '
+        'Descuento
+        '
+        Me.Descuento.DataPropertyName = "Descuento"
+        Me.Descuento.HeaderText = "Descuento"
+        Me.Descuento.Name = "Descuento"
+        Me.Descuento.ReadOnly = True
+        Me.Descuento.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        Me.Descuento.Visible = False
+        '
+        'colImporte_Total
+        '
+        Me.colImporte_Total.DataPropertyName = "Importe_Total"
+        Me.colImporte_Total.HeaderText = "Importe Total"
+        Me.colImporte_Total.Name = "colImporte_Total"
+        Me.colImporte_Total.ReadOnly = True
+        Me.colImporte_Total.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        '
+        'Estatus
+        '
+        Me.Estatus.DataPropertyName = "Estatus"
+        Me.Estatus.HeaderText = "Estatus"
+        Me.Estatus.Name = "Estatus"
+        Me.Estatus.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        Me.Estatus.Visible = False
+        '
+        'cSaldo
+        '
+        Me.cSaldo.DataPropertyName = "Saldo"
+        Me.cSaldo.HeaderText = "Saldo"
+        Me.cSaldo.Name = "cSaldo"
+        Me.cSaldo.ReadOnly = True
+        Me.cSaldo.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        '
+        'cImporteTotal
+        '
+        Me.cImporteTotal.DataPropertyName = "IMPORTE"
+        Me.cImporteTotal.HeaderText = "Importe"
+        Me.cImporteTotal.Name = "cImporteTotal"
+        Me.cImporteTotal.ReadOnly = True
+        Me.cImporteTotal.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        Me.cImporteTotal.Visible = False
+        '
+        'cFolio_Movimiento
+        '
+        Me.cFolio_Movimiento.DataPropertyName = "Folio_Movimiento"
+        Me.cFolio_Movimiento.HeaderText = "cFolio_Movimiento"
+        Me.cFolio_Movimiento.Name = "cFolio_Movimiento"
+        Me.cFolio_Movimiento.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        Me.cFolio_Movimiento.Visible = False
+        '
+        'cUnitario
+        '
+        Me.cUnitario.DataPropertyName = "Unitario"
+        Me.cUnitario.HeaderText = "Unitario"
+        Me.cUnitario.Name = "cUnitario"
+        Me.cUnitario.ReadOnly = True
+        Me.cUnitario.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        Me.cUnitario.Visible = False
+        '
+        'colTipo_Pago
+        '
+        Me.colTipo_Pago.DataPropertyName = "Tipo_Pago"
+        Me.colTipo_Pago.HeaderText = "Tipo de Pago"
+        Me.colTipo_Pago.Name = "colTipo_Pago"
+        Me.colTipo_Pago.ReadOnly = True
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.Location = New System.Drawing.Point(4, 3)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(32, 22)
+        Me.CheckBox1.TabIndex = 8
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataMember = "pFACTURACION_CAPTURA_EGRESOS"
+        Me.BindingSource1.DataSource = Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1
+        '
+        'DataSet_pFACTURACION_CAPTURA_EGRESOS1
+        '
+        Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1.DataSetName = "DataSet_pFACTURACION_CAPTURA_EGRESOS"
+        Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1.EnforceConstraints = False
+        Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -951,7 +1087,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RDBManual.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.RDBManual.Location = New System.Drawing.Point(3, 24)
         Me.RDBManual.Name = "RDBManual"
-        Me.RDBManual.Size = New System.Drawing.Size(81, 27)
+        Me.RDBManual.Size = New System.Drawing.Size(83, 27)
         Me.RDBManual.TabIndex = 9
         Me.RDBManual.Text = "Manual"
         '
@@ -961,7 +1097,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.RDBSolicitrud.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.RDBSolicitrud.Location = New System.Drawing.Point(92, 24)
         Me.RDBSolicitrud.Name = "RDBSolicitrud"
-        Me.RDBSolicitrud.Size = New System.Drawing.Size(90, 27)
+        Me.RDBSolicitrud.Size = New System.Drawing.Size(92, 27)
         Me.RDBSolicitrud.TabIndex = 9
         Me.RDBSolicitrud.TabStop = True
         Me.RDBSolicitrud.Text = "Solicitud"
@@ -997,6 +1133,10 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.AspPageBox1.Size = New System.Drawing.Size(10, 10)
         Me.AspPageBox1.TabIndex = 11
         '
+        'PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter
+        '
+        Me.PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter.ClearBeforeFill = True
+        '
         'PFACTURACION_CAPTURA_EGRESOSTableAdapter
         '
         Me.PFACTURACION_CAPTURA_EGRESOSTableAdapter.ClearBeforeFill = True
@@ -1012,9 +1152,17 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.CBSTipoComprobante.TabIndex = 2
         Me.CBSTipoComprobante.Visible = False
         '
+        'colFecha1
+        '
+        Me.colFecha1.DataPropertyName = "Fecha1"
+        Me.colFecha1.HeaderText = "Fecha1"
+        Me.colFecha1.Name = "colFecha1"
+        Me.colFecha1.Visible = False
+        '
         'Facturacion_Electronica_CFD_33
         '
         Me.ClientSize = New System.Drawing.Size(1453, 869)
+        Me.Controls.Add(Me.DGV_Facturas)
         Me.Controls.Add(Me.AspPageBox1)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Label3)
@@ -1027,11 +1175,9 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.DataGridView1.ResumeLayout(False)
-        Me.DataGridView1.PerformLayout()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV_Receptor, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BS_Receptor, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpPersonalizado.ResumeLayout(False)
         Me.grpPersonalizado.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
@@ -1051,6 +1197,11 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.GroupBox4.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DGV_Facturas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.DGV_Facturas.ResumeLayout(False)
+        Me.DGV_Facturas.PerformLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1075,7 +1226,7 @@ Partial Class Facturacion_Electronica_CFD_33
     Friend WithEvents CBSTipoComprobante As ComboWisax
     Friend WithEvents CBEmisor As ComboWisax
     Friend WithEvents CBSReceptor As ComboWisax
-    Friend WithEvents DataGridView1 As Wisej.Web.DataGridView
+    Friend WithEvents DGV_Facturas As Wisej.Web.DataGridView
     Friend WithEvents BTEm As Button
     Friend WithEvents CBSUsoCFDI As ComboWisax
     Friend WithEvents Label17 As Label
@@ -1137,8 +1288,6 @@ Partial Class Facturacion_Electronica_CFD_33
     Friend WithEvents DGVConceptos As DataGridView
     Friend WithEvents dgvEliminar As DataGridViewImageColumn
     Friend WithEvents cCantidad As DataGridViewTextBoxColumn
-    Friend WithEvents cbClaveProdServ As DataGridViewComboBoxColumn
-    Friend WithEvents cbClaveUnidad As DataGridViewComboBoxColumn
     Friend WithEvents cDescripcion As DataGridViewTextBoxColumn
     Friend WithEvents cValorUnitario As DataGridViewTextBoxColumn
     Friend WithEvents cImporte As DataGridViewTextBoxColumn
@@ -1158,4 +1307,21 @@ Partial Class Facturacion_Electronica_CFD_33
     Friend WithEvents Label21 As Label
     Friend WithEvents Label23 As Label
     Friend WithEvents Panel2 As GroupBox
+    Friend WithEvents DGV_Receptor As DataGridView
+    Public WithEvents Column0 As DataGridViewTextBoxColumn
+    Friend WithEvents DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO As DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO
+    Friend WithEvents PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter As DataSet_pFACTURACION_RECEPTOR_PADRE_HIJOTableAdapters.pFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter
+    Friend WithEvents BS_Receptor As BindingSource
+    Friend WithEvents colRFC As DataGridViewTextBoxColumn
+    Friend WithEvents colRazon_Social As DataGridViewTextBoxColumn
+    Friend WithEvents colRFCX As DataGridViewTextBoxColumn
+    Friend WithEvents colTIPO_PARENT As DataGridViewTextBoxColumn
+    Friend WithEvents cCheckPadre As DataGridViewCheckBoxColumn
+    Friend WithEvents Chk_SaldoPendiente As CheckBox
+    Friend WithEvents colChecked As DataGridViewTextBoxColumn
+    Friend WithEvents cbClaveProdServ As DataGridViewComboBoxColumn
+    Friend WithEvents cbClaveUnidad As DataGridViewComboBoxColumn
+    Friend WithEvents colImporte_Total As DataGridViewTextBoxColumn
+    Friend WithEvents colTipo_Pago As DataGridViewTextBoxColumn
+    Friend WithEvents colFecha1 As DataGridViewDateTimePickerColumn
 End Class

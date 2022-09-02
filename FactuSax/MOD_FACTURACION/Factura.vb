@@ -516,6 +516,8 @@ Public Class Factura
         Dim dt_folios As New DataTable
         ReDim Utilidades.ParametersX_Global(1)
         Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Folio_Movimiento", SPLIT(0))
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@AplicaSaldo", 1)
+
         dt_folios = Utilidades.llenar_dt("pFACTURACION_CAPTURA_EGRESOS", Utilidades.ParametersX_Global)
 
         For I As Integer = 0 To dt_folios.Rows.Count - 1

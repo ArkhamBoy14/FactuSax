@@ -110,25 +110,29 @@ Public Class Facturacion_Electronica_CFD_33
 
 
     Sub Consultar(Optional Cve_Cliente As String = "-99")
-        DTPFechaEmision.Value = Date.Now
-        MaskedTextBox2.Text = Format(Now, "HH:mm")
-        Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1.Clear()
 
-        Dim myDA = New SqlClient.SqlDataAdapter("dbo.pFACTURACION_CAPTURA_EGRESOS", Utilidades.sConexion)
+        Me.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO.Clear()
+        Dim myDA = New SqlClient.SqlDataAdapter("pFACTURACION_RECEPTOR_PADRE_HIJO", Utilidades.sConexion)
         myDA.SelectCommand.CommandType = CommandType.StoredProcedure
+        myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", CbxClientes.SelectedValue)
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha1", Format(Me.cFecha1.Value, "yyyyMMdd"))
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha2", Format(Me.cFecha2.Value, "yyyyMMdd"))
-        myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", Cve_Cliente)
-        myDA.SelectCommand.Parameters.AddWithValue("@Folio_Movimiento", "NA")
-
-        If CbxReceptor.SelectedIndex <> -1 Then
-            myDA.SelectCommand.Parameters.AddWithValue("@Cve_Receptor", CbxReceptor.SelectedValue)
-        End If
-
-
-        myDA.Fill(Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1.pFACTURACION_CAPTURA_EGRESOS)
+        myDA.SelectCommand.Parameters.AddWithValue("@AplicaSaldo", Chk_SaldoPendiente.Checked)
+        myDA.Fill(DataSet_pFACTURACION_RECEPTOR_PADRE_HIJO.pFACTURACION_RECEPTOR_PADRE_HIJO)
         myDA.Dispose()
+        CargarParent()
 
+        For i = 0 To DGV_Receptor.Rows.Count - 1
+            If DGV_Receptor.Item(colChecked.Index, i).Value = 0 Then
+                DGV_Receptor.Rows(i).Cells(cCheckPadre.Index).ReadOnly = True
+                DGV_Receptor.Rows(i).Cells(cCheckPadre.Index).ToolTipText = "No se puede seleccionar múltiple si hay saldo pendiente"
+
+            Else
+                DGV_Receptor.Rows(i).Cells(cCheckPadre.Index).ReadOnly = False
+
+
+            End If
+        Next
 
 
     End Sub
@@ -294,10 +298,50 @@ Public Class Facturacion_Electronica_CFD_33
             Alertas.NotificacionAdvertencia("Asigne una serie al cliente actual")
         End Try
     End Sub
+    Private Sub DataGridView1_CellClick(sender As Object, e As Integer)
+        Try
+            If e = 0 Then
+                Dim descuento As Double
+                Dim Abonos As Double
+                Dim DescuentoFactura As Double
+                Dim Saldos As Double
+
+                folios = ""
+                CveDocumento = ""
+                Abonos = 0
+                Saldos = 0
+
+                For i As Integer = 0 To sender.Rows.Count - 1
+                    If sender.Rows(i).Cells(0).Value = 1 Then
+
+                        folios += sender.Rows(i).Cells(1).Value & ","
+                        CveDocumento += CbxClientes.SelectedValue & ","
+                        Abonos += sender.Rows(i).Cells(cUnitario.Name).Value + 0
+                        descuento += sender.Rows(i).Cells("Descuento").Value + 0
+                        DescuentoFactura += sender.Rows(i).Cells(Me.Descuento_Factura.Name).Value + 0
+                        Saldos += sender.Rows(i).Cells(cSaldo.Name).Value
+                    End If
+                Next
+                If Saldos > 0 Then
+                    CBSMetodoPago.SelectedValue = "PPD"
+                    CBSMetodoPago.Enabled = False
+                Else
+                    CBSMetodoPago.Enabled = True
+
+                End If
+                If RB_Detallada.Checked = True Then
+                    conceptos(folios, CveDocumento, DescuentoFactura)
+                Else
+                    Sencilla(Abonos, CveDocumento, descuento)
+                End If
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
 
 
-
-    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_Facturas.CellClick
         Try
             If e.ColumnIndex = 0 Then
                 Dim descuento As Double
@@ -310,15 +354,15 @@ Public Class Facturacion_Electronica_CFD_33
                 Abonos = 0
                 Saldos = 0
 
-                For i As Integer = 0 To DataGridView1.Rows.Count - 1
-                    If DataGridView1.Rows(i).Cells(0).Value = True Then
+                For i As Integer = 0 To sender.Rows.Count - 1
+                    If sender.Rows(i).Cells(0).Value = 1 Then
 
-                        folios += DataGridView1.Rows(i).Cells(1).Value & ","
+                        folios += sender.Rows(i).Cells(1).Value & ","
                         CveDocumento += CbxClientes.SelectedValue & ","
-                        Abonos += DataGridView1.Rows(i).Cells(cUnitario.Name).Value + 0
-                        descuento += DataGridView1.Rows(i).Cells("Descuento").Value + 0
-                        DescuentoFactura += DataGridView1.Rows(i).Cells(Me.Descuento_Factura.Name).Value + 0
-                        Saldos += DataGridView1.Rows(i).Cells(cSaldo).Value
+                        Abonos += sender.Rows(i).Cells(cUnitario.Name).Value + 0
+                        descuento += sender.Rows(i).Cells("Descuento").Value + 0
+                        DescuentoFactura += sender.Rows(i).Cells(Me.Descuento_Factura.Name).Value + 0
+                        Saldos += sender.Rows(i).Cells(cSaldo.Name).Value
                     End If
                 Next
                 If Saldos > 0 Then
@@ -397,14 +441,30 @@ Public Class Facturacion_Electronica_CFD_33
             Dim respuesta As String = FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura,,, ME_FOLIO_FACTURAS)
             If respuesta <> Nothing Then
                 Dim UUID As String = respuesta
+                'ReDim Utilidades.ParametersX_Global(3)
+                'Utilidades.ParametersX_Global(0) = New SqlParameter("@Folio", folio)
+                'Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", "FACTURADO")
+                ''Utilidades.ParametersX_Global(2) = New SqlParameter("@Cve_Receptor", folio)
+                'Utilidades.ParametersX_Global(2) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+                'Dim fACTUR = Utilidades.EjecutarProcedure_Id("pFACTURACION_G", "@PARAMETRO", Utilidades.ParametersX_Global)
 
-                For Each fila As DataGridViewRow In DataGridView1.Rows
-                    If CbxClientes.ObtenerDescripcion("Sistema") = "iSISLAB" Then
-                        Dim Insertar As New WebService_InsercionSISLAB.Actualizar_Estatus()
-                        If fila.Cells(0).Value = True Then
-                            Insertar.Actualizar(fila.Cells(cFolio.Name).Value, UUID, "TIMBRADA", CBSReceptor.SelectedValue, fila.Cells(cFolio_Movimiento.Name).Value, Now())
-                        End If
+
+                For Each fila As DataGridViewRow In DGV_Receptor.Rows
+
+                    Dim ControlGrilla As DataGridView = fila.Cells(0).Control
+                    If ControlGrilla IsNot Nothing Then
+                        For Each filaHijo As DataGridViewRow In ControlGrilla.Rows
+                            If CbxClientes.ObtenerDescripcion("Sistema") = "iSISLAB" Then
+                                Dim Insertar As New WebService_InsercionSISLAB.Actualizar_Estatus()
+                                If filaHijo.Cells(0).Value = 1 Then
+                                    Insertar.Actualizar(filaHijo.Cells(cFolio.Name).Value, UUID, "TIMBRADA", CBSReceptor.SelectedValue, filaHijo.Cells(cFolio_Movimiento.Name).Value, Now())
+                                End If
+                            End If
+                        Next
+
                     End If
+
+
                 Next
 
                 Application.Session("DocumentCached") = Nothing
@@ -417,7 +477,11 @@ Public Class Facturacion_Electronica_CFD_33
             'End If
 
         End If
-
+        If CbxClientes.SelectedIndex <> -1 Then
+            Consultar(CbxClientes.SelectedValue)
+        Else
+            Consultar()
+        End If
 
         'FACTURA.factura_html(TBSerie.Text, TBFolio.Text, CBEmisor.SelectedValue)
     End Sub
@@ -500,9 +564,9 @@ Public Class Facturacion_Electronica_CFD_33
             ErrorProvider1.SetError(CBSReceptor, "")
         End If
 
-        For I As Integer = 0 To DataGridView1.Rows.Count - 1
-            If DataGridView1.Rows(I).Cells(0).Value = True Then
-                If DataGridView1.Rows(I).Cells("Descuento").Value = 0 Then
+        For I As Integer = 0 To DGV_Facturas.Rows.Count - 1
+            If DGV_Facturas.Rows(I).Cells(0).Value = True Then
+                If DGV_Facturas.Rows(I).Cells("Descuento").Value = 0 Then
                     descuentoacero = True
                     Exit For
                 End If
@@ -510,10 +574,10 @@ Public Class Facturacion_Electronica_CFD_33
 
 
         Next
-        For I As Integer = 0 To DataGridView1.Rows.Count - 1
+        For I As Integer = 0 To DGV_Facturas.Rows.Count - 1
             If descuentoacero = True Then
-                If DataGridView1.Rows(I).Cells(0).Value = True Then
-                    If DataGridView1.Rows(I).Cells("Descuento").Value <> 0 Then
+                If DGV_Facturas.Rows(I).Cells(0).Value = True Then
+                    If DGV_Facturas.Rows(I).Cells("Descuento").Value <> 0 Then
                         MessageBox.Show("No se puede facturar folios Con Descuento y Sin Descuento Junto" & vbCrLf & "Favor de Verificar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Return False
                     End If
@@ -535,10 +599,10 @@ Public Class Facturacion_Electronica_CFD_33
         Application.Session("FacturaContrasena") = CbxClientes.ObtenerDescripcion("ContrasenaFact")
         Application.Session("Cve_Cliente") = CbxClientes.ObtenerDescripcion("Cve_Cliente")
         CargarRetenciones()
-        CbxReceptor.SelectedIndex = -1
+        'CbxReceptor.SelectedIndex = -1
         ReDim Utilidades.ParametersX_Global(0)
         Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Cliente", CbxClientes.ObtenerDescripcion("Cve_Cliente"))
-        CbxReceptor.LlenarListBox("pFACTURACION_RECEPTOR", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
+        'CbxReceptor.LlenarListBox("pFACTURACION_RECEPTOR", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
         Consultar(CbxClientes.SelectedValue)
         limpiar(False)
         serie()
@@ -598,10 +662,7 @@ Public Class Facturacion_Electronica_CFD_33
     End Sub
 
     Private Sub RB_Sencilla_CheckedChanged(sender As Object, e As EventArgs) Handles RB_Sencilla.CheckedChanged
-        For Each fila As DataGridViewRow In DataGridView1.Rows
-            fila.Cells(0).Value = False
-        Next
-        DGVConceptos.Rows.Clear()
+
     End Sub
 
     Private Sub CBSUsoCFDI_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBSReceptor.SelectedIndexChanged
@@ -624,17 +685,31 @@ Public Class Facturacion_Electronica_CFD_33
 
     Private Sub CheckBox1_CheckedChanged_1(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then
-            For Each fila As DataGridViewRow In DataGridView1.Rows
+            For Each fila As DataGridViewRow In DGV_Facturas.Rows
                 fila.Cells(0).Value = True
             Next
             CalcularMasivo()
         Else
-            For Each fila As DataGridViewRow In DataGridView1.Rows
+            For Each fila As DataGridViewRow In DGV_Facturas.Rows
                 fila.Cells(0).Value = False
             Next
             DGVConceptos.Rows.Clear()
         End If
     End Sub
+
+    Private Sub DGV_Receptor_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_Receptor.CellClick
+        If e.RowIndex <> -1 Then
+            CBSReceptor.SelectedValue = DGV_Receptor.Item(colRFC.Index, e.RowIndex).Value
+            If e.ColumnIndex = cCheckPadre.Index Then
+                DGV_Receptor.Rows(e.RowIndex).Expand()
+            End If
+        End If
+    End Sub
+
+    Sub CheckDatos()
+
+    End Sub
+
 
     Sub CalcularMasivo()
         Try
@@ -646,13 +721,13 @@ Public Class Facturacion_Electronica_CFD_33
             CveDocumento = ""
             Abonos = 0
 
-            For i As Integer = 0 To DataGridView1.Rows.Count - 1
-                If DataGridView1.Rows(i).Cells(0).Value = True Then
-                    folios += DataGridView1.Rows(i).Cells(1).Value & ","
+            For i As Integer = 0 To DGV_Facturas.Rows.Count - 1
+                If DGV_Facturas.Rows(i).Cells(0).Value = True Then
+                    folios += DGV_Facturas.Rows(i).Cells(1).Value & ","
                     CveDocumento += CbxClientes.SelectedValue & ","
-                    Abonos += DataGridView1.Rows(i).Cells(cUnitario.Name).Value + 0
-                    descuento += DataGridView1.Rows(i).Cells(Descuento_Factura.Name).Value + 0
-                    DescuentoFactura += DataGridView1.Rows(i).Cells(Me.Descuento_Factura.Name).Value + 0
+                    Abonos += DGV_Facturas.Rows(i).Cells(cUnitario.Name).Value + 0
+                    descuento += DGV_Facturas.Rows(i).Cells(Descuento_Factura.Name).Value + 0
+                    DescuentoFactura += DGV_Facturas.Rows(i).Cells(Me.Descuento_Factura.Name).Value + 0
                 End If
             Next
             If RB_Detallada.Checked = True Then
@@ -664,6 +739,7 @@ Public Class Facturacion_Electronica_CFD_33
 
         End Try
     End Sub
+
 
     Private Sub cFecha1_ValueChanged(sender As Object, e As EventArgs) Handles cFecha1.ValueChanged
         If CbxClientes.SelectedIndex <> -1 Then
@@ -681,19 +757,19 @@ Public Class Facturacion_Electronica_CFD_33
         End If
     End Sub
 
-    Private Sub CbxReceptor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxReceptor.SelectedIndexChanged
-        If CbxClientes.SelectedIndex <> -1 Then
-            Consultar(CbxClientes.SelectedValue)
-        Else
-            Consultar()
-        End If
-        If CbxReceptor.ObtenerDescripcion("RFC") <> "" Then
-            CBSReceptor.SelectedValue = CbxReceptor.ObtenerDescripcion("RFC")
-        End If
-    End Sub
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs)
-        'CalcularMasivo()
-    End Sub
+    'Private Sub CbxReceptor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxReceptor.SelectedIndexChanged
+    '    If CbxClientes.SelectedIndex <> -1 Then
+    '        Consultar(CbxClientes.SelectedValue)
+    '    Else
+    '        Consultar()
+    '    End If
+    '    If CbxReceptor.ObtenerDescripcion("RFC") <> "" Then
+    '        CBSReceptor.SelectedValue = CbxReceptor.ObtenerDescripcion("RFC")
+    '    End If
+    'End Sub
+    'Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs)
+    '    'CalcularMasivo()
+    'End Sub
 
     Sub PREDETERMINADOS()
 
@@ -872,6 +948,95 @@ Public Class Facturacion_Electronica_CFD_33
         TBTotal.Text = FormatCurrency(total)
     End Sub
 
+    Sub CargarParent()
+        Try
+            If DGV_Receptor.Rows.Count > 0 Then
+                For i = 0 To DGV_Receptor.Rows.Count - 1
+                    If DGV_Receptor.Item("colTIPO_PARENT", i).Value = "HIJO" Then
+                        DGV_Receptor.Rows(i).ParentRow = DGV_Receptor.Rows(i - 1)
+                        DGV_Receptor.Rows(i)(0).Style.ColSpan = DGV_Receptor.Columns.GetColumnCount(DataGridViewElementStates.None) - 1
+                        DGV_Receptor.Rows(i - 1).Collapse()
+
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub DGV_Receptor_RowExpanded(sender As Object, e As DataGridViewRowEventArgs) Handles DGV_Receptor.RowExpanded
+
+
+        If DGV_Receptor.Rows(e.RowIndex + 1).Cells(0).Control Is Nothing Then
+            Dim miGrilla As DataGridView
+            miGrilla = Utilidades.ClonarDGV(DGV_Facturas)
+            miGrilla.DataSource = CargarPagosRelacionados(DGV_Receptor.Item("colRFC", e.RowIndex).Value)
+            miGrilla.Visible = True
+            miGrilla.AutoGenerateColumns = False
+            DGV_Receptor.Rows(e.RowIndex + 1).Cells(0).Style.Padding = New Padding(30, 1, 0, 0)
+            DGV_Receptor.Rows(e.RowIndex + 1).Cells(0).Control = miGrilla
+            miGrilla.Dock = Dock.Fill
+            AddHandler miGrilla.CellClick, AddressOf DataGridView1_CellClick
+            miGrilla.ScrollBars = ScrollBars.Horizontal
+            Dim minH As Integer = (20 * (miGrilla.Rows.Count)) + 20 + 30
+            minH = IIf(minH > 280, 280, minH)
+            miGrilla.MinimumSize = New Drawing.Size(1020, minH)
+            DGV_Receptor.Rows(e.RowIndex + 1).MinimumHeight = minH
+            DGV_Receptor.Rows(e.RowIndex + 1).ReadOnly = False
+            miGrilla.Columns(cCHK.Index).Width = 35
+        End If
+
+        Dim ControlGrilla As DataGridView = DGV_Receptor.Rows(e.RowIndex + 1).Cells(0).Control
+        If ControlGrilla IsNot Nothing Then
+            If DGV_Receptor.Item(cCheckPadre.Index, e.RowIndex).Value Then
+                For i = 0 To ControlGrilla.Rows.Count - 1
+                    ControlGrilla.Item(cCHK.Index, i).Value = 1
+                    DataGridView1_CellClick(ControlGrilla, 0)
+                Next
+            Else
+                For i = 0 To ControlGrilla.Rows.Count - 1
+                    ControlGrilla.Item(cCHK.Index, i).Value = 0
+                    DataGridView1_CellClick(ControlGrilla, 0)
+                Next
+            End If
+        End If
+
+
+    End Sub
+
+    Private Function CargarPagosRelacionados(ByVal RFC As String)
+        Dim DataSetFacturas = New DataSet_pFACTURACION_CAPTURA_EGRESOS
+        Dim BSFacturas As New BindingSource
+        DataSetFacturas.EnforceConstraints = False
+
+        Try
+            Dim myDA = New SqlClient.SqlDataAdapter("dbo.pFACTURACION_CAPTURA_EGRESOS", Utilidades.sConexion)
+            myDA.SelectCommand.CommandType = CommandType.StoredProcedure
+            myDA.SelectCommand.Parameters.AddWithValue("@Fecha1", Format(Me.cFecha1.Value, "yyyyMMdd"))
+            myDA.SelectCommand.Parameters.AddWithValue("@Fecha2", Format(Me.cFecha2.Value, "yyyyMMdd"))
+            myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", CbxClientes.SelectedValue)
+            myDA.SelectCommand.Parameters.AddWithValue("@Folio_Movimiento", "NA")
+            myDA.SelectCommand.Parameters.AddWithValue("@AplicaSaldo", Chk_SaldoPendiente.Checked)
+            'If CbxReceptor.SelectedIndex <> -1 Then
+            myDA.SelectCommand.Parameters.AddWithValue("@RFC", RFC)
+            'End If
+            myDA.Fill(DataSetFacturas.Tables(0))
+            myDA.Dispose()
+            BSFacturas.DataSource = DataSetFacturas
+            BSFacturas.DataMember = DataSetFacturas.Tables(0).TableName
+        Catch ex As Exception
+
+        End Try
+        Return BSFacturas
+    End Function
+    Private Sub Chk_SaldoPendiente_CheckedChanged(sender As Object, e As EventArgs) Handles Chk_SaldoPendiente.CheckedChanged
+        If CbxClientes.SelectedIndex <> -1 Then
+            Consultar(CbxClientes.SelectedValue)
+        Else
+            Consultar()
+        End If
+    End Sub
 
 
 End Class

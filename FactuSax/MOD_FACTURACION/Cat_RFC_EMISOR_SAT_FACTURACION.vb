@@ -46,7 +46,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         End If
 
         If ME_EMPRESA = True Then
-            Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Operador", Application.Session("Cve_Operador"))
+            Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Cliente", Application.Session("Cve_Cliente"))
             CbxReceptor.LlenarListBox("pFACTURACION_EMPRESA", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
         Else
             CbxReceptor.LlenarListBox("pFACTURACION_RECEPTOR", "Cve_Receptor", "ReceptorX")
@@ -440,8 +440,8 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
                 Utilidades.ParametersX_Global(16) = New SqlClient.SqlParameter("@default", 1)
 
             Else
-                Utilidades.ParametersX_Global(12) = New SqlClient.SqlParameter("@Cve_Receptor", CbxReceptor.SelectedValue)
-                Utilidades.ParametersX_Global(13) = New SqlClient.SqlParameter("@Receptor_Descripcion", CbxReceptor.ObtenerDescripcion("Recptor_Descripcion"))
+                'Utilidades.ParametersX_Global(12) = New SqlClient.SqlParameter("@Cve_Receptor", CbxReceptor.SelectedValue)
+                'Utilidades.ParametersX_Global(13) = New SqlClient.SqlParameter("@Receptor_Descripcion", CbxReceptor.ObtenerDescripcion("Recptor_Descripcion"))
 
             End If
 
@@ -546,12 +546,12 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
                 End If
 
 
-            ElseIf TypeOf item Is ComboWisax Then
-                If item.SelectedINDEX = -1 Then
-                    ErrorProvider1.SetError(item, "Dato Requerido")
-                    Verificar = False
-                    Exit Function
-                End If
+                'ElseIf TypeOf item Is ComboWisax Then
+                '    If item.SelectedINDEX = -1 Then
+                '        ErrorProvider1.SetError(item, "Dato Requerido")
+                '        Verificar = False
+                '        Exit Function
+                '    End If
             End If
 
         Next

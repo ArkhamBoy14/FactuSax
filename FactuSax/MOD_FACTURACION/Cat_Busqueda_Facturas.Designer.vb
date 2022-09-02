@@ -27,7 +27,6 @@ Partial Class Cat_Busqueda_Facturas
         Me.Panel1 = New Wisej.Web.Panel()
         Me.cFecha2 = New Wisej.Web.DateTimePicker()
         Me.Label19 = New Wisej.Web.Label()
-        Me.CbxCliente = New FactuSax.ComboWisax()
         Me.Label1 = New Wisej.Web.Label()
         Me.cFecha1 = New Wisej.Web.DateTimePicker()
         Me.Label18 = New Wisej.Web.Label()
@@ -35,6 +34,7 @@ Partial Class Cat_Busqueda_Facturas
         Me.DGV_Busqueda = New Wisej.Web.DataGridView()
         Me.DGV_Parent = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.cPDF = New Wisej.Web.DataGridViewImageColumn()
+        Me.cXML = New Wisej.Web.DataGridViewImageColumn()
         Me.colFOLIO = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colUUID = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colFECHA = New Wisej.Web.DataGridViewTextBoxColumn()
@@ -50,6 +50,8 @@ Partial Class Cat_Busqueda_Facturas
         Me.RBBBuscar = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBSalir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.DGV_Pagos = New Wisej.Web.DataGridView()
+        Me.colPDF = New Wisej.Web.DataGridViewImageColumn()
+        Me.colXML = New Wisej.Web.DataGridViewImageColumn()
         Me.colUUID_1 = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colSERIE = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colFOLIO_1 = New Wisej.Web.DataGridViewTextBoxColumn()
@@ -60,6 +62,7 @@ Partial Class Cat_Busqueda_Facturas
         Me.colSALDO_ANTERIOR = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colSALDO_INSOLUTO = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.PFACTURA_SAT_CFDI_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_BTableAdapters.pFACTURA_SAT_CFDI_BTableAdapter()
+        Me.CbxCliente = New FactuSax.ComboWisax()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -85,8 +88,8 @@ Partial Class Cat_Busqueda_Facturas
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(960, 497)
-        Me.SplitContainer1.SplitterDistance = 227
+        Me.SplitContainer1.Size = New System.Drawing.Size(912, 473)
+        Me.SplitContainer1.SplitterDistance = 200
         Me.SplitContainer1.TabIndex = 0
         '
         'Panel1
@@ -100,8 +103,9 @@ Partial Class Cat_Busqueda_Facturas
         Me.Panel1.Dock = Wisej.Web.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(225, 495)
+        Me.Panel1.Size = New System.Drawing.Size(198, 471)
         Me.Panel1.TabIndex = 7
+        Me.Panel1.TabStop = True
         '
         'cFecha2
         '
@@ -121,13 +125,6 @@ Partial Class Cat_Busqueda_Facturas
         Me.Label19.Size = New System.Drawing.Size(23, 15)
         Me.Label19.TabIndex = 6
         Me.Label19.Text = "Fin"
-        '
-        'CbxCliente
-        '
-        Me.CbxCliente.Location = New System.Drawing.Point(3, 53)
-        Me.CbxCliente.Name = "CbxCliente"
-        Me.CbxCliente.Size = New System.Drawing.Size(213, 22)
-        Me.CbxCliente.TabIndex = 1
         '
         'Label1
         '
@@ -163,19 +160,20 @@ Partial Class Cat_Busqueda_Facturas
         Me.Panel2.Dock = Wisej.Web.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(725, 495)
+        Me.Panel2.Size = New System.Drawing.Size(704, 471)
         Me.Panel2.TabIndex = 0
+        Me.Panel2.TabStop = True
         '
         'DGV_Busqueda
         '
         Me.DGV_Busqueda.AutoGenerateColumns = False
-        Me.DGV_Busqueda.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.DGV_Parent, Me.cPDF, Me.colFOLIO, Me.colUUID, Me.colFECHA, Me.colCONDICIONESPAGO, Me.colParent, Me.cNombre_Archivo, Me.cMetodoPago})
+        Me.DGV_Busqueda.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.DGV_Parent, Me.cPDF, Me.cXML, Me.colFOLIO, Me.colUUID, Me.colFECHA, Me.colCONDICIONESPAGO, Me.colParent, Me.cNombre_Archivo, Me.cMetodoPago})
         Me.DGV_Busqueda.DataSource = Me.BS_CFDI
         Me.DGV_Busqueda.Dock = Wisej.Web.DockStyle.Fill
         Me.DGV_Busqueda.Location = New System.Drawing.Point(0, 0)
         Me.DGV_Busqueda.Name = "DGV_Busqueda"
         Me.DGV_Busqueda.RowHeadersVisible = False
-        Me.DGV_Busqueda.Size = New System.Drawing.Size(725, 495)
+        Me.DGV_Busqueda.Size = New System.Drawing.Size(704, 471)
         Me.DGV_Busqueda.TabIndex = 0
         '
         'DGV_Parent
@@ -183,15 +181,23 @@ Partial Class Cat_Busqueda_Facturas
         Me.DGV_Parent.HeaderText = "  "
         Me.DGV_Parent.Name = "DGV_Parent"
         Me.DGV_Parent.ReadOnly = True
-        Me.DGV_Parent.Width = 50
+        Me.DGV_Parent.Width = 30
         '
         'cPDF
         '
-        Me.cPDF.CellImage = Global.FactuSax.My.Resources.Resources.pdf
+        Me.cPDF.CellImage = Global.FactuSax.My.Resources.Resources.pdf1
         Me.cPDF.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
         Me.cPDF.HeaderText = "   "
         Me.cPDF.Name = "cPDF"
         Me.cPDF.Width = 35
+        '
+        'cXML
+        '
+        Me.cXML.CellImage = Global.FactuSax.My.Resources.Resources.xml1
+        Me.cXML.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
+        Me.cXML.HeaderText = " "
+        Me.cXML.Name = "cXML"
+        Me.cXML.Width = 35
         '
         'colFOLIO
         '
@@ -259,7 +265,7 @@ Partial Class Cat_Busqueda_Facturas
         '
         Me.RibbonBar1.Name = "RibbonBar1"
         Me.RibbonBar1.Pages.Add(Me.RibbonBarPage1)
-        Me.RibbonBar1.Size = New System.Drawing.Size(960, 110)
+        Me.RibbonBar1.Size = New System.Drawing.Size(912, 110)
         '
         'RibbonBarPage1
         '
@@ -295,14 +301,31 @@ Partial Class Cat_Busqueda_Facturas
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0)
         DataGridViewCellStyle1.WrapMode = Wisej.Web.DataGridViewTriState.[True]
         Me.DGV_Pagos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DGV_Pagos.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.colUUID_1, Me.colSERIE, Me.colFOLIO_1, Me.colMONEDA, Me.colMETODOPAGO, Me.colPARCIALIDAD, Me.colIMPORTE_PAGADO, Me.colSALDO_ANTERIOR, Me.colSALDO_INSOLUTO})
-        Me.DGV_Pagos.Location = New System.Drawing.Point(320, 36)
+        Me.DGV_Pagos.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.colPDF, Me.colXML, Me.colUUID_1, Me.colSERIE, Me.colFOLIO_1, Me.colMONEDA, Me.colMETODOPAGO, Me.colPARCIALIDAD, Me.colIMPORTE_PAGADO, Me.colSALDO_ANTERIOR, Me.colSALDO_INSOLUTO})
+        Me.DGV_Pagos.Location = New System.Drawing.Point(295, 43)
         Me.DGV_Pagos.Name = "DGV_Pagos"
         Me.DGV_Pagos.RowHeadersVisible = False
         Me.DGV_Pagos.RowTemplate.Height = 20
+        Me.DGV_Pagos.ShowColumnVisibilityMenu = False
         Me.DGV_Pagos.Size = New System.Drawing.Size(616, 49)
         Me.DGV_Pagos.TabIndex = 0
         Me.DGV_Pagos.Visible = False
+        '
+        'colPDF
+        '
+        Me.colPDF.CellImage = Global.FactuSax.My.Resources.Resources.pdf1
+        Me.colPDF.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
+        Me.colPDF.HeaderText = " "
+        Me.colPDF.Name = "colPDF"
+        Me.colPDF.Width = 35
+        '
+        'colXML
+        '
+        Me.colXML.CellImage = Global.FactuSax.My.Resources.Resources.xml1
+        Me.colXML.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
+        Me.colXML.HeaderText = " "
+        Me.colXML.Name = "colXML"
+        Me.colXML.Width = 35
         '
         'colUUID_1
         '
@@ -366,11 +389,18 @@ Partial Class Cat_Busqueda_Facturas
         '
         Me.PFACTURA_SAT_CFDI_BTableAdapter.ClearBeforeFill = True
         '
+        'CbxCliente
+        '
+        Me.CbxCliente.Location = New System.Drawing.Point(3, 53)
+        Me.CbxCliente.Name = "CbxCliente"
+        Me.CbxCliente.Size = New System.Drawing.Size(213, 22)
+        Me.CbxCliente.TabIndex = 1
+        '
         'Cat_Busqueda_Facturas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = Wisej.Web.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(960, 607)
+        Me.ClientSize = New System.Drawing.Size(924, 589)
         Me.Controls.Add(Me.DGV_Pagos)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.RibbonBar1)
@@ -429,4 +459,7 @@ Partial Class Cat_Busqueda_Facturas
     Friend WithEvents cPDF As DataGridViewImageColumn
     Friend WithEvents cNombre_Archivo As DataGridViewTextBoxColumn
     Friend WithEvents cMetodoPago As DataGridViewTextBoxColumn
+    Friend WithEvents cXML As DataGridViewImageColumn
+    Friend WithEvents colPDF As DataGridViewImageColumn
+    Friend WithEvents colXML As DataGridViewImageColumn
 End Class

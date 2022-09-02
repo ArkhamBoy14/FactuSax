@@ -35,7 +35,7 @@ Partial Class MyDesktop
         Me.RibbonBar1.Font = New System.Drawing.Font("default, Arial", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.RibbonBar1.Name = "RibbonBar1"
         Me.RibbonBar1.Pages.Add(Me.pgADMIN)
-        Me.RibbonBar1.Size = New System.Drawing.Size(1213, 123)
+        Me.RibbonBar1.Size = New System.Drawing.Size(1106, 123)
         '
         'pgADMIN
         '
@@ -91,7 +91,7 @@ Partial Class MyDesktop
         Me.AutoScaleMode = Wisej.Web.AutoScaleMode.Font
         Me.Controls.Add(Me.RibbonBar1)
         Me.Name = "MyDesktop"
-        Me.Size = New System.Drawing.Size(1213, 837)
+        Me.Size = New System.Drawing.Size(1106, 837)
         Me.ResumeLayout(False)
 
     End Sub

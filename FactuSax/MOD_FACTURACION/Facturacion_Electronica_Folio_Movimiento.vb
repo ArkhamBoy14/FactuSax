@@ -109,6 +109,9 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         Dim myDA = New SqlClient.SqlDataAdapter("pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO", Utilidades.sConexion)
         myDA.SelectCommand.CommandType = CommandType.StoredProcedure
         myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", Cve_Cliente)
+        If CbxReceptor.SelectedIndex <> -1 Then
+            myDA.SelectCommand.Parameters.AddWithValue("@Cve_Receptor", CbxReceptor.SelectedValue)
+        End If
         myDA.Fill(Me.DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO)
         myDA.Dispose()
 

@@ -16,6 +16,8 @@ Public Class Facturacion_REPS
         Me.WindowState = FormWindowState.Maximized
         cFecha1.Value = Now
         cFecha2.Value = Now
+        DTPFechaEmision.Value = Now()
+        DTPFechaPago.Value = Now()
 
 
         ReDim Utilidades.ParametersX_Global(1)
@@ -393,6 +395,12 @@ Public Class Facturacion_REPS
             valor = TBMonto.Text
         End If
     End Sub
+    Private Sub TBMonto_KeyDown(sender As Object, e As KeyEventArgs) Handles TBMonto.KeyDown
+        If e.KeyCode = Keys.Enter Then
+
+        End If
+    End Sub
+
 
     Private Sub CbxClientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxClientes.SelectedIndexChanged
         Application.Session("Facturauser") = CbxClientes.ObtenerDescripcion("FACTORUM_USER")
@@ -404,5 +412,9 @@ Public Class Facturacion_REPS
         CONSULTAR()
         limpiar()
         serieX()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
     End Sub
 End Class
