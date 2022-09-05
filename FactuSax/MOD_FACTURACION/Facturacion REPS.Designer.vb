@@ -22,7 +22,7 @@ Partial Class Facturacion_REPS
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar7 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
@@ -89,6 +89,7 @@ Partial Class Facturacion_REPS
         Me.Label17 = New Wisej.Web.Label()
         Me.BTRec = New Wisej.Web.Button()
         Me.Panel6 = New Wisej.Web.Panel()
+        Me.BtnAnexarPago = New Wisej.Web.Button()
         Me.RTBObservaciones = New Wisej.Web.TextBox()
         Me.Label1 = New Wisej.Web.Label()
         Me.MTBHoraPago = New Wisej.Web.MaskedTextBox()
@@ -109,7 +110,6 @@ Partial Class Facturacion_REPS
         Me.AspPageBox1 = New Wisej.Web.AspNetPanel()
         Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B1 = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_B()
         Me.PFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter()
-        Me.BtnAnexarPago = New Wisej.Web.Button()
         Me.CbxReceptor = New FactuSax.ComboWisax()
         Me.CbxClientes = New FactuSax.ComboWisax()
         Me.CBSBancoEmisor = New FactuSax.ComboWisax()
@@ -232,9 +232,9 @@ Partial Class Facturacion_REPS
         '
         'DataGridViewCheckBoxColumn1
         '
-        DataGridViewCellStyle2.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.NullValue = False
-        Me.DataGridViewCheckBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.NullValue = False
+        Me.DataGridViewCheckBoxColumn1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewCheckBoxColumn1.HeaderText = "     "
         Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
         Me.DataGridViewCheckBoxColumn1.Width = 30
@@ -759,6 +759,14 @@ Partial Class Facturacion_REPS
         Me.Panel6.TabIndex = 2
         Me.Panel6.TabStop = True
         '
+        'BtnAnexarPago
+        '
+        Me.BtnAnexarPago.Location = New System.Drawing.Point(248, 76)
+        Me.BtnAnexarPago.Name = "BtnAnexarPago"
+        Me.BtnAnexarPago.Size = New System.Drawing.Size(31, 27)
+        Me.BtnAnexarPago.TabIndex = 14
+        Me.BtnAnexarPago.Text = "+"
+        '
         'RTBObservaciones
         '
         Me.RTBObservaciones.AutoSize = False
@@ -817,7 +825,7 @@ Partial Class Facturacion_REPS
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(281, 84)
+        Me.Label8.Location = New System.Drawing.Point(285, 84)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(51, 15)
         Me.Label8.TabIndex = 3
@@ -927,14 +935,6 @@ Partial Class Facturacion_REPS
         '
         Me.PFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter.ClearBeforeFill = True
         '
-        'BtnAnexarPago
-        '
-        Me.BtnAnexarPago.Location = New System.Drawing.Point(248, 76)
-        Me.BtnAnexarPago.Name = "BtnAnexarPago"
-        Me.BtnAnexarPago.Size = New System.Drawing.Size(31, 27)
-        Me.BtnAnexarPago.TabIndex = 14
-        Me.BtnAnexarPago.Text = "+"
-        '
         'CbxReceptor
         '
         Me.CbxReceptor.Location = New System.Drawing.Point(9, 122)
@@ -989,7 +989,7 @@ Partial Class Facturacion_REPS
         '
         Me.CBSUsoCFDI.BackColor = System.Drawing.Color.Transparent
         Me.CBSUsoCFDI.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSUsoCFDI.Location = New System.Drawing.Point(62, 44)
+        Me.CBSUsoCFDI.Location = New System.Drawing.Point(67, 44)
         Me.CBSUsoCFDI.Name = "CBSUsoCFDI"
         Me.CBSUsoCFDI.Size = New System.Drawing.Size(311, 22)
         Me.CBSUsoCFDI.TabIndex = 4

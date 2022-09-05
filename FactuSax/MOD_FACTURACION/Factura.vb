@@ -611,6 +611,7 @@ Public Class Factura
         Dim pago As New PagosPago
         pago.MonedaP = pagos("Moneda")
         pago.FormaDePagoP = pagos("Forma_Pago")
+
         pago.Monto = pagos("Monto")
         pago.FechaPago = fechapago.ToString("yyyy-MM-ddTHH:mm:ss")
         If pagos("CtaBeneficiaro") <> Nothing Then

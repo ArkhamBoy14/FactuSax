@@ -9,6 +9,7 @@ Public Class Facturacion_REPS
     Dim SERIE As String
     Dim FOLIO As String
     Dim valor As String
+    Dim contador As Integer
     Private Sub Combosax2_Load(sender As Object, e As EventArgs) Handles Me.Load
         'serieX()
         TBMonto.Text = 0
@@ -35,7 +36,7 @@ Public Class Facturacion_REPS
         CbxClientes.SelectedIndex = 0
         CBSMoneda.SelectedValue = "MXN"
         CBSTipoComprobante.SelectedValue = "P"
-        CBSFormaPago.SelectedValue = "01"
+        'CBSFormaPago.SelectedValue = "01"
         CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
         SplitContainer1.Panel1MinSize = 340
         CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX")
@@ -167,13 +168,13 @@ Public Class Facturacion_REPS
             End If
         Next
         RTBObservaciones.Text = "COMPORBANTE DE PAGO DE LAS FACTURAS : " & FOLIOS
-        'ReDim Utilidades.ParametersX_Global(0)
-        'Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@UUID", FOLIOS)
-        'Dim DATATABLE_UUID As New DataTable
-        'DATATABLE_UUID = Utilidades.llenar_dt("[pFACTURA_SAT_CFDI_PAGOS_UUID_B]", Utilidades.ParametersX_Global)
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@UUID", FOLIOS)
+        Dim DATATABLE_UUID As New DataTable
+        DATATABLE_UUID = Utilidades.llenar_dt("[pFACTURA_SAT_CFDI_PAGOS_UUID_B]", Utilidades.ParametersX_Global)
 
 
-        'DGVConceptosUUID.DataSource = DATATABLE_UUID
+        DGVConceptosUUID.DataSource = DATATABLE_UUID
         'DGVConceptosUUID.DataMember = DATATABLE_UUID
 
     End Sub
@@ -183,7 +184,7 @@ Public Class Facturacion_REPS
         Dim fecha_factura As DateTime = New DateTime(DTPFechaEmision.Value.Year, DTPFechaEmision.Value.Month, DTPFechaEmision.Value.Day, splithora(0), splithora(1), "00")
         Dim splithorap As String() = MTBHoraPago.Text.Split(":")
         Dim FechaPago As DateTime = New DateTime(DTPFechaPago.Value.Year, DTPFechaPago.Value.Month, DTPFechaPago.Value.Day, splithorap(0), splithorap(1), "00")
-
+        Dim monto As Integer
         Dim cuerpo As New Dictionary(Of String, String)
         Dim pagos_fac As New Dictionary(Of String, String)
         Dim conceptos As New List(Of String)
@@ -223,7 +224,7 @@ Public Class Facturacion_REPS
 
         pagos_fac.Add("Forma_Pago", CBSFormaPago.SelectedValue)
         pagos_fac.Add("Moneda", CBSMoneda.SelectedValue)
-        pagos_fac.Add("Monto", TBMonto.Text)
+
 
         If gbbANCOS.Visible = True Then
             pagos_fac.Add("CtaBeneficiaro", TBCtabeneficiario.Text)
@@ -241,20 +242,21 @@ Public Class Facturacion_REPS
 
         Dim lista_concepto As New Dictionary(Of String, Dictionary(Of String, String))
         For i As Integer = 0 To DGVConceptosUUID.Rows.Count - 1
-            If IsDBNull(DGVConceptosUUID.Rows(i).Cells("UUID").Value) Then Exit For
+            If IsDBNull(DGVConceptosUUID.Rows(i).Cells(colUUID_1).Value) Then Exit For
+            monto += DGVConceptosUUID.Rows(i).Cells(colIMPORTE_PAGADO).Value
             Dim conceptosx As New Dictionary(Of String, String)
-            conceptosx.Add("UUUID", DGVConceptosUUID.Rows(i).Cells("UUID").Value)
-            conceptosx.Add("FOLIO", DGVConceptosUUID.Rows(i).Cells("FOLIO").Value)
-            conceptosx.Add("IMPORTE_PAGADO", DGVConceptosUUID.Rows(i).Cells("IMPORTE_PAGADO").Value)
-            conceptosx.Add("SALDO_ANTERIOR", DGVConceptosUUID.Rows(i).Cells("SALDO_ANTERIOR").Value)
-            conceptosx.Add("SALDO_INSOLUTO", DGVConceptosUUID.Rows(i).Cells("SALDO_INSOLUTO").Value)
-            conceptosx.Add("METODOPAGO", DGVConceptosUUID.Rows(i).Cells("METODOPAGO").Value)
-            conceptosx.Add("MONEDA", DGVConceptosUUID.Rows(i).Cells("MONEDA").Value)
-            conceptosx.Add("PARCIALIDAD", DGVConceptosUUID.Rows(i).Cells("PARCIALIDAD").Value)
-            conceptosx.Add("SERIE", DGVConceptosUUID.Rows(i).Cells("SERIE").Value)
-            lista_concepto.Add(DGVConceptosUUID.Rows(i).Cells("UUID").Value, conceptosx)
+            conceptosx.Add("UUUID", DGVConceptosUUID.Rows(i).Cells(colUUID_1).Value)
+            conceptosx.Add("FOLIO", DGVConceptosUUID.Rows(i).Cells(colFOLIO_1).Value)
+            conceptosx.Add("IMPORTE_PAGADO", DGVConceptosUUID.Rows(i).Cells(colIMPORTE_PAGADO).Value)
+            conceptosx.Add("SALDO_ANTERIOR", DGVConceptosUUID.Rows(i).Cells(colSALDO_ANTERIOR).Value)
+            conceptosx.Add("SALDO_INSOLUTO", DGVConceptosUUID.Rows(i).Cells(colSALDO_INSOLUTO).Value)
+            conceptosx.Add("METODOPAGO", DGVConceptosUUID.Rows(i).Cells(colMETODOPAGO).Value)
+            conceptosx.Add("MONEDA", DGVConceptosUUID.Rows(i).Cells(colMONEDA).Value)
+            conceptosx.Add("PARCIALIDAD", DGVConceptosUUID.Rows(i).Cells(colPARCIALIDAD).Value)
+            conceptosx.Add("SERIE", DGVConceptosUUID.Rows(i).Cells(colSERIE).Value)
+            lista_concepto.Add(DGVConceptosUUID.Rows(i).Cells(colPARCIALIDAD).Value, conceptosx)
         Next
-
+        pagos_fac.Add("Monto", monto)
         Dim FACTURAX As New Factura
 
         Dim respuesta = FACTURAX.factura_pagos_html(emisor, receptor, cuerpo, cer, llave, claveprivada, clave, fecha_factura, pagos_fac, lista_concepto, FechaPago, RTBObservaciones.Text)
@@ -272,6 +274,7 @@ Public Class Facturacion_REPS
             asp.Actualizar()
             asp.Show()
         End If
+        contador = 0
     End Sub
 
 
@@ -297,14 +300,14 @@ Public Class Facturacion_REPS
     Function verificar()
         Dim total As String
         For i As Integer = 0 To DGVConceptosUUID.Rows.Count - 1
-            If DGVConceptosUUID.Rows(0).Cells("IMPORTE_PAGADO").Value = 0 Then
+            If DGVConceptosUUID.Rows(0).Cells(colIMPORTE_PAGADO).Value = 0 Then
                 MessageBox.Show("El Importe pagado no puede ser 0")
                 Return False
             End If
 
         Next
         For i As Integer = 0 To DGVConceptosUUID.Rows.Count - 1
-            total += DGVConceptosUUID.Rows(0).Cells("SALDO_INSOLUTO").Value
+            total += DGVConceptosUUID.Rows(0).Cells(colSALDO_INSOLUTO).Value
 
         Next
         If total < 0 Then
@@ -349,9 +352,9 @@ Public Class Facturacion_REPS
     Private Sub DGVConceptosUUID_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DGVConceptosUUID.CellValueChanged
         If DGVConceptosUUID.Columns(colIMPORTE_PAGADO.Index).Index = e.ColumnIndex Then
             Try
-                DGVConceptosUUID.Rows(e.RowIndex + 1).Cells("IMPORTE_PAGADO").Value = valor - DGVConceptosUUID.Rows(e.RowIndex).Cells("IMPORTE_PAGADO").Value
-                valor = valor - DGVConceptosUUID.Rows(e.RowIndex).Cells("IMPORTE_PAGADO").Value
-                DGVConceptosUUID.Rows(e.RowIndex + 1).Cells("IMPORTE_PAGADO").Value = valor
+                DGVConceptosUUID.Rows(e.RowIndex + 1).Cells(colIMPORTE_PAGADO).Value = valor - DGVConceptosUUID.Rows(e.RowIndex).Cells(colIMPORTE_PAGADO).Value
+                valor = valor - DGVConceptosUUID.Rows(e.RowIndex).Cells(colIMPORTE_PAGADO).Value
+                DGVConceptosUUID.Rows(e.RowIndex + 1).Cells(colIMPORTE_PAGADO).Value = valor
             Catch ex As Exception
 
             End Try
@@ -380,32 +383,32 @@ Public Class Facturacion_REPS
     End Sub
 
     Private Sub s(sender As Object, e As EventArgs) Handles TBMonto.TextChanged
-        If DGVConceptosUUID.Rows.Count = 1 Then
+        'If DGVConceptosUUID.Rows.Count = 1 Then
 
-            If DGVConceptosUUID.Rows(0).Cells("SALDO_ANTERIOR").Value - TBMonto.Text < 0 Then
-                MessageBox.Show("El monto es mayor que el saldo adeudado")
-                RBBFactura.Enabled = False
-            Else
+        '    If DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text < 0 Then
+        '        MessageBox.Show("El monto es mayor que el saldo adeudado")
+        '        RBBFactura.Enabled = False
+        '    Else
 
-                DGVConceptosUUID.Rows(0).Cells("IMPORTE_PAGADO").Value = TBMonto.Text
-                DGVConceptosUUID.Rows(0).Cells("SALDO_INSOLUTO").Value = DGVConceptosUUID.Rows(0).Cells("SALDO_ANTERIOR").Value - TBMonto.Text
-                RBBFactura.Enabled = True
-            End If
-        Else
-            valor = TBMonto.Text
-        End If
+        '        DGVConceptosUUID.Rows(0).Cells(colIMPORTE_PAGADO).Value = TBMonto.Text
+        '        DGVConceptosUUID.Rows(0).Cells(colSALDO_INSOLUTO).Value = DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
+        '        RBBFactura.Enabled = True
+        '    End If
+        'Else
+        '    valor = TBMonto.Text
+        'End If
     End Sub
     Private Sub TBMonto_KeyDown(sender As Object, e As KeyEventArgs) Handles TBMonto.KeyDown
         If e.KeyCode = Keys.Enter Then
             If DGVConceptosUUID.Rows.Count = 1 Then
 
-                If DGVConceptosUUID.Rows(0).Cells("SALDO_ANTERIOR").Value - TBMonto.Text < 0 Then
+                If DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text < 0 Then
                     MessageBox.Show("El monto es mayor que el saldo adeudado")
                     RBBFactura.Enabled = False
                 Else
 
-                    DGVConceptosUUID.Rows(0).Cells("IMPORTE_PAGADO").Value = TBMonto.Text
-                    DGVConceptosUUID.Rows(0).Cells("SALDO_INSOLUTO").Value = DGVConceptosUUID.Rows(0).Cells("SALDO_ANTERIOR").Value - TBMonto.Text
+                    DGVConceptosUUID.Rows(0).Cells(colIMPORTE_PAGADO).Value = TBMonto.Text
+                    DGVConceptosUUID.Rows(0).Cells(colSALDO_INSOLUTO).Value = DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
                     RBBFactura.Enabled = True
                 End If
             Else
@@ -427,29 +430,115 @@ Public Class Facturacion_REPS
         serieX()
     End Sub
 
+    'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnAnexarPago.Click
+
+    '    For i = 0 To DGVConceptosUUID.Rows.Count - 1
+    '        If DGVConceptosUUID.Rows(i).Cells(colIMPORTE_PAGADO).Value = 0 Then
+    '            If DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text < 0 Then
+    '                MessageBox.Show("El monto es mayor que el saldo adeudado")
+    '                RBBFactura.Enabled = False
+    '            Else
+
+    '                DGVConceptosUUID.Rows(i).Cells(colIMPORTE_PAGADO).Value = TBMonto.Text
+    '                DGVConceptosUUID.Rows(i).Cells(colSALDO_INSOLUTO).Value = DGVConceptosUUID.Rows(i).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
+    '                RBBFactura.Enabled = True
+
+    '                Dim DataTb As DataTable = DGVConceptosUUID.DataSource
+
+    '                Dim nuevaFila As DataRow = DataTb.NewRow()
+    '                nuevaFila("jhasdhjavsdhjas") = 
+    '            End If
+    '        End If
+    '    Next
+    '    'If DGVConceptosUUID.Rows.Count = 1 Then
+
+    '    '    If DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text < 0 Then
+    '    '        MessageBox.Show("El monto es mayor que el saldo adeudado")
+    '    '        RBBFactura.Enabled = False
+    '    '    Else
+
+    '    '        DGVConceptosUUID.Rows(0).Cells(colIMPORTE_PAGADO).Value = TBMonto.Text
+    '    '        DGVConceptosUUID.Rows(0).Cells(colSALDO_INSOLUTO).Value = DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
+    '    '        RBBFactura.Enabled = True
+    '    '        'Dim row As DataGridViewRow = DGVConceptosUUID.Rows(0).Clone()
+    '    '        'row.Cells("IMPORTE_PAGADO").Value = 0
+    '    '        'row.Cells("SALDO_INSOLUTO").Value = DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
+    '    '        'DGVConceptosUUID.Rows.Add(row)
+    '    '    End If
+    '    'ElseIf DGVConceptosUUID.Rows.Count > 1 Then
+    '    '    For i As Integer = DGVConceptosUUID.Rows.Count - 1 To 0 Step -1
+    '    '        If DGVConceptosUUID.Rows(i).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text < 0 Then
+    '    '            MessageBox.Show("El monto es mayor que el saldo adeudado")
+    '    '            RBBFactura.Enabled = False
+    '    '            Exit For
+
+    '    '        Else
+    '    '            Dim row As DataGridViewRow = DGVConceptosUUID.Rows(i).Clone()
+    '    '            row.Cells(colIMPORTE_PAGADO).Value = TBMonto.Text
+    '    '            row.Cells(colSALDO_INSOLUTO).Value = DGVConceptosUUID.Rows(i).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
+    '    '            DGVConceptosUUID.Rows.Add(row)
+    '    '            Exit For
+    '    '        End If
+
+    '    '    Next
+    '    'Else
+    '    '    valor = TBMonto.Text
+    '    'End If
+    'End Sub
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnAnexarPago.Click
-        If TBMonto.Text <> "0" Then
-            ReDim Utilidades.ParametersX_Global(0)
-            Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@UUID", FOLIOS)
-            Dim DATATABLE_UUID As New DataTable
-            DATATABLE_UUID = Utilidades.llenar_dt("[pFACTURA_SAT_CFDI_PAGOS_UUID_B]", Utilidades.ParametersX_Global)
-
-
-            DGVConceptosUUID.DataSource = DATATABLE_UUID
-        End If
-        If DGVConceptosUUID.Rows.Count = 1 Then
-
-            If DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text < 0 Then
+        contador += 1
+        If contador = 1 Then
+            If DGVConceptosUUID.Rows(contador - 1).Cells("colSALDO_ANTERIOR").Value - TBMonto.Text < 0 Then
                 MessageBox.Show("El monto es mayor que el saldo adeudado")
                 RBBFactura.Enabled = False
+                contador = 0
             Else
-
-                DGVConceptosUUID.Rows(0).Cells(colIMPORTE_PAGADO).Value = TBMonto.Text
-                DGVConceptosUUID.Rows(0).Cells(colSALDO_INSOLUTO).Value = DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
+                DGVConceptosUUID.Rows(contador - 1).Cells("colIMPORTE_PAGADO").Value = TBMonto.Text
+                DGVConceptosUUID.Rows(contador - 1).Cells("colSALDO_INSOLUTO").Value = DGVConceptosUUID.Rows(0).Cells("colSALDO_ANTERIOR").Value - TBMonto.Text
                 RBBFactura.Enabled = True
+                TBMonto.Text = 0
             End If
-        Else
-            valor = TBMonto.Text
+        ElseIf contador > 1 Then
+            Try
+                Dim DT As New DataTable
+                DT = DGVConceptosUUID.DataSource
+                Dim FILA As DataRow
+                FILA = DT.NewRow
+
+                For i As Integer = DT.Rows.Count - 1 To 0 Step -1
+                    For x As Integer = 0 To DT.Columns.Count - 1
+
+                        Select Case DT.Columns(x).ColumnName
+                            Case "SALDO_ANTERIOR"
+                                FILA(x) = DT.Rows(i).Item("SALDO_INSOLUTO")
+                                If DT.Rows(i).Item("SALDO_INSOLUTO") - TBMonto.Text < 0 Then
+                                    MessageBox.Show("El monto es mayor que el saldo adeudado")
+                                    Exit Sub
+                                End If
+                            Case "IMPORTE_PAGADO"
+                                FILA(x) = TBMonto.Text
+                            Case "SALDO_INSOLUTO"
+                                FILA(x) = DT.Rows(i).Item(x) - TBMonto.Text
+                            Case "PARCIALIDAD"
+                                FILA(x) = DT.Rows(i).Item(x) + 1
+                            Case Else
+                                FILA(x) = DT.Rows(i).Item(x)
+                        End Select
+                    Next
+                    DT.Rows.Add(FILA)
+                    TBMonto.Text = 0
+                    Exit For
+                Next
+
+
+                DGVConceptosUUID.DataSource = DT
+
+
+            Catch ex As Exception
+
+            End Try
         End If
+
     End Sub
 End Class

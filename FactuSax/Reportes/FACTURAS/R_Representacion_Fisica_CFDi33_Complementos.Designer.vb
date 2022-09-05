@@ -258,7 +258,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Complementos
         'XrLabel67
         '
         Me.XrLabel67.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_pagos_B.RfcEmisorCtaBen")})
-        Me.XrLabel67.LocationFloat = New DevExpress.Utils.PointFloat(183.3332!, 55.29302!)
+        Me.XrLabel67.LocationFloat = New DevExpress.Utils.PointFloat(183.3332!, 55.29273!)
         Me.XrLabel67.Name = "XrLabel67"
         Me.XrLabel67.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel67.SizeF = New System.Drawing.SizeF(145.486!, 16.33347!)
