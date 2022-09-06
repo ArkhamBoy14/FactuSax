@@ -51,7 +51,7 @@ Public Class Cat_Busqueda_Facturas
     Sub CargaParent()
         Try
             If DGV_Busqueda.Rows.Count > 0 Then
-                For i = DGV_Busqueda.Rows.Count To 0
+                For i = DGV_Busqueda.Rows.Count - 1 To 0 Step -1
                     If DGV_Busqueda.Item(colParent.Index, i).Value = "HIJO" Then
                         If DGV_Busqueda.Item(cMetodoPago.Index, i).Value = "PUE" Then
                             DGV_Busqueda.Rows.RemoveAt(i)
@@ -59,6 +59,9 @@ Public Class Cat_Busqueda_Facturas
                             DGV_Busqueda.Rows(i).ParentRow = DGV_Busqueda.Rows(i - 1)
                             DGV_Busqueda.Rows(i)(0).Style.ColSpan = DGV_Busqueda.Columns.GetColumnCount(DataGridViewElementStates.None) - 1
                             DGV_Busqueda.Rows(i - 1).Collapse()
+                            DGV_Busqueda.Rows(i - 1).Cells(cPDF).ReadOnly = True
+                            DGV_Busqueda.Rows(i - 1).Cells(cXML).ReadOnly = True
+
                         End If
                     End If
                 Next
@@ -67,24 +70,64 @@ Public Class Cat_Busqueda_Facturas
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
     Private Sub DGV_Busqueda_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_Busqueda.CellClick
         If e.ColumnIndex <> -1 Then
             If e.ColumnIndex = cPDF.Index Then
-                DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value)
+                Select Case DGV_Busqueda.Item(cMetodoPago.Index, e.RowIndex).Value
+                    Case "PUE"
+                        DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PUE")
+
+                    Case "PPD"
+                        'DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PPD")
+                End Select
             End If
             If e.ColumnIndex = cXML.Index Then
 
             End If
         End If
     End Sub
-    Sub DocumentDownload(ByVal UUID As String)
-        'Dim wSTproyecto As String = Application.StartupPath
-        'Dim RutaFaturas As String = "\Resources\SAT\FACTURAS"
-        'Dim pdf As String = NombreDocumento & ".pdf"
-        'Dim ruta As String = wSTproyecto & RutaFaturas & "\" & MetodoPago & "\" & pdf
-        'Application.Download(ruta)
+    Private Sub DGV_SubFacturas(sender As Object, e As DataGridViewCellEventArgs)
+        If e.ColumnIndex <> -1 Then
+            If e.ColumnIndex = colPDF.Index Then
+                Select Case DGV_Busqueda.Item(cMetodoPago.Index, e.RowIndex).Value
+                    Case "PUE"
+                        DocumentDownload(sender.Item(colUUID_1.Name, e.RowIndex).Value, "PUE")
+                    Case "PPD"
+                        DocumentDownload(sender.Item(colUUID_1.Name, e.RowIndex).Value, "PPD")
+                End Select
+            End If
+            If e.ColumnIndex = cXML.Index Then
+
+            End If
+        End If
+    End Sub
+    Private Sub DGV_Busqueda_CellClick(sender As Object, e As Integer)
+        If e <> -1 Then
+            If sender.ColumnIndex = colPDF.Index Then
+                'Select Case DGV_Busqueda.Item(cMetodoPago.Index, sender.RowIndex).Value
+                '    Case "PUE"
+                DocumentDownload(DGV_Busqueda.Item(colUUID_1.Name, sender.RowIndex).Value, "PPD")
+                '    Case "PPD"
+                '        'DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PPD")
+                'End Select
+
+                'End If
+            End If
+            If sender.ColumnIndex = cXML.Index Then
+
+            End If
+        End If
+    End Sub
+    Sub DocumentDownload(ByVal UUID As String, TipoReporte As String)
         Application.Session("UUID_SAT") = UUID
-        Dim sReportName = "R_Representacion_Fisica_CFDi33"
+        Dim sReportName As String
+        Select Case TipoReporte
+            Case "PUE"
+                sReportName = "R_Representacion_Fisica_CFDi33"
+            Case "PPD"
+                sReportName = "R_Representacion_Fisica_CFDi33_Pagos"
+        End Select
         If Trim(sReportName <> Nothing) Then
             Application.Session("ReportName") = sReportName
             Application.Session("DocumentCached") = Nothing
@@ -101,7 +144,7 @@ Public Class Cat_Busqueda_Facturas
         miGrilla = Utilidades.ClonarDGV(DGV_Pagos)
         miGrilla.DataSource = CargarPagosRelacionados(DGV_Busqueda.Item(colUUID.Index, e.RowIndex).Value)
         miGrilla.Visible = True
-        'AddHandler miGrilla.CellDoubleClick, AddressOf AbrirFacturas
+        AddHandler miGrilla.CellClick, AddressOf DGV_SubFacturas
         DGV_Busqueda.Rows(e.RowIndex + 1).Cells(0).Style.Padding = New Padding(30, 1, 0, 0)
         DGV_Busqueda.Rows(e.RowIndex + 1).Cells(0).Control = miGrilla
         miGrilla.Dock = DockStyle.Fill
@@ -117,11 +160,12 @@ Public Class Cat_Busqueda_Facturas
 
 
     Private Function CargarPagosRelacionados(ByVal UUID As String)
-        Dim DatasetPagos = New DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B
+        Dim DatasetPagos = New DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B
         Dim BSPagos As New BindingSource
+        DatasetPagos.EnforceConstraints = False
         Try
             DatasetPagos.Clear()
-            Dim myDA = New SqlDataAdapter("pFACTURA_SAT_CFDI_PAGOS_UUID_B", Utilidades.sConexion)
+            Dim myDA = New SqlDataAdapter("pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B", Utilidades.sConexion)
             myDA.SelectCommand.CommandType = CommandType.StoredProcedure
             myDA.SelectCommand.Parameters.AddWithValue("@UUID", UUID)
             myDA.Fill(DatasetPagos.Tables(0))

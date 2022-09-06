@@ -53,9 +53,6 @@ Partial Class Cat_Busqueda_Facturas
         Me.colPDF = New Wisej.Web.DataGridViewImageColumn()
         Me.colXML = New Wisej.Web.DataGridViewImageColumn()
         Me.colUUID_1 = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colSERIE = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colFOLIO_1 = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colMONEDA = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colMETODOPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colPARCIALIDAD = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colIMPORTE_PAGADO = New Wisej.Web.DataGridViewTextBoxColumn()
@@ -88,8 +85,8 @@ Partial Class Cat_Busqueda_Facturas
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(912, 473)
-        Me.SplitContainer1.SplitterDistance = 200
+        Me.SplitContainer1.Size = New System.Drawing.Size(876, 455)
+        Me.SplitContainer1.SplitterDistance = 177
         Me.SplitContainer1.TabIndex = 0
         '
         'Panel1
@@ -103,7 +100,7 @@ Partial Class Cat_Busqueda_Facturas
         Me.Panel1.Dock = Wisej.Web.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(198, 471)
+        Me.Panel1.Size = New System.Drawing.Size(175, 453)
         Me.Panel1.TabIndex = 7
         Me.Panel1.TabStop = True
         '
@@ -160,7 +157,7 @@ Partial Class Cat_Busqueda_Facturas
         Me.Panel2.Dock = Wisej.Web.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(704, 471)
+        Me.Panel2.Size = New System.Drawing.Size(691, 453)
         Me.Panel2.TabIndex = 0
         Me.Panel2.TabStop = True
         '
@@ -173,7 +170,7 @@ Partial Class Cat_Busqueda_Facturas
         Me.DGV_Busqueda.Location = New System.Drawing.Point(0, 0)
         Me.DGV_Busqueda.Name = "DGV_Busqueda"
         Me.DGV_Busqueda.RowHeadersVisible = False
-        Me.DGV_Busqueda.Size = New System.Drawing.Size(704, 471)
+        Me.DGV_Busqueda.Size = New System.Drawing.Size(691, 453)
         Me.DGV_Busqueda.TabIndex = 0
         '
         'DGV_Parent
@@ -265,7 +262,7 @@ Partial Class Cat_Busqueda_Facturas
         '
         Me.RibbonBar1.Name = "RibbonBar1"
         Me.RibbonBar1.Pages.Add(Me.RibbonBarPage1)
-        Me.RibbonBar1.Size = New System.Drawing.Size(912, 110)
+        Me.RibbonBar1.Size = New System.Drawing.Size(876, 110)
         '
         'RibbonBarPage1
         '
@@ -301,7 +298,7 @@ Partial Class Cat_Busqueda_Facturas
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0)
         DataGridViewCellStyle1.WrapMode = Wisej.Web.DataGridViewTriState.[True]
         Me.DGV_Pagos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DGV_Pagos.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.colPDF, Me.colXML, Me.colUUID_1, Me.colSERIE, Me.colFOLIO_1, Me.colMONEDA, Me.colMETODOPAGO, Me.colPARCIALIDAD, Me.colIMPORTE_PAGADO, Me.colSALDO_ANTERIOR, Me.colSALDO_INSOLUTO})
+        Me.DGV_Pagos.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.colPDF, Me.colXML, Me.colUUID_1, Me.colMETODOPAGO, Me.colPARCIALIDAD, Me.colIMPORTE_PAGADO, Me.colSALDO_ANTERIOR, Me.colSALDO_INSOLUTO})
         Me.DGV_Pagos.Location = New System.Drawing.Point(295, 43)
         Me.DGV_Pagos.Name = "DGV_Pagos"
         Me.DGV_Pagos.RowHeadersVisible = False
@@ -329,31 +326,13 @@ Partial Class Cat_Busqueda_Facturas
         '
         'colUUID_1
         '
-        Me.colUUID_1.DataPropertyName = "UUID"
+        Me.colUUID_1.DataPropertyName = "UUID_HIJO"
         Me.colUUID_1.HeaderText = "UUID"
         Me.colUUID_1.Name = "colUUID_1"
         '
-        'colSERIE
-        '
-        Me.colSERIE.DataPropertyName = "SERIE"
-        Me.colSERIE.HeaderText = "SERIE"
-        Me.colSERIE.Name = "colSERIE"
-        '
-        'colFOLIO_1
-        '
-        Me.colFOLIO_1.DataPropertyName = "FOLIO"
-        Me.colFOLIO_1.HeaderText = "FOLIO"
-        Me.colFOLIO_1.Name = "colFOLIO_1"
-        '
-        'colMONEDA
-        '
-        Me.colMONEDA.DataPropertyName = "MONEDA"
-        Me.colMONEDA.HeaderText = "MONEDA"
-        Me.colMONEDA.Name = "colMONEDA"
-        '
         'colMETODOPAGO
         '
-        Me.colMETODOPAGO.DataPropertyName = "METODOPAGO"
+        Me.colMETODOPAGO.DataPropertyName = "MetodoPago"
         Me.colMETODOPAGO.HeaderText = "METODOPAGO"
         Me.colMETODOPAGO.Name = "colMETODOPAGO"
         '
@@ -400,7 +379,7 @@ Partial Class Cat_Busqueda_Facturas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = Wisej.Web.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(924, 589)
+        Me.ClientSize = New System.Drawing.Size(888, 571)
         Me.Controls.Add(Me.DGV_Pagos)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.RibbonBar1)
@@ -446,9 +425,6 @@ Partial Class Cat_Busqueda_Facturas
     Friend WithEvents colParent As DataGridViewTextBoxColumn
     Friend WithEvents DGV_Pagos As DataGridView
     Friend WithEvents colUUID_1 As DataGridViewTextBoxColumn
-    Friend WithEvents colSERIE As DataGridViewTextBoxColumn
-    Friend WithEvents colFOLIO_1 As DataGridViewTextBoxColumn
-    Friend WithEvents colMONEDA As DataGridViewTextBoxColumn
     Friend WithEvents colMETODOPAGO As DataGridViewTextBoxColumn
     Friend WithEvents colPARCIALIDAD As DataGridViewTextBoxColumn
     Friend WithEvents colIMPORTE_PAGADO As DataGridViewTextBoxColumn

@@ -785,6 +785,17 @@
     <Content Include="Datasets\DataSet_pFACTURA_SAT_CFDI_B.xss">
       <DependentUpon>DataSet_pFACTURA_SAT_CFDI_B.xsd</DependentUpon>
     </Content>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsc">
+      <DependentUpon>DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xss">
+      <DependentUpon>DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="DocumentViewer.aspx" />
     <Content Include="Global.asax" />
@@ -1189,6 +1200,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_pFACTURA_SAT_CFDI_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsd</DependentUpon>
     </Compile>
     <Compile Include="MOD_CATALOGOS\Cat_Operadores.Designer.vb">
       <DependentUpon>Cat_Operadores.vb</DependentUpon>

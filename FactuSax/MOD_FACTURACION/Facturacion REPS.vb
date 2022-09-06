@@ -10,6 +10,7 @@ Public Class Facturacion_REPS
     Dim FOLIO As String
     Dim valor As String
     Dim contador As Integer
+    Dim Alertas As New Notificaciones
     Private Sub Combosax2_Load(sender As Object, e As EventArgs) Handles Me.Load
         'serieX()
         TBMonto.Text = 0
@@ -114,6 +115,8 @@ Public Class Facturacion_REPS
     Private Sub CBSFormaPago_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBSFormaPago.SelectedIndexChanged
         If CBSFormaPago.SelectedValue = "03" Then
             gbbANCOS.Visible = True
+        Else
+            gbbANCOS.Visible = False
         End If
     End Sub
 
@@ -142,6 +145,9 @@ Public Class Facturacion_REPS
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha2", Format(Me.cFecha2.Value, "yyyyMMdd"))
         If CbxReceptor.SelectedIndex <> -1 Then
             myDA.SelectCommand.Parameters.AddWithValue("@Cve_Receptor", CbxReceptor.SelectedValue)
+        End If
+        If CbxClientes.SelectedIndex <> -1 Then
+            myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", CbxClientes.SelectedValue)
         End If
         myDA.Fill(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.pFACTURA_SAT_CFDI_PAGOS_B)
         myDA.Dispose()
@@ -319,6 +325,11 @@ Public Class Facturacion_REPS
             ErrorProvider1.SetError(CBSReceptor, "Seleccione un Emisor")
             Return False
         End If
+        If CBSFormaPago.SelectedIndex = -1 Then
+            ErrorProvider1.SetError(CBSFormaPago, "Seleccione una forma de Pago")
+            Alertas.NotificacionAdvertencia("Seleccione una forma de pago")
+            Return False
+        End If
         total = ""
 
         Return True
@@ -330,6 +341,7 @@ Public Class Facturacion_REPS
         TBMonto.Text = 0
         CBSBancoEmisor.SelectedIndex = -1
         RichTextBox1.Text = Nothing
+        FOLIOS = ""
     End Sub
 
     Private Sub CBSReceptor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBSReceptor.SelectedIndexChanged
@@ -382,22 +394,6 @@ Public Class Facturacion_REPS
 
     End Sub
 
-    Private Sub s(sender As Object, e As EventArgs) Handles TBMonto.TextChanged
-        'If DGVConceptosUUID.Rows.Count = 1 Then
-
-        '    If DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text < 0 Then
-        '        MessageBox.Show("El monto es mayor que el saldo adeudado")
-        '        RBBFactura.Enabled = False
-        '    Else
-
-        '        DGVConceptosUUID.Rows(0).Cells(colIMPORTE_PAGADO).Value = TBMonto.Text
-        '        DGVConceptosUUID.Rows(0).Cells(colSALDO_INSOLUTO).Value = DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
-        '        RBBFactura.Enabled = True
-        '    End If
-        'Else
-        '    valor = TBMonto.Text
-        'End If
-    End Sub
     Private Sub TBMonto_KeyDown(sender As Object, e As KeyEventArgs) Handles TBMonto.KeyDown
         If e.KeyCode = Keys.Enter Then
             If DGVConceptosUUID.Rows.Count = 1 Then
@@ -429,62 +425,6 @@ Public Class Facturacion_REPS
         'limpiar()
         serieX()
     End Sub
-
-    'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnAnexarPago.Click
-
-    '    For i = 0 To DGVConceptosUUID.Rows.Count - 1
-    '        If DGVConceptosUUID.Rows(i).Cells(colIMPORTE_PAGADO).Value = 0 Then
-    '            If DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text < 0 Then
-    '                MessageBox.Show("El monto es mayor que el saldo adeudado")
-    '                RBBFactura.Enabled = False
-    '            Else
-
-    '                DGVConceptosUUID.Rows(i).Cells(colIMPORTE_PAGADO).Value = TBMonto.Text
-    '                DGVConceptosUUID.Rows(i).Cells(colSALDO_INSOLUTO).Value = DGVConceptosUUID.Rows(i).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
-    '                RBBFactura.Enabled = True
-
-    '                Dim DataTb As DataTable = DGVConceptosUUID.DataSource
-
-    '                Dim nuevaFila As DataRow = DataTb.NewRow()
-    '                nuevaFila("jhasdhjavsdhjas") = 
-    '            End If
-    '        End If
-    '    Next
-    '    'If DGVConceptosUUID.Rows.Count = 1 Then
-
-    '    '    If DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text < 0 Then
-    '    '        MessageBox.Show("El monto es mayor que el saldo adeudado")
-    '    '        RBBFactura.Enabled = False
-    '    '    Else
-
-    '    '        DGVConceptosUUID.Rows(0).Cells(colIMPORTE_PAGADO).Value = TBMonto.Text
-    '    '        DGVConceptosUUID.Rows(0).Cells(colSALDO_INSOLUTO).Value = DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
-    '    '        RBBFactura.Enabled = True
-    '    '        'Dim row As DataGridViewRow = DGVConceptosUUID.Rows(0).Clone()
-    '    '        'row.Cells("IMPORTE_PAGADO").Value = 0
-    '    '        'row.Cells("SALDO_INSOLUTO").Value = DGVConceptosUUID.Rows(0).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
-    '    '        'DGVConceptosUUID.Rows.Add(row)
-    '    '    End If
-    '    'ElseIf DGVConceptosUUID.Rows.Count > 1 Then
-    '    '    For i As Integer = DGVConceptosUUID.Rows.Count - 1 To 0 Step -1
-    '    '        If DGVConceptosUUID.Rows(i).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text < 0 Then
-    '    '            MessageBox.Show("El monto es mayor que el saldo adeudado")
-    '    '            RBBFactura.Enabled = False
-    '    '            Exit For
-
-    '    '        Else
-    '    '            Dim row As DataGridViewRow = DGVConceptosUUID.Rows(i).Clone()
-    '    '            row.Cells(colIMPORTE_PAGADO).Value = TBMonto.Text
-    '    '            row.Cells(colSALDO_INSOLUTO).Value = DGVConceptosUUID.Rows(i).Cells(colSALDO_ANTERIOR).Value - TBMonto.Text
-    '    '            DGVConceptosUUID.Rows.Add(row)
-    '    '            Exit For
-    '    '        End If
-
-    '    '    Next
-    '    'Else
-    '    '    valor = TBMonto.Text
-    '    'End If
-    'End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnAnexarPago.Click
         contador += 1
