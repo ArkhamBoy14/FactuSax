@@ -299,18 +299,21 @@ Public Class Facturacion_Electronica_CFD_33
         End Try
     End Sub
     Private Sub DataGridView1_CellClick(sender As Object, e As Integer)
+
         Try
             If e = 0 Then
                 Dim descuento As Double
                 Dim Abonos As Double
                 Dim DescuentoFactura As Double
                 Dim Saldos As Double
+                Dim Importe As Double = 0
+                Dim MetodoPago As String
 
                 folios = ""
                 CveDocumento = ""
                 Abonos = 0
                 Saldos = 0
-
+                RTBCondicionPago.Text = Nothing
                 For i As Integer = 0 To sender.Rows.Count - 1
                     If sender.Rows(i).Cells(0).Value = 1 Then
 
@@ -320,8 +323,13 @@ Public Class Facturacion_Electronica_CFD_33
                         descuento += sender.Rows(i).Cells("Descuento").Value + 0
                         DescuentoFactura += sender.Rows(i).Cells(Me.Descuento_Factura.Name).Value + 0
                         Saldos += sender.Rows(i).Cells(cSaldo.Name).Value
+                        If sender.Rows(i).Cells(colImporte_Total.Name).value > Importe Then
+                            MetodoPago = sender.Rows(i).Cells(colTipo_Pago.Name).value
+                            Importe = sender.Rows(i).Cells(colImporte_Total.Name).value
+                        End If
                     End If
                 Next
+
                 If Saldos > 0 Then
                     CBSMetodoPago.SelectedValue = "PPD"
                     CBSMetodoPago.Enabled = False
@@ -329,6 +337,9 @@ Public Class Facturacion_Electronica_CFD_33
                     CBSMetodoPago.Enabled = True
 
                 End If
+
+                SeleccionMetodoPago(MetodoPago)
+
                 If RB_Detallada.Checked = True Then
                     conceptos(folios, CveDocumento, DescuentoFactura)
                 Else
@@ -348,11 +359,15 @@ Public Class Facturacion_Electronica_CFD_33
                 Dim Abonos As Double
                 Dim DescuentoFactura As Double
                 Dim Saldos As Double
+                Dim Importe As Double = 0
+                Dim MetodoPago As String
+
 
                 folios = ""
                 CveDocumento = ""
                 Abonos = 0
                 Saldos = 0
+                RTBCondicionPago.Text = Nothing
 
                 For i As Integer = 0 To sender.Rows.Count - 1
                     If sender.Rows(i).Cells(0).Value = 1 Then
@@ -363,6 +378,10 @@ Public Class Facturacion_Electronica_CFD_33
                         descuento += sender.Rows(i).Cells("Descuento").Value + 0
                         DescuentoFactura += sender.Rows(i).Cells(Me.Descuento_Factura.Name).Value + 0
                         Saldos += sender.Rows(i).Cells(cSaldo.Name).Value
+                        If sender.Rows(i).Cells(colImporte_Total.Name).value > Importe Then
+                            MetodoPago = sender.Rows(i).Cells(colTipo_Pago.Name).value
+                            Importe = sender.Rows(i).Cells(colImporte_Total.Name).value
+                        End If
                     End If
                 Next
                 If Saldos > 0 Then
@@ -372,6 +391,8 @@ Public Class Facturacion_Electronica_CFD_33
                     CBSMetodoPago.Enabled = True
 
                 End If
+                SeleccionMetodoPago(MetodoPago)
+
                 If RB_Detallada.Checked = True Then
                     conceptos(folios, CveDocumento, DescuentoFactura)
                 Else
@@ -381,6 +402,22 @@ Public Class Facturacion_Electronica_CFD_33
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Sub SeleccionMetodoPago(ByVal MetodoPago As String)
+        Select Case MetodoPago
+            Case "Efectivo"
+                CBSFormaPago.SelectedValue = "01"
+            Case "Tarjeta"
+                CBSFormaPago.SelectedValue = "04"
+            Case "Deposito Bancario"
+                CBSFormaPago.SelectedValue = "03"
+            Case "Trans. Electronica"
+                CBSFormaPago.SelectedValue = "03"
+            Case "NA"
+                CBSFormaPago.SelectedValue = "99"
+        End Select
+
     End Sub
 
     Sub CREAR_XML()
@@ -508,6 +545,7 @@ Public Class Facturacion_Electronica_CFD_33
         TBRISR.Text = "$0"
         TBRIVA.Text = "$0"
         TBTotal.Text = "$0"
+
         Me.ME_FOLIO_FACTURAS = Nothing
     End Sub
 

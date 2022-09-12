@@ -712,6 +712,7 @@ Public Class Factura
 
                 MessageBox.Show("Comprovante de Pago timbrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Dim XTRAREPORT As New XtraReport
+                Application.Session("Historial_Pagos") = 0
 
                 XTRAREPORT = New R_Representacion_Fisica_CFDi33_Pagos
                 Using ms As New MemoryStream()

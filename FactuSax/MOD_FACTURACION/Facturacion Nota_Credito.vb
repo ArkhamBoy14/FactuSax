@@ -158,39 +158,21 @@ Public Class Facturacion_Nota_Credito
 
         Dim myDA = New SqlClient.SqlDataAdapter("pFACTURA_SAT_CFDI_NOTA_CREDITO_B", Utilidades.sConexion)
         myDA.SelectCommand.CommandType = CommandType.StoredProcedure
-        'myDA.SelectCommand.Parameters.AddWithValue("@METOD_PAGO", "PPD")
 
-        '' myDA.SelectCommand.Parameters.AddWithValue("@Estatus_Estudio_Omitir", "ENTREGADO")
-        'If CSucursalindex.SelectedIndex <> -1 Then
-        '    myDA.SelectCommand.Parameters.AddWithValue("@Cve_Sucursal", Me.CSucursalindex.SelectedValue)
-        'Else
-        '    myDA.SelectCommand.Parameters.AddWithValue("@Cve_Sucursal", Application.Session("Cve_Sucursal"))
-        'End If
         If RBFolio.Checked Then
-
-
-
             If InStr(TextBox1.Text, "-") Then
                 myDA.SelectCommand.Parameters.AddWithValue("@Entre", 1)
                 Dim split = TextBox1.Text.Split("-")
                 myDA.SelectCommand.Parameters.AddWithValue("@Serei1", split(0))
                 myDA.SelectCommand.Parameters.AddWithValue("@Serie2", split(1))
-
             ElseIf InStr(TextBox1.Text, ",") Then
                 myDA.SelectCommand.Parameters.AddWithValue("@Series", TextBox1.Text)
             Else
                 myDA.SelectCommand.Parameters.AddWithValue("@Serie", TextBox1.Text)
             End If
-
         End If
-
-        'If cbbEmpresa.SelectedIndex <> -1 Then
-        '    myDA.SelectCommand.Parameters.AddWithValue("@Cve_Empresa", Me.cbbEmpresa.SelectedValue)
-        'End If
-
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha1", Format(Me.cFecha1.Value, "yyyyMMdd"))
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha2", Format(Me.cFecha2.Value, "yyyyMMdd"))
-
         myDA.Fill(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.pFACTURA_SAT_CFDI_PAGOS_B)
         myDA.Dispose()
 

@@ -79,7 +79,8 @@ Public Class Cat_Busqueda_Facturas
                         DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PUE")
 
                     Case "PPD"
-                        'DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PPD")
+                        Application.Session("Historial_Pagos") = 1
+                        DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PPD")
                 End Select
             End If
             If e.ColumnIndex = cXML.Index Then
@@ -94,6 +95,7 @@ Public Class Cat_Busqueda_Facturas
                     Case "PUE"
                         DocumentDownload(sender.Item(colUUID_1.Name, e.RowIndex).Value, "PUE")
                     Case "PPD"
+                        Application.Session("Historial_Pagos") = 0
                         DocumentDownload(sender.Item(colUUID_1.Name, e.RowIndex).Value, "PPD")
                 End Select
             End If

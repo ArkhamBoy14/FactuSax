@@ -40,12 +40,20 @@ Public Class R_Representacion_Fisica_CFDi33_Pagos
     End Sub
 
     Private Sub R_Representacion_Fisica_CFDi33_DataSourceDemanded(sender As Object, e As EventArgs) Handles MyBase.DataSourceDemanded
+        Dim myDA = New SqlClient.SqlDataAdapter
         Try
             Me.DataSet_pREPRESENTACION_FISICA_CFDI_3_3_PAGOS_B11.Clear()
 
             Dim sProcedimiento As String = Application.Session("ProcedureName")
 
-            Dim myDA = New SqlClient.SqlDataAdapter("[pREPRESENTACION_FISICA_CFDI_3_3_pagos_B]", Utilidades.sConexion)
+            If Application.Session("Historial_Pagos") = 1 Then
+                myDA = New SqlClient.SqlDataAdapter("[pREPRESENTACION_FISICA_CFDI_3_3_pagos_Historico_B]", Utilidades.sConexion)
+
+            Else
+                myDA = New SqlClient.SqlDataAdapter("[pREPRESENTACION_FISICA_CFDI_3_3_pagos_B]", Utilidades.sConexion)
+
+            End If
+            'Dim myDA = New SqlClient.SqlDataAdapter("[pREPRESENTACION_FISICA_CFDI_3_3_pagos_B]", Utilidades.sConexion)
             myDA.SelectCommand.CommandType = CommandType.StoredProcedure
             myDA.SelectCommand.Parameters.AddWithValue("@UUID", Application.Session("UUID_SAT"))
 
@@ -67,12 +75,20 @@ Public Class R_Representacion_Fisica_CFDi33_Pagos
         letra2 = Utilidades.Num2Text(TOTAL)
         letra = StrConv((letra2), VbStrConv.ProperCase, 1)
         XLConletras.Text = letra
+        If Application.Session("Historial_Pagos") = 1 Then
+            Dim sWhere As String
+            sWhere = "@UUID_PADRE='" & GetCurrentColumnValue("UUID_PADRE") & "'"
+            Dim rpt4 As New R_Representacion_Fisica_CFDi33_Complementos
+            Utilidades.LlenarGrillaProcedure(rpt4, "pREPRESENTACION_FISICA_CFDI_3_3_Complementos_B " & sWhere, , "REPORTX", True)
+            Subreport1.ReportSource = rpt4
+        Else
+            Dim sWhere As String
+            sWhere = "@UUID='" & Application.Session("UUID_SAT") & "'"
+            Dim rpt4 As New R_Representacion_Fisica_CFDi33_Complementos
+            Utilidades.LlenarGrillaProcedure(rpt4, "pREPRESENTACION_FISICA_CFDI_3_3_Complementos_Individual_B " & sWhere, , "REPORTX", True)
+            Subreport1.ReportSource = rpt4
+        End If
 
-        Dim sWhere As String
-        sWhere = "@UUID_PADRE='" & GetCurrentColumnValue("UUID_PADRE") & "'"
-        Dim rpt4 As New R_Representacion_Fisica_CFDi33_Complementos
-        Utilidades.LlenarGrillaProcedure(rpt4, "pREPRESENTACION_FISICA_CFDI_3_3_Complementos_B " & sWhere, , "REPORTX", True)
-        Subreport1.ReportSource = rpt4
 
     End Sub
 End Class

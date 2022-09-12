@@ -23,6 +23,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar7 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
@@ -123,6 +124,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.cFolio_Movimiento = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.cUnitario = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colTipo_Pago = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colFecha1 = New Wisej.Web.DataGridViewDateTimePickerColumn()
         Me.CheckBox1 = New Wisej.Web.CheckBox()
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.DataSet_pFACTURACION_CAPTURA_EGRESOS1 = New FactuSax.DataSet_pFACTURACION_CAPTURA_EGRESOS()
@@ -136,7 +138,6 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter = New FactuSax.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJOTableAdapters.pFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter()
         Me.PFACTURACION_CAPTURA_EGRESOSTableAdapter = New FactuSax.DataSet_pFACTURACION_CAPTURA_EGRESOSTableAdapters.pFACTURACION_CAPTURA_EGRESOSTableAdapter()
         Me.CBSTipoComprobante = New FactuSax.ComboWisax()
-        Me.colFecha1 = New Wisej.Web.DataGridViewDateTimePickerColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -1054,6 +1055,15 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.colTipo_Pago.Name = "colTipo_Pago"
         Me.colTipo_Pago.ReadOnly = True
         '
+        'colFecha1
+        '
+        Me.colFecha1.DataPropertyName = "Fecha1"
+        DataGridViewCellStyle3.Format = "G"
+        Me.colFecha1.DefaultCellStyle = DataGridViewCellStyle3
+        Me.colFecha1.HeaderText = "Fecha1"
+        Me.colFecha1.Name = "colFecha1"
+        Me.colFecha1.Visible = False
+        '
         'CheckBox1
         '
         Me.CheckBox1.Location = New System.Drawing.Point(4, 3)
@@ -1151,13 +1161,6 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.CBSTipoComprobante.Size = New System.Drawing.Size(218, 22)
         Me.CBSTipoComprobante.TabIndex = 2
         Me.CBSTipoComprobante.Visible = False
-        '
-        'colFecha1
-        '
-        Me.colFecha1.DataPropertyName = "Fecha1"
-        Me.colFecha1.HeaderText = "Fecha1"
-        Me.colFecha1.Name = "colFecha1"
-        Me.colFecha1.Visible = False
         '
         'Facturacion_Electronica_CFD_33
         '

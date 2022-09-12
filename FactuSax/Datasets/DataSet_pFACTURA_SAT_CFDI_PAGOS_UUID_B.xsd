@@ -39,63 +39,63 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B" msprop:Generator_DataSetName="DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B">
+  <xs:element name="DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="pFACTURA_SAT_CFDI_PAGOS_UUID_B" msprop:Generator_RowEvHandlerName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowChangeEventHandler" msprop:Generator_RowDeletedName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowDeleted" msprop:Generator_RowDeletingName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowDeleting" msprop:Generator_RowEvArgName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowChangeEvent" msprop:Generator_TablePropName="pFACTURA_SAT_CFDI_PAGOS_UUID_B" msprop:Generator_RowChangedName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowChanged" msprop:Generator_RowChangingName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowChanging" msprop:Generator_TableClassName="pFACTURA_SAT_CFDI_PAGOS_UUID_BDataTable" msprop:Generator_RowClassName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRow" msprop:Generator_TableVarName="tablepFACTURA_SAT_CFDI_PAGOS_UUID_B" msprop:Generator_UserTableName="pFACTURA_SAT_CFDI_PAGOS_UUID_B">
+        <xs:element name="pFACTURA_SAT_CFDI_PAGOS_UUID_B" msprop:Generator_RowClassName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRow" msprop:Generator_RowEvHandlerName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowChangeEventHandler" msprop:Generator_RowDeletedName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowDeleted" msprop:Generator_RowDeletingName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowDeleting" msprop:Generator_RowEvArgName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowChangeEvent" msprop:Generator_TablePropName="pFACTURA_SAT_CFDI_PAGOS_UUID_B" msprop:Generator_RowChangedName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowChanged" msprop:Generator_UserTableName="pFACTURA_SAT_CFDI_PAGOS_UUID_B" msprop:Generator_RowChangingName="pFACTURA_SAT_CFDI_PAGOS_UUID_BRowChanging" msprop:Generator_TableClassName="pFACTURA_SAT_CFDI_PAGOS_UUID_BDataTable" msprop:Generator_TableVarName="tablepFACTURA_SAT_CFDI_PAGOS_UUID_B">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="UUID" msprop:Generator_ColumnPropNameInRow="UUID" msprop:Generator_ColumnPropNameInTable="UUIDColumn" msprop:Generator_ColumnVarNameInTable="columnUUID" msprop:Generator_UserColumnName="UUID">
+              <xs:element name="UUID" msprop:Generator_UserColumnName="UUID" msprop:Generator_ColumnPropNameInTable="UUIDColumn" msprop:Generator_ColumnPropNameInRow="UUID" msprop:Generator_ColumnVarNameInTable="columnUUID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SERIE" msprop:Generator_ColumnPropNameInRow="SERIE" msprop:Generator_ColumnPropNameInTable="SERIEColumn" msprop:Generator_ColumnVarNameInTable="columnSERIE" msprop:Generator_UserColumnName="SERIE" minOccurs="0">
+              <xs:element name="SERIE" msprop:Generator_UserColumnName="SERIE" msprop:Generator_ColumnPropNameInTable="SERIEColumn" msprop:Generator_ColumnPropNameInRow="SERIE" msprop:Generator_ColumnVarNameInTable="columnSERIE" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FOLIO" msprop:Generator_ColumnPropNameInRow="FOLIO" msprop:Generator_ColumnPropNameInTable="FOLIOColumn" msprop:Generator_ColumnVarNameInTable="columnFOLIO" msprop:Generator_UserColumnName="FOLIO" minOccurs="0">
+              <xs:element name="FOLIO" msprop:Generator_UserColumnName="FOLIO" msprop:Generator_ColumnPropNameInTable="FOLIOColumn" msprop:Generator_ColumnPropNameInRow="FOLIO" msprop:Generator_ColumnVarNameInTable="columnFOLIO" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MONEDA" msprop:Generator_ColumnPropNameInRow="MONEDA" msprop:Generator_ColumnPropNameInTable="MONEDAColumn" msprop:Generator_ColumnVarNameInTable="columnMONEDA" msprop:Generator_UserColumnName="MONEDA" minOccurs="0">
+              <xs:element name="MONEDA" msprop:Generator_UserColumnName="MONEDA" msprop:Generator_ColumnPropNameInTable="MONEDAColumn" msprop:Generator_ColumnPropNameInRow="MONEDA" msprop:Generator_ColumnVarNameInTable="columnMONEDA" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="METODOPAGO" msprop:Generator_ColumnPropNameInRow="METODOPAGO" msprop:Generator_ColumnPropNameInTable="METODOPAGOColumn" msprop:Generator_ColumnVarNameInTable="columnMETODOPAGO" msprop:Generator_UserColumnName="METODOPAGO" minOccurs="0">
+              <xs:element name="METODOPAGO" msprop:Generator_UserColumnName="METODOPAGO" msprop:Generator_ColumnPropNameInTable="METODOPAGOColumn" msprop:Generator_ColumnPropNameInRow="METODOPAGO" msprop:Generator_ColumnVarNameInTable="columnMETODOPAGO" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARCIALIDAD" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="PARCIALIDAD" msprop:Generator_ColumnPropNameInTable="PARCIALIDADColumn" msprop:Generator_ColumnVarNameInTable="columnPARCIALIDAD" msprop:Generator_UserColumnName="PARCIALIDAD" type="xs:int" minOccurs="0" />
-              <xs:element name="IMPORTE_PAGADO" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="IMPORTE_PAGADO" msprop:Generator_ColumnPropNameInTable="IMPORTE_PAGADOColumn" msprop:Generator_ColumnVarNameInTable="columnIMPORTE_PAGADO" msprop:Generator_UserColumnName="IMPORTE_PAGADO" minOccurs="0">
+              <xs:element name="PARCIALIDAD" msdata:ReadOnly="true" msprop:Generator_UserColumnName="PARCIALIDAD" msprop:Generator_ColumnPropNameInTable="PARCIALIDADColumn" msprop:Generator_ColumnPropNameInRow="PARCIALIDAD" msprop:Generator_ColumnVarNameInTable="columnPARCIALIDAD" type="xs:int" minOccurs="0" />
+              <xs:element name="IMPORTE_PAGADO" msprop:Generator_UserColumnName="IMPORTE_PAGADO" msprop:Generator_ColumnPropNameInTable="IMPORTE_PAGADOColumn" msprop:Generator_ColumnPropNameInRow="IMPORTE_PAGADO" msprop:Generator_ColumnVarNameInTable="columnIMPORTE_PAGADO" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SALDO_ANTERIOR" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="SALDO_ANTERIOR" msprop:Generator_ColumnPropNameInTable="SALDO_ANTERIORColumn" msprop:Generator_ColumnVarNameInTable="columnSALDO_ANTERIOR" msprop:Generator_UserColumnName="SALDO_ANTERIOR" minOccurs="0">
+              <xs:element name="SALDO_ANTERIOR" msdata:ReadOnly="true" msprop:Generator_UserColumnName="SALDO_ANTERIOR" msprop:Generator_ColumnPropNameInTable="SALDO_ANTERIORColumn" msprop:Generator_ColumnPropNameInRow="SALDO_ANTERIOR" msprop:Generator_ColumnVarNameInTable="columnSALDO_ANTERIOR" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SALDO_INSOLUTO" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="SALDO_INSOLUTO" msprop:Generator_ColumnPropNameInTable="SALDO_INSOLUTOColumn" msprop:Generator_ColumnVarNameInTable="columnSALDO_INSOLUTO" msprop:Generator_UserColumnName="SALDO_INSOLUTO" minOccurs="0">
+              <xs:element name="SALDO_INSOLUTO" msdata:ReadOnly="true" msprop:Generator_UserColumnName="SALDO_INSOLUTO" msprop:Generator_ColumnPropNameInTable="SALDO_INSOLUTOColumn" msprop:Generator_ColumnPropNameInRow="SALDO_INSOLUTO" msprop:Generator_ColumnVarNameInTable="columnSALDO_INSOLUTO" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />

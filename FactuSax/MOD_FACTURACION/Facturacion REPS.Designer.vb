@@ -32,12 +32,14 @@ Partial Class Facturacion_REPS
         Me.RBBSalir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.SplitContainer1 = New Wisej.Web.SplitContainer()
         Me.DGVUUID = New Wisej.Web.DataGridView()
-        Me.DataGridViewCheckBoxColumn1 = New Wisej.Web.DataGridViewCheckBoxColumn()
+        Me.colChk = New Wisej.Web.DataGridViewCheckBoxColumn()
         Me.colFOLIO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colRFC = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colUUID = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colFECHA = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colCONDICIONESPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colSALDO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cPARCIALIDAD = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_B()
         Me.pserie = New Wisej.Web.Panel()
@@ -220,7 +222,7 @@ Partial Class Facturacion_REPS
         '
         Me.DGVUUID.AllowUserToResizeColumns = False
         Me.DGVUUID.AllowUserToResizeRows = False
-        Me.DGVUUID.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.DataGridViewCheckBoxColumn1, Me.colFOLIO, Me.colUUID, Me.colFECHA, Me.colCONDICIONESPAGO, Me.colSALDO})
+        Me.DGVUUID.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.colChk, Me.colFOLIO, Me.colRFC, Me.colUUID, Me.colFECHA, Me.colCONDICIONESPAGO, Me.colSALDO, Me.cPARCIALIDAD})
         Me.DGVUUID.DataMember = "pFACTURA_SAT_CFDI_PAGOS_B"
         Me.DGVUUID.DataSource = Me.BindingSource1
         Me.DGVUUID.Dock = Wisej.Web.DockStyle.Fill
@@ -230,21 +232,27 @@ Partial Class Facturacion_REPS
         Me.DGVUUID.Size = New System.Drawing.Size(369, 336)
         Me.DGVUUID.TabIndex = 1
         '
-        'DataGridViewCheckBoxColumn1
+        'colChk
         '
         DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.NullValue = False
-        Me.DataGridViewCheckBoxColumn1.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridViewCheckBoxColumn1.HeaderText = "     "
-        Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
-        Me.DataGridViewCheckBoxColumn1.Width = 30
+        Me.colChk.DefaultCellStyle = DataGridViewCellStyle1
+        Me.colChk.HeaderText = "     "
+        Me.colChk.Name = "colChk"
+        Me.colChk.Width = 30
         '
         'colFOLIO
         '
         Me.colFOLIO.DataPropertyName = "FOLIO"
-        Me.colFOLIO.HeaderText = "FOLIO"
+        Me.colFOLIO.HeaderText = "Folio"
         Me.colFOLIO.Name = "colFOLIO"
         Me.colFOLIO.ReadOnly = True
+        '
+        'colRFC
+        '
+        Me.colRFC.DataPropertyName = "Receptor_RFC"
+        Me.colRFC.HeaderText = "RFC"
+        Me.colRFC.Name = "colRFC"
         '
         'colUUID
         '
@@ -255,21 +263,27 @@ Partial Class Facturacion_REPS
         'colFECHA
         '
         Me.colFECHA.DataPropertyName = "FECHA"
-        Me.colFECHA.HeaderText = "FECHA"
+        Me.colFECHA.HeaderText = "Fecha"
         Me.colFECHA.Name = "colFECHA"
         '
         'colCONDICIONESPAGO
         '
         Me.colCONDICIONESPAGO.DataPropertyName = "CONDICIONESPAGO"
-        Me.colCONDICIONESPAGO.HeaderText = "CONDICIONESPAGO"
+        Me.colCONDICIONESPAGO.HeaderText = "Condiciones de Pago"
         Me.colCONDICIONESPAGO.Name = "colCONDICIONESPAGO"
         '
         'colSALDO
         '
         Me.colSALDO.DataPropertyName = "SALDO"
-        Me.colSALDO.HeaderText = "SALDO"
+        Me.colSALDO.HeaderText = "Saldo"
         Me.colSALDO.Name = "colSALDO"
         Me.colSALDO.ReadOnly = True
+        '
+        'cPARCIALIDAD
+        '
+        Me.cPARCIALIDAD.DataPropertyName = "PARCIALIDAD"
+        Me.cPARCIALIDAD.HeaderText = "Parcialidad"
+        Me.cPARCIALIDAD.Name = "cPARCIALIDAD"
         '
         'BindingSource1
         '
@@ -379,7 +393,7 @@ Partial Class Facturacion_REPS
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(188, 163)
+        Me.Label19.Location = New System.Drawing.Point(175, 160)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(23, 15)
         Me.Label19.TabIndex = 2
@@ -387,10 +401,9 @@ Partial Class Facturacion_REPS
         '
         'cFecha2
         '
-        Me.cFecha2.Anchor = Wisej.Web.AnchorStyles.Top
         Me.cFecha2.CustomFormat = "dd/MM/yyyy"
         Me.cFecha2.Format = Wisej.Web.DateTimePickerFormat.Custom
-        Me.cFecha2.Location = New System.Drawing.Point(217, 156)
+        Me.cFecha2.Location = New System.Drawing.Point(202, 156)
         Me.cFecha2.Name = "cFecha2"
         Me.cFecha2.Size = New System.Drawing.Size(103, 22)
         Me.cFecha2.TabIndex = 0
@@ -400,7 +413,7 @@ Partial Class Facturacion_REPS
         '
         Me.cFecha1.CustomFormat = "dd/MM/yyyy"
         Me.cFecha1.Format = Wisej.Web.DateTimePickerFormat.Custom
-        Me.cFecha1.Location = New System.Drawing.Point(43, 157)
+        Me.cFecha1.Location = New System.Drawing.Point(43, 156)
         Me.cFecha1.Name = "cFecha1"
         Me.cFecha1.Size = New System.Drawing.Size(103, 22)
         Me.cFecha1.TabIndex = 0
@@ -411,7 +424,7 @@ Partial Class Facturacion_REPS
         Me.Label18.Anchor = CType(((Wisej.Web.AnchorStyles.Top Or Wisej.Web.AnchorStyles.Left) _
             Or Wisej.Web.AnchorStyles.Right), Wisej.Web.AnchorStyles)
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(9, 163)
+        Me.Label18.Location = New System.Drawing.Point(9, 160)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(35, 15)
         Me.Label18.TabIndex = 1
@@ -541,7 +554,6 @@ Partial Class Facturacion_REPS
         Me.colIMPORTE_PAGADO.DataPropertyName = "IMPORTE_PAGADO"
         Me.colIMPORTE_PAGADO.HeaderText = "Importe Pagado"
         Me.colIMPORTE_PAGADO.Name = "colIMPORTE_PAGADO"
-        Me.colIMPORTE_PAGADO.ReadOnly = True
         '
         'colSALDO_ANTERIOR
         '
@@ -766,6 +778,7 @@ Partial Class Facturacion_REPS
         Me.BtnAnexarPago.Size = New System.Drawing.Size(31, 27)
         Me.BtnAnexarPago.TabIndex = 14
         Me.BtnAnexarPago.Text = "+"
+        Me.BtnAnexarPago.Visible = False
         '
         'RTBObservaciones
         '
@@ -821,6 +834,7 @@ Partial Class Facturacion_REPS
         Me.TBMonto.Name = "TBMonto"
         Me.TBMonto.Size = New System.Drawing.Size(163, 25)
         Me.TBMonto.TabIndex = 1
+        Me.TBMonto.Visible = False
         '
         'Label8
         '
@@ -1029,7 +1043,7 @@ Partial Class Facturacion_REPS
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.RibbonBar7)
         Me.Name = "Facturacion_REPS"
-        Me.Text = "Facturacion_REPS"
+        Me.Text = "Facturacion REPS"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.Panel2.PerformLayout()
@@ -1131,7 +1145,7 @@ Partial Class Facturacion_REPS
     Friend WithEvents RBBSalir As Ext.RibbonBar.RibbonBarItemButton
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewCheckBoxColumn
+    Friend WithEvents colChk As DataGridViewCheckBoxColumn
     Friend WithEvents Label17 As Label
     Friend WithEvents CBSUsoCFDI As ComboWisax
     Friend WithEvents Label20 As Label
@@ -1168,4 +1182,6 @@ Partial Class Facturacion_REPS
     Friend WithEvents RbEmpresa As RadioButton
     Friend WithEvents RbParticular As RadioButton
     Friend WithEvents BtnAnexarPago As Button
+    Friend WithEvents colRFC As DataGridViewTextBoxColumn
+    Friend WithEvents cPARCIALIDAD As DataGridViewTextBoxColumn
 End Class

@@ -517,7 +517,6 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B
             Me.columnMONEDA.MaxLength = 50
             Me.columnMETODOPAGO.MaxLength = 50
             Me.columnPARCIALIDAD.ReadOnly = true
-            Me.columnIMPORTE_PAGADO.ReadOnly = true
             Me.columnIMPORTE_PAGADO.MaxLength = 1
             Me.columnSALDO_ANTERIOR.ReadOnly = true
             Me.columnSALDO_ANTERIOR.MaxLength = 50
