@@ -1,5 +1,6 @@
 Imports System.Data
 Imports System.Data.SqlClient
+Imports System.IO
 Public Class Cat_RFC_EMISOR_SAT_FACTURACION
     'Dim Utilidades As New dllData
     Dim ParametersX_Global() As System.Data.SqlClient.SqlParameter
@@ -17,6 +18,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
     Dim boton As String
     Public ME_EMISOR_RECEPTOR As String
     Public ME_EMPRESA As String
+    Dim URL_Relativa_Key, URL_Relativa_Cer As String
 
     Sub New(Emisor_Receptor As Boolean, Empresa As Boolean)
 
@@ -308,6 +310,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
             cbbMunicipio.SelectedValue = DataGridView1.Item(DGVCve_Municipio.Index, e.RowIndex).Value
             TxtLocalidad.Text = DataGridView1.Item(DGVLocalidad.Index, e.RowIndex).Value
             sTipo_Persona = DataGridView1.Item(DGVTipo_Persona.Index, e.RowIndex).Value
+            CBBRegimen.SelectedValue = DataGridView1.Item(DGVCRegimen.Index, e.RowIndex).Value
             'CbxReceptor.SelectedValue = DataGridView1.Item(cCve_Receptor.Index, e.RowIndex).Value
             CbxReceptor.Text = DataGridView1.Item(cReceptorX.Index, e.RowIndex).Value
             If ME_EMISOR_RECEPTOR = True Then
@@ -618,7 +621,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         cbbMunicipio.LlenarListBox("pCAT_MUNICIPIOS_B", "Cve_Municipio", "Municipio", Utilidades.ParametersX_Global)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BTCer.Click, BTKey.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         boton = sender.name.replace("BT", "").trim
         ErrorProvider1.SetError(TxtRFC, Nothing)
         If TxtRFC.Text = Nothing Then
@@ -680,6 +683,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
             cbbEstado.SelectedValue = DataGridView1.Item(DGVCve_estado.Index, ROWINDEX).Value
             cbbMunicipio.SelectedValue = DataGridView1.Item(DGVCve_Municipio.Index, ROWINDEX).Value
             TxtLocalidad.Text = DataGridView1.Item(DGVLocalidad.Index, ROWINDEX).Value
+            CBBSRegimen.SelectedValue = DataGridView1.Item(DGVCRegimen.Index, ROWINDEX).Value
             stipo_persona = DataGridView1.Item(DGVTipo_Persona.Index, ROWINDEX).Value
             If ME_EMISOR_RECEPTOR = "EMISOR" Then
                 CBBSRegimen.SelectedValue = DataGridView1.Item(DGVCRegimen.Index, ROWINDEX).Value
@@ -707,6 +711,69 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@RFC", TxtRFC.Text)
         Utilidades.ParametersX_Global(1) = New SqlClient.SqlParameter("@CVE_PACIENTE", TxtRazonSocial.Text)
         Dim sDevuelveId = Utilidades.EjecutarProcedure_Id("[pCAT_PACIENTE_RFC_SAT_G]", "@Parametro", Utilidades.ParametersX_Global, , SqlDbType.VarChar, 50)
+
+    End Sub
+
+    Private Sub Upload2_Uploaded(sender As Object, e As UploadedEventArgs) Handles Upload2.Uploaded
+        Dim ArchivoOriginal = Application.StartupPath & "\Resources\SAT\" & TxtRFC.Text & "\" & TBKey.Text
+        If File.Exists(ArchivoOriginal) Then
+            TBCer.Text = Nothing
+            'System.IO.File.Delete(ArchivoOriginal)
+        End If
+        URL_Relativa_Cer = "Resources\SAT\" & TxtRFC.Text
+        Dim clave As Upload = CType(sender, Upload)
+        Dim URL_Carpeta_Server_Key = Application.StartupPath & "\" & URL_Relativa_Cer
+        If Not Directory.Exists(URL_Carpeta_Server_Key) Then
+            Directory.CreateDirectory(URL_Carpeta_Server_Key)
+        End If
+        If e.Files.Count > 0 Then
+            Dim ArchivoKey = DirectCast(e.Files(0), HttpPostedFile)
+            Dim Extension = Path.GetExtension(ArchivoKey.FileName)
+            Dim Archivo_RAW = Path.GetFileNameWithoutExtension(ArchivoKey.FileName)
+
+            TBCer.Tag = Archivo_RAW & Extension
+            If ArchivoKey.ContentLength > 0 Then
+                Dim urlArchivoGuardado As String = System.IO.Path.Combine(Application.StartupPath, Application.StartupPath & "\" & URL_Relativa_Cer, TBCer.Tag)
+
+                Try
+                    ArchivoKey.SaveAs(urlArchivoGuardado)
+                    TBCer.Text = Archivo_RAW & Extension
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, "Cargar archivo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        End If
+    End Sub
+
+    Private Sub Upload1_Uploaded(sender As Object, e As UploadedEventArgs) Handles Upload1.Uploaded
+        Dim ArchivoOriginal = Application.StartupPath & "\Resources\SAT\" & TxtRFC.Text & "\" & TBKey.Text
+        If File.Exists(ArchivoOriginal) Then
+            TBKey.Text = Nothing
+            'System.IO.File.Delete(ArchivoOriginal)
+        End If
+        URL_Relativa_Key = "Resources\SAT\" & TxtRFC.Text
+        Dim clave As Upload = CType(sender, Upload)
+        Dim URL_Carpeta_Server_Key = Application.StartupPath & "\" & URL_Relativa_Key
+        If Not Directory.Exists(URL_Carpeta_Server_Key) Then
+            Directory.CreateDirectory(URL_Carpeta_Server_Key)
+        End If
+        If e.Files.Count > 0 Then
+            Dim ArchivoKey = DirectCast(e.Files(0), HttpPostedFile)
+            Dim Extension = Path.GetExtension(ArchivoKey.FileName)
+            Dim Archivo_RAW = Path.GetFileNameWithoutExtension(ArchivoKey.FileName)
+
+            TBKey.Tag = Archivo_RAW & Extension
+            If ArchivoKey.ContentLength > 0 Then
+                Dim urlArchivoGuardado As String = System.IO.Path.Combine(Application.StartupPath, Application.StartupPath & "\" & URL_Relativa_Key, TBKey.Tag)
+
+                Try
+                    ArchivoKey.SaveAs(urlArchivoGuardado)
+                    TBKey.Text = Archivo_RAW & Extension
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, "Cargar archivo", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        End If
 
     End Sub
 

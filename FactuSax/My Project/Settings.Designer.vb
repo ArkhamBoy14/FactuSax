@@ -93,6 +93,16 @@ Namespace My
                 Return CType(Me("FactuSax_localhostSISLAB_Actualizar_Estatus"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://timbradodp.expidetufactura.com.mx:8453/timbrado/TimbradoWS")>  _
+        Public ReadOnly Property FactuSax_XpdProduccion_TimbradoWSService() As String
+            Get
+                Return CType(Me("FactuSax_XpdProduccion_TimbradoWSService"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

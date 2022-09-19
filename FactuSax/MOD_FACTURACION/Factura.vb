@@ -316,8 +316,8 @@ Public Class Factura
             If timbrarx = True Then
                 Dim b = System.IO.File.ReadAllBytes(pathxml)
                 Dim cad = Convert.ToBase64String(b)
-                Dim servicio As New ExpideTuFactura.TimbradoWSService
-                Dim respuesta As New ExpideTuFactura.respuestaTimbrado
+                Dim servicio As New XpdProduccion.TimbradoWSService
+                Dim respuesta As New XpdProduccion.respuestaTimbrado
                 respuesta = servicio.timbrar(Application.Session("Facturauser"), Application.Session("FacturaContrasena"), b)
 
 
