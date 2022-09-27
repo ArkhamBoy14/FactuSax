@@ -35,6 +35,8 @@ Partial Class Cat_Operadores
         Me.RibbonBarGroup2 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
         Me.RBBSALIR = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.Panel1 = New Wisej.Web.Panel()
+        Me.GroupBox1 = New Wisej.Web.GroupBox()
+        Me.LstCheck_Clientes = New Wisej.Web.CheckedListBox()
         Me.GroupBox2 = New Wisej.Web.GroupBox()
         Me.tbxNombreOperador = New Wisej.Web.TextBox()
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
@@ -73,9 +75,12 @@ Partial Class Cat_Operadores
         Me.ErrorProvider1 = New Wisej.Web.ErrorProvider(Me.components)
         Me.OpenFileDialog1 = New Wisej.Web.OpenFileDialog(Me.components)
         Me.ToolTip1 = New Wisej.Web.ToolTip(Me.components)
-        Me.BindingSource2 = New Wisej.Web.BindingSource(Me.components)
         Me.FiltroGrillaSax1 = New FactuSax.filtroGrillaSax()
+        Me.DataSet_pCAT_CLIENTES_B = New FactuSax.DataSet_pCAT_CLIENTES_B()
+        Me.DataSet_pCAT_CLIENTES_BUSQUEDA_B = New FactuSax.DataSet_pCAT_CLIENTES_BUSQUEDA_B()
+        Me.BS_Clientes = New Wisej.Web.BindingSource(Me.components)
         Me.Panel1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet_pCAT_OPERADORES_B, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,7 +90,9 @@ Partial Class Cat_Operadores
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet_pCAT_CLIENTES_B, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet_pCAT_CLIENTES_BUSQUEDA_B, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BS_Clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RibbonBar1
@@ -140,6 +147,7 @@ Partial Class Cat_Operadores
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.GroupBox2)
         Me.Panel1.Dock = Wisej.Web.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 145)
@@ -147,6 +155,25 @@ Partial Class Cat_Operadores
         Me.Panel1.Size = New System.Drawing.Size(1225, 165)
         Me.Panel1.TabIndex = 2
         Me.Panel1.TabStop = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.LstCheck_Clientes)
+        Me.GroupBox1.Dock = Wisej.Web.DockStyle.Fill
+        Me.GroupBox1.Location = New System.Drawing.Point(742, 0)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(483, 165)
+        Me.GroupBox1.TabIndex = 4
+        Me.GroupBox1.Text = "Clientes"
+        Me.GroupBox1.Visible = False
+        '
+        'LstCheck_Clientes
+        '
+        Me.LstCheck_Clientes.Dock = Wisej.Web.DockStyle.Fill
+        Me.LstCheck_Clientes.Location = New System.Drawing.Point(3, 18)
+        Me.LstCheck_Clientes.Name = "LstCheck_Clientes"
+        Me.LstCheck_Clientes.Size = New System.Drawing.Size(477, 144)
+        Me.LstCheck_Clientes.TabIndex = 8
         '
         'GroupBox2
         '
@@ -161,10 +188,10 @@ Partial Class Cat_Operadores
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.txtContra)
         Me.GroupBox2.Controls.Add(Me.txtCve_Operador)
-        Me.GroupBox2.Dock = Wisej.Web.DockStyle.Top
+        Me.GroupBox2.Dock = Wisej.Web.DockStyle.Left
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1225, 165)
+        Me.GroupBox2.Size = New System.Drawing.Size(742, 165)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.Text = "Datos Operador"
         '
@@ -208,7 +235,7 @@ Partial Class Cat_Operadores
         Me.Panel4.Dock = Wisej.Web.DockStyle.Bottom
         Me.Panel4.Location = New System.Drawing.Point(3, 140)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1219, 22)
+        Me.Panel4.Size = New System.Drawing.Size(736, 22)
         Me.Panel4.TabIndex = 13
         Me.Panel4.TabStop = True
         '
@@ -243,7 +270,7 @@ Partial Class Cat_Operadores
         '
         'cmbRol
         '
-        Me.cmbRol.DataBindings.Add(New Wisej.Web.Binding("Text", Me.BindingSource1, "ROL", True))
+        Me.cmbRol.DataBindings.Add(New Wisej.Web.Binding("SelectedValue", Me.BindingSource1, "Cve_Rol", True))
         Me.cmbRol.FormattingEnabled = True
         Me.cmbRol.Location = New System.Drawing.Point(104, 65)
         Me.cmbRol.Name = "cmbRol"
@@ -263,6 +290,7 @@ Partial Class Cat_Operadores
         '
         'ckdEstatus
         '
+        Me.ckdEstatus.DataBindings.Add(New Wisej.Web.Binding("Checked", Me.BindingSource1, "Estatus", True))
         Me.ckdEstatus.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.ckdEstatus.Location = New System.Drawing.Point(306, 104)
         Me.ckdEstatus.Name = "ckdEstatus"
@@ -384,11 +412,12 @@ Partial Class Cat_Operadores
         'Cve_Rol
         '
         Me.Cve_Rol.DataPropertyName = "Cve_Rol"
-        Me.Cve_Rol.HeaderText = "Clave"
+        Me.Cve_Rol.HeaderText = "Clave Rol"
         Me.Cve_Rol.Name = "Cve_Rol"
         Me.Cve_Rol.ReadOnly = True
         Me.Cve_Rol.Resizable = Wisej.Web.DataGridViewTriState.[False]
         Me.Cve_Rol.SortMode = Wisej.Web.DataGridViewColumnSortMode.NotSortable
+        Me.Cve_Rol.Visible = False
         '
         'ROL
         '
@@ -523,6 +552,21 @@ Partial Class Cat_Operadores
         Me.FiltroGrillaSax1.Size = New System.Drawing.Size(1225, 30)
         Me.FiltroGrillaSax1.TabIndex = 5
         '
+        'DataSet_pCAT_CLIENTES_B
+        '
+        Me.DataSet_pCAT_CLIENTES_B.DataSetName = "DataSet_pCAT_CLIENTES_B"
+        Me.DataSet_pCAT_CLIENTES_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DataSet_pCAT_CLIENTES_BUSQUEDA_B
+        '
+        Me.DataSet_pCAT_CLIENTES_BUSQUEDA_B.DataSetName = "DataSet_pCAT_CLIENTES_BUSQUEDA_B"
+        Me.DataSet_pCAT_CLIENTES_BUSQUEDA_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BS_Clientes
+        '
+        Me.BS_Clientes.DataSource = Me.DataSet_pCAT_CLIENTES_BUSQUEDA_B
+        Me.BS_Clientes.Position = 0
+        '
         'Cat_Operadores
         '
         Me.ClientSize = New System.Drawing.Size(1225, 650)
@@ -534,6 +578,7 @@ Partial Class Cat_Operadores
         Me.Text = "Catálogo Operadores"
         Me.WindowState = Wisej.Web.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -545,7 +590,9 @@ Partial Class Cat_Operadores
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet_pCAT_CLIENTES_B, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet_pCAT_CLIENTES_BUSQUEDA_B, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BS_Clientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -599,5 +646,9 @@ Partial Class Cat_Operadores
     Friend WithEvents buttonMoveNext As Button
     Friend WithEvents buttonMoveLast As Button
     Friend WithEvents separatorControl As Line
-    Friend WithEvents BindingSource2 As BindingSource
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents LstCheck_Clientes As CheckedListBox
+    Friend WithEvents DataSet_pCAT_CLIENTES_B As DataSet_pCAT_CLIENTES_B
+    Friend WithEvents DataSet_pCAT_CLIENTES_BUSQUEDA_B As DataSet_pCAT_CLIENTES_BUSQUEDA_B
+    Friend WithEvents BS_Clientes As BindingSource
 End Class

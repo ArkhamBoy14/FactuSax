@@ -65,7 +65,7 @@ Public Class MyDesktop
             Utilidades.cCommand.CommandType = CommandType.StoredProcedure
             Utilidades.cCommand.Parameters.AddWithValue("@USUARIO", sCve_Operador)
             Utilidades.cCommand.Parameters.AddWithValue("@Modulo", sModulo)
-            If Application.Session("Cve_Rol") <> "R1" Then
+            If Application.Session("Cve_Rol") <> "1" Then
                 Utilidades.cCommand.Parameters.AddWithValue("@habilitado", True)
             End If
             If Trim(sSubModulo) <> Nothing Then
@@ -133,6 +133,7 @@ Public Class MyDesktop
                                 tag_page = cDataReader.Item("CVE_ACCESO")
                                 'tag_items = cDataReader.Item("CVE_ACCESO")
                             Else
+
                                 'Dim ss As RibbonBarItemButton = item_menu
                                 SubMenu = New MenuItem
                                 'item_menu = New Ext.RibbonBar.RibbonBarItemButton
@@ -164,6 +165,11 @@ Public Class MyDesktop
     End Sub
 
     Private Sub handlemenuclick2(sender As Object, e As EventArgs)
+        If sender.Text = "Emisor" Then
+            Application.Session("ME_EMISOR_RECEPTOR") = True
+        ElseIf sender.Text = "Receptor" Then
+            Application.Session("ME_EMISOR_RECEPTOR") = False
+        End If
         Mostrar_Formulario(sender.tag)
     End Sub
     Private Sub handlemenuclick11(sender As Object, e As EventArgs)

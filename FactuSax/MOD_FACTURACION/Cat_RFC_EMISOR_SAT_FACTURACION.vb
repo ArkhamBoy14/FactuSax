@@ -29,6 +29,15 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         ME_EMISOR_RECEPTOR = Emisor_Receptor
         ME_EMPRESA = Empresa
     End Sub
+    Sub New()
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        ME_EMISOR_RECEPTOR = Application.Session("ME_EMISOR_RECEPTOR")
+        ME_EMPRESA = False
+    End Sub
 
     Private Sub Cat_RFC_Load() Handles Me.Load
         SubCatalogos()
@@ -36,7 +45,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         'SplitContainer1.Panel1MinSize = "150"
         If ME_EMISOR_RECEPTOR = True Then
             GBEmisor.Visible = True
-            DataGridView1.Visible = False
+            'DataGridView1.Visible = False
             'SplitContainer1.Panel2Collapsed = True
             CARGAR_EMISOR()
             lbReceptor.Visible = False
@@ -163,7 +172,8 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
             Else
                 myDA = New SqlClient.SqlDataAdapter("[pCAT_RFC_receptor_SAT_FACTURACION_B]", Utilidades.sConexion)
             End If
-            myDA.SelectCommand.Parameters.AddWithValue("@Estatus", 1)
+            myDA.SelectCommand.Parameters.AddWithValue("@Estatus", True)
+            myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", Application.Session("Cve_Cliente"))
             myDA.SelectCommand.CommandType = CommandType.StoredProcedure
             myDA.Fill(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.pCAT_RFC_EMISOR_SAT_FACTURACION_B)
             myDA.Dispose()
@@ -310,7 +320,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
             cbbMunicipio.SelectedValue = DataGridView1.Item(DGVCve_Municipio.Index, e.RowIndex).Value
             TxtLocalidad.Text = DataGridView1.Item(DGVLocalidad.Index, e.RowIndex).Value
             sTipo_Persona = DataGridView1.Item(DGVTipo_Persona.Index, e.RowIndex).Value
-            CBBRegimen.SelectedValue = DataGridView1.Item(DGVCRegimen.Index, e.RowIndex).Value
+            CBBSRegimen.SelectedValue = IIf(DataGridView1.Item(DGVCRegimen.Index, e.RowIndex).Value = 1, -1, DataGridView1.Item(DGVCRegimen.Index, e.RowIndex).Value)
             'CbxReceptor.SelectedValue = DataGridView1.Item(cCve_Receptor.Index, e.RowIndex).Value
             CbxReceptor.Text = DataGridView1.Item(cReceptorX.Index, e.RowIndex).Value
             If ME_EMISOR_RECEPTOR = True Then
@@ -441,6 +451,8 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
                 Utilidades.ParametersX_Global(14) = New SqlClient.SqlParameter("@CER", TBCer.Text)
                 Utilidades.ParametersX_Global(15) = New SqlClient.SqlParameter("@clave_privada", TBCLAVEP.Text)
                 Utilidades.ParametersX_Global(16) = New SqlClient.SqlParameter("@default", 1)
+                Utilidades.ParametersX_Global(20) = New SqlClient.SqlParameter("@Cve_Cliente", Application.Session("Cve_Cliente"))
+
 
             Else
                 'Utilidades.ParametersX_Global(12) = New SqlClient.SqlParameter("@Cve_Receptor", CbxReceptor.SelectedValue)
@@ -743,6 +755,17 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
                 End Try
             End If
         End If
+    End Sub
+
+    Private Sub pictureContrasena_Click(sender As Object, e As EventArgs) Handles pictureContrasena.Click
+        If TBCLAVEP.InputType.Type = TextBoxType.Text Then
+            TBCLAVEP.InputType.Type = TextBoxType.Password
+        Else
+            TBCLAVEP.InputType.Type = TextBoxType.Text
+        End If
+        'TBCLAVEP.InputType.Type = Not TextBoxType.Password
+        Dim image As String = IIf(TBCLAVEP.InputType.Type, "Resources\Images\Menu\25\eye.png", "Resources\Images\Menu\25\eye-slash.png")
+        pictureContrasena.ImageSource = image
     End Sub
 
     Private Sub Upload1_Uploaded(sender As Object, e As UploadedEventArgs) Handles Upload1.Uploaded

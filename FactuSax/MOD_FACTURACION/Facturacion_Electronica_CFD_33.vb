@@ -155,14 +155,11 @@ Public Class Facturacion_Electronica_CFD_33
         CbxClientes.LlenarListBox("pCAT_CLIENTES_B", "Cve_Cliente", "Nombre_Cliente", Utilidades.ParametersX_Global)
         CbxClientes.SelectedIndex = 0
 
-        ReDim Utilidades.ParametersX_Global(0)
-        'Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@emisor_receptor", "EMISOR")
-        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
         SplitContainer1.Panel1MinSize = 340
         ReDim Utilidades.ParametersX_Global(0)
         'Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@emisor_receptor", "RECEPTOR")
-        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX")
-        CBSReceptor.SelectedIndex = 0
+        ''CBSReceptor.SelectedIndex = 0
+        CargarRFC()
         Dim TIPO_PERSONA As String = CBSReceptor.ObtenerDescripcion("Tipo_Persona")
         If TIPO_PERSONA = "FISICA" Then
             ReDim Utilidades.ParametersX_Global(0)
@@ -205,6 +202,29 @@ Public Class Facturacion_Electronica_CFD_33
         'serie()
     End Sub
 
+    Sub CargarRFC()
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+        CBSReceptor.Clear()
+        CBEmisor.Clear()
+        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+
+        If CBEmisor.Items.Count > 0 Then
+            CBEmisor.SelectedIndex = 0
+        Else
+            CBEmisor.SelectedIndex = -1
+        End If
+
+        If CBSReceptor.Items.Count > 0 Then
+            CBSReceptor.SelectedIndex = 0
+        Else
+            CBSReceptor.SelectedIndex = -1
+        End If
+
+
+    End Sub
+
     Private Sub RDBManual_CheckedChanged(sender As Object, e As EventArgs) Handles RDBManual.CheckedChanged
 
         SplitContainer1.Panel1Collapsed = RDBManual.Checked
@@ -229,6 +249,7 @@ Public Class Facturacion_Electronica_CFD_33
         ElseIf sender.name = "BTRec" Then
             Emisor_Receptor = 0
         End If
+        Application.Session("Cve_Cliente") = CbxClientes.SelectedValue
         Dim f = New Cat_RFC_EMISOR_SAT_FACTURACION(Emisor_Receptor, 0)
         f.Show()
 
@@ -642,6 +663,7 @@ Public Class Facturacion_Electronica_CFD_33
         Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Cliente", CbxClientes.ObtenerDescripcion("Cve_Cliente"))
         'CbxReceptor.LlenarListBox("pFACTURACION_RECEPTOR", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
         Consultar(CbxClientes.SelectedValue)
+        CargarRFC()
         limpiar(False)
         serie()
 

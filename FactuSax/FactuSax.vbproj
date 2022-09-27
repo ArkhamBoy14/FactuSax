@@ -687,6 +687,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\Images\LOGOS\Wallpaper\" />
     <Folder Include="Themes\" />
   </ItemGroup>
   <ItemGroup>
@@ -717,6 +718,28 @@
     <Content Include="Datasets\DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.xsc">
       <DependentUpon>DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.xsd</DependentUpon>
     </Content>
+    <Content Include="Datasets\DataSet_pCAT_CLIENTES_B.xsc">
+      <DependentUpon>DataSet_pCAT_CLIENTES_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pCAT_CLIENTES_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pCAT_CLIENTES_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pCAT_CLIENTES_B.xss">
+      <DependentUpon>DataSet_pCAT_CLIENTES_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pCAT_CLIENTES_BUSQUEDA_B.xsc">
+      <DependentUpon>DataSet_pCAT_CLIENTES_BUSQUEDA_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pCAT_CLIENTES_BUSQUEDA_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pCAT_CLIENTES_BUSQUEDA_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pCAT_CLIENTES_BUSQUEDA_B.xss">
+      <DependentUpon>DataSet_pCAT_CLIENTES_BUSQUEDA_B.xsd</DependentUpon>
+    </Content>
     <None Include="Datasets\DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -743,6 +766,28 @@
     </None>
     <Content Include="Datasets\DataSet_pCAT_RETENCIONES_B.xss">
       <DependentUpon>DataSet_pCAT_RETENCIONES_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\Dataset_pCAT_ROL_B.xsc">
+      <DependentUpon>Dataset_pCAT_ROL_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\Dataset_pCAT_ROL_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Dataset_pCAT_ROL_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\Dataset_pCAT_ROL_B.xss">
+      <DependentUpon>Dataset_pCAT_ROL_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pCAT_SISTEMAS_B.xsc">
+      <DependentUpon>DataSet_pCAT_SISTEMAS_B.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pCAT_SISTEMAS_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pCAT_SISTEMAS_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pCAT_SISTEMAS_B.xss">
+      <DependentUpon>DataSet_pCAT_SISTEMAS_B.xsd</DependentUpon>
     </Content>
     <None Include="Datasets\DataSet_pFACTURACION_CAPTURA_FOLIO_MOVIMIENTO.xsd">
       <SubType>Designer</SubType>
@@ -914,7 +959,6 @@
     <Content Include="Resources\Images\LOGOS\ITC\LOGO_ITC_1.png" />
     <Content Include="Resources\Images\LOGOS\ITC\LOGO_ITC_2.jpg" />
     <Content Include="Resources\Images\LOGOS\ITC\LOGO_ITC_ANTERIOR.png" />
-    <Content Include="Resources\Images\LOGOS\Wallpaper\isiscol_portada.jpeg" />
     <Content Include="Resources\Images\Menu\16\Accounting Filled-16.png" />
     <Content Include="Resources\Images\Menu\16\Add File Filled-16.png" />
     <Content Include="Resources\Images\Menu\16\Add User Male Filled-16.png" />
@@ -1171,6 +1215,16 @@
     <Content Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datasets\DataSet_pCAT_CLIENTES_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pCAT_CLIENTES_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pCAT_CLIENTES_BUSQUEDA_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pCAT_CLIENTES_BUSQUEDA_B.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\DataSet_pCAT_IMPUESTOS_SAT_FACTURACION_B.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1185,6 +1239,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_pCAT_RETENCIONES_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Dataset_pCAT_ROL_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dataset_pCAT_ROL_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pCAT_SISTEMAS_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pCAT_SISTEMAS_B.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\DataSet_pFACTURACION_RECEPTOR.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1206,6 +1270,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MOD_CATALOGOS\Cat_Clientes.Designer.vb">
+      <DependentUpon>Cat_Clientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_CATALOGOS\Cat_Clientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MOD_CATALOGOS\Cat_Operadores.Designer.vb">
       <DependentUpon>Cat_Operadores.vb</DependentUpon>
     </Compile>
@@ -1216,6 +1286,12 @@
       <DependentUpon>Cat_Retenciones.vb</DependentUpon>
     </Compile>
     <Compile Include="MOD_CATALOGOS\Cat_Retenciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_CATALOGOS\Cat_Rol.Designer.vb">
+      <DependentUpon>Cat_Rol.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_CATALOGOS\Cat_Rol.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MOD_FACTURACION\catCFDI_tdCFDI_catPagos_Pagos10.vb" />
@@ -1500,11 +1576,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MOD_CATALOGOS\Cat_Clientes.resx">
+      <DependentUpon>Cat_Clientes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MOD_CATALOGOS\Cat_Operadores.resx">
       <DependentUpon>Cat_Operadores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MOD_CATALOGOS\Cat_Retenciones.resx">
       <DependentUpon>Cat_Retenciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_CATALOGOS\Cat_Rol.resx">
+      <DependentUpon>Cat_Rol.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MOD_FACTURACION\Cat_Busqueda_Facturas.resx">
       <DependentUpon>Cat_Busqueda_Facturas.vb</DependentUpon>

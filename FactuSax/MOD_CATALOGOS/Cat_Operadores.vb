@@ -1,6 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data
 Imports System.IO
+Imports System.Web.UI.WebControls
+
 
 Public Class Cat_Operadores
     Dim alertas As New Notificaciones
@@ -17,6 +19,9 @@ Public Class Cat_Operadores
     Private contador As Integer = 0
 
     Private Sub Cat_Operadores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Application.Session("Cve_Rol") = 1 Then
+            GroupBox1.Visible = True
+        End If
         subLlenarCombos()
         RBBCANCELAR.Enabled = False
         txtCve_Operador.Enabled = False
@@ -72,6 +77,7 @@ Public Class Cat_Operadores
                 cveOperador = Utilidades.EjecutarProcedure_Id("pCAT_OPERADORES_G", "@PARAMETRO", Utilidades.ParametersX_Global, False, SqlDbType.VarChar, 50)
 
                 If (cveOperador <> Nothing) Then
+                    GuardarClientes(cveOperador)
                     alertas.NotificacionExito("Datos guardados correctamente...", "Éxito")
                     ' Utilidades.MessageBox("Datos guardados correctamente", "Guardar cambios", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     BindingSource1.ResumeBinding()
@@ -153,6 +159,9 @@ Public Class Cat_Operadores
             paginacion()
         End If
     End Sub
+    Private Sub DGV_Operadores_Click(sender As Object, e As EventArgs) Handles DGV_Operadores.Click
+
+    End Sub
     Private Sub isBindingVacio()
         If BindingSource1.Count > 0 Then
             RBBGUARDAR.Enabled = True
@@ -213,11 +222,74 @@ Public Class Cat_Operadores
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "cargar datos no vinculados", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
+
+
+        Try
+            LstCheck_Clientes.Items.Clear()
+            ReDim Utilidades.ParametersX_Global(1)
+            'Utilidades.ParametersX_Global(0) = New SqlParameter("@EXCLUIR", "NINGUNO")
+            Utilidades.Llenar_Catalogos("pCAT_CLIENTES_BUSQUEDA_B", Me.DataSet_pCAT_CLIENTES_BUSQUEDA_B, "Cat_Operadores")
+            For index = 0 To DataSet_pCAT_CLIENTES_BUSQUEDA_B.Tables(0).Rows.Count() - 1
+                LstCheck_Clientes.Items.Add(New ListItem(DataSet_pCAT_CLIENTES_BUSQUEDA_B.Tables(0).Rows(index)("Nombre_Cliente"), DataSet_pCAT_CLIENTES_BUSQUEDA_B.Tables(0).Rows(index)("Cve_Cliente")))
+            Next
+            CargarClientes(txtCve_Operador.Text)
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Inicio", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+    Sub GuardarClientes(ByVal Cve_Operador As String)
+        Dim Value As String
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Operador", Cve_Operador)
+        Value = Utilidades.EjecutarProcedure_Id("pCAT_OPERADORES_CLIENTES_E", "@PARAMETRO", Utilidades.ParametersX_Global, , SqlDbType.VarChar, 50)
+
+        For index = 0 To LstCheck_Clientes.Items.Count - 1
+            If LstCheck_Clientes.GetItemChecked(index) Then
+                Dim x As ListItem = LstCheck_Clientes.Items(index)
+                ReDim Utilidades.ParametersX_Global(1)
+                Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Operador", Cve_Operador)
+                Utilidades.ParametersX_Global(1) = New SqlParameter("@Cve_Cliente", x.Value)
+                Value = Utilidades.EjecutarProcedure_Id("pCAT_OPERADORES_CLIENTES_G", "@PARAMETRO", Utilidades.ParametersX_Global, , SqlDbType.VarChar, 50)
+            End If
+        Next
+        'If LstCheck_Clientes.CheckedItems.Count = 0 Then
+        '    ReDim Utilidades.ParametersX_Global(1)
+        '    Utilidades.ParametersX_Global(0) = New SqlParameter("@CVE_SERVICIO", cve_servicio)
+        '    Utilidades.ParametersX_Global(1) = New SqlParameter("@CVE_CFP", "0")
+        '    Value = Utilidades.EjecutarProcedure_Id("pPRODUCTOS_SERVICIOS_FIGURAS_PROFESIONALES_G", "@PARAMETRO", Utilidades.ParametersX_Global, , SqlDbType.VarChar, 50)
+        'End If
+    End Sub
+    Sub CargarClientes(Cve_Operador As String)
+        LstCheck_Clientes.ClearSelected()
+        For i = 0 To LstCheck_Clientes.Items.Count - 1
+            LstCheck_Clientes.SetItemChecked(i, False)
+        Next
+        Utilidades.Conectar()
+        Dim cCommand As SqlCommand = New SqlCommand("pCAT_OPERADORES_CLIENTES_B", Utilidades.cConnect)
+        cCommand.CommandType = CommandType.StoredProcedure
+        cCommand.Parameters.Add(New SqlParameter("@Cve_Operador", Cve_Operador))
+        Dim oDataReader As SqlDataReader
+        oDataReader = cCommand.ExecuteReader()
+        While oDataReader.Read()
+            'If Not oDataReader("CVE_CFP") = "0" Then
+            '    Dim posicion As Int16 = BindingFigProf.Find("CVE_CFP", oDataReader("CVE_CFP"))
+            '    LstCheck_Clientes.SetItemChecked(posicion, True)
+            'End If
+            For i = 0 To LstCheck_Clientes.Items.Count - 1
+                If LstCheck_Clientes.Items.Item(i).ToString = oDataReader("Nombre") Then
+                    LstCheck_Clientes.SetItemChecked(i, True)
+                End If
+                'Then
+            Next
+        End While
+        oDataReader.Close()
+        Utilidades.Desconectar()
     End Sub
     Private Sub MoverBinding(sender As Object, e As EventArgs) Handles BindingSource1.PositionChanged
         If agregandoNuevo = False Then
             isBindingVacio()
             cargarDatosNovinculados()
+            CargarClientes(txtCve_Operador.Text)
         End If
     End Sub
 
@@ -234,9 +306,7 @@ Public Class Cat_Operadores
         Me.ErrorProvider1.SetError(cmbRol, Nothing)
     End Sub
 
-    Private Sub DGV_Operadores_CurrentCellChanged(sender As Object, e As EventArgs) Handles DGV_Operadores.CurrentCellChanged
-        'necesita ser declarado aunque no se implemente
-    End Sub
+
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         OpenFileDialog1.Title = "Archivo a Fotografía"
@@ -254,7 +324,6 @@ Public Class Cat_Operadores
             End If
         End If
     End Sub
-
 
 
 End Class
