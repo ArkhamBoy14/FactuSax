@@ -608,5 +608,8 @@ Public Class Facturacion_REPS
         CONSULTAR()
     End Sub
 
-
+    Private Sub CBEmisor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBEmisor.SelectedIndexChanged
+        Dim tabla_datos As DataTable = CBEmisor.dataTable
+        MTBCP.Text = tabla_datos.Rows(0).Item("Codigo_Postal")
+    End Sub
 End Class

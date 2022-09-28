@@ -22,7 +22,7 @@ Partial Class Facturacion_REPS
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar7 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
@@ -156,7 +156,7 @@ Partial Class Facturacion_REPS
         Me.RibbonBar7.Cursor = Wisej.Web.Cursors.Arrow
         Me.RibbonBar7.Name = "RibbonBar7"
         Me.RibbonBar7.Pages.Add(Me.RibbonBarPage1)
-        Me.RibbonBar7.Size = New System.Drawing.Size(1192, 94)
+        Me.RibbonBar7.Size = New System.Drawing.Size(1235, 94)
         '
         'RibbonBarPage1
         '
@@ -214,8 +214,8 @@ Partial Class Facturacion_REPS
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DGVConceptosUUID)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1192, 661)
-        Me.SplitContainer1.SplitterDistance = 371
+        Me.SplitContainer1.Size = New System.Drawing.Size(1235, 661)
+        Me.SplitContainer1.SplitterDistance = 384
         Me.SplitContainer1.TabIndex = 7
         '
         'DGVUUID
@@ -229,14 +229,14 @@ Partial Class Facturacion_REPS
         Me.DGVUUID.Location = New System.Drawing.Point(0, 323)
         Me.DGVUUID.Name = "DGVUUID"
         Me.DGVUUID.RowHeadersVisible = False
-        Me.DGVUUID.Size = New System.Drawing.Size(369, 336)
+        Me.DGVUUID.Size = New System.Drawing.Size(382, 336)
         Me.DGVUUID.TabIndex = 1
         '
         'colChk
         '
-        DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.NullValue = False
-        Me.colChk.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.NullValue = False
+        Me.colChk.DefaultCellStyle = DataGridViewCellStyle3
         Me.colChk.HeaderText = "     "
         Me.colChk.Name = "colChk"
         Me.colChk.Width = 30
@@ -302,7 +302,7 @@ Partial Class Facturacion_REPS
         Me.pserie.Dock = Wisej.Web.DockStyle.Top
         Me.pserie.Location = New System.Drawing.Point(0, 230)
         Me.pserie.Name = "pserie"
-        Me.pserie.Size = New System.Drawing.Size(369, 93)
+        Me.pserie.Size = New System.Drawing.Size(382, 93)
         Me.pserie.TabIndex = 0
         Me.pserie.TabStop = True
         Me.pserie.Visible = False
@@ -337,7 +337,7 @@ Partial Class Facturacion_REPS
         Me.pfECHA.Dock = Wisej.Web.DockStyle.Top
         Me.pfECHA.Location = New System.Drawing.Point(0, 44)
         Me.pfECHA.Name = "pfECHA"
-        Me.pfECHA.Size = New System.Drawing.Size(369, 186)
+        Me.pfECHA.Size = New System.Drawing.Size(382, 186)
         Me.pfECHA.TabIndex = 0
         Me.pfECHA.TabStop = True
         Me.pfECHA.Visible = False
@@ -349,7 +349,7 @@ Partial Class Facturacion_REPS
         Me.GroupBox5.Dock = Wisej.Web.DockStyle.Top
         Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(369, 55)
+        Me.GroupBox5.Size = New System.Drawing.Size(382, 55)
         Me.GroupBox5.TabIndex = 15
         Me.GroupBox5.Text = "Tipo de Facturas"
         '
@@ -437,7 +437,7 @@ Partial Class Facturacion_REPS
         Me.Panel3.Dock = Wisej.Web.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(369, 44)
+        Me.Panel3.Size = New System.Drawing.Size(382, 44)
         Me.Panel3.TabIndex = 0
         Me.Panel3.TabStop = True
         '
@@ -509,7 +509,7 @@ Partial Class Facturacion_REPS
         Me.DGVConceptosUUID.Dock = Wisej.Web.DockStyle.Fill
         Me.DGVConceptosUUID.Location = New System.Drawing.Point(0, 367)
         Me.DGVConceptosUUID.Name = "DGVConceptosUUID"
-        Me.DGVConceptosUUID.Size = New System.Drawing.Size(813, 292)
+        Me.DGVConceptosUUID.Size = New System.Drawing.Size(843, 292)
         Me.DGVConceptosUUID.TabIndex = 1
         '
         'colUUID_1
@@ -587,7 +587,7 @@ Partial Class Facturacion_REPS
         Me.Panel2.Dock = Wisej.Web.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(813, 367)
+        Me.Panel2.Size = New System.Drawing.Size(843, 367)
         Me.Panel2.TabIndex = 0
         Me.Panel2.TabStop = True
         '
@@ -606,7 +606,7 @@ Partial Class Facturacion_REPS
         Me.gbbANCOS.Dock = Wisej.Web.DockStyle.Top
         Me.gbbANCOS.Location = New System.Drawing.Point(0, 271)
         Me.gbbANCOS.Name = "gbbANCOS"
-        Me.gbbANCOS.Size = New System.Drawing.Size(813, 100)
+        Me.gbbANCOS.Size = New System.Drawing.Size(843, 100)
         Me.gbbANCOS.TabIndex = 3
         Me.gbbANCOS.Text = "Bancos"
         Me.gbbANCOS.Visible = False
@@ -692,7 +692,7 @@ Partial Class Facturacion_REPS
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox4)
-        Me.SplitContainer2.Size = New System.Drawing.Size(813, 82)
+        Me.SplitContainer2.Size = New System.Drawing.Size(843, 82)
         Me.SplitContainer2.SplitterDistance = 416
         Me.SplitContainer2.TabIndex = 1
         '
@@ -713,6 +713,7 @@ Partial Class Facturacion_REPS
         Me.BTEm.Name = "BTEm"
         Me.BTEm.Size = New System.Drawing.Size(41, 23)
         Me.BTEm.TabIndex = 1
+        Me.BTEm.Text = "+"
         '
         'GroupBox4
         '
@@ -723,7 +724,7 @@ Partial Class Facturacion_REPS
         Me.GroupBox4.Dock = Wisej.Web.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(389, 80)
+        Me.GroupBox4.Size = New System.Drawing.Size(419, 80)
         Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.Text = "Receptor"
         '
@@ -738,10 +739,11 @@ Partial Class Facturacion_REPS
         '
         'BTRec
         '
-        Me.BTRec.Location = New System.Drawing.Point(373, 17)
+        Me.BTRec.Location = New System.Drawing.Point(378, 17)
         Me.BTRec.Name = "BTRec"
         Me.BTRec.Size = New System.Drawing.Size(33, 23)
         Me.BTRec.TabIndex = 1
+        Me.BTRec.Text = "+"
         '
         'Panel6
         '
@@ -767,7 +769,7 @@ Partial Class Facturacion_REPS
         Me.Panel6.Dock = Wisej.Web.DockStyle.Top
         Me.Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(813, 189)
+        Me.Panel6.Size = New System.Drawing.Size(843, 189)
         Me.Panel6.TabIndex = 2
         Me.Panel6.TabStop = True
         '
@@ -778,7 +780,6 @@ Partial Class Facturacion_REPS
         Me.BtnAnexarPago.Size = New System.Drawing.Size(31, 27)
         Me.BtnAnexarPago.TabIndex = 14
         Me.BtnAnexarPago.Text = "+"
-        Me.BtnAnexarPago.Visible = False
         '
         'RTBObservaciones
         '
@@ -834,7 +835,6 @@ Partial Class Facturacion_REPS
         Me.TBMonto.Name = "TBMonto"
         Me.TBMonto.Size = New System.Drawing.Size(163, 25)
         Me.TBMonto.TabIndex = 1
-        Me.TBMonto.Visible = False
         '
         'Label8
         '
@@ -1038,7 +1038,7 @@ Partial Class Facturacion_REPS
         '
         'Facturacion_REPS
         '
-        Me.ClientSize = New System.Drawing.Size(1192, 755)
+        Me.ClientSize = New System.Drawing.Size(1235, 755)
         Me.Controls.Add(Me.AspPageBox1)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.RibbonBar7)

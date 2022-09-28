@@ -21,16 +21,16 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle11 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.GroupBox1 = New Wisej.Web.GroupBox()
         Me.CBx_TipoAlarma = New Wisej.Web.ComboBox()
         Me.Label1 = New Wisej.Web.Label()
@@ -57,6 +57,7 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.cve_municipio = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.Panel1 = New Wisej.Web.Panel()
         Me.GBEmisor = New Wisej.Web.GroupBox()
+        Me.pictureContrasena = New Wisej.Web.PictureBox()
         Me.Upload2 = New Wisej.Web.Upload()
         Me.Upload1 = New Wisej.Web.Upload()
         Me.TBCLAVEP = New Wisej.Web.TextBox()
@@ -142,9 +143,12 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.RBBI__Nuevo = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBI_Guardar = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBI_Salir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
-        Me.pictureContrasena = New Wisej.Web.PictureBox()
+        Me.Chk_Habilitado = New Wisej.Web.CheckBox()
+        Me.Label21 = New Wisej.Web.Label()
+        Me.CbxClientes = New FactuSax.ComboWisax()
         Me.Panel1.SuspendLayout()
         Me.GBEmisor.SuspendLayout()
+        CType(Me.pictureContrasena, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Label13.SuspendLayout()
         Me.Label16.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -153,7 +157,6 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pictureContrasena, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -211,9 +214,9 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         'Delete
         '
         Me.Delete.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
-        DataGridViewCellStyle11.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.NullValue = Nothing
-        Me.Delete.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.Delete.DefaultCellStyle = DataGridViewCellStyle1
         Me.Delete.HeaderText = "Delete"
         Me.Delete.Name = "Delete"
         Me.Delete.Width = 35
@@ -221,9 +224,9 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         'cEditar
         '
         Me.cEditar.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
-        DataGridViewCellStyle12.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.NullValue = Nothing
-        Me.cEditar.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle2.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.cEditar.DefaultCellStyle = DataGridViewCellStyle2
         Me.cEditar.HeaderText = "Editar"
         Me.cEditar.Name = "cEditar"
         Me.cEditar.Width = 35
@@ -231,10 +234,10 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         'cRFC
         '
         Me.cRFC.DataPropertyName = "RFC"
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(224, 224, 224)
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.cRFC.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(224, 224, 224)
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.DodgerBlue
+        Me.cRFC.DefaultCellStyle = DataGridViewCellStyle3
         Me.cRFC.HeaderText = "RFC"
         Me.cRFC.Name = "cRFC"
         Me.cRFC.Width = 120
@@ -278,9 +281,9 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         'cESTATUS
         '
         Me.cESTATUS.DataPropertyName = "ESTATUS"
-        DataGridViewCellStyle14.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle14.NullValue = False
-        Me.cESTATUS.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle4.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.NullValue = False
+        Me.cESTATUS.DefaultCellStyle = DataGridViewCellStyle4
         Me.cESTATUS.HeaderText = "Estatus"
         Me.cESTATUS.Name = "cESTATUS"
         Me.cESTATUS.ReadOnly = True
@@ -370,11 +373,18 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.GBEmisor.Controls.Add(Me.Label16)
         Me.GBEmisor.Controls.Add(Me.TBKey)
         Me.GBEmisor.Dock = Wisej.Web.DockStyle.Top
-        Me.GBEmisor.Location = New System.Drawing.Point(0, 432)
+        Me.GBEmisor.Location = New System.Drawing.Point(0, 488)
         Me.GBEmisor.Name = "GBEmisor"
         Me.GBEmisor.Size = New System.Drawing.Size(416, 163)
         Me.GBEmisor.TabIndex = 37
         Me.GBEmisor.Text = "Emisor"
+        '
+        'pictureContrasena
+        '
+        Me.pictureContrasena.ImageSource = "Resources\Images\Menu\25\eye-slash.png"
+        Me.pictureContrasena.Location = New System.Drawing.Point(176, 123)
+        Me.pictureContrasena.Name = "pictureContrasena"
+        Me.pictureContrasena.Size = New System.Drawing.Size(24, 24)
         '
         'Upload2
         '
@@ -484,6 +494,9 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Label21)
+        Me.GroupBox5.Controls.Add(Me.CbxClientes)
+        Me.GroupBox5.Controls.Add(Me.Chk_Habilitado)
         Me.GroupBox5.Controls.Add(Me.lbReceptor)
         Me.GroupBox5.Controls.Add(Me.CbxReceptor)
         Me.GroupBox5.Controls.Add(Me.cbbMunicipio)
@@ -516,14 +529,14 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.GroupBox5.Dock = Wisej.Web.DockStyle.Top
         Me.GroupBox5.Location = New System.Drawing.Point(0, 43)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(416, 389)
+        Me.GroupBox5.Size = New System.Drawing.Size(416, 445)
         Me.GroupBox5.TabIndex = 9
         Me.GroupBox5.Text = "Registrar Nuevo RFC (Datos Fiscales)"
         '
         'lbReceptor
         '
         Me.lbReceptor.AutoSize = True
-        Me.lbReceptor.Location = New System.Drawing.Point(12, 340)
+        Me.lbReceptor.Location = New System.Drawing.Point(12, 377)
         Me.lbReceptor.Name = "lbReceptor"
         Me.lbReceptor.Size = New System.Drawing.Size(57, 15)
         Me.lbReceptor.TabIndex = 38
@@ -531,7 +544,7 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         '
         'CbxReceptor
         '
-        Me.CbxReceptor.Location = New System.Drawing.Point(12, 356)
+        Me.CbxReceptor.Location = New System.Drawing.Point(12, 393)
         Me.CbxReceptor.Name = "CbxReceptor"
         Me.CbxReceptor.Size = New System.Drawing.Size(383, 22)
         Me.CbxReceptor.TabIndex = 37
@@ -798,12 +811,12 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         '
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.BorderStyle = Wisej.Web.BorderStyle.None
-        DataGridViewCellStyle15.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle15.WrapMode = Wisej.Web.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle5.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.WrapMode = Wisej.Web.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.DataGridViewImageColumn2, Me.DataGridViewImageColumn1, Me.DGVRFC, Me.DGVRazon_Social, Me.DGVTipo_Persona, Me.DGVTelefono, Me.DGVE_Mail, Me.DGVCalle, Me.DGVEstatus, Me.DGVNo_Exterior, Me.DGVNo_Interior, Me.DGVCodigo_Postal, Me.DGVColonia, Me.DGVEstado, Me.DGVMunicipio, Me.DGVLocalidad, Me.DGVCve_estado, Me.DGVCve_Municipio, Me.DGVCRegimen, Me.DGVCLlave, Me.DGVCCer, Me.ClavePrivada, Me.PorDefecto, Me.cCve_Receptor, Me.cReceptor_Rescripcion, Me.cReceptorX})
         Me.DataGridView1.DataMember = "pCAT_RFC_EMISOR_SAT_FACTURACION_B"
         Me.DataGridView1.DataSource = Me.BindingSource1
@@ -820,9 +833,9 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         '
         Me.DataGridViewImageColumn2.CellImage = Global.FactuSax.My.Resources.Resources.Eliminar
         Me.DataGridViewImageColumn2.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
-        DataGridViewCellStyle16.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle16.NullValue = Nothing
-        Me.DataGridViewImageColumn2.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle6.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.DataGridViewImageColumn2.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewImageColumn2.HeaderText = " "
         Me.DataGridViewImageColumn2.Name = "DataGridViewImageColumn2"
         Me.DataGridViewImageColumn2.Width = 30
@@ -831,9 +844,9 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         '
         Me.DataGridViewImageColumn1.CellImage = Global.FactuSax.My.Resources.Resources.Edit_File_Filled
         Me.DataGridViewImageColumn1.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
-        DataGridViewCellStyle17.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle17.NullValue = Nothing
-        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle7.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridViewImageColumn1.HeaderText = " "
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         Me.DataGridViewImageColumn1.Width = 30
@@ -841,10 +854,10 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         'DGVRFC
         '
         Me.DGVRFC.DataPropertyName = "RFC"
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.LightGray
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.DeepSkyBlue
-        Me.DGVRFC.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.LightGray
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.DeepSkyBlue
+        Me.DGVRFC.DefaultCellStyle = DataGridViewCellStyle8
         Me.DGVRFC.HeaderText = "RFC"
         Me.DGVRFC.Name = "DGVRFC"
         Me.DGVRFC.Width = 120
@@ -852,8 +865,8 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         'DGVRazon_Social
         '
         Me.DGVRazon_Social.DataPropertyName = "Razon_Social"
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.DGVRazon_Social.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.DGVRazon_Social.DefaultCellStyle = DataGridViewCellStyle9
         Me.DGVRazon_Social.HeaderText = "Razon Social"
         Me.DGVRazon_Social.Name = "DGVRazon_Social"
         Me.DGVRazon_Social.ReadOnly = True
@@ -990,9 +1003,9 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         'PorDefecto
         '
         Me.PorDefecto.DataPropertyName = "pordefecto"
-        DataGridViewCellStyle20.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle20.NullValue = False
-        Me.PorDefecto.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle10.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.NullValue = False
+        Me.PorDefecto.DefaultCellStyle = DataGridViewCellStyle10
         Me.PorDefecto.HeaderText = "PorDefecto"
         Me.PorDefecto.Name = "PorDefecto"
         '
@@ -1085,12 +1098,29 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.RBBI_Salir.Name = "RBBI_Salir"
         Me.RBBI_Salir.Text = "Salir"
         '
-        'pictureContrasena
+        'Chk_Habilitado
         '
-        Me.pictureContrasena.ImageSource = "Resources\Images\Menu\25\eye-slash.png"
-        Me.pictureContrasena.Location = New System.Drawing.Point(176, 123)
-        Me.pictureContrasena.Name = "pictureContrasena"
-        Me.pictureContrasena.Size = New System.Drawing.Size(24, 24)
+        Me.Chk_Habilitado.Location = New System.Drawing.Point(12, 419)
+        Me.Chk_Habilitado.Name = "Chk_Habilitado"
+        Me.Chk_Habilitado.Size = New System.Drawing.Size(90, 22)
+        Me.Chk_Habilitado.TabIndex = 39
+        Me.Chk_Habilitado.Text = "Habilitado"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(12, 338)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(45, 15)
+        Me.Label21.TabIndex = 41
+        Me.Label21.Text = "Cliente"
+        '
+        'CbxClientes
+        '
+        Me.CbxClientes.Location = New System.Drawing.Point(12, 354)
+        Me.CbxClientes.Name = "CbxClientes"
+        Me.CbxClientes.Size = New System.Drawing.Size(383, 22)
+        Me.CbxClientes.TabIndex = 40
         '
         'Cat_RFC_EMISOR_SAT_FACTURACION
         '
@@ -1104,6 +1134,7 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.Panel1.ResumeLayout(False)
         Me.GBEmisor.ResumeLayout(False)
         Me.GBEmisor.PerformLayout()
+        CType(Me.pictureContrasena, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Label13.ResumeLayout(False)
         Me.Label13.PerformLayout()
         Me.Label16.ResumeLayout(False)
@@ -1116,7 +1147,6 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pictureContrasena, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1240,4 +1270,7 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
     Friend WithEvents Upload1 As Upload
     Friend WithEvents Upload2 As Upload
     Friend WithEvents pictureContrasena As PictureBox
+    Friend WithEvents Chk_Habilitado As CheckBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents CbxClientes As ComboWisax
 End Class
