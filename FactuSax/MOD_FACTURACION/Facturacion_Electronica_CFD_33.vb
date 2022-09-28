@@ -666,6 +666,7 @@ Public Class Facturacion_Electronica_CFD_33
         CargarRFC()
         limpiar(False)
         serie()
+        PREDETERMINADOS()
 
 
 

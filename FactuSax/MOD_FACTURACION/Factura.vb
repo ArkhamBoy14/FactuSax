@@ -28,10 +28,10 @@ Public Class Factura
             Sellodigital.leerCER(certificado, aa, b, c, numeroCertificado)
             Dim Impuestotraslado As New List(Of String)
             Dim comprobante As New Comprobante
-            comprobante.Version = "3.3"
+            comprobante.Version = "4.0"
             comprobante.Folio = cuerpo_factura("Folio")
             comprobante.Serie = cuerpo_factura("Serie")
-            Dim fecha As String = Now.ToString("yyyy-MM-ddTHH:mm:ss")
+            Dim fecha As String = fechafactura.ToString("yyyy-MM-ddTHH:mm:ss")
 
             comprobante.Fecha = fecha
             'comprobante.Sello = "faltante"
@@ -316,8 +316,8 @@ Public Class Factura
             If timbrarx = True Then
                 Dim b = System.IO.File.ReadAllBytes(pathxml)
                 Dim cad = Convert.ToBase64String(b)
-                Dim servicio As New XpdProduccion.TimbradoWSService
-                Dim respuesta As New XpdProduccion.respuestaTimbrado
+                Dim servicio As New ExpideTuFactura.TimbradoWSService
+                Dim respuesta As New ExpideTuFactura.respuestaTimbrado
                 respuesta = servicio.timbrar(Application.Session("Facturauser"), Application.Session("FacturaContrasena"), b)
 
 
@@ -831,7 +831,7 @@ Public Class Factura
             comprobante.Version = "3.3"
             comprobante.Folio = cuerpo_factura("Folio")
             comprobante.Serie = cuerpo_factura("Serie")
-            Dim fecha As String = Now.ToString("yyyy-MM-ddTHH:mm:ss")
+            Dim fecha As String = fechafactura.ToString("yyyy-MM-ddTHH:mm:ss")
 
             comprobante.Fecha = fecha
             'comprobante.Sello = "faltante"
@@ -1080,7 +1080,7 @@ Public Class Factura
             comprobante.Version = "3.3"
             comprobante.Folio = cuerpo_factura("Folio")
             comprobante.Serie = cuerpo_factura("Serie")
-            Dim fecha As String = Now.ToString("yyyy-MM-ddTHH:mm:ss")
+            Dim fecha As String = fechafactura.ToString("yyyy-MM-ddTHH:mm:ss")
 
             comprobante.Fecha = fecha
             'comprobante.Sello = "faltante"

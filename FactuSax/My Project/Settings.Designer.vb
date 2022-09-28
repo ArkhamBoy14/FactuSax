@@ -103,6 +103,17 @@ Namespace My
                 Return CType(Me("FactuSax_XpdProduccion_TimbradoWSService"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://appliance-qa.expidetufactura.com.mx:8585/CoreTimbrado.test/TimbradoWSSoap"& _ 
+            "Single")>  _
+        Public ReadOnly Property FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle() As String
+            Get
+                Return CType(Me("FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
