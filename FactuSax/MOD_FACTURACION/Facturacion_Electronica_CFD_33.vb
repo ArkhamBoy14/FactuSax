@@ -268,7 +268,7 @@ Public Class Facturacion_Electronica_CFD_33
         Next
         ReDim Utilidades.ParametersX_Global(0)
         CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
-
+        PREDETERMINADOS()
     End Sub
 
 
@@ -864,7 +864,7 @@ Public Class Facturacion_Electronica_CFD_33
         If CBEmisor.SelectedIndex <> -1 Then
             'Dim datasetx = CBEmisor.DataSource
             Dim tabla_datos As DataTable = CBEmisor.dataTable()
-            MTBCP.Text = tabla_datos.Rows(0).Item("Codigo_Postal")
+            MTBCP.Text = tabla_datos.Rows(CBEmisor.SelectedIndex).Item("Codigo_Postal")
         End If
 
         TBTipoCambio.Text = 1

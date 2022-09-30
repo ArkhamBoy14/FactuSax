@@ -10,6 +10,8 @@ Imports DevExpress.XtraPrinting
 
 Public Class Factura
     Dim pathxml As String
+    Dim codeXml As String
+
     Function factura_html(emisor As String, receptor As String, cuerpo_factura As Dictionary(Of String, String), certificado As String, llave As String, claveprivada As String, conceptos As List(Of String),
                        traslado As List(Of String), totaliva As String, serieactiva As String, fechafactura As DateTime, Optional totalretenciones As String = Nothing, Optional retenciones As List(Of String) = Nothing, Optional FOLIO_FACTURAS As String = Nothing)
         Try
@@ -28,7 +30,7 @@ Public Class Factura
             Sellodigital.leerCER(certificado, aa, b, c, numeroCertificado)
             Dim Impuestotraslado As New List(Of String)
             Dim comprobante As New Comprobante
-            comprobante.Version = "4.0"
+            comprobante.Version = "3.3"
             comprobante.Folio = cuerpo_factura("Folio")
             comprobante.Serie = cuerpo_factura("Serie")
             Dim fecha As String = fechafactura.ToString("yyyy-MM-ddTHH:mm:ss")
@@ -213,9 +215,10 @@ Public Class Factura
                     GUARDAR_UUID_FOLIO(splitx_resp(1), FOLIO_FACTURAS)
                 End If
 
-
                 'BO = False '---------------------- Quitar pq no esta el reporte, solo para probar que guarde
                 If BO = True Then
+                    Guardar_XLM(codeXml, splitx_resp(1))
+
                     'MessageBox.Show("Factura timbrada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Dim GuardarTimbre As New WebService_Timbres.Timbres()
                     Dim sBody As String = String.Format("rfc={0}&movimiento={1}&valor={2}", split_e(0), "TIMBRADAS", 1)
@@ -260,6 +263,14 @@ Public Class Factura
         End Try
     End Function
 
+    Sub Guardar_XLM(XML As String, UUID As String)
+        ReDim Utilidades.ParametersX_Global(1)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@UUID", UUID)
+        Utilidades.ParametersX_Global(1) = New SqlParameter("@XML", XML)
+
+        Dim SaveXML = Utilidades.EjecutarProcedure_Id("pFACTURA_SAT_UUID_XML_G", "@Parametro", Utilidades.ParametersX_Global)
+
+    End Sub
     Function cadena_original(patxml As String)
         Try
 
@@ -300,6 +311,8 @@ Public Class Factura
                 End Using
             End Using
 
+            codeXml = Nothing
+            codeXml = strxml
 
             'Dim strarregaldo = strxml.Replace("Comprobante", "cfdi:Comprobante")
             'strarregaldo = strarregaldo.Replace("utf-8", "UTF-8")
