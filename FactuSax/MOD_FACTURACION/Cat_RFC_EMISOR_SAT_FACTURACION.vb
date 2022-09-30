@@ -62,6 +62,15 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         Else
             CbxReceptor.LlenarListBox("pFACTURACION_RECEPTOR", "Cve_Receptor", "ReceptorX")
         End If
+
+        If Not String.IsNullOrWhiteSpace(Application.Session("Cve_Cliente")) Then
+            CbxReceptor.SelectedValue = Application.Session("Cve_Cliente")
+            CbxReceptor.Enabled = False
+        End If
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Operador", Application.Session("Cve_Operador"))
+        CbxClientes.LlenarListBox("pCAT_CLIENTES_B", "Cve_Cliente", "Nombre_Cliente", Utilidades.ParametersX_Global)
+        CbxClientes.SelectedIndex = 0
         'dt_cambiado = New DataTable
         'dt_cambiado.Columns.Add("Valor")
         'dt_cambiado.Columns.Add("posicion")
@@ -172,7 +181,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
             Else
                 myDA = New SqlClient.SqlDataAdapter("[pCAT_RFC_receptor_SAT_FACTURACION_B]", Utilidades.sConexion)
             End If
-            myDA.SelectCommand.Parameters.AddWithValue("@Estatus", True)
+            'myDA.SelectCommand.Parameters.AddWithValue("@Estatus", True)
             myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", Application.Session("Cve_Cliente"))
             myDA.SelectCommand.CommandType = CommandType.StoredProcedure
             myDA.Fill(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.pCAT_RFC_EMISOR_SAT_FACTURACION_B)
@@ -336,7 +345,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
             Else
                 Opc_Tipo_Fisica.Checked = True
             End If
-
+            Chk_Habilitado.Checked = DataGridView1.Item(DGVEstatus.Index, e.RowIndex).Value
 
             RBBI_Guardar.Text = "Actualizar"
             TxtRFC.Enabled = False
@@ -451,7 +460,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
                 Utilidades.ParametersX_Global(14) = New SqlClient.SqlParameter("@CER", TBCer.Text)
                 Utilidades.ParametersX_Global(15) = New SqlClient.SqlParameter("@clave_privada", TBCLAVEP.Text)
                 Utilidades.ParametersX_Global(16) = New SqlClient.SqlParameter("@default", 1)
-                Utilidades.ParametersX_Global(20) = New SqlClient.SqlParameter("@Cve_Cliente", Application.Session("Cve_Cliente"))
+                Utilidades.ParametersX_Global(20) = New SqlClient.SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
 
 
             Else
@@ -462,7 +471,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
 
 
 
-            Utilidades.ParametersX_Global(17) = New SqlClient.SqlParameter("@Estatus", 1)
+            Utilidades.ParametersX_Global(17) = New SqlClient.SqlParameter("@Estatus", IIf(Chk_Habilitado.Checked, 1, 0))
             If Opc_Tipo_Fisica.Checked = True Then
                 Utilidades.ParametersX_Global(18) = New SqlClient.SqlParameter("@Tipo_Persona", "FISICA")
             Else

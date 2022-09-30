@@ -19,10 +19,14 @@ Public Class Facturacion_Nota_Credito
         CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
         CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
 
+
         ReDim Utilidades.ParametersX_Global(1)
         Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Operador", Application.Session("Cve_Operador"))
         'Utilidades.LlenarListBox("pCAT_EMPRESAS_B", "Cve_Empresa", "Empresa2", cbbEmpresa)
         CBSTipoComprobante.LlenarListBox("pCAT_TIPOCOMPROBANTE_SAT_FACTURACION_B", "c_TipoDeComprobante", "DescripcionX")
+
+        CbxClientes.LlenarListBox("pCAT_CLIENTES_B", "Cve_Cliente", "Nombre_Cliente", Utilidades.ParametersX_Global)
+        CbxClientes.SelectedIndex = 0
 
         CBSFormaPago.LlenarListBox("pCAT_FORMAPAGO_SAT_FACTURACION_B", "c_Formapago", "DescripcionX")
 
@@ -35,11 +39,11 @@ Public Class Facturacion_Nota_Credito
         CBSTipoComprobante.SelectedValue = "E"
         CBSFormaPago.SelectedValue = "01"
 
-        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
+        'CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
         SplitContainer1.Panel1MinSize = 340
 
-        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX")
-        CBSReceptor.SelectedIndex = 0
+        'CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX")
+        'CBSReceptor.SelectedIndex = 0
         Dim TIPO_PERSONA As String = CBSReceptor.ObtenerDescripcion("Tipo_Persona")
         If TIPO_PERSONA = "FISICA" Then
             ReDim Utilidades.ParametersX_Global(0)
@@ -152,7 +156,7 @@ Public Class Facturacion_Nota_Credito
 
 
 
-    Sub CONSULTAR()
+    Sub CONSULTAR(Optional Cve_Cliente As String = "-99")
 
         Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.Clear()
 
@@ -171,6 +175,7 @@ Public Class Facturacion_Nota_Credito
                 myDA.SelectCommand.Parameters.AddWithValue("@Serie", TextBox1.Text)
             End If
         End If
+        myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", CbxClientes.SelectedValue)
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha1", Format(Me.cFecha1.Value, "yyyyMMdd"))
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha2", Format(Me.cFecha2.Value, "yyyyMMdd"))
         myDA.Fill(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.pFACTURA_SAT_CFDI_PAGOS_B)
@@ -489,6 +494,22 @@ Public Class Facturacion_Nota_Credito
 
     End Sub
 
+    Private Sub CbxClientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxClientes.SelectedIndexChanged
+        Application.Session("Facturauser") = CbxClientes.ObtenerDescripcion("FACTORUM_USER")
+        Application.Session("FacturaContrasena") = CbxClientes.ObtenerDescripcion("ContrasenaFact")
+        Application.Session("Cve_Cliente") = CbxClientes.ObtenerDescripcion("Cve_Cliente")
+        'CargarRetenciones()
+        'CbxReceptor.SelectedIndex = -1
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Cliente", CbxClientes.ObtenerDescripcion("Cve_Cliente"))
+        'CbxReceptor.LlenarListBox("pFACTURACION_RECEPTOR", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
+        CONSULTAR(CbxClientes.SelectedValue)
+        CargarRFC()
+        limpiar()
+        'SERIE()
+        PREDETERMINADOS()
+    End Sub
+
     'Private Sub DGVConceptosUUID_Cellleave(sender As Object, e As DataGridViewCellEventArgs)
     '    If DGVConceptosUUID.Rows.Count <> 0 Then
 
@@ -508,5 +529,27 @@ Public Class Facturacion_Nota_Credito
 
 
     'End Sub
+    Sub CargarRFC()
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+        CBSReceptor.Clear()
+        CBEmisor.Clear()
+        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+
+        If CBEmisor.Items.Count > 0 Then
+            CBEmisor.SelectedIndex = 0
+        Else
+            CBEmisor.SelectedIndex = -1
+        End If
+
+        If CBSReceptor.Items.Count > 0 Then
+            CBSReceptor.SelectedIndex = 0
+        Else
+            CBSReceptor.SelectedIndex = -1
+        End If
+
+
+    End Sub
 
 End Class
