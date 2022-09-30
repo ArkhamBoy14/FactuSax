@@ -10,8 +10,6 @@ Imports DevExpress.XtraPrinting
 
 Public Class Factura
     Dim pathxml As String
-    Dim codeXml As String
-
     Function factura_html(emisor As String, receptor As String, cuerpo_factura As Dictionary(Of String, String), certificado As String, llave As String, claveprivada As String, conceptos As List(Of String),
                        traslado As List(Of String), totaliva As String, serieactiva As String, fechafactura As DateTime, Optional totalretenciones As String = Nothing, Optional retenciones As List(Of String) = Nothing, Optional FOLIO_FACTURAS As String = Nothing)
         Try
@@ -30,7 +28,7 @@ Public Class Factura
             Sellodigital.leerCER(certificado, aa, b, c, numeroCertificado)
             Dim Impuestotraslado As New List(Of String)
             Dim comprobante As New Comprobante
-            comprobante.Version = "3.3"
+            comprobante.Version = "4.0"
             comprobante.Folio = cuerpo_factura("Folio")
             comprobante.Serie = cuerpo_factura("Serie")
             Dim fecha As String = fechafactura.ToString("yyyy-MM-ddTHH:mm:ss")
@@ -46,9 +44,9 @@ Public Class Factura
             comprobante.Total = cuerpo_factura("Total")
             comprobante.TipoDeComprobante = cuerpo_factura("Tipo_comprobante")
             comprobante.MetodoPago = cuerpo_factura("Metodo_pago")
-            comprobante.LugarExpedicion = cuerpo_factura("Lugarexpedicion")
+            comprobante.LugarExpedicion = "86301"
             comprobante.MetodoPagoSpecified = True
-
+            comprobante.Exportacion = "01"
 
             If cuerpo_factura("Descuento") <> 0 Then
                 comprobante.Descuento = cuerpo_factura("Descuento")
@@ -72,7 +70,7 @@ Public Class Factura
             Dim ce As New ComprobanteEmisor
             Dim split_e = emisor.Split("|")
             ce.Rfc = split_e(0)
-            ce.Nombre = split_e(1)
+            ce.Nombre = "ESCUELA WILSON ESQUIVEL SA DE CV"
             ce.RegimenFiscal = split_e(2)
 
             Dim cr As New ComprobanteReceptor
@@ -80,6 +78,9 @@ Public Class Factura
             cr.Nombre = split_r(1)
             cr.Rfc = split_r(0)
             cr.UsoCFDI = split_r(2)
+            cr.RegimenFiscalReceptor = "601"
+            'cr.ResidenciaFiscalSpecified = True
+            cr.DomicilioFiscalReceptor = "86280"
             comprobante.Emisor = ce
             comprobante.Receptor = cr
 
@@ -95,6 +96,7 @@ Public Class Factura
                 concepto.Descripcion = split(3)
                 concepto.ValorUnitario = split(4)
                 concepto.Importe = split(5)
+                concepto.ObjetoImp = "02"
                 If split(6) <> "0" Then
                     concepto.Descuento = split(6)
                     concepto.DescuentoSpecified = True
@@ -215,10 +217,9 @@ Public Class Factura
                     GUARDAR_UUID_FOLIO(splitx_resp(1), FOLIO_FACTURAS)
                 End If
 
+
                 'BO = False '---------------------- Quitar pq no esta el reporte, solo para probar que guarde
                 If BO = True Then
-                    Guardar_XLM(codeXml, splitx_resp(1))
-
                     'MessageBox.Show("Factura timbrada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Dim GuardarTimbre As New WebService_Timbres.Timbres()
                     Dim sBody As String = String.Format("rfc={0}&movimiento={1}&valor={2}", split_e(0), "TIMBRADAS", 1)
@@ -263,20 +264,12 @@ Public Class Factura
         End Try
     End Function
 
-    Sub Guardar_XLM(XML As String, UUID As String)
-        ReDim Utilidades.ParametersX_Global(1)
-        Utilidades.ParametersX_Global(0) = New SqlParameter("@UUID", UUID)
-        Utilidades.ParametersX_Global(1) = New SqlParameter("@XML", XML)
-
-        Dim SaveXML = Utilidades.EjecutarProcedure_Id("pFACTURA_SAT_UUID_XML_G", "@Parametro", Utilidades.ParametersX_Global)
-
-    End Sub
     Function cadena_original(patxml As String)
         Try
 
 
             Dim cadena_originalx As String = ""
-            Dim cadena_originalpath = Application.StartupPath & "\Resources\SAT\CADENA_ORIGINAL\cadenaoriginal_3_3.xslt"
+            Dim cadena_originalpath = Application.StartupPath & "\Resources\SAT\CADENA_ORIGINAL\cadenaoriginal_4_0.xslt"
             Dim TRANSFORMADOR As System.Xml.Xsl.XslCompiledTransform = New System.Xml.Xsl.XslCompiledTransform(True)
             TRANSFORMADOR.Load(cadena_originalpath)
             Using sw As IO.StringWriter = New IO.StringWriter
@@ -297,9 +290,9 @@ Public Class Factura
 
 
             Dim xmlNameSpace As XmlSerializerNamespaces = New XmlSerializerNamespaces()
-            xmlNameSpace.Add("tfd", "http://www.sat.gob.mx/TimbreFiscalDigital")
+            'xmlNameSpace.Add("tfd", "http://www.sat.gob.mx/TimbreFiscalDigital")
             xmlNameSpace.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance")
-            xmlNameSpace.Add("cfdi", "http://www.sat.gob.mx/cfd/3")
+            xmlNameSpace.Add("cfdi", "http://www.sat.gob.mx/cfd/4")
             Dim xmlserial As New XmlSerializer(GetType(Comprobante))
             Dim strxml As String = ""
             Dim utf8noBOM As Encoding = New UTF8Encoding(False)
@@ -311,8 +304,6 @@ Public Class Factura
                 End Using
             End Using
 
-            codeXml = Nothing
-            codeXml = strxml
 
             'Dim strarregaldo = strxml.Replace("Comprobante", "cfdi:Comprobante")
             'strarregaldo = strarregaldo.Replace("utf-8", "UTF-8")
@@ -329,8 +320,9 @@ Public Class Factura
             If timbrarx = True Then
                 Dim b = System.IO.File.ReadAllBytes(pathxml)
                 Dim cad = Convert.ToBase64String(b)
-                Dim servicio As New XpdProduccion.TimbradoWSService
-                Dim respuesta As New XpdProduccion.respuestaTimbrado
+                'Dim servicio As New XpdProduccion.TimbradoWSService
+                Dim servicio As New xpdPruebas4_0.TimbradoWSSoapSingle
+                Dim respuesta As New xpdPruebas4_0.responseTimbrar
                 respuesta = servicio.timbrar(Application.Session("Facturauser"), Application.Session("FacturaContrasena"), b)
 
 

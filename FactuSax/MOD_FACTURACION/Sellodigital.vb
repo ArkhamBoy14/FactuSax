@@ -140,29 +140,29 @@ Public Class Sellodigital
             Dim transformer As System.Xml.Xsl.XslCompiledTransform = New System.Xml.Xsl.XslCompiledTransform()
             Dim strwriter As StringWriter = New StringWriter()
 
-            If File.Exists("cadenaoriginal_3_3.xslt") Then
+        If File.Exists("cadenaoriginal_4_0.xslt") Then
 
-                Try
-                    transformer.Load("cadenaoriginal_3_3.xslt")
-                    transformer.Transform(NombreXML, Nothing, strwriter)
-                    Return strwriter.ToString()
-                Catch e As Exception
-                    Console.WriteLine(e.Message)
-                End Try
-            End If
+            Try
+                transformer.Load("cadenaoriginal_4_0.xslt")
+                transformer.Transform(NombreXML, Nothing, strwriter)
+                Return strwriter.ToString()
+            Catch e As Exception
+                Console.WriteLine(e.Message)
+            End Try
+        End If
 
-            If File.Exists("cadenaoriginal_3_3.xslt") Then
+        If File.Exists("cadenaoriginal_4_0.xslt") Then
 
-                Try
-                    transformer.Load("cadenaoriginal_3_3.xslt")
-                    transformer.Transform(NombreXML, Nothing, strwriter)
-                    Return strwriter.ToString()
-                Catch e As Exception
-                    Console.WriteLine(e.Message)
-                    Throw e
-                End Try
-            Else
-                Return "Error al cargar el validador."
+            Try
+                transformer.Load("cadenaoriginal_4_0.xslt")
+                transformer.Transform(NombreXML, Nothing, strwriter)
+                Return strwriter.ToString()
+            Catch e As Exception
+                Console.WriteLine(e.Message)
+                Throw e
+            End Try
+        Else
+            Return "Error al cargar el validador."
             End If
         End Function
 

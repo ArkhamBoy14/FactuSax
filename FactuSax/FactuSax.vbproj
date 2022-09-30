@@ -1313,7 +1313,9 @@
     <Compile Include="MOD_FACTURACION\CAT_SERIE_FOLIO_SAT_FACTURACION.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MOD_FACTURACION\cfdv33_tdCFDI_catCFDI.vb" />
+    <Compile Include="MOD_FACTURACION\cfdv40_catcfdi_tdCFDI.vb">
+      <SubType>code</SubType>
+    </Compile>
     <Compile Include="MOD_FACTURACION\Factura.vb" />
     <Compile Include="MOD_FACTURACION\Facturacion Nota_Credito.Designer.vb">
       <DependentUpon>Facturacion Nota_Credito.vb</DependentUpon>

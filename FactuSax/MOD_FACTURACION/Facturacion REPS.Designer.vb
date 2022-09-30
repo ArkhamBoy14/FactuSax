@@ -50,9 +50,7 @@ Partial Class Facturacion_REPS
         Me.RbEmpresa = New Wisej.Web.RadioButton()
         Me.RbParticular = New Wisej.Web.RadioButton()
         Me.Label12 = New Wisej.Web.Label()
-        Me.CbxReceptor = New FactuSax.ComboWisax()
         Me.Label16 = New Wisej.Web.Label()
-        Me.CbxClientes = New FactuSax.ComboWisax()
         Me.Label19 = New Wisej.Web.Label()
         Me.cFecha2 = New Wisej.Web.DateTimePicker()
         Me.cFecha1 = New Wisej.Web.DateTimePicker()
@@ -78,7 +76,6 @@ Partial Class Facturacion_REPS
         Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B()
         Me.Panel2 = New Wisej.Web.Panel()
         Me.gbbANCOS = New Wisej.Web.GroupBox()
-        Me.CBSBancoEmisor = New FactuSax.ComboWisax()
         Me.TBRFCbancoB = New Wisej.Web.TextBox()
         Me.TBCtabeneficiario = New Wisej.Web.TextBox()
         Me.Label15 = New Wisej.Web.Label()
@@ -87,28 +84,21 @@ Partial Class Facturacion_REPS
         Me.Label11 = New Wisej.Web.Label()
         Me.Label10 = New Wisej.Web.Label()
         Me.TBBRFCancoE = New Wisej.Web.TextBox()
-        Me.CBSBancoBeneficiario = New FactuSax.ComboWisax()
         Me.SplitContainer2 = New Wisej.Web.SplitContainer()
         Me.GroupBox3 = New Wisej.Web.GroupBox()
-        Me.CBEmisor = New FactuSax.ComboWisax()
         Me.BTEm = New Wisej.Web.Button()
         Me.GroupBox4 = New Wisej.Web.GroupBox()
         Me.Label17 = New Wisej.Web.Label()
-        Me.CBSReceptor = New FactuSax.ComboWisax()
-        Me.CBSUsoCFDI = New FactuSax.ComboWisax()
         Me.BTRec = New Wisej.Web.Button()
         Me.Panel6 = New Wisej.Web.Panel()
         Me.BtnAnexarPago = New Wisej.Web.Button()
         Me.RTBObservaciones = New Wisej.Web.TextBox()
         Me.Label1 = New Wisej.Web.Label()
-        Me.CBSFormaPago = New FactuSax.ComboWisax()
-        Me.CBSTipoComprobante = New FactuSax.ComboWisax()
         Me.MTBHoraPago = New Wisej.Web.MaskedTextBox()
         Me.MTBHoraEmision = New Wisej.Web.MaskedTextBox()
         Me.Label9 = New Wisej.Web.Label()
         Me.TBMonto = New Wisej.Web.TextBox()
         Me.Label8 = New Wisej.Web.Label()
-        Me.CBSMoneda = New FactuSax.ComboWisax()
         Me.Label6 = New Wisej.Web.Label()
         Me.Label5 = New Wisej.Web.Label()
         Me.DTPFechaPago = New Wisej.Web.DateTimePicker()
@@ -122,6 +112,16 @@ Partial Class Facturacion_REPS
         Me.AspPageBox1 = New Wisej.Web.AspNetPanel()
         Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B1 = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_B()
         Me.PFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter()
+        Me.CbxReceptor = New FactuSax.ComboWisax()
+        Me.CbxClientes = New FactuSax.ComboWisax()
+        Me.CBSBancoEmisor = New FactuSax.ComboWisax()
+        Me.CBSBancoBeneficiario = New FactuSax.ComboWisax()
+        Me.CBEmisor = New FactuSax.ComboWisax()
+        Me.CBSReceptor = New FactuSax.ComboWisax()
+        Me.CBSUsoCFDI = New FactuSax.ComboWisax()
+        Me.CBSFormaPago = New FactuSax.ComboWisax()
+        Me.CBSTipoComprobante = New FactuSax.ComboWisax()
+        Me.CBSMoneda = New FactuSax.ComboWisax()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -156,7 +156,7 @@ Partial Class Facturacion_REPS
         Me.RibbonBar7.Cursor = Wisej.Web.Cursors.Arrow
         Me.RibbonBar7.Name = "RibbonBar7"
         Me.RibbonBar7.Pages.Add(Me.RibbonBarPage1)
-        Me.RibbonBar7.Size = New System.Drawing.Size(1235, 94)
+        Me.RibbonBar7.Size = New System.Drawing.Size(1192, 94)
         '
         'RibbonBarPage1
         '
@@ -214,8 +214,8 @@ Partial Class Facturacion_REPS
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DGVConceptosUUID)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1235, 661)
-        Me.SplitContainer1.SplitterDistance = 383
+        Me.SplitContainer1.Size = New System.Drawing.Size(1192, 661)
+        Me.SplitContainer1.SplitterDistance = 371
         Me.SplitContainer1.TabIndex = 7
         '
         'DGVUUID
@@ -229,7 +229,7 @@ Partial Class Facturacion_REPS
         Me.DGVUUID.Location = New System.Drawing.Point(0, 323)
         Me.DGVUUID.Name = "DGVUUID"
         Me.DGVUUID.RowHeadersVisible = False
-        Me.DGVUUID.Size = New System.Drawing.Size(381, 336)
+        Me.DGVUUID.Size = New System.Drawing.Size(369, 336)
         Me.DGVUUID.TabIndex = 1
         '
         'colChk
@@ -302,7 +302,7 @@ Partial Class Facturacion_REPS
         Me.pserie.Dock = Wisej.Web.DockStyle.Top
         Me.pserie.Location = New System.Drawing.Point(0, 230)
         Me.pserie.Name = "pserie"
-        Me.pserie.Size = New System.Drawing.Size(381, 93)
+        Me.pserie.Size = New System.Drawing.Size(369, 93)
         Me.pserie.TabIndex = 0
         Me.pserie.TabStop = True
         Me.pserie.Visible = False
@@ -337,7 +337,7 @@ Partial Class Facturacion_REPS
         Me.pfECHA.Dock = Wisej.Web.DockStyle.Top
         Me.pfECHA.Location = New System.Drawing.Point(0, 44)
         Me.pfECHA.Name = "pfECHA"
-        Me.pfECHA.Size = New System.Drawing.Size(381, 186)
+        Me.pfECHA.Size = New System.Drawing.Size(369, 186)
         Me.pfECHA.TabIndex = 0
         Me.pfECHA.TabStop = True
         Me.pfECHA.Visible = False
@@ -349,7 +349,7 @@ Partial Class Facturacion_REPS
         Me.GroupBox5.Dock = Wisej.Web.DockStyle.Top
         Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(381, 55)
+        Me.GroupBox5.Size = New System.Drawing.Size(369, 55)
         Me.GroupBox5.TabIndex = 15
         Me.GroupBox5.Text = "Tipo de Facturas"
         '
@@ -381,13 +381,6 @@ Partial Class Facturacion_REPS
         Me.Label12.TabIndex = 13
         Me.Label12.Text = "Receptor"
         '
-        'CbxReceptor
-        '
-        Me.CbxReceptor.Location = New System.Drawing.Point(9, 122)
-        Me.CbxReceptor.Name = "CbxReceptor"
-        Me.CbxReceptor.Size = New System.Drawing.Size(354, 22)
-        Me.CbxReceptor.TabIndex = 12
-        '
         'Label16
         '
         Me.Label16.AutoSize = True
@@ -396,13 +389,6 @@ Partial Class Facturacion_REPS
         Me.Label16.Size = New System.Drawing.Size(45, 15)
         Me.Label16.TabIndex = 11
         Me.Label16.Text = "Cliente"
-        '
-        'CbxClientes
-        '
-        Me.CbxClientes.Location = New System.Drawing.Point(9, 77)
-        Me.CbxClientes.Name = "CbxClientes"
-        Me.CbxClientes.Size = New System.Drawing.Size(354, 22)
-        Me.CbxClientes.TabIndex = 10
         '
         'Label19
         '
@@ -451,7 +437,7 @@ Partial Class Facturacion_REPS
         Me.Panel3.Dock = Wisej.Web.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(381, 44)
+        Me.Panel3.Size = New System.Drawing.Size(369, 44)
         Me.Panel3.TabIndex = 0
         Me.Panel3.TabStop = True
         '
@@ -523,7 +509,7 @@ Partial Class Facturacion_REPS
         Me.DGVConceptosUUID.Dock = Wisej.Web.DockStyle.Fill
         Me.DGVConceptosUUID.Location = New System.Drawing.Point(0, 367)
         Me.DGVConceptosUUID.Name = "DGVConceptosUUID"
-        Me.DGVConceptosUUID.Size = New System.Drawing.Size(844, 292)
+        Me.DGVConceptosUUID.Size = New System.Drawing.Size(813, 292)
         Me.DGVConceptosUUID.TabIndex = 1
         '
         'colUUID_1
@@ -601,7 +587,7 @@ Partial Class Facturacion_REPS
         Me.Panel2.Dock = Wisej.Web.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(844, 367)
+        Me.Panel2.Size = New System.Drawing.Size(813, 367)
         Me.Panel2.TabIndex = 0
         Me.Panel2.TabStop = True
         '
@@ -620,19 +606,10 @@ Partial Class Facturacion_REPS
         Me.gbbANCOS.Dock = Wisej.Web.DockStyle.Top
         Me.gbbANCOS.Location = New System.Drawing.Point(0, 271)
         Me.gbbANCOS.Name = "gbbANCOS"
-        Me.gbbANCOS.Size = New System.Drawing.Size(844, 100)
+        Me.gbbANCOS.Size = New System.Drawing.Size(813, 100)
         Me.gbbANCOS.TabIndex = 3
         Me.gbbANCOS.Text = "Bancos"
         Me.gbbANCOS.Visible = False
-        '
-        'CBSBancoEmisor
-        '
-        Me.CBSBancoEmisor.BackColor = System.Drawing.Color.Transparent
-        Me.CBSBancoEmisor.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSBancoEmisor.Location = New System.Drawing.Point(8, 32)
-        Me.CBSBancoEmisor.Name = "CBSBancoEmisor"
-        Me.CBSBancoEmisor.Size = New System.Drawing.Size(191, 22)
-        Me.CBSBancoEmisor.TabIndex = 0
         '
         'TBRFCbancoB
         '
@@ -700,15 +677,6 @@ Partial Class Facturacion_REPS
         Me.TBBRFCancoE.Size = New System.Drawing.Size(193, 22)
         Me.TBBRFCancoE.TabIndex = 1
         '
-        'CBSBancoBeneficiario
-        '
-        Me.CBSBancoBeneficiario.BackColor = System.Drawing.Color.Transparent
-        Me.CBSBancoBeneficiario.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSBancoBeneficiario.Location = New System.Drawing.Point(8, 71)
-        Me.CBSBancoBeneficiario.Name = "CBSBancoBeneficiario"
-        Me.CBSBancoBeneficiario.Size = New System.Drawing.Size(191, 22)
-        Me.CBSBancoBeneficiario.TabIndex = 0
-        '
         'SplitContainer2
         '
         Me.SplitContainer2.AutoValidate = Wisej.Web.AutoValidate.EnablePreventFocusChange
@@ -724,7 +692,7 @@ Partial Class Facturacion_REPS
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox4)
-        Me.SplitContainer2.Size = New System.Drawing.Size(844, 82)
+        Me.SplitContainer2.Size = New System.Drawing.Size(813, 82)
         Me.SplitContainer2.SplitterDistance = 416
         Me.SplitContainer2.TabIndex = 1
         '
@@ -739,23 +707,12 @@ Partial Class Facturacion_REPS
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.Text = "Emisor"
         '
-        'CBEmisor
-        '
-        Me.CBEmisor.BackColor = System.Drawing.Color.Transparent
-        Me.CBEmisor.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBEmisor.Enabled = False
-        Me.CBEmisor.Location = New System.Drawing.Point(3, 19)
-        Me.CBEmisor.Name = "CBEmisor"
-        Me.CBEmisor.Size = New System.Drawing.Size(360, 22)
-        Me.CBEmisor.TabIndex = 0
-        '
         'BTEm
         '
         Me.BTEm.Location = New System.Drawing.Point(372, 17)
         Me.BTEm.Name = "BTEm"
         Me.BTEm.Size = New System.Drawing.Size(41, 23)
         Me.BTEm.TabIndex = 1
-        Me.BTEm.Text = "+"
         '
         'GroupBox4
         '
@@ -766,7 +723,7 @@ Partial Class Facturacion_REPS
         Me.GroupBox4.Dock = Wisej.Web.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(420, 80)
+        Me.GroupBox4.Size = New System.Drawing.Size(389, 80)
         Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.Text = "Receptor"
         '
@@ -779,31 +736,12 @@ Partial Class Facturacion_REPS
         Me.Label17.TabIndex = 3
         Me.Label17.Text = "Uso CFDI"
         '
-        'CBSReceptor
-        '
-        Me.CBSReceptor.BackColor = System.Drawing.Color.Transparent
-        Me.CBSReceptor.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSReceptor.Location = New System.Drawing.Point(9, 19)
-        Me.CBSReceptor.Name = "CBSReceptor"
-        Me.CBSReceptor.Size = New System.Drawing.Size(364, 22)
-        Me.CBSReceptor.TabIndex = 0
-        '
-        'CBSUsoCFDI
-        '
-        Me.CBSUsoCFDI.BackColor = System.Drawing.Color.Transparent
-        Me.CBSUsoCFDI.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSUsoCFDI.Location = New System.Drawing.Point(67, 44)
-        Me.CBSUsoCFDI.Name = "CBSUsoCFDI"
-        Me.CBSUsoCFDI.Size = New System.Drawing.Size(311, 22)
-        Me.CBSUsoCFDI.TabIndex = 4
-        '
         'BTRec
         '
-        Me.BTRec.Location = New System.Drawing.Point(378, 17)
+        Me.BTRec.Location = New System.Drawing.Point(373, 17)
         Me.BTRec.Name = "BTRec"
         Me.BTRec.Size = New System.Drawing.Size(33, 23)
         Me.BTRec.TabIndex = 1
-        Me.BTRec.Text = "+"
         '
         'Panel6
         '
@@ -829,7 +767,7 @@ Partial Class Facturacion_REPS
         Me.Panel6.Dock = Wisej.Web.DockStyle.Top
         Me.Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(844, 189)
+        Me.Panel6.Size = New System.Drawing.Size(813, 189)
         Me.Panel6.TabIndex = 2
         Me.Panel6.TabStop = True
         '
@@ -840,6 +778,7 @@ Partial Class Facturacion_REPS
         Me.BtnAnexarPago.Size = New System.Drawing.Size(31, 27)
         Me.BtnAnexarPago.TabIndex = 14
         Me.BtnAnexarPago.Text = "+"
+        Me.BtnAnexarPago.Visible = False
         '
         'RTBObservaciones
         '
@@ -857,25 +796,6 @@ Partial Class Facturacion_REPS
         Me.Label1.Size = New System.Drawing.Size(91, 15)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Observaciones"
-        '
-        'CBSFormaPago
-        '
-        Me.CBSFormaPago.BackColor = System.Drawing.Color.Transparent
-        Me.CBSFormaPago.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSFormaPago.Location = New System.Drawing.Point(319, 44)
-        Me.CBSFormaPago.Name = "CBSFormaPago"
-        Me.CBSFormaPago.Size = New System.Drawing.Size(474, 22)
-        Me.CBSFormaPago.TabIndex = 12
-        '
-        'CBSTipoComprobante
-        '
-        Me.CBSTipoComprobante.BackColor = System.Drawing.Color.Transparent
-        Me.CBSTipoComprobante.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSTipoComprobante.Enabled = False
-        Me.CBSTipoComprobante.Location = New System.Drawing.Point(342, 13)
-        Me.CBSTipoComprobante.Name = "CBSTipoComprobante"
-        Me.CBSTipoComprobante.Size = New System.Drawing.Size(245, 22)
-        Me.CBSTipoComprobante.TabIndex = 11
         '
         'MTBHoraPago
         '
@@ -914,6 +834,7 @@ Partial Class Facturacion_REPS
         Me.TBMonto.Name = "TBMonto"
         Me.TBMonto.Size = New System.Drawing.Size(163, 25)
         Me.TBMonto.TabIndex = 1
+        Me.TBMonto.Visible = False
         '
         'Label8
         '
@@ -923,15 +844,6 @@ Partial Class Facturacion_REPS
         Me.Label8.Size = New System.Drawing.Size(51, 15)
         Me.Label8.TabIndex = 3
         Me.Label8.Text = "Moneda"
-        '
-        'CBSMoneda
-        '
-        Me.CBSMoneda.BackColor = System.Drawing.Color.Transparent
-        Me.CBSMoneda.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSMoneda.Location = New System.Drawing.Point(336, 80)
-        Me.CBSMoneda.Name = "CBSMoneda"
-        Me.CBSMoneda.Size = New System.Drawing.Size(474, 22)
-        Me.CBSMoneda.TabIndex = 5
         '
         'Label6
         '
@@ -1037,9 +949,96 @@ Partial Class Facturacion_REPS
         '
         Me.PFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter.ClearBeforeFill = True
         '
+        'CbxReceptor
+        '
+        Me.CbxReceptor.Location = New System.Drawing.Point(9, 122)
+        Me.CbxReceptor.Name = "CbxReceptor"
+        Me.CbxReceptor.Size = New System.Drawing.Size(354, 22)
+        Me.CbxReceptor.TabIndex = 12
+        '
+        'CbxClientes
+        '
+        Me.CbxClientes.Location = New System.Drawing.Point(9, 77)
+        Me.CbxClientes.Name = "CbxClientes"
+        Me.CbxClientes.Size = New System.Drawing.Size(354, 22)
+        Me.CbxClientes.TabIndex = 10
+        '
+        'CBSBancoEmisor
+        '
+        Me.CBSBancoEmisor.BackColor = System.Drawing.Color.Transparent
+        Me.CBSBancoEmisor.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBSBancoEmisor.Location = New System.Drawing.Point(8, 32)
+        Me.CBSBancoEmisor.Name = "CBSBancoEmisor"
+        Me.CBSBancoEmisor.Size = New System.Drawing.Size(191, 22)
+        Me.CBSBancoEmisor.TabIndex = 0
+        '
+        'CBSBancoBeneficiario
+        '
+        Me.CBSBancoBeneficiario.BackColor = System.Drawing.Color.Transparent
+        Me.CBSBancoBeneficiario.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBSBancoBeneficiario.Location = New System.Drawing.Point(8, 71)
+        Me.CBSBancoBeneficiario.Name = "CBSBancoBeneficiario"
+        Me.CBSBancoBeneficiario.Size = New System.Drawing.Size(191, 22)
+        Me.CBSBancoBeneficiario.TabIndex = 0
+        '
+        'CBEmisor
+        '
+        Me.CBEmisor.BackColor = System.Drawing.Color.Transparent
+        Me.CBEmisor.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBEmisor.Location = New System.Drawing.Point(3, 19)
+        Me.CBEmisor.Name = "CBEmisor"
+        Me.CBEmisor.Size = New System.Drawing.Size(360, 22)
+        Me.CBEmisor.TabIndex = 0
+        '
+        'CBSReceptor
+        '
+        Me.CBSReceptor.BackColor = System.Drawing.Color.Transparent
+        Me.CBSReceptor.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBSReceptor.Location = New System.Drawing.Point(9, 19)
+        Me.CBSReceptor.Name = "CBSReceptor"
+        Me.CBSReceptor.Size = New System.Drawing.Size(364, 22)
+        Me.CBSReceptor.TabIndex = 0
+        '
+        'CBSUsoCFDI
+        '
+        Me.CBSUsoCFDI.BackColor = System.Drawing.Color.Transparent
+        Me.CBSUsoCFDI.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBSUsoCFDI.Location = New System.Drawing.Point(67, 44)
+        Me.CBSUsoCFDI.Name = "CBSUsoCFDI"
+        Me.CBSUsoCFDI.Size = New System.Drawing.Size(311, 22)
+        Me.CBSUsoCFDI.TabIndex = 4
+        '
+        'CBSFormaPago
+        '
+        Me.CBSFormaPago.BackColor = System.Drawing.Color.Transparent
+        Me.CBSFormaPago.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBSFormaPago.Location = New System.Drawing.Point(319, 44)
+        Me.CBSFormaPago.Name = "CBSFormaPago"
+        Me.CBSFormaPago.Size = New System.Drawing.Size(474, 22)
+        Me.CBSFormaPago.TabIndex = 12
+        '
+        'CBSTipoComprobante
+        '
+        Me.CBSTipoComprobante.BackColor = System.Drawing.Color.Transparent
+        Me.CBSTipoComprobante.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBSTipoComprobante.Enabled = False
+        Me.CBSTipoComprobante.Location = New System.Drawing.Point(342, 13)
+        Me.CBSTipoComprobante.Name = "CBSTipoComprobante"
+        Me.CBSTipoComprobante.Size = New System.Drawing.Size(245, 22)
+        Me.CBSTipoComprobante.TabIndex = 11
+        '
+        'CBSMoneda
+        '
+        Me.CBSMoneda.BackColor = System.Drawing.Color.Transparent
+        Me.CBSMoneda.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBSMoneda.Location = New System.Drawing.Point(336, 80)
+        Me.CBSMoneda.Name = "CBSMoneda"
+        Me.CBSMoneda.Size = New System.Drawing.Size(474, 22)
+        Me.CBSMoneda.TabIndex = 5
+        '
         'Facturacion_REPS
         '
-        Me.ClientSize = New System.Drawing.Size(1235, 755)
+        Me.ClientSize = New System.Drawing.Size(1192, 755)
         Me.Controls.Add(Me.AspPageBox1)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.RibbonBar7)
