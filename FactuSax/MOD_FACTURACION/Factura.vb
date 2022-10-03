@@ -997,7 +997,7 @@ Public Class Factura
             Dim splitx_resp = repuesta_timbre.split("|")
             If splitx_resp(0) = "200" Then
                 Dim BO As Boolean = True
-                ACTUALIZAR_FOLIO(Application.Session("Cve_Sucursal"))
+                ACTUALIZAR_FOLIO(Application.Session("Cve_Cliente"))
                 If Not Guardar_CFDI(splitx_resp(1), emisor, receptor, cuerpo_factura, fecha, comprobante.NoCertificado, co) = True Then
                     BO = False
                 End If
@@ -1022,7 +1022,7 @@ Public Class Factura
                     Dim sBody As String = String.Format("rfc={0}&movimiento={1}&valor={2}", split_e(0), "TIMBRADAS", 1)
                     Utilidades.EnviarSolicitudControlTimbre(split_e(0), "TIMBRADAS", 1)
 
-                    XTRAREPORT = New R_Representacion_Fisica_CFDi33
+                    XTRAREPORT = New R_Representacion_Fisica_CFDi33_Egreso
                     Using ms As New MemoryStream()
                         Dim opts As PdfExportOptions = XTRAREPORT.ExportOptions.Pdf
                         Dim path As String = pdf

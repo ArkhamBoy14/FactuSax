@@ -136,12 +136,13 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         'CBSIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
         'CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
         'CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
-        ReDim Utilidades.ParametersX_Global(0)
-        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
+        'ReDim Utilidades.ParametersX_Global(0)
+        'CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
         SplitContainer1.Panel1MinSize = 340
-        ReDim Utilidades.ParametersX_Global(0)
-        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX")
-        CBSReceptor.SelectedIndex = 0
+        'ReDim Utilidades.ParametersX_Global(0)
+        'CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX")
+        'CBSReceptor.SelectedIndex = 0
+        CargarRFC()
         Dim TIPO_PERSONA As String = CBSReceptor.ObtenerDescripcion("Tipo_Persona")
         If TIPO_PERSONA = "FISICA" Then
             ReDim Utilidades.ParametersX_Global(0)
@@ -152,7 +153,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         End If
         CBSUsoCFDI.LlenarListBox("pCAT_USOCFDI_SAT_FACTURACION_B", "c_UsoCFDI", "DescripcionX", Utilidades.ParametersX_Global)
         ReDim Utilidades.ParametersX_Global(0)
-        Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+        'Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
         CbxReceptor.LlenarListBox("pFACTURACION_EMPRESA", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
         Dim dt_claveprocserv As New DataTable
         dt_claveprocserv = Utilidades.llenar_dt("pCAT_CLAVPRODSERV_SAT_FACTURACION")
@@ -183,6 +184,33 @@ Public Class Facturacion_Electronica_Folio_Movimiento
 
         End If
         'serie()
+    End Sub
+
+    Sub CargarRFC()
+        ReDim Utilidades.ParametersX_Global(1)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+        CbxReceptor.Clear()
+        CbxReceptor.LlenarListBox("pFACTURACION_EMPRESA", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
+        Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
+
+        CBSReceptor.Clear()
+        CBEmisor.Clear()
+        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+
+        If CBEmisor.Items.Count > 0 Then
+            CBEmisor.SelectedIndex = 0
+        Else
+            CBEmisor.SelectedIndex = -1
+        End If
+
+        If CBSReceptor.Items.Count > 0 Then
+            CBSReceptor.SelectedIndex = 0
+        Else
+            CBSReceptor.SelectedIndex = -1
+        End If
+
+
     End Sub
 
     Private Sub RDBManual_CheckedChanged(sender As Object, e As EventArgs) Handles RDBManual.CheckedChanged
@@ -521,6 +549,8 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         Consultar(CbxClientes.SelectedValue)
         limpiar(False)
         serie()
+        CargarRFC()
+        PREDETERMINADOS()
 
 
 

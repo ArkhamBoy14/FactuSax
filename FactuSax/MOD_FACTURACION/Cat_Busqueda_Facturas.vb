@@ -141,6 +141,36 @@ Public Class Cat_Busqueda_Facturas
 
     End Sub
 
+    Sub XMLDownload(ByVal UUID As String)
+        Utilidades.Conectar()
+        Dim dataReader As Data.SqlClient.SqlDataReader
+        Dim command As New SqlCommand
+        Dim strxml As String
+        Dim pathxml As String
+        Try
+            command = New SqlClient.SqlCommand("pFACTURA_SAT_UUID_XML_B", Utilidades.cConnect)
+            command.CommandType = CommandType.StoredProcedure
+            command.Parameters.AddWithValue("@UUID", UUID)
+            dataReader = command.ExecuteReader(CommandBehavior.CloseConnection)
+            If dataReader.HasRows Then
+                While (dataReader.Read)
+
+                    strxml = dataReader.Item("XML")
+
+
+                End While
+
+            End If
+        Catch ex As Exception
+
+        End Try
+        pathxml = Application.StartupPath & "\Resources\SAT\FACTURAS\PUE\factura_download.xml"
+        System.IO.File.WriteAllText(pathxml, strxml)
+
+        Application.Download(pathxml)
+
+    End Sub
+
     Private Sub DGV_Busqueda_RowExpanded(sender As Object, e As DataGridViewRowEventArgs) Handles DGV_Busqueda.RowExpanded
         Dim miGrilla As DataGridView
         miGrilla = Utilidades.ClonarDGV(DGV_Pagos)

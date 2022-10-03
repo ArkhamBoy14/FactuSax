@@ -27,6 +27,7 @@ Partial Class Cat_Busqueda_Facturas
         Me.Panel1 = New Wisej.Web.Panel()
         Me.cFecha2 = New Wisej.Web.DateTimePicker()
         Me.Label19 = New Wisej.Web.Label()
+        Me.CbxCliente = New FactuSax.ComboWisax()
         Me.Label1 = New Wisej.Web.Label()
         Me.cFecha1 = New Wisej.Web.DateTimePicker()
         Me.Label18 = New Wisej.Web.Label()
@@ -59,7 +60,6 @@ Partial Class Cat_Busqueda_Facturas
         Me.colSALDO_ANTERIOR = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colSALDO_INSOLUTO = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.PFACTURA_SAT_CFDI_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_BTableAdapters.pFACTURA_SAT_CFDI_BTableAdapter()
-        Me.CbxCliente = New FactuSax.ComboWisax()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -85,8 +85,8 @@ Partial Class Cat_Busqueda_Facturas
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(876, 455)
-        Me.SplitContainer1.SplitterDistance = 177
+        Me.SplitContainer1.Size = New System.Drawing.Size(888, 461)
+        Me.SplitContainer1.SplitterDistance = 179
         Me.SplitContainer1.TabIndex = 0
         '
         'Panel1
@@ -100,7 +100,7 @@ Partial Class Cat_Busqueda_Facturas
         Me.Panel1.Dock = Wisej.Web.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(175, 453)
+        Me.Panel1.Size = New System.Drawing.Size(177, 459)
         Me.Panel1.TabIndex = 7
         Me.Panel1.TabStop = True
         '
@@ -122,6 +122,13 @@ Partial Class Cat_Busqueda_Facturas
         Me.Label19.Size = New System.Drawing.Size(23, 15)
         Me.Label19.TabIndex = 6
         Me.Label19.Text = "Fin"
+        '
+        'CbxCliente
+        '
+        Me.CbxCliente.Location = New System.Drawing.Point(3, 53)
+        Me.CbxCliente.Name = "CbxCliente"
+        Me.CbxCliente.Size = New System.Drawing.Size(213, 22)
+        Me.CbxCliente.TabIndex = 1
         '
         'Label1
         '
@@ -157,7 +164,7 @@ Partial Class Cat_Busqueda_Facturas
         Me.Panel2.Dock = Wisej.Web.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(691, 453)
+        Me.Panel2.Size = New System.Drawing.Size(701, 459)
         Me.Panel2.TabIndex = 0
         Me.Panel2.TabStop = True
         '
@@ -170,7 +177,7 @@ Partial Class Cat_Busqueda_Facturas
         Me.DGV_Busqueda.Location = New System.Drawing.Point(0, 0)
         Me.DGV_Busqueda.Name = "DGV_Busqueda"
         Me.DGV_Busqueda.RowHeadersVisible = False
-        Me.DGV_Busqueda.Size = New System.Drawing.Size(691, 453)
+        Me.DGV_Busqueda.Size = New System.Drawing.Size(701, 459)
         Me.DGV_Busqueda.TabIndex = 0
         '
         'DGV_Parent
@@ -262,7 +269,7 @@ Partial Class Cat_Busqueda_Facturas
         '
         Me.RibbonBar1.Name = "RibbonBar1"
         Me.RibbonBar1.Pages.Add(Me.RibbonBarPage1)
-        Me.RibbonBar1.Size = New System.Drawing.Size(876, 110)
+        Me.RibbonBar1.Size = New System.Drawing.Size(888, 110)
         '
         'RibbonBarPage1
         '
@@ -291,7 +298,6 @@ Partial Class Cat_Busqueda_Facturas
         '
         'DGV_Pagos
         '
-        Me.DGV_Pagos.AutoSizeColumnsMode = Wisej.Web.DataGridViewAutoSizeColumnsMode.AllCells
         DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSteelBlue
         DataGridViewCellStyle1.Font = New System.Drawing.Font("tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
@@ -367,13 +373,6 @@ Partial Class Cat_Busqueda_Facturas
         'PFACTURA_SAT_CFDI_BTableAdapter
         '
         Me.PFACTURA_SAT_CFDI_BTableAdapter.ClearBeforeFill = True
-        '
-        'CbxCliente
-        '
-        Me.CbxCliente.Location = New System.Drawing.Point(3, 53)
-        Me.CbxCliente.Name = "CbxCliente"
-        Me.CbxCliente.Size = New System.Drawing.Size(213, 22)
-        Me.CbxCliente.TabIndex = 1
         '
         'Cat_Busqueda_Facturas
         '

@@ -19,6 +19,11 @@ Public Class Facturacion_Nota_Credito
         CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
         CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
 
+        cFecha1.Value = Now
+        cFecha2.Value = Now
+        DTPFechaEmision.Value = Now
+        DTPFechaPago.Value = Now
+
 
         ReDim Utilidades.ParametersX_Global(1)
         Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Operador", Application.Session("Cve_Operador"))
@@ -318,7 +323,7 @@ Public Class Facturacion_Nota_Credito
             Dim asp As New Mostrar_Asp
             Application.Session("DocumentCached") = Nothing
             Application.Session("ReportName") = "R_Representacion_Fisica_CFDi33_Egreso"
-            Application.Session("Modulo") = "ReportView.aspx"
+            Application.Session("Modulo") = "DocumentViewer.aspx"
             asp.Actualizar()
             asp.Show()
         End If

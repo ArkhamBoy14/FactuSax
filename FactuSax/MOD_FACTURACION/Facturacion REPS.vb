@@ -74,7 +74,7 @@ Public Class Facturacion_REPS
     Sub CargarRFC()
         ReDim Utilidades.ParametersX_Global(1)
         Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
-        Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
+        'Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
 
         CBSReceptor.Clear()
         CBEmisor.Clear()
