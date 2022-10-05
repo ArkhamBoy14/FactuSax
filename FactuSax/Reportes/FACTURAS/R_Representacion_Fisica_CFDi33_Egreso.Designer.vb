@@ -22,6 +22,17 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Egreso
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(R_Representacion_Fisica_CFDi33_Egreso))
         Dim QrCodeGenerator1 As DevExpress.XtraPrinting.BarCode.QRCodeGenerator = New DevExpress.XtraPrinting.BarCode.QRCodeGenerator()
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand()
+        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel()
+        Me.XrTable6 = New DevExpress.XtraReports.UI.XRTable()
+        Me.XrTableRow6 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell12 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell13 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell14 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell15 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell16 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell17 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell18 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell19 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel()
@@ -45,7 +56,6 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Egreso
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine()
         Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox()
-        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel()
@@ -104,31 +114,116 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Egreso
         Me.XrLabel50 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel49 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel48 = New DevExpress.XtraReports.UI.XRLabel()
-        Me.XrTable6 = New DevExpress.XtraReports.UI.XRTable()
-        Me.XrTableRow6 = New DevExpress.XtraReports.UI.XRTableRow()
-        Me.XrTableCell12 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell13 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell14 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell15 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell16 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell17 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell18 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell19 = New DevExpress.XtraReports.UI.XRTableCell()
+        CType(Me.XrTable6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.XrTable6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
         '
         Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable6})
-        Me.Detail.HeightF = 35.0!
+        Me.Detail.HeightF = 25.62498!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrLabel1
+        '
+        Me.XrLabel1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.Razon_Social")})
+        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(351.736!, 0!)
+        Me.XrLabel1.Name = "XrLabel1"
+        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel1.SizeF = New System.Drawing.SizeF(488.264!, 102.0833!)
+        Me.XrLabel1.StylePriority.UseFont = False
+        Me.XrLabel1.StylePriority.UseTextAlignment = False
+        Me.XrLabel1.Text = "XrLabel1"
+        Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        '
+        'XrTable6
+        '
+        Me.XrTable6.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTable6.LocationFloat = New DevExpress.Utils.PointFloat(10.00109!, 0!)
+        Me.XrTable6.Name = "XrTable6"
+        Me.XrTable6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrTable6.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow6})
+        Me.XrTable6.SizeF = New System.Drawing.SizeF(829.9994!, 25.0!)
+        Me.XrTable6.StylePriority.UseBorders = False
+        Me.XrTable6.StylePriority.UseTextAlignment = False
+        Me.XrTable6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrTableRow6
+        '
+        Me.XrTableRow6.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell12, Me.XrTableCell13, Me.XrTableCell14, Me.XrTableCell15, Me.XrTableCell16, Me.XrTableCell17, Me.XrTableCell18, Me.XrTableCell19})
+        Me.XrTableRow6.Name = "XrTableRow6"
+        Me.XrTableRow6.Weight = 1.0R
+        '
+        'XrTableCell12
+        '
+        Me.XrTableCell12.Multiline = True
+        Me.XrTableCell12.Name = "XrTableCell12"
+        Me.XrTableCell12.Text = "[cantidad]"
+        Me.XrTableCell12.Weight = 0.63235923687315476R
+        '
+        'XrTableCell13
+        '
+        Me.XrTableCell13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.ClaveUnidad")})
+        Me.XrTableCell13.Multiline = True
+        Me.XrTableCell13.Name = "XrTableCell13"
+        Me.XrTableCell13.Weight = 0.57931013554505817R
+        '
+        'XrTableCell14
+        '
+        Me.XrTableCell14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.ClaveProdServ")})
+        Me.XrTableCell14.Multiline = True
+        Me.XrTableCell14.Name = "XrTableCell14"
+        Me.XrTableCell14.Weight = 0.85517265067627224R
+        '
+        'XrTableCell15
+        '
+        Me.XrTableCell15.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.NoIndetificacion")})
+        Me.XrTableCell15.Multiline = True
+        Me.XrTableCell15.Name = "XrTableCell15"
+        Me.XrTableCell15.Weight = 0.72784929004037613R
+        '
+        'XrTableCell16
+        '
+        Me.XrTableCell16.Multiline = True
+        Me.XrTableCell16.Name = "XrTableCell16"
+        Me.XrTableCell16.Text = "[descripcion]"
+        Me.XrTableCell16.Weight = 2.7564999234162606R
+        '
+        'XrTableCell17
+        '
+        Me.XrTableCell17.Multiline = True
+        Me.XrTableCell17.Name = "XrTableCell17"
+        Me.XrTableCell17.StylePriority.UseTextAlignment = False
+        Me.XrTableCell17.Text = "[ValorUnitario]"
+        Me.XrTableCell17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
+        Me.XrTableCell17.Weight = 0.96763798886050456R
+        '
+        'XrTableCell18
+        '
+        Me.XrTableCell18.Multiline = True
+        Me.XrTableCell18.Name = "XrTableCell18"
+        Me.XrTableCell18.StylePriority.UseTextAlignment = False
+        Me.XrTableCell18.Text = "[Descuiento]"
+        Me.XrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
+        Me.XrTableCell18.Weight = 0.94854248827755916R
+        '
+        'XrTableCell19
+        '
+        Me.XrTableCell19.Multiline = True
+        Me.XrTableCell19.Name = "XrTableCell19"
+        Me.XrTableCell19.StylePriority.UseTextAlignment = False
+        Me.XrTableCell19.Text = "[Importe]"
+        Me.XrTableCell19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
+        Me.XrTableCell19.Weight = 0.986733256311825R
         '
         'XrLabel19
         '
@@ -421,19 +516,6 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Egreso
         Me.XrPictureBox1.Name = "XrPictureBox1"
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(351.736!, 102.0833!)
         Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage
-        '
-        'XrLabel1
-        '
-        Me.XrLabel1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.Razon_Social")})
-        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(351.736!, 0!)
-        Me.XrLabel1.Name = "XrLabel1"
-        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel1.SizeF = New System.Drawing.SizeF(488.264!, 102.0833!)
-        Me.XrLabel1.StylePriority.UseFont = False
-        Me.XrLabel1.StylePriority.UseTextAlignment = False
-        Me.XrLabel1.Text = "XrLabel1"
-        Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
         '
         'XrLabel2
         '
@@ -1023,88 +1105,6 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Egreso
         Me.XrLabel48.Text = "Serie Certificado Emisor"
         Me.XrLabel48.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
-        'XrTable6
-        '
-        Me.XrTable6.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
-            Or DevExpress.XtraPrinting.BorderSide.Right) _
-            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrTable6.LocationFloat = New DevExpress.Utils.PointFloat(10.00109!, 10.0!)
-        Me.XrTable6.Name = "XrTable6"
-        Me.XrTable6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrTable6.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow6})
-        Me.XrTable6.SizeF = New System.Drawing.SizeF(829.9994!, 25.0!)
-        Me.XrTable6.StylePriority.UseBorders = False
-        Me.XrTable6.StylePriority.UseTextAlignment = False
-        Me.XrTable6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrTableRow6
-        '
-        Me.XrTableRow6.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell12, Me.XrTableCell13, Me.XrTableCell14, Me.XrTableCell15, Me.XrTableCell16, Me.XrTableCell17, Me.XrTableCell18, Me.XrTableCell19})
-        Me.XrTableRow6.Name = "XrTableRow6"
-        Me.XrTableRow6.Weight = 1.0R
-        '
-        'XrTableCell12
-        '
-        Me.XrTableCell12.Multiline = True
-        Me.XrTableCell12.Name = "XrTableCell12"
-        Me.XrTableCell12.Text = "[cantidad]"
-        Me.XrTableCell12.Weight = 0.63235923687315476R
-        '
-        'XrTableCell13
-        '
-        Me.XrTableCell13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.ClaveUnidad")})
-        Me.XrTableCell13.Multiline = True
-        Me.XrTableCell13.Name = "XrTableCell13"
-        Me.XrTableCell13.Weight = 0.57931013554505817R
-        '
-        'XrTableCell14
-        '
-        Me.XrTableCell14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.ClaveProdServ")})
-        Me.XrTableCell14.Multiline = True
-        Me.XrTableCell14.Name = "XrTableCell14"
-        Me.XrTableCell14.Weight = 0.85517265067627224R
-        '
-        'XrTableCell15
-        '
-        Me.XrTableCell15.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.NoIndetificacion")})
-        Me.XrTableCell15.Multiline = True
-        Me.XrTableCell15.Name = "XrTableCell15"
-        Me.XrTableCell15.Weight = 0.72784929004037613R
-        '
-        'XrTableCell16
-        '
-        Me.XrTableCell16.Multiline = True
-        Me.XrTableCell16.Name = "XrTableCell16"
-        Me.XrTableCell16.Text = "[descripcion]"
-        Me.XrTableCell16.Weight = 2.7564999234162606R
-        '
-        'XrTableCell17
-        '
-        Me.XrTableCell17.Multiline = True
-        Me.XrTableCell17.Name = "XrTableCell17"
-        Me.XrTableCell17.StylePriority.UseTextAlignment = False
-        Me.XrTableCell17.Text = "[ValorUnitario]"
-        Me.XrTableCell17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
-        Me.XrTableCell17.Weight = 0.96763798886050456R
-        '
-        'XrTableCell18
-        '
-        Me.XrTableCell18.Multiline = True
-        Me.XrTableCell18.Name = "XrTableCell18"
-        Me.XrTableCell18.StylePriority.UseTextAlignment = False
-        Me.XrTableCell18.Text = "[Descuiento]"
-        Me.XrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
-        Me.XrTableCell18.Weight = 0.94854248827755916R
-        '
-        'XrTableCell19
-        '
-        Me.XrTableCell19.Multiline = True
-        Me.XrTableCell19.Name = "XrTableCell19"
-        Me.XrTableCell19.StylePriority.UseTextAlignment = False
-        Me.XrTableCell19.Text = "[Importe]"
-        Me.XrTableCell19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
-        Me.XrTableCell19.Weight = 0.986733256311825R
-        '
         'R_Representacion_Fisica_CFDi33_Egreso
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.GroupHeader1, Me.GroupFooter1, Me.GroupFooter2})
@@ -1114,12 +1114,12 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Egreso
         Me.Margins = New System.Drawing.Printing.Margins(0, 0, 0, 17)
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "21.2"
+        CType(Me.XrTable6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.XrTable6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub

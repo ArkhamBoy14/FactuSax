@@ -1535,6 +1535,12 @@
     <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Egreso.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Egreso_Complementos.Designer.vb">
+      <DependentUpon>R_Representacion_Fisica_CFDi33_Egreso_Complementos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Egreso_Complementos.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_pagos.Designer.vb">
       <DependentUpon>R_Representacion_Fisica_CFDi33_Pagos.vb</DependentUpon>
     </Compile>
@@ -1672,6 +1678,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Egreso.resx">
       <DependentUpon>R_Representacion_Fisica_CFDi33_Egreso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_Egreso_Complementos.resx">
+      <DependentUpon>R_Representacion_Fisica_CFDi33_Egreso_Complementos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FACTURAS\R_Representacion_Fisica_CFDi33_pagos.resx">
       <DependentUpon>R_Representacion_Fisica_CFDi33_Pagos.vb</DependentUpon>

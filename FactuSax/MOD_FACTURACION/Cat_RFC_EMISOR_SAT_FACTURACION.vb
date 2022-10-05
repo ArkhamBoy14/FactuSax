@@ -26,6 +26,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Application.Session("ME_EMISOR_RECEPTOR") = Emisor_Receptor
         ME_EMISOR_RECEPTOR = Emisor_Receptor
         ME_EMPRESA = Empresa
     End Sub
@@ -173,6 +174,8 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
 
 
     Sub SubConsultar()
+        ME_EMISOR_RECEPTOR = Application.Session("ME_EMISOR_RECEPTOR")
+        ME_EMPRESA = False
         Try
             Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.Clear()
             Dim myDA As New SqlDataAdapter
@@ -183,6 +186,12 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
             End If
             'myDA.SelectCommand.Parameters.AddWithValue("@Estatus", True)
             myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", Application.Session("Cve_Cliente"))
+            If rbHabilitado.Checked Then
+                myDA.SelectCommand.Parameters.AddWithValue("@Estatus", True)
+            Else
+                myDA.SelectCommand.Parameters.AddWithValue("@Estatus", False)
+
+            End If
             myDA.SelectCommand.CommandType = CommandType.StoredProcedure
             myDA.Fill(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.pCAT_RFC_EMISOR_SAT_FACTURACION_B)
             myDA.Dispose()
@@ -775,6 +784,10 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         'TBCLAVEP.InputType.Type = Not TextBoxType.Password
         Dim image As String = IIf(TBCLAVEP.InputType.Type, "Resources\Images\Menu\25\eye.png", "Resources\Images\Menu\25\eye-slash.png")
         pictureContrasena.ImageSource = image
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles rbHabilitado.CheckedChanged
+        SubConsultar()
     End Sub
 
     Private Sub Upload1_Uploaded(sender As Object, e As UploadedEventArgs) Handles Upload1.Uploaded

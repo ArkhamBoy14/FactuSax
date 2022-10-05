@@ -71,6 +71,9 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.Label15 = New Wisej.Web.Label()
         Me.TBKey = New Wisej.Web.TextBox()
         Me.GroupBox5 = New Wisej.Web.GroupBox()
+        Me.Label21 = New Wisej.Web.Label()
+        Me.CbxClientes = New FactuSax.ComboWisax()
+        Me.Chk_Habilitado = New Wisej.Web.CheckBox()
         Me.lbReceptor = New Wisej.Web.Label()
         Me.CbxReceptor = New FactuSax.ComboWisax()
         Me.cbbMunicipio = New FactuSax.ComboWisax()
@@ -143,9 +146,10 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.RBBI__Nuevo = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBI_Guardar = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBI_Salir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
-        Me.Chk_Habilitado = New Wisej.Web.CheckBox()
-        Me.Label21 = New Wisej.Web.Label()
-        Me.CbxClientes = New FactuSax.ComboWisax()
+        Me.Panel2 = New Wisej.Web.Panel()
+        Me.Label22 = New Wisej.Web.Label()
+        Me.rbHabilitado = New Wisej.Web.RadioButton()
+        Me.rbDeshabilitado = New Wisej.Web.RadioButton()
         Me.Panel1.SuspendLayout()
         Me.GBEmisor.SuspendLayout()
         CType(Me.pictureContrasena, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -155,8 +159,10 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.GroupBox3.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DataGridView1.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -533,6 +539,30 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.GroupBox5.TabIndex = 9
         Me.GroupBox5.Text = "Registrar Nuevo RFC (Datos Fiscales)"
         '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(12, 338)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(45, 15)
+        Me.Label21.TabIndex = 41
+        Me.Label21.Text = "Cliente"
+        '
+        'CbxClientes
+        '
+        Me.CbxClientes.Location = New System.Drawing.Point(12, 354)
+        Me.CbxClientes.Name = "CbxClientes"
+        Me.CbxClientes.Size = New System.Drawing.Size(383, 22)
+        Me.CbxClientes.TabIndex = 40
+        '
+        'Chk_Habilitado
+        '
+        Me.Chk_Habilitado.Location = New System.Drawing.Point(12, 419)
+        Me.Chk_Habilitado.Name = "Chk_Habilitado"
+        Me.Chk_Habilitado.Size = New System.Drawing.Size(90, 22)
+        Me.Chk_Habilitado.TabIndex = 39
+        Me.Chk_Habilitado.Text = "Habilitado"
+        '
         'lbReceptor
         '
         Me.lbReceptor.AutoSize = True
@@ -818,6 +848,7 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         DataGridViewCellStyle5.WrapMode = Wisej.Web.DataGridViewTriState.[True]
         Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.DataGridViewImageColumn2, Me.DataGridViewImageColumn1, Me.DGVRFC, Me.DGVRazon_Social, Me.DGVTipo_Persona, Me.DGVTelefono, Me.DGVE_Mail, Me.DGVCalle, Me.DGVEstatus, Me.DGVNo_Exterior, Me.DGVNo_Interior, Me.DGVCodigo_Postal, Me.DGVColonia, Me.DGVEstado, Me.DGVMunicipio, Me.DGVLocalidad, Me.DGVCve_estado, Me.DGVCve_Municipio, Me.DGVCRegimen, Me.DGVCLlave, Me.DGVCCer, Me.ClavePrivada, Me.PorDefecto, Me.cCve_Receptor, Me.cReceptor_Rescripcion, Me.cReceptorX})
+        Me.DataGridView1.Controls.Add(Me.Panel2)
         Me.DataGridView1.DataMember = "pCAT_RFC_EMISOR_SAT_FACTURACION_B"
         Me.DataGridView1.DataSource = Me.BindingSource1
         Me.DataGridView1.Dock = Wisej.Web.DockStyle.Fill
@@ -1098,29 +1129,44 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.RBBI_Salir.Name = "RBBI_Salir"
         Me.RBBI_Salir.Text = "Salir"
         '
-        'Chk_Habilitado
+        'Panel2
         '
-        Me.Chk_Habilitado.Location = New System.Drawing.Point(12, 419)
-        Me.Chk_Habilitado.Name = "Chk_Habilitado"
-        Me.Chk_Habilitado.Size = New System.Drawing.Size(90, 22)
-        Me.Chk_Habilitado.TabIndex = 39
-        Me.Chk_Habilitado.Text = "Habilitado"
+        Me.Panel2.Controls.Add(Me.rbDeshabilitado)
+        Me.Panel2.Controls.Add(Me.rbHabilitado)
+        Me.Panel2.Controls.Add(Me.Label22)
+        Me.Panel2.Dock = Wisej.Web.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(636, 26)
+        Me.Panel2.TabIndex = 0
+        Me.Panel2.TabStop = True
         '
-        'Label21
+        'Label22
         '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(12, 338)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(45, 15)
-        Me.Label21.TabIndex = 41
-        Me.Label21.Text = "Cliente"
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(9, 8)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(51, 15)
+        Me.Label22.TabIndex = 0
+        Me.Label22.Text = "Estatus:"
         '
-        'CbxClientes
+        'rbHabilitado
         '
-        Me.CbxClientes.Location = New System.Drawing.Point(12, 354)
-        Me.CbxClientes.Name = "CbxClientes"
-        Me.CbxClientes.Size = New System.Drawing.Size(383, 22)
-        Me.CbxClientes.TabIndex = 40
+        Me.rbHabilitado.Checked = True
+        Me.rbHabilitado.Location = New System.Drawing.Point(66, 2)
+        Me.rbHabilitado.Name = "rbHabilitado"
+        Me.rbHabilitado.Size = New System.Drawing.Size(90, 22)
+        Me.rbHabilitado.TabIndex = 1
+        Me.rbHabilitado.TabStop = True
+        Me.rbHabilitado.Text = "Habilitado"
+        '
+        'rbDeshabilitado
+        '
+        Me.rbDeshabilitado.Location = New System.Drawing.Point(183, 4)
+        Me.rbDeshabilitado.Name = "rbDeshabilitado"
+        Me.rbDeshabilitado.Size = New System.Drawing.Size(111, 22)
+        Me.rbDeshabilitado.TabIndex = 2
+        Me.rbDeshabilitado.Text = "Deshabilitado"
         '
         'Cat_RFC_EMISOR_SAT_FACTURACION
         '
@@ -1145,8 +1191,11 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.GroupBox3.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.DataGridView1.ResumeLayout(False)
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1273,4 +1322,8 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
     Friend WithEvents Chk_Habilitado As CheckBox
     Friend WithEvents Label21 As Label
     Friend WithEvents CbxClientes As ComboWisax
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label22 As Label
+    Friend WithEvents rbDeshabilitado As RadioButton
+    Friend WithEvents rbHabilitado As RadioButton
 End Class

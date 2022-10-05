@@ -8,6 +8,7 @@ Public Class Facturacion_Nota_Credito
     Dim FOLIO As String
     Dim valor As String
     Dim contador As Integer
+    Dim Alertas As New Notificaciones
     Private Sub Combosax2_Load(sender As Object, e As EventArgs) Handles Me.Load
         'serieX()
         'TBMonto.Text = 0
@@ -15,9 +16,12 @@ Public Class Facturacion_Nota_Credito
         Me.WindowState = FormWindowState.Maximized
         cFecha1.Value = Now
         cFecha2.Value = Now
-        CBSIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
-        CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
-        CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
+        MTBHoraEmision.Text = Now.Hour & ":" & Now.Minute
+        MTBHoraPago.Text = Now.Hour & ":" & Now.Minute
+
+        'CBSIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
+        'CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
+        'CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
 
         cFecha1.Value = Now
         cFecha2.Value = Now
@@ -96,13 +100,13 @@ Public Class Facturacion_Nota_Credito
 
 
         'CBSMetodoPago.SelectedValue = "PUE"
-        CBSIVA.SelectedValue = "002"
-        MTBIVA.Text = "0.160000"
-        MTBRIVA.Text = "0.106666"
-        MTBRISR.Text = "0.100000"
-        CBSRIVA.SelectedValue = "002"
+        'CBSIVA.SelectedValue = "002"
+        'MTBIVA.Text = "0.160000"
+        'MTBRIVA.Text = "0.106666"
+        'MTBRISR.Text = "0.100000"
+        'CBSRIVA.SelectedValue = "002"
         'RDBSolicitrud.Checked = True
-        CBSRISR.SelectedValue = "001"
+        'CBSRISR.SelectedValue = "001"
         Dim dt_defecto = CBEmisor.dataTable()
         For i As Integer = 0 To dt_defecto.Rows.Count - 1
             If dt_defecto.Rows(i).Item("pordefecto") = True Then
@@ -116,7 +120,7 @@ Public Class Facturacion_Nota_Credito
         'TBTipoCambio.Text = 1
         'TBTipoCambio.Enabled = True
         'RTBCondicionPago.Enabled = True
-        TasaoCuotaIVA.SelectedItem = "Tasa"
+        'TasaoCuotaIVA.SelectedItem = "Tasa"
         'CBSMetodoPago.SelectedValue = "PUE"
         'CBSMetodoPago.Enabled = True
         'CBSFormaPago.Enabled = True
@@ -307,12 +311,12 @@ Public Class Facturacion_Nota_Credito
             Next
         End If
 
-        'If CBTraslado.Checked = True Then
-        imptraslado.Add(CBSIVA.SelectedValue & "|" & MTBIVA.Text & "|" & TasaoCuotaIVA.Text)
-        'End If
+        ''If CBTraslado.Checked = True Then
+        imptraslado.Add("002" & "|" & "0.000000" & "|" & "Tasa")
+        ''End If
 
-        impretencciones.Add(CBSRISR.SelectedValue & "|" & MTBRISR.Text & "|" & TasaoCuotaISR.Text)
-        impretencciones.Add(CBSRIVA.SelectedValue & "|" & MTBRIVA.Text & "|" & TasaoCuotaRIVA.Text)
+        'impretencciones.Add(CBSRISR.SelectedValue & "|" & MTBRISR.Text & "|" & TasaoCuotaISR.Text)
+        'impretencciones.Add(CBSRIVA.SelectedValue & "|" & MTBRIVA.Text & "|" & TasaoCuotaRIVA.Text)
         Dim totalretenciones = TBRISR.Text + TBRIVA.Text
         'FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, totalretenciones, impretencciones)
         Dim FACTURAX As New Factura
@@ -395,7 +399,7 @@ Public Class Facturacion_Nota_Credito
         Dim total As String
 
         If DGVUUID.Rows(DGVUUID.CurrentCell.RowIndex).Cells(colSALDO.Index).Value < TBSubTotal.Text Then
-            MessageBox.Show("El Egreso no puede ser mayor al monto facturado")
+            Alertas.NotificacionAdvertencia("El Egreso no puede ser mayor al monto facturado")
             Return False
         End If
 
@@ -460,8 +464,11 @@ Public Class Facturacion_Nota_Credito
             DGVConceptos(2, e.RowIndex).Value = "ACT"
             Dim total, iva, riva, risr, totaldesc, preciosiniva, subtotal, calculoimporte As Double
             Dim Unidad = DGVConceptos.Rows(e.RowIndex).Cells(4).Value
-            Dim DescuentoUnidad = Unidad * Double.Parse(0.16)
-            Dim ImporteDescuento = Unidad - DescuentoUnidad
+            'Dim DescuentoUnidad = Unidad * Double.Parse(0.16)
+            Dim DescuentoUnidad = Unidad
+            'Dim ImporteDescuento = Unidad - DescuentoUnidad
+            Dim ImporteDescuento = Unidad
+
             calculoimporte = CDbl(DGVConceptos.Rows(e.RowIndex).Cells(0).Value) * CDbl(DGVConceptos.Rows(e.RowIndex).Cells(4).Value)
 
             DGVConceptos(5, e.RowIndex).Value = ImporteDescuento
@@ -475,7 +482,8 @@ Public Class Facturacion_Nota_Credito
             'Next
 
             ''If CBTraslado.Checked Then
-            iva = total * Double.Parse(0.16)
+            'iva = total * Double.Parse(0.16)
+            iva = 0
             subtotal = ImporteDescuento
             ''End If
             'If CBRetencion.Checked Then
@@ -495,7 +503,7 @@ Public Class Facturacion_Nota_Credito
         End Try
     End Sub
 
-    Private Sub CBTraslado_CheckedChanged(sender As Object, e As EventArgs) Handles CBRetencion.CheckedChanged
+    Private Sub CBTraslado_CheckedChanged(sender As Object, e As EventArgs)
 
     End Sub
 
