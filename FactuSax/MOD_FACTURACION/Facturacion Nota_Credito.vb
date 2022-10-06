@@ -266,7 +266,7 @@ Public Class Facturacion_Nota_Credito
         Dim EMISOR_REGIMENFISCAL As String = CBEmisor.ObtenerDescripcion("regimen")
         Dim emisor = RFC_EMISOR & "|" & NOMBRE_EMISOR & "|" & EMISOR_REGIMENFISCAL
         Dim rfc_receptor As String = CBSReceptor.SelectedValue
-        Dim nombre_receptor As String = CBEmisor.ObtenerDescripcion("Razon_Social")
+        Dim nombre_receptor As String = CBSReceptor.ObtenerDescripcion("Razon_Social")
         Dim llave = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("llave")
         Dim cer = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("cer")
         Dim claveprivada = CBEmisor.ObtenerDescripcion("claveprivada")
