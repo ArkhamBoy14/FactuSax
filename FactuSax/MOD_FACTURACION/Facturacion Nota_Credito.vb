@@ -404,10 +404,14 @@ Public Class Facturacion_Nota_Credito
         End If
 
         If CBS_TipoRelacion.SelectedIndex = -1 Then
-            MessageBox.Show("Selecccion un tipo de relacion")
+            Alertas.NotificacionAdvertencia("Selecccion un tipo de relacion")
             Return False
         End If
 
+        If CBSReceptor.SelectedIndex = -1 Then
+            Alertas.NotificacionAdvertencia("Seleccione un receptor")
+            Return False
+        End If
 
         Return True
     End Function
