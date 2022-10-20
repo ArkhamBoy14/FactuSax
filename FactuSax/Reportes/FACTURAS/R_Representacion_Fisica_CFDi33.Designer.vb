@@ -508,7 +508,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.XrPictureBox1.Name = "XrPictureBox1"
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(351.736!, 102.0833!)
-        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage
         '
         'XrLabel1
         '

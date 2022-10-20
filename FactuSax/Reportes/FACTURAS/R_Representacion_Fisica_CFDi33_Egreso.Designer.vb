@@ -22,7 +22,6 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Egreso
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(R_Representacion_Fisica_CFDi33_Egreso))
         Dim QrCodeGenerator1 As DevExpress.XtraPrinting.BarCode.QRCodeGenerator = New DevExpress.XtraPrinting.BarCode.QRCodeGenerator()
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand()
-        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrTable6 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow6 = New DevExpress.XtraReports.UI.XRTableRow()
         Me.XrTableCell12 = New DevExpress.XtraReports.UI.XRTableCell()
@@ -33,6 +32,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Egreso
         Me.XrTableCell17 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell18 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell19 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel()
@@ -130,19 +130,6 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Egreso
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
-        'XrLabel1
-        '
-        Me.XrLabel1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.Razon_Social")})
-        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(351.736!, 0!)
-        Me.XrLabel1.Name = "XrLabel1"
-        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel1.SizeF = New System.Drawing.SizeF(488.264!, 102.0833!)
-        Me.XrLabel1.StylePriority.UseFont = False
-        Me.XrLabel1.StylePriority.UseTextAlignment = False
-        Me.XrLabel1.Text = "XrLabel1"
-        Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
-        '
         'XrTable6
         '
         Me.XrTable6.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
@@ -224,6 +211,19 @@ Partial Public Class R_Representacion_Fisica_CFDi33_Egreso
         Me.XrTableCell19.Text = "[Importe]"
         Me.XrTableCell19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         Me.XrTableCell19.Weight = 0.986733256311825R
+        '
+        'XrLabel1
+        '
+        Me.XrLabel1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.Razon_Social")})
+        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(351.736!, 0!)
+        Me.XrLabel1.Name = "XrLabel1"
+        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel1.SizeF = New System.Drawing.SizeF(488.264!, 102.0833!)
+        Me.XrLabel1.StylePriority.UseFont = False
+        Me.XrLabel1.StylePriority.UseTextAlignment = False
+        Me.XrLabel1.Text = "XrLabel1"
+        Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
         '
         'XrLabel19
         '
