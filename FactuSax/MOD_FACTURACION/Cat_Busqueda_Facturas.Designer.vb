@@ -60,6 +60,7 @@ Partial Class Cat_Busqueda_Facturas
         Me.colSALDO_ANTERIOR = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colSALDO_INSOLUTO = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.PFACTURA_SAT_CFDI_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_BTableAdapters.pFACTURA_SAT_CFDI_BTableAdapter()
+        Me.cTotal = New Wisej.Web.DataGridViewTextBoxColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -171,7 +172,7 @@ Partial Class Cat_Busqueda_Facturas
         'DGV_Busqueda
         '
         Me.DGV_Busqueda.AutoGenerateColumns = False
-        Me.DGV_Busqueda.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.DGV_Parent, Me.cPDF, Me.cXML, Me.colFOLIO, Me.colUUID, Me.colFECHA, Me.colCONDICIONESPAGO, Me.colParent, Me.cNombre_Archivo, Me.cMetodoPago})
+        Me.DGV_Busqueda.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.DGV_Parent, Me.cPDF, Me.cXML, Me.colFOLIO, Me.colUUID, Me.colFECHA, Me.colCONDICIONESPAGO, Me.colParent, Me.cNombre_Archivo, Me.cMetodoPago, Me.cTotal})
         Me.DGV_Busqueda.DataSource = Me.BS_CFDI
         Me.DGV_Busqueda.Dock = Wisej.Web.DockStyle.Fill
         Me.DGV_Busqueda.Location = New System.Drawing.Point(0, 0)
@@ -374,6 +375,12 @@ Partial Class Cat_Busqueda_Facturas
         '
         Me.PFACTURA_SAT_CFDI_BTableAdapter.ClearBeforeFill = True
         '
+        'cTotal
+        '
+        Me.cTotal.DataPropertyName = "Total"
+        Me.cTotal.HeaderText = "cTotal"
+        Me.cTotal.Name = "cTotal"
+        '
         'Cat_Busqueda_Facturas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -437,4 +444,5 @@ Partial Class Cat_Busqueda_Facturas
     Friend WithEvents cXML As DataGridViewImageColumn
     Friend WithEvents colPDF As DataGridViewImageColumn
     Friend WithEvents colXML As DataGridViewImageColumn
+    Friend WithEvents cTotal As DataGridViewTextBoxColumn
 End Class

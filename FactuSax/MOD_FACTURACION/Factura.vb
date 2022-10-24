@@ -359,8 +359,9 @@ Public Class Factura
                     Application.Session("total_comprobante") = comprobantex.Total
 
 
+
                     GUARDAR_TIMBRE(respuesta.uuid, pathxml, PDF, comprobantex.timbrefiscaldigital.Leyenda, comprobantex.timbrefiscaldigital.NoCertificadoSAT, comprobantex.timbrefiscaldigital.RfcProvCertif, comprobantex.timbrefiscaldigital.SelloCFD, comprobantex.timbrefiscaldigital.SelloSAT, comprobantex.timbrefiscaldigital.FechaTimbrado)
-                    Application.Session("QR_SAT") = "https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=" & comprobantex.timbrefiscaldigital.UUID & "&re=" & comprobantex.Emisor.Rfc & "&fe=" & comprobantex.Receptor.Rfc & "&tt=" & comprobantex.Total & "&fe=" & comprobantex.Sello.Substring(comprobantex.Sello.Length - 9, 8)
+                    Application.Session("QR_SAT") = "https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=" & comprobantex.timbrefiscaldigital.UUID & "&re=" & comprobantex.Emisor.Rfc & "&rr=" & comprobantex.Receptor.Rfc & "&tt=" & comprobantex.Total & "&fe=" & comprobantex.Sello.Substring(comprobantex.Sello.Length - 8, 8)
                     Application.Session("UUID_SAT") = respuesta.uuid
 
 
