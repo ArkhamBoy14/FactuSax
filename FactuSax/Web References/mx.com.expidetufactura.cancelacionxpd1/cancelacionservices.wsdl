@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch="http://concretepage.com/soap" xmlns:tns="http://concretepage.com/soap" targetNamespace="http://concretepage.com/soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://concretepage.com/soap" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:include schemaLocation="multiple.xsd" />
+      <xs:element name="cancelarCfdiRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="usuario" type="xs:string" />
+            <xs:element name="contrasena" type="xs:string" />
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="parametros" type="tns:parametrosCancelaCfdi" />
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelarCfdiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="cancelarCfdiResponse" type="tns:cfdiResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultarCfdiRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="usuario" type="xs:string" />
+            <xs:element name="contrasena" type="xs:string" />
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="parametros" type="tns:parametrosConsultarCfdi" />
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultarCfdiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="consultarCfdiResponse" type="tns:cfdiResponseQr" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="obtenerCfdisRelacionadosRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="usuario" type="xs:string" />
+            <xs:element name="contrasena" type="xs:string" />
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="parametros" type="tns:parametrosObtenerCfdisRelacionados" />
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="obtenerCfdisRelacionadosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="obtenerCfdisRelacionadosResponse" type="tns:cfdiResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="obtenerPeticionesPendientesRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="usuario" type="xs:string" />
+            <xs:element name="contrasena" type="xs:string" />
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="parametros" type="tns:parametrosObtenerPeticionesPendientes" />
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="obtenerPeticionesPendientesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="obtenerPeticionesPendientesResponse" type="tns:cfdiResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="procesarRespuestaRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="usuario" type="xs:string" />
+            <xs:element name="contrasena" type="xs:string" />
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="parametros" type="tns:parametrosProcesarRespuesta" />
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="procesarRespuestaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="procesarRespuestaResponse" type="tns:cfdiResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="envioEmailRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="usuario" type="xs:string" />
+            <xs:element name="contrasena" type="xs:string" />
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="parametros" type="tns:emailParametros" />
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="envioEmailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="envioEmailResponse" type="tns:serviceResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="envioSmsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="usuario" type="xs:string" />
+            <xs:element name="contrasena" type="xs:string" />
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="parametros" type="tns:smsParametros" />
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="envioSmsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="envioSmsResponse" type="tns:serviceResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="envioEmailResponse">
+    <wsdl:part name="envioEmailResponse" element="tns:envioEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerPeticionesPendientesRequest">
+    <wsdl:part name="obtenerPeticionesPendientesRequest" element="tns:obtenerPeticionesPendientesRequest" />
+  </wsdl:message>
+  <wsdl:message name="cancelarCfdiRequest">
+    <wsdl:part name="cancelarCfdiRequest" element="tns:cancelarCfdiRequest" />
+  </wsdl:message>
+  <wsdl:message name="procesarRespuestaRequest">
+    <wsdl:part name="procesarRespuestaRequest" element="tns:procesarRespuestaRequest" />
+  </wsdl:message>
+  <wsdl:message name="obtenerCfdisRelacionadosRequest">
+    <wsdl:part name="obtenerCfdisRelacionadosRequest" element="tns:obtenerCfdisRelacionadosRequest" />
+  </wsdl:message>
+  <wsdl:message name="obtenerCfdisRelacionadosResponse">
+    <wsdl:part name="obtenerCfdisRelacionadosResponse" element="tns:obtenerCfdisRelacionadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarCfdiResponse">
+    <wsdl:part name="consultarCfdiResponse" element="tns:consultarCfdiResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarCfdiRequest">
+    <wsdl:part name="consultarCfdiRequest" element="tns:consultarCfdiRequest" />
+  </wsdl:message>
+  <wsdl:message name="envioSmsRequest">
+    <wsdl:part name="envioSmsRequest" element="tns:envioSmsRequest" />
+  </wsdl:message>
+  <wsdl:message name="cancelarCfdiResponse">
+    <wsdl:part name="cancelarCfdiResponse" element="tns:cancelarCfdiResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerPeticionesPendientesResponse">
+    <wsdl:part name="obtenerPeticionesPendientesResponse" element="tns:obtenerPeticionesPendientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="envioEmailRequest">
+    <wsdl:part name="envioEmailRequest" element="tns:envioEmailRequest" />
+  </wsdl:message>
+  <wsdl:message name="procesarRespuestaResponse">
+    <wsdl:part name="procesarRespuestaResponse" element="tns:procesarRespuestaResponse" />
+  </wsdl:message>
+  <wsdl:message name="envioSmsResponse">
+    <wsdl:part name="envioSmsResponse" element="tns:envioSmsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CancelacionPort">
+    <wsdl:operation name="envioEmail">
+      <wsdl:input name="envioEmailRequest" message="tns:envioEmailRequest" />
+      <wsdl:output name="envioEmailResponse" message="tns:envioEmailResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPeticionesPendientes">
+      <wsdl:input name="obtenerPeticionesPendientesRequest" message="tns:obtenerPeticionesPendientesRequest" />
+      <wsdl:output name="obtenerPeticionesPendientesResponse" message="tns:obtenerPeticionesPendientesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelarCfdi">
+      <wsdl:input name="cancelarCfdiRequest" message="tns:cancelarCfdiRequest" />
+      <wsdl:output name="cancelarCfdiResponse" message="tns:cancelarCfdiResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="procesarRespuesta">
+      <wsdl:input name="procesarRespuestaRequest" message="tns:procesarRespuestaRequest" />
+      <wsdl:output name="procesarRespuestaResponse" message="tns:procesarRespuestaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCfdisRelacionados">
+      <wsdl:input name="obtenerCfdisRelacionadosRequest" message="tns:obtenerCfdisRelacionadosRequest" />
+      <wsdl:output name="obtenerCfdisRelacionadosResponse" message="tns:obtenerCfdisRelacionadosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarCfdi">
+      <wsdl:input name="consultarCfdiRequest" message="tns:consultarCfdiRequest" />
+      <wsdl:output name="consultarCfdiResponse" message="tns:consultarCfdiResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="envioSms">
+      <wsdl:input name="envioSmsRequest" message="tns:envioSmsRequest" />
+      <wsdl:output name="envioSmsResponse" message="tns:envioSmsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CancelacionPortSoap11" type="tns:CancelacionPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="envioEmail">
+      <soap:operation soapAction="" />
+      <wsdl:input name="envioEmailRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="envioEmailResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPeticionesPendientes">
+      <soap:operation soapAction="" />
+      <wsdl:input name="obtenerPeticionesPendientesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenerPeticionesPendientesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarCfdi">
+      <soap:operation soapAction="" />
+      <wsdl:input name="cancelarCfdiRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelarCfdiResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="procesarRespuesta">
+      <soap:operation soapAction="" />
+      <wsdl:input name="procesarRespuestaRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="procesarRespuestaResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCfdisRelacionados">
+      <soap:operation soapAction="" />
+      <wsdl:input name="obtenerCfdisRelacionadosRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenerCfdisRelacionadosResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarCfdi">
+      <soap:operation soapAction="" />
+      <wsdl:input name="consultarCfdiRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="consultarCfdiResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="envioSms">
+      <soap:operation soapAction="" />
+      <wsdl:input name="envioSmsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="envioSmsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CancelacionPortService">
+    <wsdl:port name="CancelacionPortSoap11" binding="tns:CancelacionPortSoap11">
+      <soap:address location="https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soapws" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

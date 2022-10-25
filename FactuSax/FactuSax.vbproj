@@ -833,6 +833,28 @@
     <Content Include="Datasets\DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsc">
       <DependentUpon>DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsd</DependentUpon>
     </Content>
+    <Content Include="Datasets\Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.xsc">
+      <DependentUpon>Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_CFDI_B2.xsc">
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_B2.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pFACTURA_SAT_CFDI_B2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pFACTURA_SAT_CFDI_B2.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_CFDI_B2.xss">
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_B2.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.xss">
+      <DependentUpon>Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.xsd</DependentUpon>
+    </Content>
     <None Include="Datasets\DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -840,6 +862,17 @@
     </None>
     <Content Include="Datasets\DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xss">
       <DependentUpon>DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.xsc">
+      <DependentUpon>DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Datasets\DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.xss">
+      <DependentUpon>DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="DocumentViewer.aspx" />
@@ -1109,6 +1142,31 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </Content>
+    <None Include="Web References\mx.com.expidetufactura.cancelacionxpd1\cancelacionservices.wsdl" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd1\cfdiResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd1\cfdiResponseQr.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\mx.com.expidetufactura.cancelacionxpd1\multiple.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd1\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd1\serviceResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\mx.com.expidetufactura.cancelacionxpd\cancelacionmultiple.wsdl" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd\respuestaCliente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\WebService_InsercionSISLAB\Actualizar_Estatus.disco" />
     <None Include="Web References\localhostSISLAB\Actualizar_Estatus.disco" />
     <Content Include="Web References\WebService_Timbres\Reference.map">
@@ -1265,10 +1323,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_pFACTURA_SAT_CFDI_B.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\DataSet_pFACTURA_SAT_CFDI_B2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pFACTURA_SAT_CFDI_B2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_pFACTURA_SAT_CFD_PAGOS_RELACIONADOS_B.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.xsd</DependentUpon>
     </Compile>
     <Compile Include="MOD_CATALOGOS\Cat_Clientes.Designer.vb">
       <DependentUpon>Cat_Clientes.vb</DependentUpon>
@@ -1337,6 +1410,18 @@
       <DependentUpon>Facturacion_Electronica_Folio_Movimiento.vb</DependentUpon>
     </Compile>
     <Compile Include="MOD_FACTURACION\Facturacion_Electronica_Folio_Movimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion_Sustitucion.Designer.vb">
+      <DependentUpon>Facturacion_Sustitucion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion_Sustitucion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Factura_Cancelacion.Designer.vb">
+      <DependentUpon>Factura_Cancelacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Factura_Cancelacion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MOD_FACTURACION\Sellodigital.vb" />
@@ -1558,6 +1643,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\mx.com.expidetufactura.cancelacionxpd1\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\mx.com.expidetufactura.cancelacionxpd\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\WebService_InsercionSISLAB\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1653,6 +1748,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_FACTURACION\Facturacion_Sustitucion.resx">
+      <DependentUpon>Facturacion_Sustitucion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_FACTURACION\Factura_Cancelacion.resx">
+      <DependentUpon>Factura_Cancelacion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mostrar_Asp.resx">
       <DependentUpon>Mostrar_Asp.vb</DependentUpon>
@@ -1758,6 +1859,28 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FactuSax_localhostSISLAB_Actualizar_Estatus</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soapws/cancelacionmultiple.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\mx.com.expidetufactura.cancelacionxpd\</RelPath>
+      <UpdateFromURL>https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soapws/cancelacionmultiple.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FactuSax_mx_com_expidetufactura_cancelacionxpd_CancelacionPortService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soapws/cancelacionservices.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\mx.com.expidetufactura.cancelacionxpd1\</RelPath>
+      <UpdateFromURL>https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soapws/cancelacionservices.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FactuSax_mx_com_expidetufactura_cancelacionxpd1_CancelacionPortService</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="https://pruebastimbrado.expidetufactura.com.mx:8451/preproduccion/TimbradoWS%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>

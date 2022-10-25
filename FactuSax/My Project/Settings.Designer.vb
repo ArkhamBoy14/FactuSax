@@ -114,6 +114,28 @@ Namespace My
                 Return CType(Me("FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soap"& _ 
+            "ws")>  _
+        Public ReadOnly Property FactuSax_mx_com_expidetufactura_cancelacionxpd_CancelacionPortService() As String
+            Get
+                Return CType(Me("FactuSax_mx_com_expidetufactura_cancelacionxpd_CancelacionPortService"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soap"& _ 
+            "ws")>  _
+        Public ReadOnly Property FactuSax_mx_com_expidetufactura_cancelacionxpd1_CancelacionPortService() As String
+            Get
+                Return CType(Me("FactuSax_mx_com_expidetufactura_cancelacionxpd1_CancelacionPortService"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
