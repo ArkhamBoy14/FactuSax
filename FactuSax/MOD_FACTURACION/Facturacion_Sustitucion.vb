@@ -50,7 +50,7 @@ Public Class Facturacion_Sustitucion
         CBS_TipoRelacion.LlenarListBox("[pCAT_TIPORELACION_SAT_FACTURACION_B]", "c_TipoRelacion", "descripcionx")
 
         CBSMoneda.SelectedValue = "MXN"
-        CBSTipoComprobante.SelectedValue = "E"
+        CBSTipoComprobante.SelectedValue = "I"
         CBSFormaPago.SelectedValue = "01"
 
         'CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
@@ -138,20 +138,7 @@ Public Class Facturacion_Sustitucion
 
     Sub PREDETERMINADOS()
 
-        'If c = 1 Then
-        '    CBSTipoComprobante.SelectedValue = "I"
-        '    c = 0
-        'End If
 
-
-        'CBSMetodoPago.SelectedValue = "PUE"
-        'CBSIVA.SelectedValue = "002"
-        'MTBIVA.Text = "0.160000"
-        'MTBRIVA.Text = "0.106666"
-        'MTBRISR.Text = "0.100000"
-        'CBSRIVA.SelectedValue = "002"
-        'RDBSolicitrud.Checked = True
-        'CBSRISR.SelectedValue = "001"
         Dim dt_defecto = CBEmisor.dataTable()
         For i As Integer = 0 To dt_defecto.Rows.Count - 1
             If dt_defecto.Rows(i).Item("pordefecto") = True Then
@@ -161,15 +148,10 @@ Public Class Facturacion_Sustitucion
         If CBEmisor.SelectedIndex <> -1 Then
             MTBCP.Text = CBEmisor.ObtenerDescripcion("Codigo_Postal")
         End If
+        CBS_TipoRelacion.SelectedValue = 4
 
-        'TBTipoCambio.Text = 1
-        'TBTipoCambio.Enabled = True
-        'RTBCondicionPago.Enabled = True
-        'TasaoCuotaIVA.SelectedItem = "Tasa"
-        'CBSMetodoPago.SelectedValue = "PUE"
-        'CBSMetodoPago.Enabled = True
-        'CBSFormaPago.Enabled = True
-
+        TBTipoCambio.Text = 1
+        TBTipoCambio.Enabled = True
     End Sub
     Private Sub RibbonBar7_ButtonClick(sender As Object, e As Ext.RibbonBar.RibbonBarItemEventArgs) Handles RibbonBar7.ItemClick
         Select Case e.Item.Name
@@ -212,7 +194,7 @@ Public Class Facturacion_Sustitucion
 
     Sub CONSULTAR(Optional Cve_Cliente As String = "-99")
 
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.Clear()
+        Me.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.Clear()
 
         Dim myDA = New SqlClient.SqlDataAdapter("pFACTURA_SAT_CFDI_SUSTITUCION_B", Utilidades.sConexion)
         myDA.SelectCommand.CommandType = CommandType.StoredProcedure
@@ -232,7 +214,7 @@ Public Class Facturacion_Sustitucion
         myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", CbxClientes.SelectedValue)
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha1", Format(Me.cFecha1.Value, "yyyyMMdd"))
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha2", Format(Me.cFecha2.Value, "yyyyMMdd"))
-        myDA.Fill(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.pFACTURA_SAT_CFDI_PAGOS_B)
+        myDA.Fill(Me.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.pFACTURA_SAT_CFDI_SUSTITUCION_B)
         myDA.Dispose()
 
     End Sub
@@ -284,7 +266,14 @@ Public Class Facturacion_Sustitucion
             Dim filaNueva = DGVConceptos.Rows(DGVConceptos.Rows.Count - 1)
             Dim split As String() = dt_conceptos.Rows(i).Item("Producto").split("-")
             filaNueva(cCantidad.Name).Value = dt_conceptos.Rows(i).Item("Cantidad")
-            filaNueva(cbClaveProdServ.Name).Value = "84111506 - Servicios de facturación"
+
+            If CbxClientes.ObtenerDescripcion("Sistema") = "iSISLAB" Then
+                filaNueva(cbClaveProdServ.Name).Value = "85121800 - Laboratorios médicos"
+
+            Else
+                filaNueva(cbClaveProdServ.Name).Value = "84111506 - Servicios de facturación"
+
+            End If
             filaNueva(cbClaveUnidad.Name).Value = "E48"
             filaNueva(cDescripcion.Name).Value = split(1).Trim
             filaNueva(cValorUnitario.Name).Value = Round(dt_conceptos.Rows(i).Item("Unitario"), 4)
@@ -324,7 +313,7 @@ Public Class Facturacion_Sustitucion
         Dim total, iva, riva, risr, totaldesc, preciosiniva As Double
         Dim Descuento As Double
         Dim SUBTOTAL As Double
-        CBS_TipoRelacion.SelectedValue = 4
+        CBS_TipoRelacion.SelectedValue = "04"
         RTBObservaciones.Text = CBS_TipoRelacion.SelectedItem & " Del UUID = " & folios
         Application.Session("folios_factura") = folios
 
@@ -339,14 +328,21 @@ Public Class Facturacion_Sustitucion
             Dim filaNueva = DGVConceptos.Rows(DGVConceptos.Rows.Count - 1)
             'Dim parametros As String()
             'ReDim parametros(7)
-            Dim split As String() = dt_conceptos.Rows(i).Item("Producto").split("-")
+            Dim split As String() = dt_conceptos.Rows(i).Item("Descripcion").split("-")
             filaNueva(cCantidad.Name).Value = dt_conceptos.Rows(i).Item("Cantidad")
-            filaNueva(cbClaveProdServ.Name).Value = "84111506 - Servicios de facturación"
+            If CbxClientes.ObtenerDescripcion("Sistema") = "iSISLAB" Then
+                filaNueva(cbClaveProdServ.Name).Value = "85121800 - Laboratorios médicos"
+
+            Else
+                filaNueva(cbClaveProdServ.Name).Value = "84111506 - Servicios de facturación"
+
+            End If
+            'filaNueva(cbClaveProdServ.Name).Value = "84111506 - Servicios de facturación"
             filaNueva(cbClaveUnidad.Name).Value = "E48"
             filaNueva(cDescripcion.Name).Value = split(1).Trim
-            filaNueva(cValorUnitario.Name).Value = Round(dt_conceptos.Rows(i).Item("Valorunitario"), 4)
-            filaNueva(cImporte.Name).Value = Round(dt_conceptos.Rows(i).Item("Importe"), 4)
-            filaNueva(cDescuento.Name).Value = Round(dt_conceptos.Rows(i).Item("Descuento"), 0)
+            filaNueva(cValorUnitario.Name).Value = dt_conceptos.Rows(i).Item("Valorunitario")
+            filaNueva(cImporte.Name).Value = dt_conceptos.Rows(i).Item("Importe")
+            filaNueva(cDescuento.Name).Value = dt_conceptos.Rows(i).Item("Descuento")
             filaNueva(cNoIdentificacion.Name).Value = dt_conceptos.Rows(i).Item("NoIdentificacion")
         Next
         For i As Integer = 0 To DGVConceptos.Rows.Count - 1
@@ -413,7 +409,7 @@ Public Class Facturacion_Sustitucion
         cuerpo.Add("Metodo_pago", "PUE")
         'cuerpo.Add("Lugarexpedicion", MTBCP.Text)
         'cuerpo.Add("Descuento", IIf(TBDescuento.Text.Replace("$", "") = "0", 0, TBDescuento.Text.Replace("$", "")))
-        cuerpo.Add("Tipo_Cambio", "NA")
+        cuerpo.Add("Tipo_Cambio", TBTipoCambio.Text)
         cuerpo.Add("Condiciones_Pago", IIf(RTBObservaciones.Text = "", Nothing, RTBObservaciones.Text))
 
         ''faltantes ------------------------------------
@@ -427,36 +423,32 @@ Public Class Facturacion_Sustitucion
                 conceptos.Add(DGVConceptos.Rows(i).Cells(0).Value & "|" & DGVConceptos.Rows(i).Cells(1).Value & "|" & DGVConceptos.Rows(i).Cells(2).Value & "|" & DGVConceptos.Rows(i).Cells(3).Value & "|" & DGVConceptos.Rows(i).Cells(4).Value & "|" & DGVConceptos.Rows(i).Cells(5).Value & "|" & DGVConceptos.Rows(i).Cells(6).Value & "|" & DGVConceptos.Rows(i).Cells(7).Value)
             Next
         End If
+        imptraslado.Add("002" & "|" & ValorIVA & "|" & TasaIVA)
 
-        imptraslado.Add("002" & "|" & "0.000000" & "|" & "Tasa")
-
-        Dim totalretenciones = TBRISR.Text + TBRIVA.Text
-        Dim FACTURAX As New Factura
-
-        Dim respuesta As String = FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, Application.Session("folios_factura"))
-        If respuesta <> Nothing Then
-            Dim UUID As String = respuesta
-
-
-            ReDim Utilidades.ParametersX_Global(1)
-
-            Utilidades.ParametersX_Global(0) = New SqlParameter("@UUID_PADRE", Application.Session("UUID_PADRE"))
-            Utilidades.ParametersX_Global(0) = New SqlParameter("@UUDI_SUST", UUID)
-
-            Dim sust = Utilidades.EjecutarProcedure_Id("pFACTURACION_SUSTITUCION_UUID_RELACIONADOS_G", "@Parametro", Utilidades.ParametersX_Global)
-            If sust = 1 Then
+        If AplicaISR = True Then
+            impretencciones.Add("001" & "|" & ValorISR & "|" & TasaISR)
+            If AplicaIEPS = True Then
+                impretencciones.Add("003" & "|" & ValorIEPS & "|" & TasaIEPS)
 
             End If
+            Dim totalretenciones = TBRISR.Text + TBRIVA.Text
+            FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, totalretenciones, impretencciones,, True)
+        Else
+            Dim respuesta As String = FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, ,, Application.Session("folios_factura"), True)
+            If respuesta <> Nothing Then
 
-            Dim split As String() = respuesta.Split("-")
-            Dim asp As New Mostrar_Asp
-            Application.Session("DocumentCached") = Nothing
-            Application.Session("ReportName") = "R_Representacion_Fisica_CFDi33_Egreso"
-            Application.Session("Modulo") = "DocumentViewer.aspx"
-            asp.Actualizar()
-            asp.Show()
+
+
+
+                Dim split As String() = respuesta.Split("-")
+                Dim asp As New Mostrar_Asp
+                Application.Session("DocumentCached") = Nothing
+                Application.Session("ReportName") = "R_Representacion_Fisica_CFDi33"
+                Application.Session("Modulo") = "DocumentViewer.aspx"
+                asp.Actualizar()
+                asp.Show()
+            End If
         End If
-
 
 
 
@@ -483,11 +475,6 @@ Public Class Facturacion_Sustitucion
 
     Function verificar()
         Dim total As String
-
-        If DGVUUID.Rows(DGVUUID.CurrentCell.RowIndex).Cells(colSALDO.Index).Value < TBSubTotal.Text Then
-            Alertas.NotificacionAdvertencia("El Egreso no puede ser mayor al monto facturado")
-            Return False
-        End If
 
         If CBS_TipoRelacion.SelectedIndex = -1 Then
             Alertas.NotificacionAdvertencia("Selecccion un tipo de relacion")

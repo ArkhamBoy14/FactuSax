@@ -22,7 +22,7 @@ Partial Class Facturacion_Sustitucion
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar7 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
@@ -33,17 +33,14 @@ Partial Class Facturacion_Sustitucion
         Me.SplitContainer1 = New Wisej.Web.SplitContainer()
         Me.DGVUUID = New Wisej.Web.DataGridView()
         Me.DataGridViewImageColumn1 = New Wisej.Web.DataGridViewImageColumn()
-        Me.colFOLIO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colUUID = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colFECHA = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colCONDICIONESPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colSALDO = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_B()
+        Me.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B = New FactuSax.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B()
         Me.pserie = New Wisej.Web.Panel()
         Me.TextBox1 = New Wisej.Web.TextBox()
         Me.Label2 = New Wisej.Web.Label()
         Me.pfECHA = New Wisej.Web.Panel()
+        Me.RB_Detallada = New Wisej.Web.RadioButton()
+        Me.RB_Sencilla = New Wisej.Web.RadioButton()
         Me.Label10 = New Wisej.Web.Label()
         Me.CbxClientes = New FactuSax.ComboWisax()
         Me.Label19 = New Wisej.Web.Label()
@@ -105,18 +102,26 @@ Partial Class Facturacion_Sustitucion
         Me.Label4 = New Wisej.Web.Label()
         Me.Label3 = New Wisej.Web.Label()
         Me.DTPFechaEmision = New Wisej.Web.DateTimePicker()
+        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_B()
         Me.ErrorProvider1 = New Wisej.Web.ErrorProvider(Me.components)
         Me.Label20 = New Wisej.Web.Label()
         Me.PFACTURA_SAT_CFDI_PAGOS_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_BTableAdapter()
-        Me.RB_Detallada = New Wisej.Web.RadioButton()
-        Me.RB_Sencilla = New Wisej.Web.RadioButton()
+        Me.PFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapter = New FactuSax.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapters.pFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapter()
+        Me.colFOLIO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colUUID = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colFECHA = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colCONDICIONESPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colReceptor_RFC = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colSALDO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.TBTipoCambio = New Wisej.Web.TextBox()
+        Me.Label9 = New Wisej.Web.Label()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.DGVUUID, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pserie.SuspendLayout()
         Me.pfECHA.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -131,6 +136,7 @@ Partial Class Facturacion_Sustitucion
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -206,7 +212,7 @@ Partial Class Facturacion_Sustitucion
         '
         Me.DGVUUID.AllowUserToResizeColumns = False
         Me.DGVUUID.AllowUserToResizeRows = False
-        Me.DGVUUID.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.DataGridViewImageColumn1, Me.colFOLIO, Me.colUUID, Me.colFECHA, Me.colCONDICIONESPAGO, Me.colSALDO})
+        Me.DGVUUID.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.DataGridViewImageColumn1, Me.colFOLIO, Me.colUUID, Me.colFECHA, Me.colCONDICIONESPAGO, Me.colReceptor_RFC, Me.colSALDO})
         Me.DGVUUID.DataSource = Me.BindingSource1
         Me.DGVUUID.Dock = Wisej.Web.DockStyle.Fill
         Me.DGVUUID.Location = New System.Drawing.Point(0, 238)
@@ -218,54 +224,22 @@ Partial Class Facturacion_Sustitucion
         'DataGridViewImageColumn1
         '
         Me.DataGridViewImageColumn1.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
-        DataGridViewCellStyle2.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewImageColumn1.HeaderText = "   "
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         Me.DataGridViewImageColumn1.Width = 40
         '
-        'colFOLIO
-        '
-        Me.colFOLIO.DataPropertyName = "FOLIO"
-        Me.colFOLIO.HeaderText = "FOLIO"
-        Me.colFOLIO.Name = "colFOLIO"
-        Me.colFOLIO.ReadOnly = True
-        '
-        'colUUID
-        '
-        Me.colUUID.DataPropertyName = "UUID"
-        Me.colUUID.HeaderText = "UUID"
-        Me.colUUID.Name = "colUUID"
-        '
-        'colFECHA
-        '
-        Me.colFECHA.DataPropertyName = "FECHA"
-        Me.colFECHA.HeaderText = "FECHA"
-        Me.colFECHA.Name = "colFECHA"
-        '
-        'colCONDICIONESPAGO
-        '
-        Me.colCONDICIONESPAGO.DataPropertyName = "CONDICIONESPAGO"
-        Me.colCONDICIONESPAGO.HeaderText = "CONDICIONESPAGO"
-        Me.colCONDICIONESPAGO.Name = "colCONDICIONESPAGO"
-        '
-        'colSALDO
-        '
-        Me.colSALDO.DataPropertyName = "SALDO"
-        Me.colSALDO.HeaderText = "SALDO"
-        Me.colSALDO.Name = "colSALDO"
-        Me.colSALDO.ReadOnly = True
-        '
         'BindingSource1
         '
-        Me.BindingSource1.DataMember = "pFACTURA_SAT_CFDI_PAGOS_B"
-        Me.BindingSource1.DataSource = Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B
+        Me.BindingSource1.DataMember = "pFACTURA_SAT_CFDI_SUSTITUCION_B"
+        Me.BindingSource1.DataSource = Me.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B
         '
-        'DataSet_pFACTURA_SAT_CFDI_PAGOS_B
+        'Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B
         '
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.DataSetName = "DataSet_pFACTURA_SAT_CFDI_PAGOS_B"
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.DataSetName = "Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B"
+        Me.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'pserie
         '
@@ -312,6 +286,24 @@ Partial Class Facturacion_Sustitucion
         Me.pfECHA.TabIndex = 0
         Me.pfECHA.TabStop = True
         Me.pfECHA.Visible = False
+        '
+        'RB_Detallada
+        '
+        Me.RB_Detallada.Location = New System.Drawing.Point(149, 51)
+        Me.RB_Detallada.Name = "RB_Detallada"
+        Me.RB_Detallada.Size = New System.Drawing.Size(135, 22)
+        Me.RB_Detallada.TabIndex = 9
+        Me.RB_Detallada.Text = "Factura Detallada"
+        '
+        'RB_Sencilla
+        '
+        Me.RB_Sencilla.Checked = True
+        Me.RB_Sencilla.Location = New System.Drawing.Point(9, 51)
+        Me.RB_Sencilla.Name = "RB_Sencilla"
+        Me.RB_Sencilla.Size = New System.Drawing.Size(126, 22)
+        Me.RB_Sencilla.TabIndex = 8
+        Me.RB_Sencilla.TabStop = True
+        Me.RB_Sencilla.Text = "Factura Sencilla"
         '
         'Label10
         '
@@ -684,6 +676,8 @@ Partial Class Facturacion_Sustitucion
         '
         'Panel6
         '
+        Me.Panel6.Controls.Add(Me.TBTipoCambio)
+        Me.Panel6.Controls.Add(Me.Label9)
         Me.Panel6.Controls.Add(Me.CBS_TipoRelacion)
         Me.Panel6.Controls.Add(Me.Label12)
         Me.Panel6.Controls.Add(Me.RTBObservaciones)
@@ -750,7 +744,7 @@ Partial Class Facturacion_Sustitucion
         Me.CBSFormaPago.Cursor = Wisej.Web.Cursors.Hand
         Me.CBSFormaPago.Location = New System.Drawing.Point(319, 44)
         Me.CBSFormaPago.Name = "CBSFormaPago"
-        Me.CBSFormaPago.Size = New System.Drawing.Size(474, 22)
+        Me.CBSFormaPago.Size = New System.Drawing.Size(271, 22)
         Me.CBSFormaPago.TabIndex = 12
         '
         'CBSTipoComprobante
@@ -873,6 +867,11 @@ Partial Class Facturacion_Sustitucion
         Me.DTPFechaEmision.TabIndex = 1
         Me.DTPFechaEmision.Value = New Date(2022, 3, 28, 14, 40, 59, 468)
         '
+        'DataSet_pFACTURA_SAT_CFDI_PAGOS_B
+        '
+        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.DataSetName = "DataSet_pFACTURA_SAT_CFDI_PAGOS_B"
+        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'ErrorProvider1
         '
         Me.ErrorProvider1.BlinkRate = 3
@@ -891,23 +890,65 @@ Partial Class Facturacion_Sustitucion
         '
         Me.PFACTURA_SAT_CFDI_PAGOS_BTableAdapter.ClearBeforeFill = True
         '
-        'RB_Detallada
+        'PFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapter
         '
-        Me.RB_Detallada.Location = New System.Drawing.Point(149, 51)
-        Me.RB_Detallada.Name = "RB_Detallada"
-        Me.RB_Detallada.Size = New System.Drawing.Size(135, 22)
-        Me.RB_Detallada.TabIndex = 9
-        Me.RB_Detallada.Text = "Factura Detallada"
+        Me.PFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapter.ClearBeforeFill = True
         '
-        'RB_Sencilla
+        'colFOLIO
         '
-        Me.RB_Sencilla.Checked = True
-        Me.RB_Sencilla.Location = New System.Drawing.Point(9, 51)
-        Me.RB_Sencilla.Name = "RB_Sencilla"
-        Me.RB_Sencilla.Size = New System.Drawing.Size(126, 22)
-        Me.RB_Sencilla.TabIndex = 8
-        Me.RB_Sencilla.TabStop = True
-        Me.RB_Sencilla.Text = "Factura Sencilla"
+        Me.colFOLIO.DataPropertyName = "FOLIO"
+        Me.colFOLIO.HeaderText = "FOLIO"
+        Me.colFOLIO.Name = "colFOLIO"
+        Me.colFOLIO.ReadOnly = True
+        '
+        'colUUID
+        '
+        Me.colUUID.DataPropertyName = "UUID"
+        Me.colUUID.HeaderText = "UUID"
+        Me.colUUID.Name = "colUUID"
+        '
+        'colFECHA
+        '
+        Me.colFECHA.DataPropertyName = "FECHA"
+        Me.colFECHA.HeaderText = "FECHA"
+        Me.colFECHA.Name = "colFECHA"
+        '
+        'colCONDICIONESPAGO
+        '
+        Me.colCONDICIONESPAGO.DataPropertyName = "CONDICIONESPAGO"
+        Me.colCONDICIONESPAGO.HeaderText = "CONDICIONESPAGO"
+        Me.colCONDICIONESPAGO.Name = "colCONDICIONESPAGO"
+        '
+        'colReceptor_RFC
+        '
+        Me.colReceptor_RFC.DataPropertyName = "Receptor_RFC"
+        Me.colReceptor_RFC.HeaderText = "Receptor_RFC"
+        Me.colReceptor_RFC.Name = "colReceptor_RFC"
+        '
+        'colSALDO
+        '
+        Me.colSALDO.DataPropertyName = "SALDO"
+        Me.colSALDO.HeaderText = "SALDO"
+        Me.colSALDO.Name = "colSALDO"
+        Me.colSALDO.ReadOnly = True
+        '
+        'TBTipoCambio
+        '
+        Me.TBTipoCambio.Location = New System.Drawing.Point(698, 42)
+        Me.TBTipoCambio.Name = "TBTipoCambio"
+        Me.TBTipoCambio.Size = New System.Drawing.Size(95, 22)
+        Me.TBTipoCambio.TabIndex = 14
+        Me.TBTipoCambio.Visible = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(606, 45)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(96, 15)
+        Me.Label9.TabIndex = 15
+        Me.Label9.Text = "Tipo de Cambio"
+        Me.Label9.Visible = False
         '
         'Facturacion_Sustitucion
         '
@@ -922,7 +963,7 @@ Partial Class Facturacion_Sustitucion
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.DGVUUID, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pserie.ResumeLayout(False)
         Me.pserie.PerformLayout()
         Me.pfECHA.ResumeLayout(False)
@@ -944,6 +985,7 @@ Partial Class Facturacion_Sustitucion
         Me.GroupBox4.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
+        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -1028,15 +1070,20 @@ Partial Class Facturacion_Sustitucion
     Friend WithEvents Label31 As Label
     Friend WithEvents Label32 As Label
     Friend WithEvents DataSet_pFACTURA_SAT_CFDI_PAGOS_B As DataSet_pFACTURA_SAT_CFDI_PAGOS_B
-    Friend WithEvents BindingSource1 As BindingSource
     Friend WithEvents PFACTURA_SAT_CFDI_PAGOS_BTableAdapter As DataSet_pFACTURA_SAT_CFDI_PAGOS_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_BTableAdapter
-    Friend WithEvents colFOLIO As DataGridViewTextBoxColumn
-    Friend WithEvents colUUID As DataGridViewTextBoxColumn
-    Friend WithEvents colFECHA As DataGridViewTextBoxColumn
-    Friend WithEvents colCONDICIONESPAGO As DataGridViewTextBoxColumn
-    Friend WithEvents colSALDO As DataGridViewTextBoxColumn
     Friend WithEvents Label10 As Label
     Friend WithEvents CbxClientes As ComboWisax
     Friend WithEvents RB_Detallada As RadioButton
     Friend WithEvents RB_Sencilla As RadioButton
+    Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B As Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B
+    Friend WithEvents PFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapter As Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapters.pFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapter
+    Friend WithEvents colFOLIO As DataGridViewTextBoxColumn
+    Friend WithEvents colUUID As DataGridViewTextBoxColumn
+    Friend WithEvents colFECHA As DataGridViewTextBoxColumn
+    Friend WithEvents colCONDICIONESPAGO As DataGridViewTextBoxColumn
+    Friend WithEvents colReceptor_RFC As DataGridViewTextBoxColumn
+    Friend WithEvents colSALDO As DataGridViewTextBoxColumn
+    Friend WithEvents TBTipoCambio As TextBox
+    Friend WithEvents Label9 As Label
 End Class
