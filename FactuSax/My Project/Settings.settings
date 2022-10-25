@@ -20,6 +20,12 @@
     <Setting Name="FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://appliance-qa.expidetufactura.com.mx:8585/CoreTimbrado.test/TimbradoWSSoapSingle</Value>
     </Setting>
+    <Setting Name="FactuSax_mx_com_expidetufactura_cancelacionxpd_CancelacionPortService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soapws</Value>
+    </Setting>
+    <Setting Name="FactuSax_mx_com_expidetufactura_cancelacionxpd1_CancelacionPortService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soapws</Value>
+    </Setting>
     <Setting Name="FactuSax_mx_com_expidetufactura_cancelacionxpd_Produccion_CancelacionPortService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soapws</Value>
     </Setting>

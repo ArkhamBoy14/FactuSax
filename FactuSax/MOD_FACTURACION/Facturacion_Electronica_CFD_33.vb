@@ -934,18 +934,12 @@ Public Class Facturacion_Electronica_CFD_33
             End If
         Next
         Dim DESCUENTOX As Double
-        'DESCUENTOX = (descuento * 100 / total) / 100
         For I As Integer = 0 To DGVConceptos.Rows.Count - 1
-            'DESCUENTOX = descuento + DGVConceptos.Rows(I).Cells("cDescuento").Value
             DESCUENTOX += DGVConceptos.Rows(I).Cells("cDescuento").Value
-
-            'DGVConceptos.Rows(I).Cells("cDescuento").Value = Round((DGVConceptos.Rows(I).Cells("cImporte").Value * DESCUENTOX), 2)
         Next
-        'DESCUENTOX = DESCUENTOX + descuento
         totaldesc = total - DESCUENTOX
         iva = total * Double.Parse(ValorIVA)
         SUBTOTAL = totaldesc
-        'SUBTOTAL = total
         If AplicaISR = True Then
             risr = SUBTOTAL * (ValorISR)
         End If

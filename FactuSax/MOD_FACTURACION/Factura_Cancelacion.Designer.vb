@@ -24,7 +24,12 @@ Partial Class Factura_Cancelacion
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle3 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar1 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
+        Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
+        Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
+        Me.RBBSustitucion = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
+        Me.RBBSalir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.Panel1 = New Wisej.Web.Panel()
+        Me.Button3 = New Wisej.Web.Button()
         Me.UUID_RELACIONADO = New Wisej.Web.TextBox()
         Me.Button1 = New Wisej.Web.Button()
         Me.Button2 = New Wisej.Web.Button()
@@ -69,7 +74,33 @@ Partial Class Factura_Cancelacion
         'RibbonBar1
         '
         Me.RibbonBar1.Name = "RibbonBar1"
+        Me.RibbonBar1.Pages.Add(Me.RibbonBarPage1)
         Me.RibbonBar1.Size = New System.Drawing.Size(738, 110)
+        '
+        'RibbonBarPage1
+        '
+        Me.RibbonBarPage1.Groups.Add(Me.RibbonBarGroup1)
+        Me.RibbonBarPage1.Name = "RibbonBarPage1"
+        Me.RibbonBarPage1.Text = "Menu"
+        '
+        'RibbonBarGroup1
+        '
+        Me.RibbonBarGroup1.Items.Add(Me.RBBSustitucion)
+        Me.RibbonBarGroup1.Items.Add(Me.RBBSalir)
+        Me.RibbonBarGroup1.Name = "RibbonBarGroup1"
+        Me.RibbonBarGroup1.Text = "Procesos"
+        '
+        'RBBSustitucion
+        '
+        Me.RBBSustitucion.ImageSource = "Resources\Images\Menu\64\sustitucion.png"
+        Me.RBBSustitucion.Name = "RBBSustitucion"
+        Me.RBBSustitucion.Text = "Sustitución"
+        '
+        'RBBSalir
+        '
+        Me.RBBSalir.ImageSource = "Resources\Images\Menu\64\exit_sign.png"
+        Me.RBBSalir.Name = "RBBSalir"
+        Me.RBBSalir.Text = "Salir"
         '
         'Panel1
         '
@@ -85,6 +116,14 @@ Partial Class Factura_Cancelacion
         Me.Panel1.Size = New System.Drawing.Size(738, 100)
         Me.Panel1.TabIndex = 2
         Me.Panel1.TabStop = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(504, 49)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(100, 27)
+        Me.Button3.TabIndex = 10
+        Me.Button3.Text = "Buscar UUID"
         '
         'UUID_RELACIONADO
         '
@@ -127,12 +166,6 @@ Partial Class Factura_Cancelacion
         'DataGridView1
         '
         Me.DataGridView1.BorderStyle = Wisej.Web.BorderStyle.None
-        DataGridViewCellStyle3.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.WrapMode = Wisej.Web.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView1.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.Column0, Me.colUUID, Me.colFecha, Me.colTipodecomprobante, Me.colSubtotal, Me.colTotal, Me.colMoneda, Me.colFormapago, Me.colSerie, Me.colFolio, Me.colEmisor_Rfc, Me.colEmisor_Nombre, Me.colEmisro_Regimen_Fiscal, Me.colReceptor_RFC, Me.colReceptor_Usocfdi, Me.colReceptor_Nombnre, Me.colDescuento, Me.colTipocambio, Me.colCondicionespago, Me.colEstatus, Me.colMetodopago, Me.colLugarexpedicion, Me.colCadena_Original, Me.colNocertificado_Emisor, Me.colTipo_Relacion})
         Me.DataGridView1.DataSource = Me.BindingSource1
         Me.DataGridView1.Dock = Wisej.Web.DockStyle.Fill
@@ -371,4 +404,8 @@ Partial Class Factura_Cancelacion
     Friend WithEvents Button1 As Button
     Friend WithEvents UUID_RELACIONADO As TextBox
     Friend WithEvents Button3 As Button
+    Friend WithEvents RibbonBarPage1 As Ext.RibbonBar.RibbonBarPage
+    Friend WithEvents RibbonBarGroup1 As Ext.RibbonBar.RibbonBarGroup
+    Friend WithEvents RBBSustitucion As Ext.RibbonBar.RibbonBarItemButton
+    Friend WithEvents RBBSalir As Ext.RibbonBar.RibbonBarItemButton
 End Class

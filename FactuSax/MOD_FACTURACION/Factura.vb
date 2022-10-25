@@ -217,7 +217,7 @@ Public Class Factura
 
                 'BO = False '---------------------- Quitar pq no esta el reporte, solo para probar que guarde
                 If BO = True Then
-                    Guardar_XLM(codeXml, splitx_resp(1))
+                    'Guardar_XLM(codeXml, splitx_resp(1))
 
                     'MessageBox.Show("Factura timbrada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Dim GuardarTimbre As New WebService_Timbres.Timbres()
@@ -337,7 +337,7 @@ Public Class Factura
                 If respuesta.codigo = "200" Then
 
                     System.IO.File.WriteAllText(pathxml, respuesta.timbre)
-
+                    Guardar_XLM(respuesta.timbre, respuesta.uuid)
                     Dim comprobantex As New Comprobante
                     Dim serilizador As New XmlSerializer(GetType(Comprobante))
                     Try
