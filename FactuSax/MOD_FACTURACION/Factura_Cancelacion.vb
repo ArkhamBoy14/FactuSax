@@ -28,14 +28,58 @@ Public Class Factura_Cancelacion
         myDA.Dispose()
     End Sub
 
+    Sub cancelarv3(index As Int16)
+        Dim requestXpd, REQUESTDOS As New mx.com.expidetufactura.cancelacionxpd.Produccion.v3.cancelacionMultipleRequest
+        Dim responseXpd() As mx.com.expidetufactura.cancelacionxpd.Produccion.v3.respuestaCliente
+        Dim serviceClient As New mx.com.expidetufactura.cancelacionxpd.Produccion.v3.CancelacionPortService
+
+        Dim rfcRecep As String = DataGridView1.Item(colReceptor_RFC, index).Value
+        Dim rfcEmisor As String = DataGridView1.Item(colEmisor_Rfc, index).Value
+        Dim ctotal As Double = DataGridView1.Item(colTotal, index).Value
+        Dim ctotalXml As Object = DataGridView1.Item(colSubtotal, index).Value
+        Dim sCERTIFICADO_CSD As String = DataGridView1.Item(colNocertificado_Emisor, index).Value
+        Dim FOLIO_FISCAL_UUID As String = DataGridView1.Item(colUUID, index).Value
+
+
+        requestXpd.usuario = "MARK800129HK4"
+        requestXpd.contrasena = "NoydMPx5SblZ"
+        requestXpd.pdfGenerar = True
+        requestXpd.correo = "jose.lopez@saxsoft.com.mx" '"rousez2013@gmail.com"
+
+        requestXpd.pdfNoPlantilla = "1"
+        Dim sfolioSustitucion As String = UUID_RELACIONADO.Text
+
+        Dim sMot As String = CbxMotivoCancelacion.SelectedValue
+
+
+
+        Dim listParametros As New List(Of mx.com.expidetufactura.cancelacionxpd.Produccion.v3.parametrosCancelaMultiple)
+        listParametros.Add(New mx.com.expidetufactura.cancelacionxpd.Produccion.v3.parametrosCancelaMultiple With
+                {.noCertificado = sCERTIFICADO_CSD, .rfcEmisor = rfcEmisor, .rfcReceptor = rfcRecep, .total = ctotal, .uuid = FOLIO_FISCAL_UUID, .motivo = sMot, .folioSustitucion = sfolioSustitucion}
+                           )
+
+
+        requestXpd.parametros = listParametros.ToArray
+
+        responseXpd = serviceClient.cancelacionMultiple(requestXpd)
+        Dim respuestaa As String = responseXpd(0).mensaje
+        Dim CANCE As Integer = 0
+        If responseXpd.Length > 0 AndAlso responseXpd(0).codigo <> Nothing AndAlso responseXpd(0).mensaje = "Cancelado" Then
+            CANCE = 1
+        Else
+            CANCE = 0
+        End If
+
+
+
+    End Sub
+
 
 
     Sub consultar_cfdi(index As Int16)
+        Dim requestXpd, REQUESTDOS As New mx.com.expidetufactura.cancelacionxpd.Produccion.consultarCfdiRequest
 
-        Dim requestXpd, REQUESTDOS As New mx.com.expidetufactura.cancelacionxpd1.consultarCfdiRequest
-
-        'Dim serviceClient As New mx.com.expidetufactura.cancelacionxpd1.Produccion.CancelacionPortService
-        Dim serviceClient As New mx.com.expidetufactura.cancelacionxpd1.CancelacionPortService
+        Dim serviceClient As New mx.com.expidetufactura.cancelacionxpd.Produccion.CancelacionPortService
 
 
         Dim rfcRecep As String = DataGridView1.Item(colReceptor_RFC, index).Value
@@ -45,11 +89,12 @@ Public Class Factura_Cancelacion
         Dim sCERTIFICADO_CSD As String = DataGridView1.Item(colNocertificado_Emisor, index).Value
         Dim FOLIO_FISCAL_UUID As String = DataGridView1.Item(colUUID, index).Value
 
-        requestXpd.usuario = Application.Session("Facturauser")
-        requestXpd.contrasena = Application.Session("FacturaContrasena")
+        requestXpd.usuario = "MARK800129HK4"
+        requestXpd.contrasena = "NoydMPx5SblZ"
 
-        Dim listParametrosx As New List(Of mx.com.expidetufactura.cancelacionxpd1.parametrosConsultarCfdi)
-        listParametrosx.Add(New mx.com.expidetufactura.cancelacionxpd1.parametrosConsultarCfdi With
+
+        Dim listParametrosx As New List(Of mx.com.expidetufactura.cancelacionxpd.Produccion.parametrosConsultarCfdi)
+        listParametrosx.Add(New mx.com.expidetufactura.cancelacionxpd.Produccion.parametrosConsultarCfdi With
                 {.noCertificado = sCERTIFICADO_CSD, .rfcEmisor = rfcEmisor, .rfcReceptor = rfcRecep,
                 .total = ctotal, .uuid = FOLIO_FISCAL_UUID}
                           )
@@ -77,9 +122,9 @@ Public Class Factura_Cancelacion
             Exit Sub
         End If
 
-        Dim requestXpd, REQUESTDOS As New mx.com.expidetufactura.cancelacionxpd1.cancelarCfdiRequest
+        Dim requestXpd, REQUESTDOS As New mx.com.expidetufactura.cancelacionxpd.Produccion.cancelarCfdiRequest
 
-        Dim serviceClient As New mx.com.expidetufactura.cancelacionxpd1.CancelacionPortService
+        Dim serviceClient As New mx.com.expidetufactura.cancelacionxpd.Produccion.CancelacionPortService
 
 
         Dim rfcRecep As String = DataGridView1.Item(colReceptor_RFC, index).Value
@@ -92,14 +137,16 @@ Public Class Factura_Cancelacion
         requestXpd.usuario = "MARK800129HK4"
         requestXpd.contrasena = "NoydMPx5SblZ"
 
+
+
         Dim sfolioSustitucion As String = UUID_RELACIONADO.Text
 
         Dim sMot As String = CbxMotivoCancelacion.SelectedValue
 
 
 
-        Dim listParametrosx As New List(Of mx.com.expidetufactura.cancelacionxpd1.parametrosCancelaCfdi)
-        listParametrosx.Add(New mx.com.expidetufactura.cancelacionxpd1.parametrosCancelaCfdi With
+        Dim listParametrosx As New List(Of mx.com.expidetufactura.cancelacionxpd.Produccion.parametrosCancelaCfdi)
+        listParametrosx.Add(New mx.com.expidetufactura.cancelacionxpd.Produccion.parametrosCancelaCfdi With
                 {.noCertificado = sCERTIFICADO_CSD, .rfcEmisor = rfcEmisor, .rfcReceptor = rfcRecep,
                 .total = ctotal, .uuid = FOLIO_FISCAL_UUID, .motivo = sMot, .folioSustitucion = sfolioSustitucion}
                           )
@@ -132,7 +179,7 @@ Public Class Factura_Cancelacion
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         For i As Int16 = 0 To DataGridView1.Rows.Count - 1
             If (DataGridView1.Item(Column0, i).Value = True) Then
-                cancelar_opcion_2(i)
+                cancelarv3(i)
             End If
 
         Next

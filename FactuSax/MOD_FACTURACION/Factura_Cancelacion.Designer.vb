@@ -22,7 +22,7 @@ Partial Class Factura_Cancelacion
     'Do not modify it using the code editor.
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar1 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
@@ -64,6 +64,7 @@ Partial Class Factura_Cancelacion
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.DataSet_pFACTURA_SAT_CFDI_B21 = New FactuSax.DataSet_pFACTURA_SAT_CFDI_B2()
         Me.PFACTURA_SAT_CFDI_B2TableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_B2TableAdapters.pFACTURA_SAT_CFDI_B2TableAdapter()
+        Me.Button3 = New Wisej.Web.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -165,12 +166,6 @@ Partial Class Factura_Cancelacion
         'DataGridView1
         '
         Me.DataGridView1.BorderStyle = Wisej.Web.BorderStyle.None
-        DataGridViewCellStyle2.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.WrapMode = Wisej.Web.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.Column0, Me.colUUID, Me.colFecha, Me.colTipodecomprobante, Me.colSubtotal, Me.colTotal, Me.colMoneda, Me.colFormapago, Me.colSerie, Me.colFolio, Me.colEmisor_Rfc, Me.colEmisor_Nombre, Me.colEmisro_Regimen_Fiscal, Me.colReceptor_RFC, Me.colReceptor_Usocfdi, Me.colReceptor_Nombnre, Me.colDescuento, Me.colTipocambio, Me.colCondicionespago, Me.colEstatus, Me.colMetodopago, Me.colLugarexpedicion, Me.colCadena_Original, Me.colNocertificado_Emisor, Me.colTipo_Relacion})
         Me.DataGridView1.DataSource = Me.BindingSource1
         Me.DataGridView1.Dock = Wisej.Web.DockStyle.Fill
@@ -344,6 +339,14 @@ Partial Class Factura_Cancelacion
         'PFACTURA_SAT_CFDI_B2TableAdapter
         '
         Me.PFACTURA_SAT_CFDI_B2TableAdapter.ClearBeforeFill = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(504, 49)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(100, 27)
+        Me.Button3.TabIndex = 10
+        Me.Button3.Text = "Buscar UUID"
         '
         'Factura_Cancelacion
         '
