@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.2.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -112,6 +112,29 @@ Namespace My
         Public ReadOnly Property FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle() As String
             Get
                 Return CType(Me("FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soap"& _ 
+            "ws")>  _
+        Public ReadOnly Property FactuSax_mx_com_expidetufactura_cancelacionxpd_Produccion_CancelacionPortService() As String
+            Get
+                Return CType(Me("FactuSax_mx_com_expidetufactura_cancelacionxpd_Produccion_CancelacionPortService"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soap"& _ 
+            "ws")>  _
+        Public ReadOnly Property FactuSax_mx_com_expidetufactura_cancelacionxpd_produccion_v3_CancelacionPortService() As String
+            Get
+                Return CType(Me("FactuSax_mx_com_expidetufactura_cancelacionxpd_produccion_v3_CancelacionPortServi"& _ 
+                    "ce"),String)
             End Get
         End Property
     End Class
