@@ -1142,6 +1142,21 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </Content>
+    <None Include="Web References\mx.com.expidetufactura.cancelacionxpd.produccion.v3\cancelacionmultiple.wsdl" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd.produccion.v3\FactuSax..respuestaCliente.datasource" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd.produccion.v3\Reference.map" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd.produccion.v3\respuestaCliente.datasource" />
+    <None Include="Web References\mx.com.expidetufactura.cancelacionxpd.Produccion\cancelacionservices.wsdl" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd.Produccion\cfdiResponse.datasource" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd.Produccion\cfdiResponseQr.datasource" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd.Produccion\FactuSax..cfdiResponse.datasource" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd.Produccion\FactuSax..cfdiResponseQr.datasource" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd.Produccion\FactuSax..serviceResponse.datasource" />
+    <None Include="Web References\mx.com.expidetufactura.cancelacionxpd.Produccion\multiple.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd.Produccion\Reference.map" />
+    <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd.Produccion\serviceResponse.datasource" />
     <None Include="Web References\mx.com.expidetufactura.cancelacionxpd1\cancelacionservices.wsdl" />
     <Content Include="Web References\mx.com.expidetufactura.cancelacionxpd1\cfdiResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -1643,6 +1658,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\mx.com.expidetufactura.cancelacionxpd.produccion.v3\Reference.vb" />
+    <Compile Include="Web References\mx.com.expidetufactura.cancelacionxpd.Produccion\Reference.vb" />
     <Compile Include="Web References\mx.com.expidetufactura.cancelacionxpd1\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
