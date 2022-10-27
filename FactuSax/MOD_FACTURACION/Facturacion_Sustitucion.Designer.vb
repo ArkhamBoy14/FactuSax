@@ -22,7 +22,7 @@ Partial Class Facturacion_Sustitucion
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar7 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
@@ -33,6 +33,12 @@ Partial Class Facturacion_Sustitucion
         Me.SplitContainer1 = New Wisej.Web.SplitContainer()
         Me.DGVUUID = New Wisej.Web.DataGridView()
         Me.DataGridViewImageColumn1 = New Wisej.Web.DataGridViewImageColumn()
+        Me.colFOLIO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colUUID = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colFECHA = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colCONDICIONESPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colReceptor_RFC = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colSALDO = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B = New FactuSax.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_B()
         Me.pserie = New Wisej.Web.Panel()
@@ -53,8 +59,6 @@ Partial Class Facturacion_Sustitucion
         Me.RBFecha = New Wisej.Web.RadioButton()
         Me.DGVConceptos = New Wisej.Web.DataGridView()
         Me.cCantidad = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.cbClaveProdServ = New Wisej.Web.DataGridViewComboBoxColumn()
-        Me.cbClaveUnidad = New Wisej.Web.DataGridViewComboBoxColumn()
         Me.cDescripcion = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.cValorUnitario = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.cImporte = New Wisej.Web.DataGridViewTextBoxColumn()
@@ -84,6 +88,8 @@ Partial Class Facturacion_Sustitucion
         Me.CBSUsoCFDI = New FactuSax.ComboWisax()
         Me.BTRec = New Wisej.Web.Button()
         Me.Panel6 = New Wisej.Web.Panel()
+        Me.TBTipoCambio = New Wisej.Web.TextBox()
+        Me.Label9 = New Wisej.Web.Label()
         Me.CBS_TipoRelacion = New FactuSax.ComboWisax()
         Me.Label12 = New Wisej.Web.Label()
         Me.RTBObservaciones = New Wisej.Web.TextBox()
@@ -107,14 +113,10 @@ Partial Class Facturacion_Sustitucion
         Me.Label20 = New Wisej.Web.Label()
         Me.PFACTURA_SAT_CFDI_PAGOS_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_BTableAdapter()
         Me.PFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapter = New FactuSax.Dataset_pFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapters.pFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapter()
-        Me.colFOLIO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colUUID = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colFECHA = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colCONDICIONESPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colReceptor_RFC = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colSALDO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.TBTipoCambio = New Wisej.Web.TextBox()
-        Me.Label9 = New Wisej.Web.Label()
+        Me.cbClaveProdServ = New Wisej.Web.DataGridViewComboBoxColumn()
+        Me.cbClaveUnidad = New Wisej.Web.DataGridViewComboBoxColumn()
+        Me.CBSMetodoPago = New FactuSax.ComboWisax()
+        Me.Label11 = New Wisej.Web.Label()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -224,12 +226,50 @@ Partial Class Facturacion_Sustitucion
         'DataGridViewImageColumn1
         '
         Me.DataGridViewImageColumn1.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
-        DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewImageColumn1.HeaderText = "   "
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         Me.DataGridViewImageColumn1.Width = 40
+        '
+        'colFOLIO
+        '
+        Me.colFOLIO.DataPropertyName = "FOLIO"
+        Me.colFOLIO.HeaderText = "FOLIO"
+        Me.colFOLIO.Name = "colFOLIO"
+        Me.colFOLIO.ReadOnly = True
+        '
+        'colUUID
+        '
+        Me.colUUID.DataPropertyName = "UUID"
+        Me.colUUID.HeaderText = "UUID"
+        Me.colUUID.Name = "colUUID"
+        '
+        'colFECHA
+        '
+        Me.colFECHA.DataPropertyName = "FECHA"
+        Me.colFECHA.HeaderText = "FECHA"
+        Me.colFECHA.Name = "colFECHA"
+        '
+        'colCONDICIONESPAGO
+        '
+        Me.colCONDICIONESPAGO.DataPropertyName = "CONDICIONESPAGO"
+        Me.colCONDICIONESPAGO.HeaderText = "CONDICIONESPAGO"
+        Me.colCONDICIONESPAGO.Name = "colCONDICIONESPAGO"
+        '
+        'colReceptor_RFC
+        '
+        Me.colReceptor_RFC.DataPropertyName = "Receptor_RFC"
+        Me.colReceptor_RFC.HeaderText = "Receptor_RFC"
+        Me.colReceptor_RFC.Name = "colReceptor_RFC"
+        '
+        'colSALDO
+        '
+        Me.colSALDO.DataPropertyName = "SALDO"
+        Me.colSALDO.HeaderText = "SALDO"
+        Me.colSALDO.Name = "colSALDO"
+        Me.colSALDO.ReadOnly = True
         '
         'BindingSource1
         '
@@ -410,19 +450,6 @@ Partial Class Facturacion_Sustitucion
         Me.cCantidad.HeaderText = "Cant"
         Me.cCantidad.Name = "cCantidad"
         Me.cCantidad.Width = 50
-        '
-        'cbClaveProdServ
-        '
-        Me.cbClaveProdServ.FillWeight = 200.0!
-        Me.cbClaveProdServ.HeaderText = "ClaveProdServ"
-        Me.cbClaveProdServ.Name = "cbClaveProdServ"
-        Me.cbClaveProdServ.Width = 300
-        '
-        'cbClaveUnidad
-        '
-        Me.cbClaveUnidad.HeaderText = "Unidad"
-        Me.cbClaveUnidad.Name = "cbClaveUnidad"
-        Me.cbClaveUnidad.Width = 70
         '
         'cDescripcion
         '
@@ -676,6 +703,8 @@ Partial Class Facturacion_Sustitucion
         '
         'Panel6
         '
+        Me.Panel6.Controls.Add(Me.CBSMetodoPago)
+        Me.Panel6.Controls.Add(Me.Label11)
         Me.Panel6.Controls.Add(Me.TBTipoCambio)
         Me.Panel6.Controls.Add(Me.Label9)
         Me.Panel6.Controls.Add(Me.CBS_TipoRelacion)
@@ -703,13 +732,31 @@ Partial Class Facturacion_Sustitucion
         Me.Panel6.TabIndex = 2
         Me.Panel6.TabStop = True
         '
+        'TBTipoCambio
+        '
+        Me.TBTipoCambio.Location = New System.Drawing.Point(698, 42)
+        Me.TBTipoCambio.Name = "TBTipoCambio"
+        Me.TBTipoCambio.Size = New System.Drawing.Size(95, 22)
+        Me.TBTipoCambio.TabIndex = 14
+        Me.TBTipoCambio.Visible = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(606, 45)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(96, 15)
+        Me.Label9.TabIndex = 15
+        Me.Label9.Text = "Tipo de Cambio"
+        Me.Label9.Visible = False
+        '
         'CBS_TipoRelacion
         '
         Me.CBS_TipoRelacion.BackColor = System.Drawing.Color.Transparent
         Me.CBS_TipoRelacion.Cursor = Wisej.Web.Cursors.Hand
         Me.CBS_TipoRelacion.Location = New System.Drawing.Point(93, 99)
         Me.CBS_TipoRelacion.Name = "CBS_TipoRelacion"
-        Me.CBS_TipoRelacion.Size = New System.Drawing.Size(714, 22)
+        Me.CBS_TipoRelacion.Size = New System.Drawing.Size(316, 22)
         Me.CBS_TipoRelacion.TabIndex = 12
         '
         'Label12
@@ -894,61 +941,36 @@ Partial Class Facturacion_Sustitucion
         '
         Me.PFACTURA_SAT_CFDI_SUSTITUCION_BTableAdapter.ClearBeforeFill = True
         '
-        'colFOLIO
+        'cbClaveProdServ
         '
-        Me.colFOLIO.DataPropertyName = "FOLIO"
-        Me.colFOLIO.HeaderText = "FOLIO"
-        Me.colFOLIO.Name = "colFOLIO"
-        Me.colFOLIO.ReadOnly = True
+        Me.cbClaveProdServ.FillWeight = 200.0!
+        Me.cbClaveProdServ.HeaderText = "ClaveProdServ"
+        Me.cbClaveProdServ.Name = "cbClaveProdServ"
+        Me.cbClaveProdServ.Width = 300
         '
-        'colUUID
+        'cbClaveUnidad
         '
-        Me.colUUID.DataPropertyName = "UUID"
-        Me.colUUID.HeaderText = "UUID"
-        Me.colUUID.Name = "colUUID"
+        Me.cbClaveUnidad.HeaderText = "Unidad"
+        Me.cbClaveUnidad.Name = "cbClaveUnidad"
+        Me.cbClaveUnidad.Width = 70
         '
-        'colFECHA
+        'CBSMetodoPago
         '
-        Me.colFECHA.DataPropertyName = "FECHA"
-        Me.colFECHA.HeaderText = "FECHA"
-        Me.colFECHA.Name = "colFECHA"
+        Me.CBSMetodoPago.BackColor = System.Drawing.Color.Transparent
+        Me.CBSMetodoPago.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBSMetodoPago.Location = New System.Drawing.Point(519, 95)
+        Me.CBSMetodoPago.Name = "CBSMetodoPago"
+        Me.CBSMetodoPago.Size = New System.Drawing.Size(283, 22)
+        Me.CBSMetodoPago.TabIndex = 17
         '
-        'colCONDICIONESPAGO
+        'Label11
         '
-        Me.colCONDICIONESPAGO.DataPropertyName = "CONDICIONESPAGO"
-        Me.colCONDICIONESPAGO.HeaderText = "CONDICIONESPAGO"
-        Me.colCONDICIONESPAGO.Name = "colCONDICIONESPAGO"
-        '
-        'colReceptor_RFC
-        '
-        Me.colReceptor_RFC.DataPropertyName = "Receptor_RFC"
-        Me.colReceptor_RFC.HeaderText = "Receptor_RFC"
-        Me.colReceptor_RFC.Name = "colReceptor_RFC"
-        '
-        'colSALDO
-        '
-        Me.colSALDO.DataPropertyName = "SALDO"
-        Me.colSALDO.HeaderText = "SALDO"
-        Me.colSALDO.Name = "colSALDO"
-        Me.colSALDO.ReadOnly = True
-        '
-        'TBTipoCambio
-        '
-        Me.TBTipoCambio.Location = New System.Drawing.Point(698, 42)
-        Me.TBTipoCambio.Name = "TBTipoCambio"
-        Me.TBTipoCambio.Size = New System.Drawing.Size(95, 22)
-        Me.TBTipoCambio.TabIndex = 14
-        Me.TBTipoCambio.Visible = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(606, 45)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(96, 15)
-        Me.Label9.TabIndex = 15
-        Me.Label9.Text = "Tipo de Cambio"
-        Me.Label9.Visible = False
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(415, 102)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(100, 15)
+        Me.Label11.TabIndex = 16
+        Me.Label11.Text = "Metodo de Pago"
         '
         'Facturacion_Sustitucion
         '
@@ -1086,4 +1108,6 @@ Partial Class Facturacion_Sustitucion
     Friend WithEvents colSALDO As DataGridViewTextBoxColumn
     Friend WithEvents TBTipoCambio As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents CBSMetodoPago As ComboWisax
+    Friend WithEvents Label11 As Label
 End Class

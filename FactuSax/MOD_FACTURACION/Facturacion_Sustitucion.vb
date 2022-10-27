@@ -43,6 +43,7 @@ Public Class Facturacion_Sustitucion
         CbxClientes.SelectedIndex = 0
 
         CBSFormaPago.LlenarListBox("pCAT_FORMAPAGO_SAT_FACTURACION_B", "c_Formapago", "DescripcionX")
+        CBSMetodoPago.LlenarListBox("pCAT_METODOPAGO_SAT_FACTURACION_B", "c_MetodoPago", "DescripcionX")
 
         CBSMoneda.LlenarListBox("pCAT_MONEDA_SAT_FACTURACION_B", "c_Moneda", "DescripcionX")
 
@@ -235,15 +236,12 @@ Public Class Facturacion_Sustitucion
         Dim FOLIOS As String = ""
         If RB_Sencilla.Checked = True Then
             Sencilla(DGVUUID.Rows(e.RowIndex).Cells(2).Value, DGVUUID.Rows(e.RowIndex).Cells(1).Value)
-            CBSReceptor.SelectedValue = DGVUUID.Rows(e.RowIndex).Cells(5).Value
-
         Else
             conceptos(DGVUUID.Rows(e.RowIndex).Cells(2).Value, DGVUUID.Rows(e.RowIndex).Cells(1).Value)
-            CBSReceptor.SelectedValue = DGVUUID.Rows(e.RowIndex).Cells(5).Value
-
-
         End If
+        CBSReceptor.SelectedValue = DGVUUID.Rows(e.RowIndex).Cells(5).Value
 
+        CBSMetodoPago.SelectedValue = DGVUUID.Rows(e.RowIndex).Cells(7).Value
 
     End Sub
 
