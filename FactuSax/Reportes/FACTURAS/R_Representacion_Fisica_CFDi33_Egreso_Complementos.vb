@@ -1,0 +1,3 @@
+﻿Public Class R_Representacion_Fisica_CFDi33_Egreso_Complementos
+
+End Class

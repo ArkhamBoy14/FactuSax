@@ -44,6 +44,7 @@
               <Mapping SourceColumn="RFC" DataSetColumn="RFC" />
               <Mapping SourceColumn="Importe_Total" DataSetColumn="Importe_Total" />
               <Mapping SourceColumn="Tipo_Pago" DataSetColumn="Tipo_Pago" />
+              <Mapping SourceColumn="Nombre_Receptor" DataSetColumn="Nombre_Receptor" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -108,8 +109,15 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Importe_Total" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Importe_Total" msprop:Generator_ColumnPropNameInTable="Importe_TotalColumn" msprop:Generator_ColumnVarNameInTable="columnImporte_Total" msprop:Generator_UserColumnName="Importe_Total" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Tipo_Pago" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Tipo_Pago" msprop:Generator_ColumnPropNameInTable="Tipo_PagoColumn" msprop:Generator_ColumnVarNameInTable="columnTipo_Pago" msprop:Generator_UserColumnName="Tipo_Pago" minOccurs="0">
+              <xs:element name="Importe_Total" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Importe_Total" msprop:Generator_ColumnPropNameInTable="Importe_TotalColumn" msprop:Generator_ColumnPropNameInRow="Importe_Total" msprop:Generator_ColumnVarNameInTable="columnImporte_Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Tipo_Pago" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Tipo_Pago" msprop:Generator_ColumnPropNameInTable="Tipo_PagoColumn" msprop:Generator_ColumnPropNameInRow="Tipo_Pago" msprop:Generator_ColumnVarNameInTable="columnTipo_Pago" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombre_Receptor" msprop:Generator_ColumnPropNameInRow="Nombre_Receptor" msprop:Generator_ColumnPropNameInTable="Nombre_ReceptorColumn" msprop:Generator_ColumnVarNameInTable="columnNombre_Receptor" msprop:Generator_UserColumnName="Nombre_Receptor" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

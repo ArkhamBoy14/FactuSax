@@ -10,6 +10,8 @@ Imports DevExpress.XtraPrinting
 
 Public Class Factura
     Dim pathxml As String
+    Dim codeXml As String
+
     Function factura_html(emisor As String, receptor As String, cuerpo_factura As Dictionary(Of String, String), certificado As String, llave As String, claveprivada As String, conceptos As List(Of String),
                        traslado As List(Of String), totaliva As String, serieactiva As String, fechafactura As DateTime, Optional totalretenciones As String = Nothing, Optional retenciones As List(Of String) = Nothing, Optional FOLIO_FACTURAS As String = Nothing)
         Try
@@ -28,7 +30,7 @@ Public Class Factura
             Sellodigital.leerCER(certificado, aa, b, c, numeroCertificado)
             Dim Impuestotraslado As New List(Of String)
             Dim comprobante As New Comprobante
-            comprobante.Version = "4.0"
+            comprobante.Version = "3.3"
             comprobante.Folio = cuerpo_factura("Folio")
             comprobante.Serie = cuerpo_factura("Serie")
             Dim fecha As String = fechafactura.ToString("yyyy-MM-ddTHH:mm:ss")
@@ -213,9 +215,10 @@ Public Class Factura
                     GUARDAR_UUID_FOLIO(splitx_resp(1), FOLIO_FACTURAS)
                 End If
 
-
                 'BO = False '---------------------- Quitar pq no esta el reporte, solo para probar que guarde
                 If BO = True Then
+                    Guardar_XLM(codeXml, splitx_resp(1))
+
                     'MessageBox.Show("Factura timbrada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Dim GuardarTimbre As New WebService_Timbres.Timbres()
                     Dim sBody As String = String.Format("rfc={0}&movimiento={1}&valor={2}", split_e(0), "TIMBRADAS", 1)
@@ -260,6 +263,14 @@ Public Class Factura
         End Try
     End Function
 
+    Sub Guardar_XLM(XML As String, UUID As String)
+        ReDim Utilidades.ParametersX_Global(1)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@UUID", UUID)
+        Utilidades.ParametersX_Global(1) = New SqlParameter("@XML", XML)
+
+        Dim SaveXML = Utilidades.EjecutarProcedure_Id("pFACTURA_SAT_UUID_XML_G", "@Parametro", Utilidades.ParametersX_Global)
+
+    End Sub
     Function cadena_original(patxml As String)
         Try
 
@@ -300,6 +311,8 @@ Public Class Factura
                 End Using
             End Using
 
+            codeXml = Nothing
+            codeXml = strxml
 
             'Dim strarregaldo = strxml.Replace("Comprobante", "cfdi:Comprobante")
             'strarregaldo = strarregaldo.Replace("utf-8", "UTF-8")
@@ -346,8 +359,9 @@ Public Class Factura
                     Application.Session("total_comprobante") = comprobantex.Total
 
 
+
                     GUARDAR_TIMBRE(respuesta.uuid, pathxml, PDF, comprobantex.timbrefiscaldigital.Leyenda, comprobantex.timbrefiscaldigital.NoCertificadoSAT, comprobantex.timbrefiscaldigital.RfcProvCertif, comprobantex.timbrefiscaldigital.SelloCFD, comprobantex.timbrefiscaldigital.SelloSAT, comprobantex.timbrefiscaldigital.FechaTimbrado)
-                    Application.Session("QR_SAT") = "https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=" & comprobantex.timbrefiscaldigital.UUID & "&re=" & comprobantex.Emisor.Rfc & "&fe=" & comprobantex.Receptor.Rfc & "&tt=" & comprobantex.Total & "&fe=" & comprobantex.Sello.Substring(comprobantex.Sello.Length - 9, 8)
+                    Application.Session("QR_SAT") = "https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=" & comprobantex.timbrefiscaldigital.UUID & "&re=" & comprobantex.Emisor.Rfc & "&rr=" & comprobantex.Receptor.Rfc & "&tt=" & comprobantex.Total & "&fe=" & comprobantex.Sello.Substring(comprobantex.Sello.Length - 8, 8)
                     Application.Session("UUID_SAT") = respuesta.uuid
 
 
@@ -984,7 +998,7 @@ Public Class Factura
             Dim splitx_resp = repuesta_timbre.split("|")
             If splitx_resp(0) = "200" Then
                 Dim BO As Boolean = True
-                ACTUALIZAR_FOLIO(Application.Session("Cve_Sucursal"))
+                ACTUALIZAR_FOLIO(Application.Session("Cve_Cliente"))
                 If Not Guardar_CFDI(splitx_resp(1), emisor, receptor, cuerpo_factura, fecha, comprobante.NoCertificado, co) = True Then
                     BO = False
                 End If
@@ -1009,7 +1023,7 @@ Public Class Factura
                     Dim sBody As String = String.Format("rfc={0}&movimiento={1}&valor={2}", split_e(0), "TIMBRADAS", 1)
                     Utilidades.EnviarSolicitudControlTimbre(split_e(0), "TIMBRADAS", 1)
 
-                    XTRAREPORT = New R_Representacion_Fisica_CFDi33
+                    XTRAREPORT = New R_Representacion_Fisica_CFDi33_Egreso
                     Using ms As New MemoryStream()
                         Dim opts As PdfExportOptions = XTRAREPORT.ExportOptions.Pdf
                         Dim path As String = pdf

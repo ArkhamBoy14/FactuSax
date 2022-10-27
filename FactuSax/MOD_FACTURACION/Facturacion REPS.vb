@@ -41,7 +41,8 @@ Public Class Facturacion_REPS
         CBSMoneda.SelectedValue = "MXN"
         CBSTipoComprobante.SelectedValue = "P"
         'CBSFormaPago.SelectedValue = "01"
-        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
+        'CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
+        CargarRFC()
         SplitContainer1.Panel1MinSize = 340
         CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX")
         Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@emisor_receptor", "RECEPTOR")
@@ -69,6 +70,30 @@ Public Class Facturacion_REPS
             MTBCP.Text = tabla_datos.Rows(0).Item("Codigo_Postal")
         End If
         serieX()
+    End Sub
+    Sub CargarRFC()
+        ReDim Utilidades.ParametersX_Global(1)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+        'Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
+
+        CBSReceptor.Clear()
+        CBEmisor.Clear()
+        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+
+        If CBEmisor.Items.Count > 0 Then
+            CBEmisor.SelectedIndex = 0
+        Else
+            CBEmisor.SelectedIndex = -1
+        End If
+
+        If CBSReceptor.Items.Count > 0 Then
+            CBSReceptor.SelectedIndex = 0
+        Else
+            CBSReceptor.SelectedIndex = -1
+        End If
+
+
     End Sub
     Private Sub RibbonBar7_ButtonClick(sender As Object, e As Ext.RibbonBar.RibbonBarItemEventArgs) Handles RibbonBar7.ItemClick
         Select Case e.Item.Name
@@ -515,6 +540,7 @@ Public Class Facturacion_REPS
         CbxReceptor.LlenarListBox("pFACTURACION_RECEPTOR", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
         CONSULTAR()
         'limpiar()
+        CargarRFC()
         serieX()
     End Sub
 
@@ -609,4 +635,41 @@ Public Class Facturacion_REPS
     End Sub
 
 
+
+    Private Sub CBEmisor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBEmisor.SelectedIndexChanged
+        If CBEmisor.SelectedIndex <> -1 Then
+            Dim tabla_datos As DataTable = CBEmisor.dataTable
+            MTBCP.Text = tabla_datos.Rows(CBEmisor.SelectedIndex).Item("Codigo_Postal")
+        End If
+    End Sub
+
+    Private Sub BTRerceptor_Click(sender As Object, e As EventArgs) Handles BTEm.Click, BTRec.Click
+        Dim Emisor_Receptor As Boolean
+        If sender.NAME = "BTEm" Then
+            Emisor_Receptor = 1
+
+        ElseIf sender.name = "BTRec" Then
+            Emisor_Receptor = 0
+        End If
+        Application.Session("Cve_Cliente") = CbxClientes.SelectedValue
+        Dim f = New Cat_RFC_EMISOR_SAT_FACTURACION(Emisor_Receptor, 0)
+        f.Show()
+
+        AddHandler f.FormClosed, AddressOf cerrado_emisor
+    End Sub
+
+    Sub cerrado_emisor()
+
+        ReDim Utilidades.ParametersX_Global(0)
+        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+        Dim dt_defecto = CBEmisor.dataTable()
+        For i As Integer = 0 To dt_defecto.Rows.Count - 1
+            If dt_defecto.Rows(i).Item("pordefecto") = True Then
+                CBEmisor.SelectedValue = dt_defecto.Rows(i).Item("RFC")
+            End If
+        Next
+        ReDim Utilidades.ParametersX_Global(0)
+        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+        'PREDETERMINADOS()
+    End Sub
 End Class

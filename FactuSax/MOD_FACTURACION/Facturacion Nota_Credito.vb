@@ -8,6 +8,7 @@ Public Class Facturacion_Nota_Credito
     Dim FOLIO As String
     Dim valor As String
     Dim contador As Integer
+    Dim Alertas As New Notificaciones
     Private Sub Combosax2_Load(sender As Object, e As EventArgs) Handles Me.Load
         'serieX()
         'TBMonto.Text = 0
@@ -15,14 +16,26 @@ Public Class Facturacion_Nota_Credito
         Me.WindowState = FormWindowState.Maximized
         cFecha1.Value = Now
         cFecha2.Value = Now
-        CBSIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
-        CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
-        CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
+        MTBHoraEmision.Text = Now.Hour & ":" & Now.Minute
+        MTBHoraPago.Text = Now.Hour & ":" & Now.Minute
+
+        'CBSIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
+        'CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
+        'CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
+
+        cFecha1.Value = Now
+        cFecha2.Value = Now
+        DTPFechaEmision.Value = Now
+        DTPFechaPago.Value = Now
+
 
         ReDim Utilidades.ParametersX_Global(1)
         Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Operador", Application.Session("Cve_Operador"))
         'Utilidades.LlenarListBox("pCAT_EMPRESAS_B", "Cve_Empresa", "Empresa2", cbbEmpresa)
         CBSTipoComprobante.LlenarListBox("pCAT_TIPOCOMPROBANTE_SAT_FACTURACION_B", "c_TipoDeComprobante", "DescripcionX")
+
+        CbxClientes.LlenarListBox("pCAT_CLIENTES_B", "Cve_Cliente", "Nombre_Cliente", Utilidades.ParametersX_Global)
+        CbxClientes.SelectedIndex = 0
 
         CBSFormaPago.LlenarListBox("pCAT_FORMAPAGO_SAT_FACTURACION_B", "c_Formapago", "DescripcionX")
 
@@ -35,11 +48,11 @@ Public Class Facturacion_Nota_Credito
         CBSTipoComprobante.SelectedValue = "E"
         CBSFormaPago.SelectedValue = "01"
 
-        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
+        'CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
         SplitContainer1.Panel1MinSize = 340
 
-        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX")
-        CBSReceptor.SelectedIndex = 0
+        'CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX")
+        'CBSReceptor.SelectedIndex = 0
         Dim TIPO_PERSONA As String = CBSReceptor.ObtenerDescripcion("Tipo_Persona")
         If TIPO_PERSONA = "FISICA" Then
             ReDim Utilidades.ParametersX_Global(0)
@@ -87,13 +100,13 @@ Public Class Facturacion_Nota_Credito
 
 
         'CBSMetodoPago.SelectedValue = "PUE"
-        CBSIVA.SelectedValue = "002"
-        MTBIVA.Text = "0.160000"
-        MTBRIVA.Text = "0.106666"
-        MTBRISR.Text = "0.100000"
-        CBSRIVA.SelectedValue = "002"
+        'CBSIVA.SelectedValue = "002"
+        'MTBIVA.Text = "0.160000"
+        'MTBRIVA.Text = "0.106666"
+        'MTBRISR.Text = "0.100000"
+        'CBSRIVA.SelectedValue = "002"
         'RDBSolicitrud.Checked = True
-        CBSRISR.SelectedValue = "001"
+        'CBSRISR.SelectedValue = "001"
         Dim dt_defecto = CBEmisor.dataTable()
         For i As Integer = 0 To dt_defecto.Rows.Count - 1
             If dt_defecto.Rows(i).Item("pordefecto") = True Then
@@ -107,7 +120,7 @@ Public Class Facturacion_Nota_Credito
         'TBTipoCambio.Text = 1
         'TBTipoCambio.Enabled = True
         'RTBCondicionPago.Enabled = True
-        TasaoCuotaIVA.SelectedItem = "Tasa"
+        'TasaoCuotaIVA.SelectedItem = "Tasa"
         'CBSMetodoPago.SelectedValue = "PUE"
         'CBSMetodoPago.Enabled = True
         'CBSFormaPago.Enabled = True
@@ -152,7 +165,7 @@ Public Class Facturacion_Nota_Credito
 
 
 
-    Sub CONSULTAR()
+    Sub CONSULTAR(Optional Cve_Cliente As String = "-99")
 
         Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.Clear()
 
@@ -171,6 +184,7 @@ Public Class Facturacion_Nota_Credito
                 myDA.SelectCommand.Parameters.AddWithValue("@Serie", TextBox1.Text)
             End If
         End If
+        myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", CbxClientes.SelectedValue)
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha1", Format(Me.cFecha1.Value, "yyyyMMdd"))
         myDA.SelectCommand.Parameters.AddWithValue("@Fecha2", Format(Me.cFecha2.Value, "yyyyMMdd"))
         myDA.Fill(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.pFACTURA_SAT_CFDI_PAGOS_B)
@@ -252,7 +266,7 @@ Public Class Facturacion_Nota_Credito
         Dim EMISOR_REGIMENFISCAL As String = CBEmisor.ObtenerDescripcion("regimen")
         Dim emisor = RFC_EMISOR & "|" & NOMBRE_EMISOR & "|" & EMISOR_REGIMENFISCAL
         Dim rfc_receptor As String = CBSReceptor.SelectedValue
-        Dim nombre_receptor As String = CBEmisor.ObtenerDescripcion("Razon_Social")
+        Dim nombre_receptor As String = CBSReceptor.ObtenerDescripcion("Razon_Social")
         Dim llave = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("llave")
         Dim cer = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("cer")
         Dim claveprivada = CBEmisor.ObtenerDescripcion("claveprivada")
@@ -297,12 +311,12 @@ Public Class Facturacion_Nota_Credito
             Next
         End If
 
-        'If CBTraslado.Checked = True Then
-        imptraslado.Add(CBSIVA.SelectedValue & "|" & MTBIVA.Text & "|" & TasaoCuotaIVA.Text)
-        'End If
+        ''If CBTraslado.Checked = True Then
+        imptraslado.Add("002" & "|" & "0.000000" & "|" & "Tasa")
+        ''End If
 
-        impretencciones.Add(CBSRISR.SelectedValue & "|" & MTBRISR.Text & "|" & TasaoCuotaISR.Text)
-        impretencciones.Add(CBSRIVA.SelectedValue & "|" & MTBRIVA.Text & "|" & TasaoCuotaRIVA.Text)
+        'impretencciones.Add(CBSRISR.SelectedValue & "|" & MTBRISR.Text & "|" & TasaoCuotaISR.Text)
+        'impretencciones.Add(CBSRIVA.SelectedValue & "|" & MTBRIVA.Text & "|" & TasaoCuotaRIVA.Text)
         Dim totalretenciones = TBRISR.Text + TBRIVA.Text
         'FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, totalretenciones, impretencciones)
         Dim FACTURAX As New Factura
@@ -313,7 +327,7 @@ Public Class Facturacion_Nota_Credito
             Dim asp As New Mostrar_Asp
             Application.Session("DocumentCached") = Nothing
             Application.Session("ReportName") = "R_Representacion_Fisica_CFDi33_Egreso"
-            Application.Session("Modulo") = "ReportView.aspx"
+            Application.Session("Modulo") = "DocumentViewer.aspx"
             asp.Actualizar()
             asp.Show()
         End If
@@ -385,15 +399,19 @@ Public Class Facturacion_Nota_Credito
         Dim total As String
 
         If DGVUUID.Rows(DGVUUID.CurrentCell.RowIndex).Cells(colSALDO.Index).Value < TBSubTotal.Text Then
-            MessageBox.Show("El Egreso no puede ser mayor al monto facturado")
+            Alertas.NotificacionAdvertencia("El Egreso no puede ser mayor al monto facturado")
             Return False
         End If
 
         If CBS_TipoRelacion.SelectedIndex = -1 Then
-            MessageBox.Show("Selecccion un tipo de relacion")
+            Alertas.NotificacionAdvertencia("Selecccion un tipo de relacion")
             Return False
         End If
 
+        If CBSReceptor.SelectedIndex = -1 Then
+            Alertas.NotificacionAdvertencia("Seleccione un receptor")
+            Return False
+        End If
 
         Return True
     End Function
@@ -450,8 +468,11 @@ Public Class Facturacion_Nota_Credito
             DGVConceptos(2, e.RowIndex).Value = "ACT"
             Dim total, iva, riva, risr, totaldesc, preciosiniva, subtotal, calculoimporte As Double
             Dim Unidad = DGVConceptos.Rows(e.RowIndex).Cells(4).Value
-            Dim DescuentoUnidad = Unidad * Double.Parse(0.16)
-            Dim ImporteDescuento = Unidad - DescuentoUnidad
+            'Dim DescuentoUnidad = Unidad * Double.Parse(0.16)
+            Dim DescuentoUnidad = Unidad
+            'Dim ImporteDescuento = Unidad - DescuentoUnidad
+            Dim ImporteDescuento = Unidad
+
             calculoimporte = CDbl(DGVConceptos.Rows(e.RowIndex).Cells(0).Value) * CDbl(DGVConceptos.Rows(e.RowIndex).Cells(4).Value)
 
             DGVConceptos(5, e.RowIndex).Value = ImporteDescuento
@@ -465,7 +486,8 @@ Public Class Facturacion_Nota_Credito
             'Next
 
             ''If CBTraslado.Checked Then
-            iva = total * Double.Parse(0.16)
+            'iva = total * Double.Parse(0.16)
+            iva = 0
             subtotal = ImporteDescuento
             ''End If
             'If CBRetencion.Checked Then
@@ -485,8 +507,24 @@ Public Class Facturacion_Nota_Credito
         End Try
     End Sub
 
-    Private Sub CBTraslado_CheckedChanged(sender As Object, e As EventArgs) Handles CBRetencion.CheckedChanged
+    Private Sub CBTraslado_CheckedChanged(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub CbxClientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxClientes.SelectedIndexChanged
+        Application.Session("Facturauser") = CbxClientes.ObtenerDescripcion("FACTORUM_USER")
+        Application.Session("FacturaContrasena") = CbxClientes.ObtenerDescripcion("ContrasenaFact")
+        Application.Session("Cve_Cliente") = CbxClientes.ObtenerDescripcion("Cve_Cliente")
+        'CargarRetenciones()
+        'CbxReceptor.SelectedIndex = -1
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Cliente", CbxClientes.ObtenerDescripcion("Cve_Cliente"))
+        'CbxReceptor.LlenarListBox("pFACTURACION_RECEPTOR", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
+        CONSULTAR(CbxClientes.SelectedValue)
+        CargarRFC()
+        limpiar()
+        'SERIE()
+        PREDETERMINADOS()
     End Sub
 
     'Private Sub DGVConceptosUUID_Cellleave(sender As Object, e As DataGridViewCellEventArgs)
@@ -508,5 +546,27 @@ Public Class Facturacion_Nota_Credito
 
 
     'End Sub
+    Sub CargarRFC()
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+        CBSReceptor.Clear()
+        CBEmisor.Clear()
+        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+
+        If CBEmisor.Items.Count > 0 Then
+            CBEmisor.SelectedIndex = 0
+        Else
+            CBEmisor.SelectedIndex = -1
+        End If
+
+        If CBSReceptor.Items.Count > 0 Then
+            CBSReceptor.SelectedIndex = 0
+        Else
+            CBSReceptor.SelectedIndex = -1
+        End If
+
+
+    End Sub
 
 End Class

@@ -52,6 +52,7 @@ Partial Class Cat_Clientes
         Me.Label3 = New Wisej.Web.Label()
         Me.Panel2 = New Wisej.Web.Panel()
         Me.GroupBox1 = New Wisej.Web.GroupBox()
+        Me.pictureContrasena = New Wisej.Web.PictureBox()
         Me.Num_Timbres = New Wisej.Web.NumericUpDown()
         Me.Chk_Habilitado = New Wisej.Web.CheckBox()
         Me.TBXPDUserPass = New Wisej.Web.TextBox()
@@ -70,7 +71,8 @@ Partial Class Cat_Clientes
         Me.DataSet_pCAT_SISTEMAS_B = New FactuSax.DataSet_pCAT_SISTEMAS_B()
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.PCAT_CLIENTES_BUSQUEDA_BTableAdapter = New FactuSax.DataSet_pCAT_CLIENTES_BUSQUEDA_BTableAdapters.pCAT_CLIENTES_BUSQUEDA_BTableAdapter()
-        Me.pictureContrasena = New Wisej.Web.PictureBox()
+        Me.Label7 = New Wisej.Web.Label()
+        Me.Upload1 = New Wisej.Web.Upload()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.DGV_Clientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,11 +81,11 @@ Partial Class Cat_Clientes
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.pictureContrasena, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Num_Timbres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataSet_pCAT_SISTEMAS_B, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pictureContrasena, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RibbonBar1
@@ -301,6 +303,8 @@ Partial Class Cat_Clientes
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Upload1)
+        Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.pictureContrasena)
         Me.GroupBox1.Controls.Add(Me.Num_Timbres)
         Me.GroupBox1.Controls.Add(Me.Chk_Habilitado)
@@ -322,10 +326,17 @@ Partial Class Cat_Clientes
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.Text = "Datos Principales"
         '
+        'pictureContrasena
+        '
+        Me.pictureContrasena.ImageSource = "Resources\Images\Menu\25\eye-slash.png"
+        Me.pictureContrasena.Location = New System.Drawing.Point(671, 60)
+        Me.pictureContrasena.Name = "pictureContrasena"
+        Me.pictureContrasena.Size = New System.Drawing.Size(24, 24)
+        '
         'Num_Timbres
         '
         Me.Num_Timbres.LabelText = "Timbres Permitidos"
-        Me.Num_Timbres.Location = New System.Drawing.Point(492, 89)
+        Me.Num_Timbres.Location = New System.Drawing.Point(440, 89)
         Me.Num_Timbres.Name = "Num_Timbres"
         Me.Num_Timbres.Size = New System.Drawing.Size(120, 42)
         Me.Num_Timbres.TabIndex = 21
@@ -335,7 +346,7 @@ Partial Class Cat_Clientes
         Me.Chk_Habilitado.Anchor = CType(((Wisej.Web.AnchorStyles.Top Or Wisej.Web.AnchorStyles.Bottom) _
             Or Wisej.Web.AnchorStyles.Left), Wisej.Web.AnchorStyles)
         Me.Chk_Habilitado.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Chk_Habilitado.Location = New System.Drawing.Point(492, 137)
+        Me.Chk_Habilitado.Location = New System.Drawing.Point(440, 137)
         Me.Chk_Habilitado.Name = "Chk_Habilitado"
         Me.Chk_Habilitado.Size = New System.Drawing.Size(90, 22)
         Me.Chk_Habilitado.TabIndex = 20
@@ -346,7 +357,7 @@ Partial Class Cat_Clientes
         Me.TBXPDUserPass.Anchor = CType(((Wisej.Web.AnchorStyles.Top Or Wisej.Web.AnchorStyles.Bottom) _
             Or Wisej.Web.AnchorStyles.Left), Wisej.Web.AnchorStyles)
         Me.TBXPDUserPass.InputType.Type = Wisej.Web.TextBoxType.Password
-        Me.TBXPDUserPass.Location = New System.Drawing.Point(492, 61)
+        Me.TBXPDUserPass.Location = New System.Drawing.Point(440, 61)
         Me.TBXPDUserPass.Name = "TBXPDUserPass"
         Me.TBXPDUserPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TBXPDUserPass.Size = New System.Drawing.Size(216, 22)
@@ -356,7 +367,7 @@ Partial Class Cat_Clientes
         '
         Me.TBXPDUser.Anchor = CType(((Wisej.Web.AnchorStyles.Top Or Wisej.Web.AnchorStyles.Bottom) _
             Or Wisej.Web.AnchorStyles.Left), Wisej.Web.AnchorStyles)
-        Me.TBXPDUser.Location = New System.Drawing.Point(492, 31)
+        Me.TBXPDUser.Location = New System.Drawing.Point(440, 31)
         Me.TBXPDUser.Name = "TBXPDUser"
         Me.TBXPDUser.Size = New System.Drawing.Size(216, 22)
         Me.TBXPDUser.TabIndex = 18
@@ -364,7 +375,7 @@ Partial Class Cat_Clientes
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(370, 68)
+        Me.Label6.Location = New System.Drawing.Point(318, 68)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(106, 15)
         Me.Label6.TabIndex = 17
@@ -373,7 +384,7 @@ Partial Class Cat_Clientes
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(393, 31)
+        Me.Label5.Location = New System.Drawing.Point(341, 31)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(83, 15)
         Me.Label5.TabIndex = 16
@@ -399,21 +410,21 @@ Partial Class Cat_Clientes
         '
         'TBAlias
         '
-        Me.TBAlias.Location = New System.Drawing.Point(125, 91)
+        Me.TBAlias.Location = New System.Drawing.Point(73, 91)
         Me.TBAlias.Name = "TBAlias"
         Me.TBAlias.Size = New System.Drawing.Size(216, 22)
         Me.TBAlias.TabIndex = 14
         '
         'TBNombre
         '
-        Me.TBNombre.Location = New System.Drawing.Point(125, 59)
+        Me.TBNombre.Location = New System.Drawing.Point(73, 59)
         Me.TBNombre.Name = "TBNombre"
         Me.TBNombre.Size = New System.Drawing.Size(216, 22)
         Me.TBNombre.TabIndex = 13
         '
         'TBClave
         '
-        Me.TBClave.Location = New System.Drawing.Point(125, 28)
+        Me.TBClave.Location = New System.Drawing.Point(73, 28)
         Me.TBClave.Name = "TBClave"
         Me.TBClave.Size = New System.Drawing.Size(216, 22)
         Me.TBClave.TabIndex = 12
@@ -421,7 +432,7 @@ Partial Class Cat_Clientes
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(73, 95)
+        Me.Label4.Location = New System.Drawing.Point(21, 95)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(36, 15)
         Me.Label4.TabIndex = 10
@@ -430,7 +441,7 @@ Partial Class Cat_Clientes
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(55, 63)
+        Me.Label2.Location = New System.Drawing.Point(3, 63)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(54, 15)
         Me.Label2.TabIndex = 9
@@ -439,7 +450,7 @@ Partial Class Cat_Clientes
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(68, 32)
+        Me.Label1.Location = New System.Drawing.Point(16, 32)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(41, 15)
         Me.Label1.TabIndex = 8
@@ -463,12 +474,23 @@ Partial Class Cat_Clientes
         '
         Me.PCAT_CLIENTES_BUSQUEDA_BTableAdapter.ClearBeforeFill = True
         '
-        'pictureContrasena
+        'Label7
         '
-        Me.pictureContrasena.ImageSource = "Resources\Images\Menu\25\eye-slash.png"
-        Me.pictureContrasena.Location = New System.Drawing.Point(723, 60)
-        Me.pictureContrasena.Name = "pictureContrasena"
-        Me.pictureContrasena.Size = New System.Drawing.Size(24, 24)
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(3, 123)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(58, 15)
+        Me.Label7.TabIndex = 22
+        Me.Label7.Text = "Logotipo:"
+        '
+        'Upload1
+        '
+        Me.Upload1.HideValue = True
+        Me.Upload1.Location = New System.Drawing.Point(73, 119)
+        Me.Upload1.Name = "Upload1"
+        Me.Upload1.Size = New System.Drawing.Size(78, 22)
+        Me.Upload1.TabIndex = 23
+        Me.Upload1.Text = "Cargar"
         '
         'Cat_Clientes
         '
@@ -489,11 +511,11 @@ Partial Class Cat_Clientes
         Me.Panel2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.pictureContrasena, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Num_Timbres, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.DataSet_pCAT_SISTEMAS_B, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pictureContrasena, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -547,4 +569,6 @@ Partial Class Cat_Clientes
     Friend WithEvents BS_Clientes As BindingSource
     Friend WithEvents PCAT_CLIENTES_BUSQUEDA_BTableAdapter As DataSet_pCAT_CLIENTES_BUSQUEDA_BTableAdapters.pCAT_CLIENTES_BUSQUEDA_BTableAdapter
     Friend WithEvents pictureContrasena As PictureBox
+    Friend WithEvents Upload1 As Upload
+    Friend WithEvents Label7 As Label
 End Class

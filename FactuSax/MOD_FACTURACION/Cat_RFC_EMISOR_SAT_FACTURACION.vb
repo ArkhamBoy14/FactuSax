@@ -26,6 +26,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Application.Session("ME_EMISOR_RECEPTOR") = Emisor_Receptor
         ME_EMISOR_RECEPTOR = Emisor_Receptor
         ME_EMPRESA = Empresa
     End Sub
@@ -62,6 +63,15 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         Else
             CbxReceptor.LlenarListBox("pFACTURACION_RECEPTOR", "Cve_Receptor", "ReceptorX")
         End If
+
+        If Not String.IsNullOrWhiteSpace(Application.Session("Cve_Cliente")) Then
+            CbxReceptor.SelectedValue = Application.Session("Cve_Cliente")
+            CbxReceptor.Enabled = False
+        End If
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Operador", Application.Session("Cve_Operador"))
+        CbxClientes.LlenarListBox("pCAT_CLIENTES_B", "Cve_Cliente", "Nombre_Cliente", Utilidades.ParametersX_Global)
+        CbxClientes.SelectedIndex = 0
         'dt_cambiado = New DataTable
         'dt_cambiado.Columns.Add("Valor")
         'dt_cambiado.Columns.Add("posicion")
@@ -164,6 +174,8 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
 
 
     Sub SubConsultar()
+        ME_EMISOR_RECEPTOR = Application.Session("ME_EMISOR_RECEPTOR")
+        ME_EMPRESA = False
         Try
             Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.Clear()
             Dim myDA As New SqlDataAdapter
@@ -172,8 +184,14 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
             Else
                 myDA = New SqlClient.SqlDataAdapter("[pCAT_RFC_receptor_SAT_FACTURACION_B]", Utilidades.sConexion)
             End If
-            myDA.SelectCommand.Parameters.AddWithValue("@Estatus", True)
+            'myDA.SelectCommand.Parameters.AddWithValue("@Estatus", True)
             myDA.SelectCommand.Parameters.AddWithValue("@Cve_Cliente", Application.Session("Cve_Cliente"))
+            If rbHabilitado.Checked Then
+                myDA.SelectCommand.Parameters.AddWithValue("@Estatus", True)
+            Else
+                myDA.SelectCommand.Parameters.AddWithValue("@Estatus", False)
+
+            End If
             myDA.SelectCommand.CommandType = CommandType.StoredProcedure
             myDA.Fill(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B.pCAT_RFC_EMISOR_SAT_FACTURACION_B)
             myDA.Dispose()
@@ -336,7 +354,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
             Else
                 Opc_Tipo_Fisica.Checked = True
             End If
-
+            Chk_Habilitado.Checked = DataGridView1.Item(DGVEstatus.Index, e.RowIndex).Value
 
             RBBI_Guardar.Text = "Actualizar"
             TxtRFC.Enabled = False
@@ -451,7 +469,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
                 Utilidades.ParametersX_Global(14) = New SqlClient.SqlParameter("@CER", TBCer.Text)
                 Utilidades.ParametersX_Global(15) = New SqlClient.SqlParameter("@clave_privada", TBCLAVEP.Text)
                 Utilidades.ParametersX_Global(16) = New SqlClient.SqlParameter("@default", 1)
-                Utilidades.ParametersX_Global(20) = New SqlClient.SqlParameter("@Cve_Cliente", Application.Session("Cve_Cliente"))
+                Utilidades.ParametersX_Global(20) = New SqlClient.SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
 
 
             Else
@@ -462,7 +480,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
 
 
 
-            Utilidades.ParametersX_Global(17) = New SqlClient.SqlParameter("@Estatus", 1)
+            Utilidades.ParametersX_Global(17) = New SqlClient.SqlParameter("@Estatus", IIf(Chk_Habilitado.Checked, 1, 0))
             If Opc_Tipo_Fisica.Checked = True Then
                 Utilidades.ParametersX_Global(18) = New SqlClient.SqlParameter("@Tipo_Persona", "FISICA")
             Else
@@ -766,6 +784,10 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
         'TBCLAVEP.InputType.Type = Not TextBoxType.Password
         Dim image As String = IIf(TBCLAVEP.InputType.Type, "Resources\Images\Menu\25\eye.png", "Resources\Images\Menu\25\eye-slash.png")
         pictureContrasena.ImageSource = image
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles rbHabilitado.CheckedChanged
+        SubConsultar()
     End Sub
 
     Private Sub Upload1_Uploaded(sender As Object, e As UploadedEventArgs) Handles Upload1.Uploaded

@@ -98,7 +98,6 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         Me.PREPRESENTACION_FISICA_CFDI_3_3_BTableAdapter = New FactuSax.DataSet_pREPRESENTACION_FISICA_CFDI_3_3_BTableAdapters.pREPRESENTACION_FISICA_CFDI_3_3_BTableAdapter()
         Me.GroupFooter2 = New DevExpress.XtraReports.UI.GroupFooterBand()
         Me.XrBarCode1 = New DevExpress.XtraReports.UI.XRBarCode()
-        Me.XrLabel61 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel60 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel59 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel58 = New DevExpress.XtraReports.UI.XRLabel()
@@ -112,6 +111,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         Me.XrLabel50 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel49 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel48 = New DevExpress.XtraReports.UI.XRLabel()
+        Me.XrLabel61 = New DevExpress.XtraReports.UI.XRLabel()
         CType(Me.XrTable5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -508,7 +508,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.XrPictureBox1.Name = "XrPictureBox1"
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(351.736!, 102.0833!)
-        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage
         '
         'XrLabel1
         '
@@ -932,8 +932,8 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'GroupFooter2
         '
-        Me.GroupFooter2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrBarCode1, Me.XrLabel61, Me.XrLabel60, Me.XrLabel59, Me.XrLabel58, Me.XrLabel57, Me.XrLabel56, Me.XrLabel55, Me.XrLabel54, Me.XrLabel53, Me.XrLabel52, Me.XrLabel51, Me.XrLabel50, Me.XrLabel49, Me.XrLabel48})
-        Me.GroupFooter2.HeightF = 327.167!
+        Me.GroupFooter2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel61, Me.XrBarCode1, Me.XrLabel60, Me.XrLabel59, Me.XrLabel58, Me.XrLabel57, Me.XrLabel56, Me.XrLabel55, Me.XrLabel54, Me.XrLabel53, Me.XrLabel52, Me.XrLabel51, Me.XrLabel50, Me.XrLabel49, Me.XrLabel48})
+        Me.GroupFooter2.HeightF = 420.917!
         Me.GroupFooter2.Level = 1
         Me.GroupFooter2.Name = "GroupFooter2"
         '
@@ -952,22 +952,13 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         QrCodeGenerator1.Version = DevExpress.XtraPrinting.BarCode.QRCodeVersion.Version1
         Me.XrBarCode1.Symbology = QrCodeGenerator1
         '
-        'XrLabel61
-        '
-        Me.XrLabel61.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.Cadena_Original")})
-        Me.XrLabel61.LocationFloat = New DevExpress.Utils.PointFloat(10.00036!, 281.6667!)
-        Me.XrLabel61.Name = "XrLabel61"
-        Me.XrLabel61.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel61.SizeF = New System.Drawing.SizeF(829.9999!, 45.50031!)
-        Me.XrLabel61.Text = "XrLabel61"
-        '
         'XrLabel60
         '
         Me.XrLabel60.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.SellaSAT")})
-        Me.XrLabel60.LocationFloat = New DevExpress.Utils.PointFloat(10.00036!, 219.0001!)
+        Me.XrLabel60.LocationFloat = New DevExpress.Utils.PointFloat(9.999943!, 255.5831!)
         Me.XrLabel60.Name = "XrLabel60"
         Me.XrLabel60.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel60.SizeF = New System.Drawing.SizeF(829.9999!, 39.66667!)
+        Me.XrLabel60.SizeF = New System.Drawing.SizeF(829.9999!, 87.66692!)
         Me.XrLabel60.Text = "XrLabel60"
         '
         'XrLabel59
@@ -975,7 +966,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         Me.XrLabel59.BackColor = System.Drawing.Color.DimGray
         Me.XrLabel59.BorderColor = System.Drawing.Color.DimGray
         Me.XrLabel59.ForeColor = System.Drawing.Color.White
-        Me.XrLabel59.LocationFloat = New DevExpress.Utils.PointFloat(10.00036!, 258.6667!)
+        Me.XrLabel59.LocationFloat = New DevExpress.Utils.PointFloat(9.999943!, 343.2501!)
         Me.XrLabel59.Name = "XrLabel59"
         Me.XrLabel59.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel59.SizeF = New System.Drawing.SizeF(830.0001!, 23.0!)
@@ -990,7 +981,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         Me.XrLabel58.BackColor = System.Drawing.Color.DimGray
         Me.XrLabel58.ForeColor = System.Drawing.Color.White
-        Me.XrLabel58.LocationFloat = New DevExpress.Utils.PointFloat(10.00034!, 196.0001!)
+        Me.XrLabel58.LocationFloat = New DevExpress.Utils.PointFloat(9.99993!, 232.545!)
         Me.XrLabel58.Name = "XrLabel58"
         Me.XrLabel58.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel58.SizeF = New System.Drawing.SizeF(830.0001!, 23.0!)
@@ -1003,17 +994,17 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         'XrLabel57
         '
         Me.XrLabel57.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.SelloCFD")})
-        Me.XrLabel57.LocationFloat = New DevExpress.Utils.PointFloat(10.00033!, 161.5417!)
+        Me.XrLabel57.LocationFloat = New DevExpress.Utils.PointFloat(9.999917!, 144.875!)
         Me.XrLabel57.Name = "XrLabel57"
         Me.XrLabel57.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel57.SizeF = New System.Drawing.SizeF(829.9999!, 34.45834!)
+        Me.XrLabel57.SizeF = New System.Drawing.SizeF(830.0!, 87.67!)
         Me.XrLabel57.Text = "XrLabel57"
         '
         'XrLabel56
         '
         Me.XrLabel56.BackColor = System.Drawing.Color.DimGray
         Me.XrLabel56.ForeColor = System.Drawing.Color.White
-        Me.XrLabel56.LocationFloat = New DevExpress.Utils.PointFloat(10.00014!, 138.5417!)
+        Me.XrLabel56.LocationFloat = New DevExpress.Utils.PointFloat(9.999726!, 121.8751!)
         Me.XrLabel56.Name = "XrLabel56"
         Me.XrLabel56.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel56.SizeF = New System.Drawing.SizeF(830.0001!, 23.0!)
@@ -1115,6 +1106,15 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         Me.XrLabel48.Text = "Serie Certificado Emisor:"
         Me.XrLabel48.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
+        'XrLabel61
+        '
+        Me.XrLabel61.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.Cadena_Original")})
+        Me.XrLabel61.LocationFloat = New DevExpress.Utils.PointFloat(9.999726!, 366.25!)
+        Me.XrLabel61.Name = "XrLabel61"
+        Me.XrLabel61.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel61.SizeF = New System.Drawing.SizeF(829.9999!, 54.66698!)
+        Me.XrLabel61.Text = "XrLabel61"
+        '
         'R_Representacion_Fisica_CFDi33
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.GroupHeader1, Me.GroupFooter1, Me.GroupFooter2})
@@ -1197,9 +1197,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
     Friend WithEvents XrLabel45 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel44 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents GroupFooter2 As DevExpress.XtraReports.UI.GroupFooterBand
-    Friend WithEvents XrLabel61 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel60 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents XrLabel59 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel58 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel57 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel56 As DevExpress.XtraReports.UI.XRLabel
@@ -1224,4 +1222,6 @@ Partial Public Class R_Representacion_Fisica_CFDi33
     Friend WithEvents XrTableCell14 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell15 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell16 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrLabel59 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel61 As DevExpress.XtraReports.UI.XRLabel
 End Class
