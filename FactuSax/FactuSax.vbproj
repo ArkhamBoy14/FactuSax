@@ -1630,6 +1630,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\xpdPruebas4_0\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Window1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -1772,6 +1777,17 @@
     <None Include="Web References\XpdProduccion\TimbradoWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Web References\xpdPruebas4_0\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <Content Include="Web References\xpdPruebas4_0\responseTimbrar.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\xpdPruebas4_0\responseValidar.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\xpdPruebas4_0\TimbradoWSSoapSingle.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1819,10 +1835,11 @@
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FactuSax_localhostSISLAB_Actualizar_Estatus</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soapws/cancelacionmultiple.wsdl">
+
+    <WebReferenceUrl Include="https://appliance-qa.expidetufactura.com.mx:8585/CoreTimbrado.test/TimbradoWSSoapSingle%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\mx.com.expidetufactura.cancelacionxpd.produccion.v3\</RelPath>
-      <UpdateFromURL>https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soapws/cancelacionmultiple.wsdl</UpdateFromURL>
+      <RelPath>Web References\xpdPruebas4_0\</RelPath>
+      <UpdateFromURL>https://appliance-qa.expidetufactura.com.mx:8585/CoreTimbrado.test/TimbradoWSSoapSingle%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -1840,6 +1857,7 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FactuSax_mx_com_expidetufactura_cancelacionxpd_Produccion_CancelacionPortService</CachedSettingsPropName>
+      <CachedSettingsPropName>FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="https://pruebastimbrado.expidetufactura.com.mx:8451/preproduccion/TimbradoWS%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
