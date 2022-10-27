@@ -6,6 +6,7 @@ Public Class Global_asax
     Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
         ' Se desencadena al iniciar la aplicación
         DevExpress.XtraReports.Web.ASPxWebDocumentViewer.StaticInitialize()
+        Console.WriteLine("<Hola>")
     End Sub
 
     Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)
