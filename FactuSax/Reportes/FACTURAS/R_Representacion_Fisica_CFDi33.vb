@@ -8,7 +8,9 @@ Imports System.Data.SqlClient
 Public Class R_Representacion_Fisica_CFDi33
     Private Sub R_Representacion_Fisica_CFDi33_BeforePrint(sender As Object, e As Drawing.Printing.PrintEventArgs) Handles MyBase.BeforePrint
         Dim n As New Numalet
-        Dim str As String = n.ToCustomString(Application.Session("total_comprobante"))
+        Dim totalComprobante = 0
+        Double.TryParse(Application.Session("total_comprobante"), totalComprobante)
+        Dim str As String = n.ToCustomString(totalComprobante)
         Dim STRX = str.ToUpper.Replace("CON", "").Replace(".-", " MXN")
         XLConletras.Text = STRX
 
