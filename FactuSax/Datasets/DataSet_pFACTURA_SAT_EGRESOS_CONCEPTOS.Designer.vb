@@ -20,12 +20,12 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("DataSet_pFACTURA_SAT_CFDI_B2"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
+Partial Public Class DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS
     Inherits Global.System.Data.DataSet
     
-    Private tablepFACTURA_SAT_CFDI_B2 As pFACTURA_SAT_CFDI_B2DataTable
+    Private tablepFACTURA_SAT_EGRESOS_CONCEPTOS As pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("pFACTURA_SAT_CFDI_B2")) Is Nothing) Then
-                MyBase.Tables.Add(New pFACTURA_SAT_CFDI_B2DataTable(ds.Tables("pFACTURA_SAT_CFDI_B2")))
+            If (Not (ds.Tables("pFACTURA_SAT_EGRESOS_CONCEPTOS")) Is Nothing) Then
+                MyBase.Tables.Add(New pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable(ds.Tables("pFACTURA_SAT_EGRESOS_CONCEPTOS")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property pFACTURA_SAT_CFDI_B2() As pFACTURA_SAT_CFDI_B2DataTable
+    Public ReadOnly Property pFACTURA_SAT_EGRESOS_CONCEPTOS() As pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable
         Get
-            Return Me.tablepFACTURA_SAT_CFDI_B2
+            Return Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS
         End Get
     End Property
     
@@ -128,7 +128,7 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As DataSet_pFACTURA_SAT_CFDI_B2 = CType(MyBase.Clone,DataSet_pFACTURA_SAT_CFDI_B2)
+        Dim cln As DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS = CType(MyBase.Clone,DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -153,8 +153,8 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("pFACTURA_SAT_CFDI_B2")) Is Nothing) Then
-                MyBase.Tables.Add(New pFACTURA_SAT_CFDI_B2DataTable(ds.Tables("pFACTURA_SAT_CFDI_B2")))
+            If (Not (ds.Tables("pFACTURA_SAT_EGRESOS_CONCEPTOS")) Is Nothing) Then
+                MyBase.Tables.Add(New pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable(ds.Tables("pFACTURA_SAT_EGRESOS_CONCEPTOS")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tablepFACTURA_SAT_CFDI_B2 = CType(MyBase.Tables("pFACTURA_SAT_CFDI_B2"),pFACTURA_SAT_CFDI_B2DataTable)
+        Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS = CType(MyBase.Tables("pFACTURA_SAT_EGRESOS_CONCEPTOS"),pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable)
         If (initTable = true) Then
-            If (Not (Me.tablepFACTURA_SAT_CFDI_B2) Is Nothing) Then
-                Me.tablepFACTURA_SAT_CFDI_B2.InitVars
+            If (Not (Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS) Is Nothing) Then
+                Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.InitVars
             End If
         End If
     End Sub
@@ -199,18 +199,18 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "DataSet_pFACTURA_SAT_CFDI_B2"
+        Me.DataSetName = "DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/DataSet_pFACTURA_SAT_CFDI_B2.xsd"
+        Me.Namespace = "http://tempuri.org/DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tablepFACTURA_SAT_CFDI_B2 = New pFACTURA_SAT_CFDI_B2DataTable()
-        MyBase.Tables.Add(Me.tablepFACTURA_SAT_CFDI_B2)
+        Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS = New pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable()
+        MyBase.Tables.Add(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Private Function ShouldSerializepFACTURA_SAT_CFDI_B2() As Boolean
+    Private Function ShouldSerializepFACTURA_SAT_EGRESOS_CONCEPTOS() As Boolean
         Return false
     End Function
     
@@ -225,7 +225,7 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As DataSet_pFACTURA_SAT_CFDI_B2 = New DataSet_pFACTURA_SAT_CFDI_B2()
+        Dim ds As DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS = New DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -273,69 +273,49 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Delegate Sub pFACTURA_SAT_CFDI_B2RowChangeEventHandler(ByVal sender As Object, ByVal e As pFACTURA_SAT_CFDI_B2RowChangeEvent)
+    Public Delegate Sub pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEventHandler(ByVal sender As Object, ByVal e As pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class pFACTURA_SAT_CFDI_B2DataTable
-        Inherits Global.System.Data.TypedTableBase(Of pFACTURA_SAT_CFDI_B2Row)
+    Partial Public Class pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable
+        Inherits Global.System.Data.TypedTableBase(Of pFACTURA_SAT_EGRESOS_CONCEPTOSRow)
         
-        Private columnUUID As Global.System.Data.DataColumn
+        Private columnCantidad As Global.System.Data.DataColumn
         
-        Private columnFecha As Global.System.Data.DataColumn
+        Private columnProducto As Global.System.Data.DataColumn
         
-        Private columnTipodeComprobante As Global.System.Data.DataColumn
+        Private columnCosto As Global.System.Data.DataColumn
         
-        Private columnSubtotal As Global.System.Data.DataColumn
+        Private columnUnitario As Global.System.Data.DataColumn
         
-        Private columnTotal As Global.System.Data.DataColumn
+        Private columnIVAUnitario As Global.System.Data.DataColumn
         
-        Private columnMoneda As Global.System.Data.DataColumn
-        
-        Private columnFormaPago As Global.System.Data.DataColumn
-        
-        Private columnSerie As Global.System.Data.DataColumn
-        
-        Private columnFolio As Global.System.Data.DataColumn
-        
-        Private columnEmisor_Rfc As Global.System.Data.DataColumn
-        
-        Private columnEmisor_Nombre As Global.System.Data.DataColumn
-        
-        Private columnEmisro_Regimen_Fiscal As Global.System.Data.DataColumn
-        
-        Private columnReceptor_RFC As Global.System.Data.DataColumn
-        
-        Private columnreceptor_UsoCFDI As Global.System.Data.DataColumn
-        
-        Private columnReceptor_Nombnre As Global.System.Data.DataColumn
+        Private columnIMPORTE As Global.System.Data.DataColumn
         
         Private columnDescuento As Global.System.Data.DataColumn
         
-        Private columnTipoCambio As Global.System.Data.DataColumn
+        Private columnConteo As Global.System.Data.DataColumn
         
-        Private columnCondicionesPago As Global.System.Data.DataColumn
+        Private columnDescuento_Factura As Global.System.Data.DataColumn
         
-        Private columnEstatus As Global.System.Data.DataColumn
+        Private columnUnitario_Factura As Global.System.Data.DataColumn
         
-        Private columnMetodoPago As Global.System.Data.DataColumn
+        Private columnDescuento_Total As Global.System.Data.DataColumn
         
-        Private columnLugarExpedicion As Global.System.Data.DataColumn
+        Private columnDescuento_IVA As Global.System.Data.DataColumn
         
-        Private columnCadena_Original As Global.System.Data.DataColumn
+        Private columnDescuento_Unitario As Global.System.Data.DataColumn
         
-        Private columnNoCertificado_Emisor As Global.System.Data.DataColumn
-        
-        Private columnTipo_Relacion As Global.System.Data.DataColumn
+        Private columnDescuento_Aplicado As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "pFACTURA_SAT_CFDI_B2"
+            Me.TableName = "pFACTURA_SAT_EGRESOS_CONCEPTOS"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -368,121 +348,49 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property UUIDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CantidadColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnUUID
+                Return Me.columnCantidad
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property FechaColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ProductoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnFecha
+                Return Me.columnProducto
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property TipodeComprobanteColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CostoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnTipodeComprobante
+                Return Me.columnCosto
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SubtotalColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property UnitarioColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnSubtotal
+                Return Me.columnUnitario
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property TotalColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IVAUnitarioColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnTotal
+                Return Me.columnIVAUnitario
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property MonedaColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IMPORTEColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnMoneda
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property FormaPagoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFormaPago
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property SerieColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSerie
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property FolioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFolio
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Emisor_RfcColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEmisor_Rfc
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Emisor_NombreColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEmisor_Nombre
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Emisro_Regimen_FiscalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEmisro_Regimen_Fiscal
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Receptor_RFCColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnReceptor_RFC
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property receptor_UsoCFDIColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnreceptor_UsoCFDI
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Receptor_NombnreColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnReceptor_Nombnre
+                Return Me.columnIMPORTE
             End Get
         End Property
         
@@ -496,65 +404,57 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property TipoCambioColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ConteoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnTipoCambio
+                Return Me.columnConteo
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property CondicionesPagoColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Descuento_FacturaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCondicionesPago
+                Return Me.columnDescuento_Factura
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property EstatusColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Unitario_FacturaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnEstatus
+                Return Me.columnUnitario_Factura
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property MetodoPagoColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Descuento_TotalColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnMetodoPago
+                Return Me.columnDescuento_Total
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property LugarExpedicionColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Descuento_IVAColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnLugarExpedicion
+                Return Me.columnDescuento_IVA
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Cadena_OriginalColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Descuento_UnitarioColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCadena_Original
+                Return Me.columnDescuento_Unitario
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property NoCertificado_EmisorColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Descuento_AplicadoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNoCertificado_Emisor
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Tipo_RelacionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTipo_Relacion
+                Return Me.columnDescuento_Aplicado
             End Get
         End Property
         
@@ -569,74 +469,44 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As pFACTURA_SAT_CFDI_B2Row
+        Public Default ReadOnly Property Item(ByVal index As Integer) As pFACTURA_SAT_EGRESOS_CONCEPTOSRow
             Get
-                Return CType(Me.Rows(index),pFACTURA_SAT_CFDI_B2Row)
+                Return CType(Me.Rows(index),pFACTURA_SAT_EGRESOS_CONCEPTOSRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event pFACTURA_SAT_CFDI_B2RowChanging As pFACTURA_SAT_CFDI_B2RowChangeEventHandler
+        Public Event pFACTURA_SAT_EGRESOS_CONCEPTOSRowChanging As pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event pFACTURA_SAT_CFDI_B2RowChanged As pFACTURA_SAT_CFDI_B2RowChangeEventHandler
+        Public Event pFACTURA_SAT_EGRESOS_CONCEPTOSRowChanged As pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event pFACTURA_SAT_CFDI_B2RowDeleting As pFACTURA_SAT_CFDI_B2RowChangeEventHandler
+        Public Event pFACTURA_SAT_EGRESOS_CONCEPTOSRowDeleting As pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event pFACTURA_SAT_CFDI_B2RowDeleted As pFACTURA_SAT_CFDI_B2RowChangeEventHandler
+        Public Event pFACTURA_SAT_EGRESOS_CONCEPTOSRowDeleted As pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Sub AddpFACTURA_SAT_CFDI_B2Row(ByVal row As pFACTURA_SAT_CFDI_B2Row)
+        Public Overloads Sub AddpFACTURA_SAT_EGRESOS_CONCEPTOSRow(ByVal row As pFACTURA_SAT_EGRESOS_CONCEPTOSRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddpFACTURA_SAT_CFDI_B2Row( _
-                    ByVal UUID As String,  _
-                    ByVal Fecha As String,  _
-                    ByVal TipodeComprobante As String,  _
-                    ByVal Subtotal As String,  _
-                    ByVal Total As String,  _
-                    ByVal Moneda As String,  _
-                    ByVal FormaPago As String,  _
-                    ByVal Serie As String,  _
-                    ByVal Folio As String,  _
-                    ByVal Emisor_Rfc As String,  _
-                    ByVal Emisor_Nombre As String,  _
-                    ByVal Emisro_Regimen_Fiscal As String,  _
-                    ByVal Receptor_RFC As String,  _
-                    ByVal receptor_UsoCFDI As String,  _
-                    ByVal Receptor_Nombnre As String,  _
-                    ByVal Descuento As String,  _
-                    ByVal TipoCambio As String,  _
-                    ByVal CondicionesPago As String,  _
-                    ByVal Estatus As String,  _
-                    ByVal MetodoPago As String,  _
-                    ByVal LugarExpedicion As String,  _
-                    ByVal Cadena_Original As String,  _
-                    ByVal NoCertificado_Emisor As String,  _
-                    ByVal Tipo_Relacion As String) As pFACTURA_SAT_CFDI_B2Row
-            Dim rowpFACTURA_SAT_CFDI_B2Row As pFACTURA_SAT_CFDI_B2Row = CType(Me.NewRow,pFACTURA_SAT_CFDI_B2Row)
-            Dim columnValuesArray() As Object = New Object() {UUID, Fecha, TipodeComprobante, Subtotal, Total, Moneda, FormaPago, Serie, Folio, Emisor_Rfc, Emisor_Nombre, Emisro_Regimen_Fiscal, Receptor_RFC, receptor_UsoCFDI, Receptor_Nombnre, Descuento, TipoCambio, CondicionesPago, Estatus, MetodoPago, LugarExpedicion, Cadena_Original, NoCertificado_Emisor, Tipo_Relacion}
-            rowpFACTURA_SAT_CFDI_B2Row.ItemArray = columnValuesArray
-            Me.Rows.Add(rowpFACTURA_SAT_CFDI_B2Row)
-            Return rowpFACTURA_SAT_CFDI_B2Row
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function FindByUUID(ByVal UUID As String) As pFACTURA_SAT_CFDI_B2Row
-            Return CType(Me.Rows.Find(New Object() {UUID}),pFACTURA_SAT_CFDI_B2Row)
+        Public Overloads Function AddpFACTURA_SAT_EGRESOS_CONCEPTOSRow(ByVal Cantidad As Integer, ByVal Producto As String, ByVal Costo As Decimal, ByVal Unitario As Decimal, ByVal IVAUnitario As Decimal, ByVal IMPORTE As Decimal, ByVal Descuento As Double, ByVal Conteo As Integer, ByVal Descuento_Factura As Decimal, ByVal Unitario_Factura As Decimal, ByVal Descuento_Total As Decimal, ByVal Descuento_IVA As Decimal, ByVal Descuento_Unitario As Decimal, ByVal Descuento_Aplicado As Decimal) As pFACTURA_SAT_EGRESOS_CONCEPTOSRow
+            Dim rowpFACTURA_SAT_EGRESOS_CONCEPTOSRow As pFACTURA_SAT_EGRESOS_CONCEPTOSRow = CType(Me.NewRow,pFACTURA_SAT_EGRESOS_CONCEPTOSRow)
+            Dim columnValuesArray() As Object = New Object() {Cantidad, Producto, Costo, Unitario, IVAUnitario, IMPORTE, Descuento, Conteo, Descuento_Factura, Unitario_Factura, Descuento_Total, Descuento_IVA, Descuento_Unitario, Descuento_Aplicado}
+            rowpFACTURA_SAT_EGRESOS_CONCEPTOSRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowpFACTURA_SAT_EGRESOS_CONCEPTOSRow)
+            Return rowpFACTURA_SAT_EGRESOS_CONCEPTOSRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As pFACTURA_SAT_CFDI_B2DataTable = CType(MyBase.Clone,pFACTURA_SAT_CFDI_B2DataTable)
+            Dim cln As pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable = CType(MyBase.Clone,pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -644,142 +514,96 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New pFACTURA_SAT_CFDI_B2DataTable()
+            Return New pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnUUID = MyBase.Columns("UUID")
-            Me.columnFecha = MyBase.Columns("Fecha")
-            Me.columnTipodeComprobante = MyBase.Columns("TipodeComprobante")
-            Me.columnSubtotal = MyBase.Columns("Subtotal")
-            Me.columnTotal = MyBase.Columns("Total")
-            Me.columnMoneda = MyBase.Columns("Moneda")
-            Me.columnFormaPago = MyBase.Columns("FormaPago")
-            Me.columnSerie = MyBase.Columns("Serie")
-            Me.columnFolio = MyBase.Columns("Folio")
-            Me.columnEmisor_Rfc = MyBase.Columns("Emisor_Rfc")
-            Me.columnEmisor_Nombre = MyBase.Columns("Emisor_Nombre")
-            Me.columnEmisro_Regimen_Fiscal = MyBase.Columns("Emisro_Regimen_Fiscal")
-            Me.columnReceptor_RFC = MyBase.Columns("Receptor_RFC")
-            Me.columnreceptor_UsoCFDI = MyBase.Columns("receptor_UsoCFDI")
-            Me.columnReceptor_Nombnre = MyBase.Columns("Receptor_Nombnre")
+            Me.columnCantidad = MyBase.Columns("Cantidad")
+            Me.columnProducto = MyBase.Columns("Producto")
+            Me.columnCosto = MyBase.Columns("Costo")
+            Me.columnUnitario = MyBase.Columns("Unitario")
+            Me.columnIVAUnitario = MyBase.Columns("IVAUnitario")
+            Me.columnIMPORTE = MyBase.Columns("IMPORTE")
             Me.columnDescuento = MyBase.Columns("Descuento")
-            Me.columnTipoCambio = MyBase.Columns("TipoCambio")
-            Me.columnCondicionesPago = MyBase.Columns("CondicionesPago")
-            Me.columnEstatus = MyBase.Columns("Estatus")
-            Me.columnMetodoPago = MyBase.Columns("MetodoPago")
-            Me.columnLugarExpedicion = MyBase.Columns("LugarExpedicion")
-            Me.columnCadena_Original = MyBase.Columns("Cadena_Original")
-            Me.columnNoCertificado_Emisor = MyBase.Columns("NoCertificado_Emisor")
-            Me.columnTipo_Relacion = MyBase.Columns("Tipo_Relacion")
+            Me.columnConteo = MyBase.Columns("Conteo")
+            Me.columnDescuento_Factura = MyBase.Columns("Descuento_Factura")
+            Me.columnUnitario_Factura = MyBase.Columns("Unitario_Factura")
+            Me.columnDescuento_Total = MyBase.Columns("Descuento_Total")
+            Me.columnDescuento_IVA = MyBase.Columns("Descuento_IVA")
+            Me.columnDescuento_Unitario = MyBase.Columns("Descuento_Unitario")
+            Me.columnDescuento_Aplicado = MyBase.Columns("Descuento_Aplicado")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnUUID = New Global.System.Data.DataColumn("UUID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUUID)
-            Me.columnFecha = New Global.System.Data.DataColumn("Fecha", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFecha)
-            Me.columnTipodeComprobante = New Global.System.Data.DataColumn("TipodeComprobante", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTipodeComprobante)
-            Me.columnSubtotal = New Global.System.Data.DataColumn("Subtotal", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSubtotal)
-            Me.columnTotal = New Global.System.Data.DataColumn("Total", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTotal)
-            Me.columnMoneda = New Global.System.Data.DataColumn("Moneda", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMoneda)
-            Me.columnFormaPago = New Global.System.Data.DataColumn("FormaPago", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFormaPago)
-            Me.columnSerie = New Global.System.Data.DataColumn("Serie", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSerie)
-            Me.columnFolio = New Global.System.Data.DataColumn("Folio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFolio)
-            Me.columnEmisor_Rfc = New Global.System.Data.DataColumn("Emisor_Rfc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEmisor_Rfc)
-            Me.columnEmisor_Nombre = New Global.System.Data.DataColumn("Emisor_Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEmisor_Nombre)
-            Me.columnEmisro_Regimen_Fiscal = New Global.System.Data.DataColumn("Emisro_Regimen_Fiscal", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEmisro_Regimen_Fiscal)
-            Me.columnReceptor_RFC = New Global.System.Data.DataColumn("Receptor_RFC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnReceptor_RFC)
-            Me.columnreceptor_UsoCFDI = New Global.System.Data.DataColumn("receptor_UsoCFDI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnreceptor_UsoCFDI)
-            Me.columnReceptor_Nombnre = New Global.System.Data.DataColumn("Receptor_Nombnre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnReceptor_Nombnre)
-            Me.columnDescuento = New Global.System.Data.DataColumn("Descuento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCantidad = New Global.System.Data.DataColumn("Cantidad", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCantidad)
+            Me.columnProducto = New Global.System.Data.DataColumn("Producto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProducto)
+            Me.columnCosto = New Global.System.Data.DataColumn("Costo", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCosto)
+            Me.columnUnitario = New Global.System.Data.DataColumn("Unitario", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUnitario)
+            Me.columnIVAUnitario = New Global.System.Data.DataColumn("IVAUnitario", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIVAUnitario)
+            Me.columnIMPORTE = New Global.System.Data.DataColumn("IMPORTE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIMPORTE)
+            Me.columnDescuento = New Global.System.Data.DataColumn("Descuento", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDescuento)
-            Me.columnTipoCambio = New Global.System.Data.DataColumn("TipoCambio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTipoCambio)
-            Me.columnCondicionesPago = New Global.System.Data.DataColumn("CondicionesPago", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCondicionesPago)
-            Me.columnEstatus = New Global.System.Data.DataColumn("Estatus", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEstatus)
-            Me.columnMetodoPago = New Global.System.Data.DataColumn("MetodoPago", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMetodoPago)
-            Me.columnLugarExpedicion = New Global.System.Data.DataColumn("LugarExpedicion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLugarExpedicion)
-            Me.columnCadena_Original = New Global.System.Data.DataColumn("Cadena_Original", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCadena_Original)
-            Me.columnNoCertificado_Emisor = New Global.System.Data.DataColumn("NoCertificado_Emisor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNoCertificado_Emisor)
-            Me.columnTipo_Relacion = New Global.System.Data.DataColumn("Tipo_Relacion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTipo_Relacion)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUUID}, true))
-            Me.columnUUID.AllowDBNull = false
-            Me.columnUUID.Unique = true
-            Me.columnUUID.MaxLength = 50
-            Me.columnFecha.MaxLength = 50
-            Me.columnTipodeComprobante.MaxLength = 50
-            Me.columnSubtotal.MaxLength = 50
-            Me.columnTotal.MaxLength = 50
-            Me.columnMoneda.MaxLength = 50
-            Me.columnFormaPago.MaxLength = 50
-            Me.columnSerie.MaxLength = 50
-            Me.columnFolio.MaxLength = 50
-            Me.columnEmisor_Rfc.MaxLength = 50
-            Me.columnEmisor_Nombre.MaxLength = 255
-            Me.columnEmisro_Regimen_Fiscal.MaxLength = 50
-            Me.columnReceptor_RFC.MaxLength = 50
-            Me.columnreceptor_UsoCFDI.MaxLength = 50
-            Me.columnReceptor_Nombnre.MaxLength = 255
-            Me.columnDescuento.MaxLength = 50
-            Me.columnTipoCambio.MaxLength = 50
-            Me.columnCondicionesPago.MaxLength = 4000
-            Me.columnEstatus.MaxLength = 20
-            Me.columnMetodoPago.MaxLength = 50
-            Me.columnLugarExpedicion.MaxLength = 50
-            Me.columnCadena_Original.MaxLength = 4000
-            Me.columnNoCertificado_Emisor.MaxLength = 50
-            Me.columnTipo_Relacion.MaxLength = 100
+            Me.columnConteo = New Global.System.Data.DataColumn("Conteo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnConteo)
+            Me.columnDescuento_Factura = New Global.System.Data.DataColumn("Descuento_Factura", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDescuento_Factura)
+            Me.columnUnitario_Factura = New Global.System.Data.DataColumn("Unitario_Factura", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUnitario_Factura)
+            Me.columnDescuento_Total = New Global.System.Data.DataColumn("Descuento_Total", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDescuento_Total)
+            Me.columnDescuento_IVA = New Global.System.Data.DataColumn("Descuento_IVA", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDescuento_IVA)
+            Me.columnDescuento_Unitario = New Global.System.Data.DataColumn("Descuento_Unitario", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDescuento_Unitario)
+            Me.columnDescuento_Aplicado = New Global.System.Data.DataColumn("Descuento_Aplicado", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDescuento_Aplicado)
+            Me.columnCantidad.ReadOnly = true
+            Me.columnProducto.ReadOnly = true
+            Me.columnProducto.MaxLength = 101
+            Me.columnCosto.AllowDBNull = false
+            Me.columnUnitario.ReadOnly = true
+            Me.columnIVAUnitario.ReadOnly = true
+            Me.columnIMPORTE.ReadOnly = true
+            Me.columnConteo.ReadOnly = true
+            Me.columnDescuento_IVA.ReadOnly = true
+            Me.columnDescuento_Unitario.ReadOnly = true
+            Me.columnDescuento_Aplicado.ReadOnly = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function NewpFACTURA_SAT_CFDI_B2Row() As pFACTURA_SAT_CFDI_B2Row
-            Return CType(Me.NewRow,pFACTURA_SAT_CFDI_B2Row)
+        Public Function NewpFACTURA_SAT_EGRESOS_CONCEPTOSRow() As pFACTURA_SAT_EGRESOS_CONCEPTOSRow
+            Return CType(Me.NewRow,pFACTURA_SAT_EGRESOS_CONCEPTOSRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New pFACTURA_SAT_CFDI_B2Row(builder)
+            Return New pFACTURA_SAT_EGRESOS_CONCEPTOSRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(pFACTURA_SAT_CFDI_B2Row)
+            Return GetType(pFACTURA_SAT_EGRESOS_CONCEPTOSRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.pFACTURA_SAT_CFDI_B2RowChangedEvent) Is Nothing) Then
-                RaiseEvent pFACTURA_SAT_CFDI_B2RowChanged(Me, New pFACTURA_SAT_CFDI_B2RowChangeEvent(CType(e.Row,pFACTURA_SAT_CFDI_B2Row), e.Action))
+            If (Not (Me.pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangedEvent) Is Nothing) Then
+                RaiseEvent pFACTURA_SAT_EGRESOS_CONCEPTOSRowChanged(Me, New pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEvent(CType(e.Row,pFACTURA_SAT_EGRESOS_CONCEPTOSRow), e.Action))
             End If
         End Sub
         
@@ -787,8 +611,8 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.pFACTURA_SAT_CFDI_B2RowChangingEvent) Is Nothing) Then
-                RaiseEvent pFACTURA_SAT_CFDI_B2RowChanging(Me, New pFACTURA_SAT_CFDI_B2RowChangeEvent(CType(e.Row,pFACTURA_SAT_CFDI_B2Row), e.Action))
+            If (Not (Me.pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangingEvent) Is Nothing) Then
+                RaiseEvent pFACTURA_SAT_EGRESOS_CONCEPTOSRowChanging(Me, New pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEvent(CType(e.Row,pFACTURA_SAT_EGRESOS_CONCEPTOSRow), e.Action))
             End If
         End Sub
         
@@ -796,8 +620,8 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.pFACTURA_SAT_CFDI_B2RowDeletedEvent) Is Nothing) Then
-                RaiseEvent pFACTURA_SAT_CFDI_B2RowDeleted(Me, New pFACTURA_SAT_CFDI_B2RowChangeEvent(CType(e.Row,pFACTURA_SAT_CFDI_B2Row), e.Action))
+            If (Not (Me.pFACTURA_SAT_EGRESOS_CONCEPTOSRowDeletedEvent) Is Nothing) Then
+                RaiseEvent pFACTURA_SAT_EGRESOS_CONCEPTOSRowDeleted(Me, New pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEvent(CType(e.Row,pFACTURA_SAT_EGRESOS_CONCEPTOSRow), e.Action))
             End If
         End Sub
         
@@ -805,14 +629,14 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.pFACTURA_SAT_CFDI_B2RowDeletingEvent) Is Nothing) Then
-                RaiseEvent pFACTURA_SAT_CFDI_B2RowDeleting(Me, New pFACTURA_SAT_CFDI_B2RowChangeEvent(CType(e.Row,pFACTURA_SAT_CFDI_B2Row), e.Action))
+            If (Not (Me.pFACTURA_SAT_EGRESOS_CONCEPTOSRowDeletingEvent) Is Nothing) Then
+                RaiseEvent pFACTURA_SAT_EGRESOS_CONCEPTOSRowDeleting(Me, New pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEvent(CType(e.Row,pFACTURA_SAT_EGRESOS_CONCEPTOSRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub RemovepFACTURA_SAT_CFDI_B2Row(ByVal row As pFACTURA_SAT_CFDI_B2Row)
+        Public Sub RemovepFACTURA_SAT_EGRESOS_CONCEPTOSRow(ByVal row As pFACTURA_SAT_EGRESOS_CONCEPTOSRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -821,7 +645,7 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet_pFACTURA_SAT_CFDI_B2 = New DataSet_pFACTURA_SAT_CFDI_B2()
+            Dim ds As DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS = New DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -839,7 +663,7 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "pFACTURA_SAT_CFDI_B2DataTable"
+            attribute2.FixedValue = "pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -886,662 +710,391 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class pFACTURA_SAT_CFDI_B2Row
+    Partial Public Class pFACTURA_SAT_EGRESOS_CONCEPTOSRow
         Inherits Global.System.Data.DataRow
         
-        Private tablepFACTURA_SAT_CFDI_B2 As pFACTURA_SAT_CFDI_B2DataTable
+        Private tablepFACTURA_SAT_EGRESOS_CONCEPTOS As pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tablepFACTURA_SAT_CFDI_B2 = CType(Me.Table,pFACTURA_SAT_CFDI_B2DataTable)
+            Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS = CType(Me.Table,pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property UUID() As String
-            Get
-                Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.UUIDColumn),String)
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.UUIDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Fecha() As String
+        Public Property Cantidad() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.FechaColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.CantidadColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Fecha' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Cantidad' de la tabla 'pFACTURA_SAT_EGRESOS_CONCEPTOS' es"& _ 
+                            " DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.FechaColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.CantidadColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property TipodeComprobante() As String
+        Public Property Producto() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.TipodeComprobanteColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.ProductoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'TipodeComprobante' de la tabla 'pFACTURA_SAT_CFDI_B2' es "& _ 
-                            "DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Producto' de la tabla 'pFACTURA_SAT_EGRESOS_CONCEPTOS' es"& _ 
+                            " DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.TipodeComprobanteColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.ProductoColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Subtotal() As String
+        Public Property Costo() As Decimal
+            Get
+                Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.CostoColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.CostoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Unitario() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.SubtotalColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.UnitarioColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Subtotal' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Unitario' de la tabla 'pFACTURA_SAT_EGRESOS_CONCEPTOS' es"& _ 
+                            " DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.SubtotalColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.UnitarioColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Total() As String
+        Public Property IVAUnitario() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.TotalColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.IVAUnitarioColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Total' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.TotalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Moneda() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.MonedaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Moneda' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.MonedaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property FormaPago() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.FormaPagoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'FormaPago' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.FormaPagoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Serie() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.SerieColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Serie' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.SerieColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Folio() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.FolioColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Folio' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.FolioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Emisor_Rfc() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.Emisor_RfcColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Emisor_Rfc' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.Emisor_RfcColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Emisor_Nombre() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.Emisor_NombreColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Emisor_Nombre' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.Emisor_NombreColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Emisro_Regimen_Fiscal() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.Emisro_Regimen_FiscalColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Emisro_Regimen_Fiscal' de la tabla 'pFACTURA_SAT_CFDI_B2'"& _ 
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IVAUnitario' de la tabla 'pFACTURA_SAT_EGRESOS_CONCEPTOS'"& _ 
                             " es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.Emisro_Regimen_FiscalColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.IVAUnitarioColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Receptor_RFC() As String
+        Public Property IMPORTE() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.Receptor_RFCColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.IMPORTEColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Receptor_RFC' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNul"& _ 
-                            "l.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IMPORTE' de la tabla 'pFACTURA_SAT_EGRESOS_CONCEPTOS' es "& _ 
+                            "DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.Receptor_RFCColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.IMPORTEColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property receptor_UsoCFDI() As String
+        Public Property Descuento() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.receptor_UsoCFDIColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.DescuentoColumn),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'receptor_UsoCFDI' de la tabla 'pFACTURA_SAT_CFDI_B2' es D"& _ 
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descuento' de la tabla 'pFACTURA_SAT_EGRESOS_CONCEPTOS' e"& _ 
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.DescuentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Conteo() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.ConteoColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Conteo' de la tabla 'pFACTURA_SAT_EGRESOS_CONCEPTOS' es D"& _ 
                             "BNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.receptor_UsoCFDIColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.ConteoColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Receptor_Nombnre() As String
+        Public Property Descuento_Factura() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.Receptor_NombnreColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_FacturaColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Receptor_Nombnre' de la tabla 'pFACTURA_SAT_CFDI_B2' es D"& _ 
-                            "BNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descuento_Factura' de la tabla 'pFACTURA_SAT_EGRESOS_CONC"& _ 
+                            "EPTOS' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.Receptor_NombnreColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_FacturaColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Descuento() As String
+        Public Property Unitario_Factura() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.DescuentoColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Unitario_FacturaColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descuento' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Unitario_Factura' de la tabla 'pFACTURA_SAT_EGRESOS_CONCE"& _ 
+                            "PTOS' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.DescuentoColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Unitario_FacturaColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property TipoCambio() As String
+        Public Property Descuento_Total() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.TipoCambioColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_TotalColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'TipoCambio' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descuento_Total' de la tabla 'pFACTURA_SAT_EGRESOS_CONCEP"& _ 
+                            "TOS' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.TipoCambioColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_TotalColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property CondicionesPago() As String
+        Public Property Descuento_IVA() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.CondicionesPagoColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_IVAColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CondicionesPago' de la tabla 'pFACTURA_SAT_CFDI_B2' es DB"& _ 
-                            "Null.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descuento_IVA' de la tabla 'pFACTURA_SAT_EGRESOS_CONCEPTO"& _ 
+                            "S' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.CondicionesPagoColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_IVAColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Estatus() As String
+        Public Property Descuento_Unitario() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.EstatusColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_UnitarioColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Estatus' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descuento_Unitario' de la tabla 'pFACTURA_SAT_EGRESOS_CON"& _ 
+                            "CEPTOS' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.EstatusColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_UnitarioColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property MetodoPago() As String
+        Public Property Descuento_Aplicado() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.MetodoPagoColumn),String)
+                    Return CType(Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_AplicadoColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'MetodoPago' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descuento_Aplicado' de la tabla 'pFACTURA_SAT_EGRESOS_CON"& _ 
+                            "CEPTOS' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.MetodoPagoColumn) = value
+                Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_AplicadoColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property LugarExpedicion() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.LugarExpedicionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'LugarExpedicion' de la tabla 'pFACTURA_SAT_CFDI_B2' es DB"& _ 
-                            "Null.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.LugarExpedicionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Cadena_Original() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.Cadena_OriginalColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Cadena_Original' de la tabla 'pFACTURA_SAT_CFDI_B2' es DB"& _ 
-                            "Null.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.Cadena_OriginalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property NoCertificado_Emisor() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.NoCertificado_EmisorColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NoCertificado_Emisor' de la tabla 'pFACTURA_SAT_CFDI_B2' "& _ 
-                            "es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.NoCertificado_EmisorColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Tipo_Relacion() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablepFACTURA_SAT_CFDI_B2.Tipo_RelacionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tipo_Relacion' de la tabla 'pFACTURA_SAT_CFDI_B2' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepFACTURA_SAT_CFDI_B2.Tipo_RelacionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsFechaNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.FechaColumn)
+        Public Function IsCantidadNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.CantidadColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetFechaNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.FechaColumn) = Global.System.Convert.DBNull
+        Public Sub SetCantidadNull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.CantidadColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsTipodeComprobanteNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.TipodeComprobanteColumn)
+        Public Function IsProductoNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.ProductoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetTipodeComprobanteNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.TipodeComprobanteColumn) = Global.System.Convert.DBNull
+        Public Sub SetProductoNull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.ProductoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSubtotalNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.SubtotalColumn)
+        Public Function IsUnitarioNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.UnitarioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSubtotalNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.SubtotalColumn) = Global.System.Convert.DBNull
+        Public Sub SetUnitarioNull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.UnitarioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsTotalNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.TotalColumn)
+        Public Function IsIVAUnitarioNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.IVAUnitarioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetTotalNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.TotalColumn) = Global.System.Convert.DBNull
+        Public Sub SetIVAUnitarioNull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.IVAUnitarioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsMonedaNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.MonedaColumn)
+        Public Function IsIMPORTENull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.IMPORTEColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetMonedaNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.MonedaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsFormaPagoNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.FormaPagoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetFormaPagoNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.FormaPagoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsSerieNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.SerieColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetSerieNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.SerieColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsFolioNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.FolioColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetFolioNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.FolioColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEmisor_RfcNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.Emisor_RfcColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEmisor_RfcNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.Emisor_RfcColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEmisor_NombreNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.Emisor_NombreColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEmisor_NombreNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.Emisor_NombreColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEmisro_Regimen_FiscalNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.Emisro_Regimen_FiscalColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEmisro_Regimen_FiscalNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.Emisro_Regimen_FiscalColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsReceptor_RFCNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.Receptor_RFCColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetReceptor_RFCNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.Receptor_RFCColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function Isreceptor_UsoCFDINull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.receptor_UsoCFDIColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub Setreceptor_UsoCFDINull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.receptor_UsoCFDIColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsReceptor_NombnreNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.Receptor_NombnreColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetReceptor_NombnreNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.Receptor_NombnreColumn) = Global.System.Convert.DBNull
+        Public Sub SetIMPORTENull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.IMPORTEColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsDescuentoNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.DescuentoColumn)
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.DescuentoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetDescuentoNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.DescuentoColumn) = Global.System.Convert.DBNull
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.DescuentoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsTipoCambioNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.TipoCambioColumn)
+        Public Function IsConteoNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.ConteoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetTipoCambioNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.TipoCambioColumn) = Global.System.Convert.DBNull
+        Public Sub SetConteoNull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.ConteoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsCondicionesPagoNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.CondicionesPagoColumn)
+        Public Function IsDescuento_FacturaNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_FacturaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetCondicionesPagoNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.CondicionesPagoColumn) = Global.System.Convert.DBNull
+        Public Sub SetDescuento_FacturaNull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_FacturaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEstatusNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.EstatusColumn)
+        Public Function IsUnitario_FacturaNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Unitario_FacturaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEstatusNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.EstatusColumn) = Global.System.Convert.DBNull
+        Public Sub SetUnitario_FacturaNull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Unitario_FacturaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsMetodoPagoNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.MetodoPagoColumn)
+        Public Function IsDescuento_TotalNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_TotalColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetMetodoPagoNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.MetodoPagoColumn) = Global.System.Convert.DBNull
+        Public Sub SetDescuento_TotalNull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_TotalColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsLugarExpedicionNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.LugarExpedicionColumn)
+        Public Function IsDescuento_IVANull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_IVAColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetLugarExpedicionNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.LugarExpedicionColumn) = Global.System.Convert.DBNull
+        Public Sub SetDescuento_IVANull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_IVAColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsCadena_OriginalNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.Cadena_OriginalColumn)
+        Public Function IsDescuento_UnitarioNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_UnitarioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetCadena_OriginalNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.Cadena_OriginalColumn) = Global.System.Convert.DBNull
+        Public Sub SetDescuento_UnitarioNull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_UnitarioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsNoCertificado_EmisorNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.NoCertificado_EmisorColumn)
+        Public Function IsDescuento_AplicadoNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_AplicadoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetNoCertificado_EmisorNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.NoCertificado_EmisorColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsTipo_RelacionNull() As Boolean
-            Return Me.IsNull(Me.tablepFACTURA_SAT_CFDI_B2.Tipo_RelacionColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetTipo_RelacionNull()
-            Me(Me.tablepFACTURA_SAT_CFDI_B2.Tipo_RelacionColumn) = Global.System.Convert.DBNull
+        Public Sub SetDescuento_AplicadoNull()
+            Me(Me.tablepFACTURA_SAT_EGRESOS_CONCEPTOS.Descuento_AplicadoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1549,16 +1102,16 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Class pFACTURA_SAT_CFDI_B2RowChangeEvent
+    Public Class pFACTURA_SAT_EGRESOS_CONCEPTOSRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As pFACTURA_SAT_CFDI_B2Row
+        Private eventRow As pFACTURA_SAT_EGRESOS_CONCEPTOSRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New(ByVal row As pFACTURA_SAT_CFDI_B2Row, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As pFACTURA_SAT_EGRESOS_CONCEPTOSRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1566,7 +1119,7 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Row() As pFACTURA_SAT_CFDI_B2Row
+        Public ReadOnly Property Row() As pFACTURA_SAT_EGRESOS_CONCEPTOSRow
             Get
                 Return Me.eventRow
             End Get
@@ -1582,7 +1135,7 @@ Partial Public Class DataSet_pFACTURA_SAT_CFDI_B2
     End Class
 End Class
 
-Namespace DataSet_pFACTURA_SAT_CFDI_B2TableAdapters
+Namespace DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOSTableAdapters
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -1593,7 +1146,7 @@ Namespace DataSet_pFACTURA_SAT_CFDI_B2TableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class pFACTURA_SAT_CFDI_B2TableAdapter
+    Partial Public Class pFACTURA_SAT_EGRESOS_CONCEPTOSTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -1710,31 +1263,21 @@ Namespace DataSet_pFACTURA_SAT_CFDI_B2TableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "pFACTURA_SAT_CFDI_B2"
-            tableMapping.ColumnMappings.Add("UUID", "UUID")
-            tableMapping.ColumnMappings.Add("Fecha", "Fecha")
-            tableMapping.ColumnMappings.Add("TipodeComprobante", "TipodeComprobante")
-            tableMapping.ColumnMappings.Add("Subtotal", "Subtotal")
-            tableMapping.ColumnMappings.Add("Total", "Total")
-            tableMapping.ColumnMappings.Add("Moneda", "Moneda")
-            tableMapping.ColumnMappings.Add("FormaPago", "FormaPago")
-            tableMapping.ColumnMappings.Add("Serie", "Serie")
-            tableMapping.ColumnMappings.Add("Folio", "Folio")
-            tableMapping.ColumnMappings.Add("Emisor_Rfc", "Emisor_Rfc")
-            tableMapping.ColumnMappings.Add("Emisor_Nombre", "Emisor_Nombre")
-            tableMapping.ColumnMappings.Add("Emisro_Regimen_Fiscal", "Emisro_Regimen_Fiscal")
-            tableMapping.ColumnMappings.Add("Receptor_RFC", "Receptor_RFC")
-            tableMapping.ColumnMappings.Add("receptor_UsoCFDI", "receptor_UsoCFDI")
-            tableMapping.ColumnMappings.Add("Receptor_Nombnre", "Receptor_Nombnre")
+            tableMapping.DataSetTable = "pFACTURA_SAT_EGRESOS_CONCEPTOS"
+            tableMapping.ColumnMappings.Add("Cantidad", "Cantidad")
+            tableMapping.ColumnMappings.Add("Producto", "Producto")
+            tableMapping.ColumnMappings.Add("Costo", "Costo")
+            tableMapping.ColumnMappings.Add("Unitario", "Unitario")
+            tableMapping.ColumnMappings.Add("IVAUnitario", "IVAUnitario")
+            tableMapping.ColumnMappings.Add("IMPORTE", "IMPORTE")
             tableMapping.ColumnMappings.Add("Descuento", "Descuento")
-            tableMapping.ColumnMappings.Add("TipoCambio", "TipoCambio")
-            tableMapping.ColumnMappings.Add("CondicionesPago", "CondicionesPago")
-            tableMapping.ColumnMappings.Add("Estatus", "Estatus")
-            tableMapping.ColumnMappings.Add("MetodoPago", "MetodoPago")
-            tableMapping.ColumnMappings.Add("LugarExpedicion", "LugarExpedicion")
-            tableMapping.ColumnMappings.Add("Cadena_Original", "Cadena_Original")
-            tableMapping.ColumnMappings.Add("NoCertificado_Emisor", "NoCertificado_Emisor")
-            tableMapping.ColumnMappings.Add("Tipo_Relacion", "Tipo_Relacion")
+            tableMapping.ColumnMappings.Add("Conteo", "Conteo")
+            tableMapping.ColumnMappings.Add("Descuento_Factura", "Descuento_Factura")
+            tableMapping.ColumnMappings.Add("Unitario_Factura", "Unitario_Factura")
+            tableMapping.ColumnMappings.Add("Descuento_Total", "Descuento_Total")
+            tableMapping.ColumnMappings.Add("Descuento_IVA", "Descuento_IVA")
+            tableMapping.ColumnMappings.Add("Descuento_Unitario", "Descuento_Unitario")
+            tableMapping.ColumnMappings.Add("Descuento_Aplicado", "Descuento_Aplicado")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1751,17 +1294,23 @@ Namespace DataSet_pFACTURA_SAT_CFDI_B2TableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "dbo.pFACTURA_SAT_CFDI_B2"
+            Me._commandCollection(0).CommandText = "dbo.pFACTURA_SAT_EGRESOS_CONCEPTOS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UUID", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet_pFACTURA_SAT_CFDI_B2.pFACTURA_SAT_CFDI_B2DataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable, ByVal UUID As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (UUID Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(UUID,String)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -1773,9 +1322,14 @@ Namespace DataSet_pFACTURA_SAT_CFDI_B2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DataSet_pFACTURA_SAT_CFDI_B2.pFACTURA_SAT_CFDI_B2DataTable
+        Public Overloads Overridable Function GetData(ByVal UUID As String) As DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet_pFACTURA_SAT_CFDI_B2.pFACTURA_SAT_CFDI_B2DataTable = New DataSet_pFACTURA_SAT_CFDI_B2.pFACTURA_SAT_CFDI_B2DataTable()
+            If (UUID Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(UUID,String)
+            End If
+            Dim dataTable As DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable = New DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.pFACTURA_SAT_EGRESOS_CONCEPTOSDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -1850,7 +1404,7 @@ Namespace DataSet_pFACTURA_SAT_CFDI_B2TableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Function UpdateUpdatedRows(ByVal dataSet As DataSet_pFACTURA_SAT_CFDI_B2, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateUpdatedRows(ByVal dataSet As DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1860,7 +1414,7 @@ Namespace DataSet_pFACTURA_SAT_CFDI_B2TableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Function UpdateInsertedRows(ByVal dataSet As DataSet_pFACTURA_SAT_CFDI_B2, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateInsertedRows(ByVal dataSet As DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1870,7 +1424,7 @@ Namespace DataSet_pFACTURA_SAT_CFDI_B2TableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Function UpdateDeletedRows(ByVal dataSet As DataSet_pFACTURA_SAT_CFDI_B2, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateDeletedRows(ByVal dataSet As DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1906,7 +1460,7 @@ Namespace DataSet_pFACTURA_SAT_CFDI_B2TableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overridable Function UpdateAll(ByVal dataSet As DataSet_pFACTURA_SAT_CFDI_B2) As Integer
+        Public Overridable Function UpdateAll(ByVal dataSet As DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If

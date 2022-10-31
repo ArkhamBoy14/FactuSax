@@ -4,6 +4,17 @@ Imports FactuSax.mx.com.expidetufactura.cancelacionxpdv33
 Imports Wisej.Web
 
 Public Class Factura_Cancelacion
+
+
+    Private Sub RibbonBar1_ItemClick(sender As Object, e As Ext.RibbonBar.RibbonBarItemEventArgs) Handles RibbonBar1.ItemClick
+        Select Case e.Item.Name
+            Case RBBSalir.Name
+                Me.Close()
+            Case RBBSustitucion.Name
+                Dim sustitucion As New Facturacion_Sustitucion
+                sustitucion.ShowDialogAsync()
+        End Select
+    End Sub
     Private Sub Factura_Cancelacion_Load(sender As Object, e As EventArgs) Handles Me.Load
         CbxMotivoCancelacion.LlenarListBox("pCAT_MOTIVOS_CANCELACION_SAT_B", "CLAVE", "descripx")
         consultar()
@@ -186,4 +197,5 @@ Public Class Factura_Cancelacion
         Dim facturacion As New Factura_Cancelacion
         facturacion.Show()
     End Sub
+
 End Class

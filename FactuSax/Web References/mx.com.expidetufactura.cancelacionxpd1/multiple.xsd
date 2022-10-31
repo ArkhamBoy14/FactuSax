@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://concretepage.com/soap" elementFormDefault="qualified" targetNamespace="http://concretepage.com/soap" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="cancelacionMultipleRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="usuario" type="xs:string" />
+        <xs:element name="contrasena" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="correo" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="correoCopia" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="pdfGenerar" type="xs:boolean" />
+        <xs:element minOccurs="0" maxOccurs="1" name="pdfNoPlantilla" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="telefono" type="xs:string" />
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="parametros" type="tns:parametrosCancelaMultiple" />
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cancelacionMultipleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="respuestaCliente" type="tns:respuestaCliente" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="parametrosCancelaMultiple">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="noCertificado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rfcEmisor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rfcReceptor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="total" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="uuid" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="motivo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="folioSustitucion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="xmlB64" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="respuestaCliente">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:string" />
+      <xs:element name="mensaje" type="xs:string" />
+      <xs:element name="responseCancelar" type="xs:string" />
+      <xs:element name="responseConsulta" type="xs:string" />
+      <xs:element name="responseRelacionados" type="xs:string" />
+      <xs:element name="idTransaccion" type="xs:string" />
+      <xs:element name="pdf" type="xs:hexBinary" />
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="xmlRelacionados" type="tns:xmlRelacionado" />
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="xmlRelacionado">
+    <xs:sequence>
+      <xs:element name="xml" type="xs:string" />
+      <xs:element name="uuid" type="xs:string" />
+      <xs:element name="emisor" type="xs:string" />
+      <xs:element name="receptor" type="xs:string" />
+      <xs:element name="tipo" type="xs:string" />
+      <xs:element name="pdf" type="xs:hexBinary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="parametrosCancelaCfdi">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="noCertificado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rfcEmisor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rfcReceptor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="total" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="uuid" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="motivo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="folioSustitucion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="xmlB64" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="parametrosConsultarCfdi">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="noCertificado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rfcEmisor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rfcReceptor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="total" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="uuid" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="xmlB64" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="parametrosObtenerCfdisRelacionados">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="noCertificado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rfcEmisor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rfcReceptor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="uuid" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="xmlB64" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="parametrosObtenerPeticionesPendientes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="noCertificado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rfcReceptor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="fecha" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="xmlB64" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="parametrosProcesarRespuesta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="noCertificado" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rfcReceptor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="fecha" type="xs:string" />
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="folios" type="tns:folio" />
+      </xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="xmlB64" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cfdiResponse">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:string" />
+      <xs:element name="mensaje" type="xs:string" />
+      <xs:element name="idTransaccion" type="xs:string" />
+      <xs:element name="responseGenerico" type="tns:responseGenerico" />
+      <xs:element name="bitacoraXsd" type="tns:bitacoraXsd" />
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="xmlRelacionados" type="tns:xmlRelacionado" />
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cfdiResponseQr">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:string" />
+      <xs:element name="mensaje" type="xs:string" />
+      <xs:element name="idTransaccion" type="xs:string" />
+      <xs:element name="responseGenericoQr" type="tns:responseGenericoQr" />
+      <xs:element name="bitacoraXsd" type="tns:bitacoraXsd" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseGenericoQr">
+    <xs:sequence>
+      <xs:element name="servicio" type="tns:servicioGenerico" />
+      <xs:element name="qrGenerico" type="tns:qrGenerico" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseGenerico">
+    <xs:sequence>
+      <xs:element name="servicio" type="tns:servicioGenerico" />
+      <xs:element name="token" type="tns:tokenGenerico" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="emailParametros">
+    <xs:sequence>
+      <xs:element name="asunto" type="xs:string" />
+      <xs:element name="mensaje" type="xs:string" />
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="documentosAdjuntos" type="tns:documentoAdjunto" />
+      </xs:sequence>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="destinatarios" type="xs:string" />
+      </xs:sequence>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="copiados" type="xs:string" />
+      </xs:sequence>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="copiadosOcultos" type="xs:string" />
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="servicioGenerico">
+    <xs:sequence>
+      <xs:element name="request" type="xs:string" />
+      <xs:element name="response" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tokenGenerico">
+    <xs:sequence>
+      <xs:element name="request" type="xs:string" />
+      <xs:element name="response" type="xs:string" />
+      <xs:element name="token" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qrGenerico">
+    <xs:sequence>
+      <xs:element name="request" type="xs:string" />
+      <xs:element name="response" type="xs:string" />
+      <xs:element name="qr" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="folio">
+    <xs:sequence>
+      <xs:element name="uuid" type="xs:string" />
+      <xs:element name="respuesta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bitacoraXsd">
+    <xs:sequence>
+      <xs:element name="ruta" type="xs:string" />
+      <xs:element name="fecha" type="xs:dateTime" />
+      <xs:element name="contenido" type="xs:string" />
+      <xs:element name="codigo" type="xs:string" />
+      <xs:element name="mensaje" type="xs:string" />
+      <xs:element name="correo" type="xs:string" />
+      <xs:element name="codigoEstatus" type="xs:string" />
+      <xs:element name="esCancelable" type="xs:string" />
+      <xs:element name="estatusCancelacion" type="xs:string" />
+      <xs:element name="idUsuario" type="xs:string" />
+      <xs:element name="numeroSms" type="xs:string" />
+      <xs:element name="rfcEmisor" type="xs:string" />
+      <xs:element name="rfcReceptor" type="xs:string" />
+      <xs:element name="total" type="xs:string" />
+      <xs:element name="transaccion" type="xs:string" />
+      <xs:element name="uuidCancelar" type="xs:string" />
+      <xs:element name="tipoOperacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="smsParametros">
+    <xs:sequence>
+      <xs:element name="mensaje" type="xs:string" />
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="numeros" type="xs:string" />
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentoAdjunto">
+    <xs:sequence>
+      <xs:element name="documento" type="xs:hexBinary" />
+      <xs:element name="nombreArchivo" type="xs:string" />
+      <xs:element name="tipo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceResponse">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:string" />
+      <xs:element name="mensaje" type="xs:string" />
+      <xs:element name="idTransaccion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="parametrosDirecto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="xmlb64" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
