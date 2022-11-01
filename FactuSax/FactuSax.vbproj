@@ -688,7 +688,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\LOGOS\Wallpaper\" />
-    <Folder Include="Themes\" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -1137,6 +1136,7 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Themes\RibbonBar.mixin.theme" />
     <None Include="Web References\localhostSISLAB\Actualizar_Estatus.wsdl" />
     <Content Include="Web References\localhostSISLAB\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
