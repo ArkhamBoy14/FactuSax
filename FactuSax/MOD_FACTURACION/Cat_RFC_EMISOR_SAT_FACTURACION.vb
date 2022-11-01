@@ -8,9 +8,9 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
     Dim x As String
     Dim y As String
     Dim c As Integer
-    Dim modifico As Boolean
+    Dim modifico As Boolean = False
     Dim existe2 As Boolean = False
-    Dim cambio As Boolean
+    Dim cambio As Boolean = False
     Dim dt_cambiado As DataTable
     Dim RFC2 As String
     Dim RowIndex As Integer
@@ -18,6 +18,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
     Dim boton As String
     Public ME_EMISOR_RECEPTOR As String
     Public ME_EMPRESA As String
+    Dim ME_CARGADO As Boolean = False
     Dim URL_Relativa_Key, URL_Relativa_Cer As String
 
     Sub New(Emisor_Receptor As Boolean, Empresa As Boolean)
@@ -787,7 +788,10 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
     End Sub
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles rbHabilitado.CheckedChanged
-        SubConsultar()
+        If ME_CARGADO = True Then
+
+            SubConsultar()
+        End If
     End Sub
 
     Private Sub Upload1_Uploaded(sender As Object, e As UploadedEventArgs) Handles Upload1.Uploaded

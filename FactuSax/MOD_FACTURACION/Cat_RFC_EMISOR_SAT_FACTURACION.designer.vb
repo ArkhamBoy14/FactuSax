@@ -134,6 +134,10 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.cCve_Receptor = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.cReceptor_Rescripcion = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.cReceptorX = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.Panel2 = New Wisej.Web.Panel()
+        Me.rbDeshabilitado = New Wisej.Web.RadioButton()
+        Me.rbHabilitado = New Wisej.Web.RadioButton()
+        Me.Label22 = New Wisej.Web.Label()
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B = New FactuSax.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B()
         Me.RibbonBar1 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
@@ -146,10 +150,6 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.RBBI__Nuevo = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBI_Guardar = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBI_Salir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
-        Me.Panel2 = New Wisej.Web.Panel()
-        Me.Label22 = New Wisej.Web.Label()
-        Me.rbHabilitado = New Wisej.Web.RadioButton()
-        Me.rbDeshabilitado = New Wisej.Web.RadioButton()
         Me.Panel1.SuspendLayout()
         Me.GBEmisor.SuspendLayout()
         CType(Me.pictureContrasena, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -160,9 +160,9 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataGridView1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -660,10 +660,12 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         '
         'Opc_Tipo_Fisica
         '
+        Me.Opc_Tipo_Fisica.Checked = True
         Me.Opc_Tipo_Fisica.Location = New System.Drawing.Point(282, 39)
         Me.Opc_Tipo_Fisica.Name = "Opc_Tipo_Fisica"
         Me.Opc_Tipo_Fisica.Size = New System.Drawing.Size(66, 22)
         Me.Opc_Tipo_Fisica.TabIndex = 1
+        Me.Opc_Tipo_Fisica.TabStop = True
         Me.Opc_Tipo_Fisica.Text = "Fisica"
         '
         'Opc_Tipo_Moral
@@ -1059,6 +1061,45 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.cReceptorX.Name = "cReceptorX"
         Me.cReceptorX.Visible = False
         '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.rbDeshabilitado)
+        Me.Panel2.Controls.Add(Me.rbHabilitado)
+        Me.Panel2.Controls.Add(Me.Label22)
+        Me.Panel2.Dock = Wisej.Web.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(636, 26)
+        Me.Panel2.TabIndex = 0
+        Me.Panel2.TabStop = True
+        '
+        'rbDeshabilitado
+        '
+        Me.rbDeshabilitado.Location = New System.Drawing.Point(183, 4)
+        Me.rbDeshabilitado.Name = "rbDeshabilitado"
+        Me.rbDeshabilitado.Size = New System.Drawing.Size(111, 22)
+        Me.rbDeshabilitado.TabIndex = 2
+        Me.rbDeshabilitado.Text = "Deshabilitado"
+        '
+        'rbHabilitado
+        '
+        Me.rbHabilitado.Checked = True
+        Me.rbHabilitado.Location = New System.Drawing.Point(66, 2)
+        Me.rbHabilitado.Name = "rbHabilitado"
+        Me.rbHabilitado.Size = New System.Drawing.Size(90, 22)
+        Me.rbHabilitado.TabIndex = 1
+        Me.rbHabilitado.TabStop = True
+        Me.rbHabilitado.Text = "Habilitado"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(9, 8)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(51, 15)
+        Me.Label22.TabIndex = 0
+        Me.Label22.Text = "Estatus:"
+        '
         'BindingSource1
         '
         Me.BindingSource1.DataSource = Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B
@@ -1129,45 +1170,6 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         Me.RBBI_Salir.Name = "RBBI_Salir"
         Me.RBBI_Salir.Text = "Salir"
         '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.rbDeshabilitado)
-        Me.Panel2.Controls.Add(Me.rbHabilitado)
-        Me.Panel2.Controls.Add(Me.Label22)
-        Me.Panel2.Dock = Wisej.Web.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(636, 26)
-        Me.Panel2.TabIndex = 0
-        Me.Panel2.TabStop = True
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(9, 8)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(51, 15)
-        Me.Label22.TabIndex = 0
-        Me.Label22.Text = "Estatus:"
-        '
-        'rbHabilitado
-        '
-        Me.rbHabilitado.Checked = True
-        Me.rbHabilitado.Location = New System.Drawing.Point(66, 2)
-        Me.rbHabilitado.Name = "rbHabilitado"
-        Me.rbHabilitado.Size = New System.Drawing.Size(90, 22)
-        Me.rbHabilitado.TabIndex = 1
-        Me.rbHabilitado.TabStop = True
-        Me.rbHabilitado.Text = "Habilitado"
-        '
-        'rbDeshabilitado
-        '
-        Me.rbDeshabilitado.Location = New System.Drawing.Point(183, 4)
-        Me.rbDeshabilitado.Name = "rbDeshabilitado"
-        Me.rbDeshabilitado.Size = New System.Drawing.Size(111, 22)
-        Me.rbDeshabilitado.TabIndex = 2
-        Me.rbDeshabilitado.Text = "Deshabilitado"
-        '
         'Cat_RFC_EMISOR_SAT_FACTURACION
         '
         Me.ClientSize = New System.Drawing.Size(1069, 685)
@@ -1192,10 +1194,10 @@ Partial Class Cat_RFC_EMISOR_SAT_FACTURACION
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataGridView1.ResumeLayout(False)
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet_pCAT_RFC_EMISOR_SAT_FACTURACION_B, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
