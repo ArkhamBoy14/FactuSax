@@ -13,17 +13,17 @@ Option Explicit On
 
 
 Namespace My
-    
-    <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.2.0.0"),  _
-     Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
+
+    <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0"),
+     Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
-        
-        Private Shared defaultInstance As MySettings = CType(Global.System.Configuration.ApplicationSettingsBase.Synchronized(New MySettings()),MySettings)
-        
+
+        Private Shared defaultInstance As MySettings = CType(Global.System.Configuration.ApplicationSettingsBase.Synchronized(New MySettings()), MySettings)
+
 #Region "Funcionalidad para autoguardar My.Settings"
-#If _MyType = "WindowsForms" Then
+#If _MYTYPE = "WindowsForms" Then
     Private Shared addedHandler As Boolean
 
     Private Shared addedHandlerLockObject As New Object
@@ -36,11 +36,11 @@ Namespace My
     End Sub
 #End If
 #End Region
-        
+
         Public Shared ReadOnly Property [Default]() As MySettings
             Get
-                
-#If _MyType = "WindowsForms" Then
+
+#If _MYTYPE = "WindowsForms" Then
                If Not addedHandler Then
                     SyncLock addedHandlerLockObject
                         If Not addedHandler Then
@@ -53,78 +53,125 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://74.208.239.165/WebService_Timbres/Timbres.asmx")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),
+         Global.System.Configuration.DefaultSettingValueAttribute("http://74.208.239.165/WebService_Timbres/Timbres.asmx")>
         Public ReadOnly Property FactuSax_WebService_Timbres_Timbres() As String
             Get
-                Return CType(Me("FactuSax_WebService_Timbres_Timbres"),String)
+                Return CType(Me("FactuSax_WebService_Timbres_Timbres"), String)
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("https://pruebastimbrado.expidetufactura.com.mx:8451/preproduccion/TimbradoWS")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),
+         Global.System.Configuration.DefaultSettingValueAttribute("https://pruebastimbrado.expidetufactura.com.mx:8451/preproduccion/TimbradoWS")>
         Public ReadOnly Property FactuSax_ExpideTuFactura_TimbradoWSService() As String
             Get
-                Return CType(Me("FactuSax_ExpideTuFactura_TimbradoWSService"),String)
+                Return CType(Me("FactuSax_ExpideTuFactura_TimbradoWSService"), String)
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://74.208.239.165/WebService_iSISLAB/Actualizar_Estatus.asmx")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),
+         Global.System.Configuration.DefaultSettingValueAttribute("http://74.208.239.165/WebService_iSISLAB/Actualizar_Estatus.asmx")>
         Public ReadOnly Property FactuSax_WebService_InsercionSISLAB_Actualizar_Estatus() As String
             Get
-                Return CType(Me("FactuSax_WebService_InsercionSISLAB_Actualizar_Estatus"),String)
+                Return CType(Me("FactuSax_WebService_InsercionSISLAB_Actualizar_Estatus"), String)
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://localhost:13675/Actualizar_Estatus.asmx")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),
+         Global.System.Configuration.DefaultSettingValueAttribute("http://localhost:13675/Actualizar_Estatus.asmx")>
         Public ReadOnly Property FactuSax_localhostSISLAB_Actualizar_Estatus() As String
             Get
-                Return CType(Me("FactuSax_localhostSISLAB_Actualizar_Estatus"),String)
+                Return CType(Me("FactuSax_localhostSISLAB_Actualizar_Estatus"), String)
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("https://timbradodp.expidetufactura.com.mx:8453/timbrado/TimbradoWS")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),
+         Global.System.Configuration.DefaultSettingValueAttribute("https://timbradodp.expidetufactura.com.mx:8453/timbrado/TimbradoWS")>
         Public ReadOnly Property FactuSax_XpdProduccion_TimbradoWSService() As String
             Get
-                Return CType(Me("FactuSax_XpdProduccion_TimbradoWSService"),String)
+                Return CType(Me("FactuSax_XpdProduccion_TimbradoWSService"), String)
+            End Get
+        End Property
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),
+         Global.System.Configuration.DefaultSettingValueAttribute("https://appliance-qa.expidetufactura.com.mx:8585/CoreTimbrado.test/TimbradoWSSoap" &
+            "Single")>
+        Public ReadOnly Property FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle() As String
+            Get
+                Return CType(Me("FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle"), String)
+            End Get
+        End Property
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),
+         Global.System.Configuration.DefaultSettingValueAttribute("https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soap" &
+            "ws")>
+        Public ReadOnly Property FactuSax_mx_com_expidetufactura_cancelacionxpd_Produccion_CancelacionPortService() As String
+            Get
+                Return CType(Me("FactuSax_mx_com_expidetufactura_cancelacionxpd_Produccion_CancelacionPortService"), String)
+            End Get
+        End Property
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),
+         Global.System.Configuration.DefaultSettingValueAttribute("https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soap" &
+            "ws")>
+        Public ReadOnly Property FactuSax_mx_com_expidetufactura_cancelacionxpd_produccion_v3_CancelacionPortService() As String
+            Get
+                Return CType(Me("FactuSax_mx_com_expidetufactura_cancelacionxpd_produccion_v3_CancelacionPortServi" &
+                    "ce"), String)
+            End Get
+        End Property
+
+
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soap"& _ 
+            "ws")>  _
+        Public ReadOnly Property FactuSax_mx_com_expidetufactura_cancelacionxpd_CancelacionPortService() As String
+            Get
+                Return CType(Me("FactuSax_mx_com_expidetufactura_cancelacionxpd_CancelacionPortService"),String)
             End Get
         End Property
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("https://appliance-qa.expidetufactura.com.mx:8585/CoreTimbrado.test/TimbradoWSSoap"& _ 
-            "Single")>  _
-        Public ReadOnly Property FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("https://cancelacionxpd.expidetufactura.com.mx:1443/coreCancelacionProduccion/soap"& _ 
+            "ws")>  _
+        Public ReadOnly Property FactuSax_mx_com_expidetufactura_cancelacionxpd1_CancelacionPortService() As String
             Get
-                Return CType(Me("FactuSax_xpdPruebas4_0_TimbradoWSSoapSingle"),String)
+                Return CType(Me("FactuSax_mx_com_expidetufactura_cancelacionxpd1_CancelacionPortService"),String)
             End Get
         End Property
     End Class
 End Namespace
 
 Namespace My
-    
-    <Global.Microsoft.VisualBasic.HideModuleNameAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
+
+    <Global.Microsoft.VisualBasic.HideModuleNameAttribute(),
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>
     Friend Module MySettingsProperty
-        
-        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
+
+        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>
         Friend ReadOnly Property Settings() As Global.FactuSax.My.MySettings
             Get
                 Return Global.FactuSax.My.MySettings.Default

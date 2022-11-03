@@ -203,8 +203,10 @@ Public Class Facturacion_Electronica_CFD_33
     End Sub
 
     Sub CargarRFC()
-        ReDim Utilidades.ParametersX_Global(0)
+        ReDim Utilidades.ParametersX_Global(1)
         Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+        Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
+
         CBSReceptor.Clear()
         CBEmisor.Clear()
         CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
@@ -244,10 +246,10 @@ Public Class Facturacion_Electronica_CFD_33
     Private Sub BTRerceptor_Click(sender As Object, e As EventArgs) Handles BTEm.Click, BTRec.Click
         Dim Emisor_Receptor As Boolean
         If sender.NAME = "BTEm" Then
-            Emisor_Receptor = 1
+            Emisor_Receptor = True
 
         ElseIf sender.name = "BTRec" Then
-            Emisor_Receptor = 0
+            Emisor_Receptor = False
         End If
         Application.Session("Cve_Cliente") = CbxClientes.SelectedValue
         Dim f = New Cat_RFC_EMISOR_SAT_FACTURACION(Emisor_Receptor, 0)
@@ -258,7 +260,10 @@ Public Class Facturacion_Electronica_CFD_33
 
     Sub cerrado_emisor()
 
-        ReDim Utilidades.ParametersX_Global(0)
+        ReDim Utilidades.ParametersX_Global(1)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+        Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
+
         CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
         Dim dt_defecto = CBEmisor.dataTable()
         For i As Integer = 0 To dt_defecto.Rows.Count - 1
@@ -266,7 +271,10 @@ Public Class Facturacion_Electronica_CFD_33
                 CBEmisor.SelectedValue = dt_defecto.Rows(i).Item("RFC")
             End If
         Next
-        ReDim Utilidades.ParametersX_Global(0)
+        ReDim Utilidades.ParametersX_Global(1)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+        Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
+
         CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
 
     End Sub
@@ -934,18 +942,12 @@ Public Class Facturacion_Electronica_CFD_33
             End If
         Next
         Dim DESCUENTOX As Double
-        'DESCUENTOX = (descuento * 100 / total) / 100
         For I As Integer = 0 To DGVConceptos.Rows.Count - 1
-            'DESCUENTOX = descuento + DGVConceptos.Rows(I).Cells("cDescuento").Value
             DESCUENTOX += DGVConceptos.Rows(I).Cells("cDescuento").Value
-
-            'DGVConceptos.Rows(I).Cells("cDescuento").Value = Round((DGVConceptos.Rows(I).Cells("cImporte").Value * DESCUENTOX), 2)
         Next
-        'DESCUENTOX = DESCUENTOX + descuento
         totaldesc = total - DESCUENTOX
         iva = total * Double.Parse(ValorIVA)
         SUBTOTAL = totaldesc
-        'SUBTOTAL = total
         If AplicaISR = True Then
             risr = SUBTOTAL * (ValorISR)
         End If

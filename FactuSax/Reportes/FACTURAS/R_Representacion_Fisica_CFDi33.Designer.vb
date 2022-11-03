@@ -97,8 +97,8 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         Me.DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B1 = New FactuSax.DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B()
         Me.PREPRESENTACION_FISICA_CFDI_3_3_BTableAdapter = New FactuSax.DataSet_pREPRESENTACION_FISICA_CFDI_3_3_BTableAdapters.pREPRESENTACION_FISICA_CFDI_3_3_BTableAdapter()
         Me.GroupFooter2 = New DevExpress.XtraReports.UI.GroupFooterBand()
-        Me.XrBarCode1 = New DevExpress.XtraReports.UI.XRBarCode()
         Me.XrLabel61 = New DevExpress.XtraReports.UI.XRLabel()
+        Me.XrBarCode1 = New DevExpress.XtraReports.UI.XRBarCode()
         Me.XrLabel60 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel59 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrLabel58 = New DevExpress.XtraReports.UI.XRLabel()
@@ -384,7 +384,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel47
         '
-        Me.XrLabel47.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel47.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel47.LocationFloat = New DevExpress.Utils.PointFloat(186.5973!, 102.0833!)
         Me.XrLabel47.Name = "XrLabel47"
         Me.XrLabel47.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -416,7 +416,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel42
         '
-        Me.XrLabel42.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel42.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel42.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 294.0833!)
         Me.XrLabel42.Name = "XrLabel42"
         Me.XrLabel42.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -461,7 +461,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel7
         '
-        Me.XrLabel7.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel7.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(9.999998!, 271.0832!)
         Me.XrLabel7.Name = "XrLabel7"
         Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -473,7 +473,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel6
         '
-        Me.XrLabel6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(9.999998!, 248.0833!)
         Me.XrLabel6.Name = "XrLabel6"
         Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -485,7 +485,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel5
         '
-        Me.XrLabel5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(9.999998!, 225.0833!)
         Me.XrLabel5.Name = "XrLabel5"
         Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -508,12 +508,12 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.XrPictureBox1.Name = "XrPictureBox1"
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(351.736!, 102.0833!)
-        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage
         '
         'XrLabel1
         '
         Me.XrLabel1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.Razon_Social")})
-        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold)
         Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(351.736!, 0!)
         Me.XrLabel1.Name = "XrLabel1"
         Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -572,7 +572,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         'XrTableCell5
         '
         Me.XrTableCell5.BackColor = System.Drawing.Color.Transparent
-        Me.XrTableCell5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrTableCell5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell5.ForeColor = System.Drawing.Color.Black
         Me.XrTableCell5.Name = "XrTableCell5"
         Me.XrTableCell5.StylePriority.UseBackColor = False
@@ -587,7 +587,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         Me.XrTableCell7.Borders = DevExpress.XtraPrinting.BorderSide.None
         Me.XrTableCell7.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.FECHA_EMISION")})
-        Me.XrTableCell7.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.XrTableCell7.Font = New System.Drawing.Font("Times New Roman", 9.75!)
         Me.XrTableCell7.Name = "XrTableCell7"
         Me.XrTableCell7.StylePriority.UseBorders = False
         Me.XrTableCell7.StylePriority.UseFont = False
@@ -613,7 +613,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         Me.XrTableCell6.BackColor = System.Drawing.Color.Transparent
         Me.XrTableCell6.CanGrow = False
-        Me.XrTableCell6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrTableCell6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell6.ForeColor = System.Drawing.Color.Black
         Me.XrTableCell6.Name = "XrTableCell6"
         Me.XrTableCell6.StylePriority.UseBackColor = False
@@ -628,7 +628,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         Me.XrTableCell9.Borders = DevExpress.XtraPrinting.BorderSide.None
         Me.XrTableCell9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.LugarExpedicion")})
-        Me.XrTableCell9.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.XrTableCell9.Font = New System.Drawing.Font("Times New Roman", 9.75!)
         Me.XrTableCell9.Name = "XrTableCell9"
         Me.XrTableCell9.StylePriority.UseBorders = False
         Me.XrTableCell9.StylePriority.UseFont = False
@@ -653,7 +653,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         'XrTableCell8
         '
         Me.XrTableCell8.BackColor = System.Drawing.Color.Transparent
-        Me.XrTableCell8.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrTableCell8.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell8.ForeColor = System.Drawing.Color.Black
         Me.XrTableCell8.Name = "XrTableCell8"
         Me.XrTableCell8.StylePriority.UseBackColor = False
@@ -691,7 +691,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         'XrTableCell1
         '
         Me.XrTableCell1.BackColor = System.Drawing.Color.Transparent
-        Me.XrTableCell1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrTableCell1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell1.ForeColor = System.Drawing.Color.Black
         Me.XrTableCell1.Name = "XrTableCell1"
         Me.XrTableCell1.StylePriority.UseBackColor = False
@@ -706,7 +706,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         Me.XrTableCell2.Borders = DevExpress.XtraPrinting.BorderSide.None
         Me.XrTableCell2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.folio")})
-        Me.XrTableCell2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.XrTableCell2.Font = New System.Drawing.Font("Times New Roman", 9.75!)
         Me.XrTableCell2.Name = "XrTableCell2"
         Me.XrTableCell2.StylePriority.UseBorders = False
         Me.XrTableCell2.StylePriority.UseFont = False
@@ -750,7 +750,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel41
         '
-        Me.XrLabel41.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel41.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel41.LocationFloat = New DevExpress.Utils.PointFloat(9.99995!, 69.00005!)
         Me.XrLabel41.Name = "XrLabel41"
         Me.XrLabel41.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -762,7 +762,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel40
         '
-        Me.XrLabel40.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel40.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel40.LocationFloat = New DevExpress.Utils.PointFloat(10.00014!, 46.00003!)
         Me.XrLabel40.Name = "XrLabel40"
         Me.XrLabel40.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -774,7 +774,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel39
         '
-        Me.XrLabel39.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel39.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel39.LocationFloat = New DevExpress.Utils.PointFloat(10.00014!, 22.99995!)
         Me.XrLabel39.Name = "XrLabel39"
         Me.XrLabel39.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -786,7 +786,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel38
         '
-        Me.XrLabel38.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel38.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel38.LocationFloat = New DevExpress.Utils.PointFloat(10.00014!, 0!)
         Me.XrLabel38.Name = "XrLabel38"
         Me.XrLabel38.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -863,7 +863,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel31
         '
-        Me.XrLabel31.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel31.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel31.LocationFloat = New DevExpress.Utils.PointFloat(617.0833!, 91.99982!)
         Me.XrLabel31.Name = "XrLabel31"
         Me.XrLabel31.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -875,7 +875,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel30
         '
-        Me.XrLabel30.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel30.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel30.LocationFloat = New DevExpress.Utils.PointFloat(617.0833!, 68.99986!)
         Me.XrLabel30.Name = "XrLabel30"
         Me.XrLabel30.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -887,7 +887,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel29
         '
-        Me.XrLabel29.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel29.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(617.0833!, 45.99991!)
         Me.XrLabel29.Name = "XrLabel29"
         Me.XrLabel29.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -899,7 +899,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel28
         '
-        Me.XrLabel28.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel28.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel28.LocationFloat = New DevExpress.Utils.PointFloat(617.0833!, 22.99995!)
         Me.XrLabel28.Name = "XrLabel28"
         Me.XrLabel28.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -911,7 +911,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel27
         '
-        Me.XrLabel27.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel27.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel27.LocationFloat = New DevExpress.Utils.PointFloat(617.0833!, 0!)
         Me.XrLabel27.Name = "XrLabel27"
         Me.XrLabel27.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -924,6 +924,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         'DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B1
         '
         Me.DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B1.DataSetName = "DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B"
+        Me.DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B1.EnforceConstraints = False
         Me.DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'PREPRESENTACION_FISICA_CFDI_3_3_BTableAdapter
@@ -932,10 +933,19 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'GroupFooter2
         '
-        Me.GroupFooter2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrBarCode1, Me.XrLabel61, Me.XrLabel60, Me.XrLabel59, Me.XrLabel58, Me.XrLabel57, Me.XrLabel56, Me.XrLabel55, Me.XrLabel54, Me.XrLabel53, Me.XrLabel52, Me.XrLabel51, Me.XrLabel50, Me.XrLabel49, Me.XrLabel48})
-        Me.GroupFooter2.HeightF = 327.167!
+        Me.GroupFooter2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel61, Me.XrBarCode1, Me.XrLabel60, Me.XrLabel59, Me.XrLabel58, Me.XrLabel57, Me.XrLabel56, Me.XrLabel55, Me.XrLabel54, Me.XrLabel53, Me.XrLabel52, Me.XrLabel51, Me.XrLabel50, Me.XrLabel49, Me.XrLabel48})
+        Me.GroupFooter2.HeightF = 420.917!
         Me.GroupFooter2.Level = 1
         Me.GroupFooter2.Name = "GroupFooter2"
+        '
+        'XrLabel61
+        '
+        Me.XrLabel61.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.Cadena_Original")})
+        Me.XrLabel61.LocationFloat = New DevExpress.Utils.PointFloat(9.999726!, 366.25!)
+        Me.XrLabel61.Name = "XrLabel61"
+        Me.XrLabel61.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel61.SizeF = New System.Drawing.SizeF(829.9999!, 54.66698!)
+        Me.XrLabel61.Text = "XrLabel61"
         '
         'XrBarCode1
         '
@@ -952,30 +962,23 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         QrCodeGenerator1.Version = DevExpress.XtraPrinting.BarCode.QRCodeVersion.Version1
         Me.XrBarCode1.Symbology = QrCodeGenerator1
         '
-        'XrLabel61
-        '
-        Me.XrLabel61.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.Cadena_Original")})
-        Me.XrLabel61.LocationFloat = New DevExpress.Utils.PointFloat(10.00036!, 281.6667!)
-        Me.XrLabel61.Name = "XrLabel61"
-        Me.XrLabel61.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel61.SizeF = New System.Drawing.SizeF(829.9999!, 45.50031!)
-        Me.XrLabel61.Text = "XrLabel61"
-        '
         'XrLabel60
         '
         Me.XrLabel60.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.SellaSAT")})
-        Me.XrLabel60.LocationFloat = New DevExpress.Utils.PointFloat(10.00036!, 219.0001!)
+        Me.XrLabel60.LocationFloat = New DevExpress.Utils.PointFloat(9.999943!, 255.5831!)
         Me.XrLabel60.Name = "XrLabel60"
         Me.XrLabel60.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel60.SizeF = New System.Drawing.SizeF(829.9999!, 39.66667!)
+        Me.XrLabel60.SizeF = New System.Drawing.SizeF(829.9999!, 87.66692!)
+        Me.XrLabel60.StylePriority.UseTextAlignment = False
         Me.XrLabel60.Text = "XrLabel60"
+        Me.XrLabel60.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopJustify
         '
         'XrLabel59
         '
         Me.XrLabel59.BackColor = System.Drawing.Color.DimGray
         Me.XrLabel59.BorderColor = System.Drawing.Color.DimGray
         Me.XrLabel59.ForeColor = System.Drawing.Color.White
-        Me.XrLabel59.LocationFloat = New DevExpress.Utils.PointFloat(10.00036!, 258.6667!)
+        Me.XrLabel59.LocationFloat = New DevExpress.Utils.PointFloat(9.999943!, 343.2501!)
         Me.XrLabel59.Name = "XrLabel59"
         Me.XrLabel59.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel59.SizeF = New System.Drawing.SizeF(830.0001!, 23.0!)
@@ -990,7 +993,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         Me.XrLabel58.BackColor = System.Drawing.Color.DimGray
         Me.XrLabel58.ForeColor = System.Drawing.Color.White
-        Me.XrLabel58.LocationFloat = New DevExpress.Utils.PointFloat(10.00034!, 196.0001!)
+        Me.XrLabel58.LocationFloat = New DevExpress.Utils.PointFloat(9.99993!, 232.545!)
         Me.XrLabel58.Name = "XrLabel58"
         Me.XrLabel58.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel58.SizeF = New System.Drawing.SizeF(830.0001!, 23.0!)
@@ -1003,17 +1006,19 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         'XrLabel57
         '
         Me.XrLabel57.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "pREPRESENTACION_FISICA_CFDI_3_3_B.SelloCFD")})
-        Me.XrLabel57.LocationFloat = New DevExpress.Utils.PointFloat(10.00033!, 161.5417!)
+        Me.XrLabel57.LocationFloat = New DevExpress.Utils.PointFloat(9.999917!, 144.875!)
         Me.XrLabel57.Name = "XrLabel57"
         Me.XrLabel57.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel57.SizeF = New System.Drawing.SizeF(829.9999!, 34.45834!)
+        Me.XrLabel57.SizeF = New System.Drawing.SizeF(830.0!, 87.67!)
+        Me.XrLabel57.StylePriority.UseTextAlignment = False
         Me.XrLabel57.Text = "XrLabel57"
+        Me.XrLabel57.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopJustify
         '
         'XrLabel56
         '
         Me.XrLabel56.BackColor = System.Drawing.Color.DimGray
         Me.XrLabel56.ForeColor = System.Drawing.Color.White
-        Me.XrLabel56.LocationFloat = New DevExpress.Utils.PointFloat(10.00014!, 138.5417!)
+        Me.XrLabel56.LocationFloat = New DevExpress.Utils.PointFloat(9.999726!, 121.8751!)
         Me.XrLabel56.Name = "XrLabel56"
         Me.XrLabel56.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel56.SizeF = New System.Drawing.SizeF(830.0001!, 23.0!)
@@ -1069,7 +1074,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel51
         '
-        Me.XrLabel51.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel51.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel51.LocationFloat = New DevExpress.Utils.PointFloat(199.6527!, 69.00005!)
         Me.XrLabel51.Name = "XrLabel51"
         Me.XrLabel51.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -1081,7 +1086,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel50
         '
-        Me.XrLabel50.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel50.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel50.LocationFloat = New DevExpress.Utils.PointFloat(199.6527!, 46.00003!)
         Me.XrLabel50.Name = "XrLabel50"
         Me.XrLabel50.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -1093,7 +1098,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel49
         '
-        Me.XrLabel49.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel49.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel49.LocationFloat = New DevExpress.Utils.PointFloat(199.6527!, 23.00002!)
         Me.XrLabel49.Name = "XrLabel49"
         Me.XrLabel49.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -1105,7 +1110,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
         '
         'XrLabel48
         '
-        Me.XrLabel48.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.XrLabel48.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel48.LocationFloat = New DevExpress.Utils.PointFloat(199.6527!, 0!)
         Me.XrLabel48.Name = "XrLabel48"
         Me.XrLabel48.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -1197,9 +1202,7 @@ Partial Public Class R_Representacion_Fisica_CFDi33
     Friend WithEvents XrLabel45 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel44 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents GroupFooter2 As DevExpress.XtraReports.UI.GroupFooterBand
-    Friend WithEvents XrLabel61 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel60 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents XrLabel59 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel58 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel57 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel56 As DevExpress.XtraReports.UI.XRLabel
@@ -1224,4 +1227,6 @@ Partial Public Class R_Representacion_Fisica_CFDi33
     Friend WithEvents XrTableCell14 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell15 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell16 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrLabel59 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel61 As DevExpress.XtraReports.UI.XRLabel
 End Class

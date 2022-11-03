@@ -6,6 +6,11 @@ Imports System.Data.SqlClient
 Public Class Cat_Busqueda_Facturas
     Dim ME_CARGADO As Boolean = False
 
+    Dim Emisor As String
+    Dim Receptor As String
+    Dim Total As String
+    Dim Sello As String
+
     Private Sub RibbonBar1_ItemClick(sender As Object, e As Ext.RibbonBar.RibbonBarItemEventArgs) Handles RibbonBar1.ItemClick
         Select Case e.Item.Name
             Case RBBBuscar.Name
@@ -76,15 +81,15 @@ Public Class Cat_Busqueda_Facturas
             If e.ColumnIndex = cPDF.Index Then
                 Select Case DGV_Busqueda.Item(cMetodoPago.Index, e.RowIndex).Value
                     Case "PUE"
-                        DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PUE")
+                        DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PUE", DGV_Busqueda.Item(cTotal.Name, e.RowIndex).Value)
 
                     Case "PPD"
                         Application.Session("Historial_Pagos") = 1
-                        DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PPD")
+                        DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PPD", DGV_Busqueda.Item(cTotal.Name, e.RowIndex).Value)
                 End Select
             End If
             If e.ColumnIndex = cXML.Index Then
-
+                XMLDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value)
             End If
         End If
     End Sub
@@ -93,14 +98,14 @@ Public Class Cat_Busqueda_Facturas
             If e.ColumnIndex = colPDF.Index Then
                 Select Case DGV_Busqueda.Item(cMetodoPago.Index, e.RowIndex).Value
                     Case "PUE"
-                        DocumentDownload(sender.Item(colUUID_1.Name, e.RowIndex).Value, "PUE")
+                        DocumentDownload(sender.Item(colUUID_1.Name, e.RowIndex).Value, "PUE", sender.Item(cTotal.Name))
                     Case "PPD"
                         Application.Session("Historial_Pagos") = 0
-                        DocumentDownload(sender.Item(colUUID_1.Name, e.RowIndex).Value, "PPD")
+                        DocumentDownload(sender.Item(colUUID_1.Name, e.RowIndex).Value, "PPD", sender.Item(cTotal.Name))
                 End Select
             End If
             If e.ColumnIndex = cXML.Index Then
-
+                XMLDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value)
             End If
         End If
     End Sub
@@ -109,7 +114,7 @@ Public Class Cat_Busqueda_Facturas
             If sender.ColumnIndex = colPDF.Index Then
                 'Select Case DGV_Busqueda.Item(cMetodoPago.Index, sender.RowIndex).Value
                 '    Case "PUE"
-                DocumentDownload(DGV_Busqueda.Item(colUUID_1.Name, sender.RowIndex).Value, "PPD")
+                DocumentDownload(DGV_Busqueda.Item(colUUID_1.Name, sender.RowIndex).Value, "PPD", DGV_Busqueda.Item(cTotal.Name, sender.RowIndex).Value)
                 '    Case "PPD"
                 '        'DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PPD")
                 'End Select
@@ -121,8 +126,10 @@ Public Class Cat_Busqueda_Facturas
             End If
         End If
     End Sub
-    Sub DocumentDownload(ByVal UUID As String, TipoReporte As String)
+    Sub DocumentDownload(ByVal UUID As String, TipoReporte As String, Total As String)
         Application.Session("UUID_SAT") = UUID
+        Application.Session("total_comprobante") = Total
+        ObtenerQR(UUID)
         Dim sReportName As String
         Select Case TipoReporte
             Case "PUE"
@@ -138,6 +145,75 @@ Public Class Cat_Busqueda_Facturas
             Asp.Actualizar()
             Asp.Show()
         End If
+
+    End Sub
+
+    Sub ObtenerQR(UUID As String)
+        Dim Command As New SqlCommand
+        Utilidades.Conectar()
+        Dim DataReader As Data.SqlClient.SqlDataReader
+
+        Try
+            Command = New SqlClient.SqlCommand("pFACTURA_SAT_TIMBRADA_B", Utilidades.cConnect)
+            Command.CommandType = CommandType.StoredProcedure
+            Command.Parameters.AddWithValue("@UUID", UUID)
+            DataReader = Command.ExecuteReader(CommandBehavior.CloseConnection)
+            If DataReader.HasRows Then
+                While (DataReader.Read)
+
+                    Emisor = DataReader.Item("Emisor_RFC")
+                    Receptor = DataReader.Item("Receptor_RFC")
+                    Total = DataReader.Item("Total")
+                    Sello = DataReader.Item("SelloCFD")
+
+
+                End While
+
+                Application.Session("QR_SAT") = "https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=" & UUID & "&re=" & Emisor & "&rr=" & Receptor & "&tt=" & Total & "&fe=" & Sello.Substring(Sello.Length - 8, 8)
+
+
+            Else
+                'Dim ConfiguracionColegio As New Cat_Instituto
+                'ConfiguracionColegio.ShowDialog()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        Finally
+            If IsNothing(DataReader) = False Then
+                If DataReader.IsClosed = False Then DataReader.Close()
+            End If
+            Utilidades.Desconectar()
+        End Try
+    End Sub
+
+    Sub XMLDownload(ByVal UUID As String)
+        Utilidades.Conectar()
+        Dim dataReader As Data.SqlClient.SqlDataReader
+        Dim command As New SqlCommand
+        Dim strxml As String
+        Dim pathxml As String
+        Try
+            command = New SqlClient.SqlCommand("pFACTURA_SAT_UUID_XML_B", Utilidades.cConnect)
+            command.CommandType = CommandType.StoredProcedure
+            command.Parameters.AddWithValue("@UUID", UUID)
+            dataReader = command.ExecuteReader(CommandBehavior.CloseConnection)
+            If dataReader.HasRows Then
+                While (dataReader.Read)
+
+                    strxml = dataReader.Item("XML")
+
+
+                End While
+
+            End If
+        Catch ex As Exception
+
+        End Try
+        pathxml = Application.StartupPath & "\Resources\SAT\FACTURAS\PUE\factura_download.xml"
+        System.IO.File.WriteAllText(pathxml, strxml)
+
+        Application.Download(pathxml)
 
     End Sub
 
@@ -186,6 +262,7 @@ Public Class Cat_Busqueda_Facturas
         End If
     End Sub
 
+    Private Sub DGV_Busqueda_Click(sender As Object, e As EventArgs) Handles DGV_Busqueda.Click
 
-
+    End Sub
 End Class

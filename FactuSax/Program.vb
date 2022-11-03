@@ -9,7 +9,7 @@ Module Program
     ''' <remarks></remarks>
     Public Sub Main()
 
-        'Application.Desktop = New MyDesktop()
+        'xApplication.Desktop = New MyDesktop()
 
         Dim window As New Login()
         window.Show()

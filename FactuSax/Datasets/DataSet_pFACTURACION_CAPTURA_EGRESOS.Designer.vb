@@ -315,6 +315,8 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
         
         Private columnTipo_Pago As Global.System.Data.DataColumn
         
+        Private columnNombre_Receptor As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -479,6 +481,14 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Nombre_ReceptorColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNombre_Receptor
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -531,9 +541,10 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
                     ByVal Fecha1 As Date,  _
                     ByVal RFC As String,  _
                     ByVal Importe_Total As Decimal,  _
-                    ByVal Tipo_Pago As String) As pFACTURACION_CAPTURA_EGRESOSRow
+                    ByVal Tipo_Pago As String,  _
+                    ByVal Nombre_Receptor As String) As pFACTURACION_CAPTURA_EGRESOSRow
             Dim rowpFACTURACION_CAPTURA_EGRESOSRow As pFACTURACION_CAPTURA_EGRESOSRow = CType(Me.NewRow,pFACTURACION_CAPTURA_EGRESOSRow)
-            Dim columnValuesArray() As Object = New Object() {Folio, Fecha, Cve_Cliente, Estatus, Cve_Receptor, Descuento_Factura, Descuento, IMPORTE, Folio_Movimiento, Unitario, Checked, _Saldo, Fecha1, RFC, Importe_Total, Tipo_Pago}
+            Dim columnValuesArray() As Object = New Object() {Folio, Fecha, Cve_Cliente, Estatus, Cve_Receptor, Descuento_Factura, Descuento, IMPORTE, Folio_Movimiento, Unitario, Checked, _Saldo, Fecha1, RFC, Importe_Total, Tipo_Pago, Nombre_Receptor}
             rowpFACTURACION_CAPTURA_EGRESOSRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowpFACTURACION_CAPTURA_EGRESOSRow)
             Return rowpFACTURACION_CAPTURA_EGRESOSRow
@@ -572,6 +583,7 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
             Me.columnRFC = MyBase.Columns("RFC")
             Me.columnImporte_Total = MyBase.Columns("Importe_Total")
             Me.columnTipo_Pago = MyBase.Columns("Tipo_Pago")
+            Me.columnNombre_Receptor = MyBase.Columns("Nombre_Receptor")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -613,6 +625,8 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
             MyBase.Columns.Add(Me.columnImporte_Total)
             Me.columnTipo_Pago = New Global.System.Data.DataColumn("Tipo_Pago", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTipo_Pago)
+            Me.columnNombre_Receptor = New Global.System.Data.DataColumn("Nombre_Receptor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombre_Receptor)
             Me.columnFolio.AllowDBNull = false
             Me.columnFolio.MaxLength = 50
             Me.columnFecha.AllowDBNull = false
@@ -632,6 +646,7 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
             Me.columnImporte_Total.ReadOnly = true
             Me.columnTipo_Pago.ReadOnly = true
             Me.columnTipo_Pago.MaxLength = 50
+            Me.columnNombre_Receptor.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1009,6 +1024,22 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Nombre_Receptor() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Nombre_ReceptorColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Nombre_Receptor' de la tabla 'pFACTURACION_CAPTURA_EGRESO"& _ 
+                            "S' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Nombre_ReceptorColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsEstatusNull() As Boolean
             Return Me.IsNull(Me.tablepFACTURACION_CAPTURA_EGRESOS.EstatusColumn)
         End Function
@@ -1137,6 +1168,18 @@ Partial Public Class DataSet_pFACTURACION_CAPTURA_EGRESOS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetTipo_PagoNull()
             Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Tipo_PagoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsNombre_ReceptorNull() As Boolean
+            Return Me.IsNull(Me.tablepFACTURACION_CAPTURA_EGRESOS.Nombre_ReceptorColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetNombre_ReceptorNull()
+            Me(Me.tablepFACTURACION_CAPTURA_EGRESOS.Nombre_ReceptorColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1322,6 +1365,7 @@ Namespace DataSet_pFACTURACION_CAPTURA_EGRESOSTableAdapters
             tableMapping.ColumnMappings.Add("RFC", "RFC")
             tableMapping.ColumnMappings.Add("Importe_Total", "Importe_Total")
             tableMapping.ColumnMappings.Add("Tipo_Pago", "Tipo_Pago")
+            tableMapping.ColumnMappings.Add("Nombre_Receptor", "Nombre_Receptor")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         

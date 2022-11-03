@@ -13,6 +13,8 @@ Public Class MyDesktop
     Dim ParametersX() As SqlClient.SqlParameter
     Public alternateSucursal As String
     Dim Alertas As New Notificaciones
+    Dim posicion As Integer = 0
+
     Private Sub MyDesktop_Load(sender As Object, e As EventArgs) Handles Me.Load
         ''Dim sPath = "/Resources/images/Fondo02.jpeg"
         'AlertBox.Show("Hola Mundo")
@@ -83,18 +85,24 @@ Public Class MyDesktop
             If cDataReader.HasRows Then
                 While (cDataReader.Read)
                     'If Trim(sCve_Acceso_Padre) <> cDataReader.Item("Cve_Acceso_Padre") Then
-                    'tag_page = cDataReader.Item("CVE_ACCESO_PADRE")
+                    '    tag_page = cDataReader.Item("CVE_ACCESO_PADRE")
+
+                    '    '------------------------------- < Aqui es el code para colocar los modulos en pestañas, no lo quiten alv>------------
                     If cDataReader.Item("Tipo") = "MODULO" Then
-                        page_r = New RibbonBarPage
-                        page_r.Text = cDataReader.Item("descripcion")
-                        tag_page = cDataReader.Item("CVE_ACCESO")
-                        tag_items = cDataReader.Item("CVE_ACCESO")
+                        '        page_r = New RibbonBarPage
+                        '        page_r.Text = cDataReader.Item("descripcion")
+                        '        tag_page = cDataReader.Item("CVE_ACCESO")
+                        '        tag_items = cDataReader.Item("CVE_ACCESO")
                         grupo_principal = New RibbonBarGroup
                         grupo_principal.Text = cDataReader.Item("descripcion")
-                        RibbonBar1.Pages.Add(page_r)
-                        page_r.Groups.Add(grupo_principal)
+                        '        RibbonBar1.Pages.Add(page_r)
+                        '        page_r.Groups.Add(grupo_principal)
+                        '    End If
+                        pgADMIN.Groups.Insert(posicion, grupo_principal)
+                        'pgADMIN.Groups.Add(grupo_principal)
+                        posicion += 1
                     End If
-                    'End If
+                    '-------------------------------------
                     If cDataReader.Item("Tipo") = "SUBMODULO" Then
                         If tag_page = cDataReader.Item("CVE_ACCESO_PADRE") Then
                             If cDataReader.Item("BOTON") = "C" Then
@@ -117,7 +125,7 @@ Public Class MyDesktop
                                 SubMenu.Tag = cDataReader.Item("url")
                                 item_menu.MenuItems.AddRange(New Wisej.Web.MenuItem() {SubMenu})
                                 AddHandler SubMenu.Click, AddressOf handlemenuclick2
-                                'grupo_principal.Items.Add(item_menu)
+                                grupo_principal.Items.Add(item_menu)
                                 tag_page = cDataReader.Item("CVE_ACCESO_PADRE")
                                 'tag_items = cDataReader.Item("CVE_ACCESO_PADRE")
                             End If
@@ -133,6 +141,37 @@ Public Class MyDesktop
                                 tag_page = cDataReader.Item("CVE_ACCESO")
                                 'tag_items = cDataReader.Item("CVE_ACCESO")
                             Else
+
+                                'Dim ss As RibbonBarItemButton = item_menu
+                                SubMenu = New MenuItem
+                                'item_menu = New Ext.RibbonBar.RibbonBarItemButton
+                                SubMenu.IconSource = cDataReader.Item("icono")
+                                SubMenu.Text = cDataReader.Item("descripcion")
+                                SubMenu.Name = cDataReader.Item("url")
+                                SubMenu.Tag = cDataReader.Item("url")
+                                item_menu.MenuItems.AddRange(New Wisej.Web.MenuItem() {SubMenu})
+                                AddHandler SubMenu.Click, AddressOf handlemenuclick2
+                                'grupo_principal.Items.Add(item_menu)
+                                tag_page = cDataReader.Item("CVE_ACCESO_PADRE")
+                                'tag_items = cDataReader.Item("CVE_ACCESO_PADRE")
+
+                            End If
+                        Else
+                            If cDataReader.Item("BOTON") = "C" Then
+                                item_menu = New RibbonBarItemButton
+                                item_menu.ImageSource = "Resources\Images\Menu\" & cDataReader.Item("icono")
+                                'item_menu.Image = "Resources\Images\Menu\" & cDataReader.Item("icono")
+
+                                item_menu.Text = cDataReader.Item("descripcion")
+                                item_menu.Name = cDataReader.Item("url")
+                                'grupo_principal = New RibbonBarGroup
+                                'grupo_principal.Text = cDataReader.Item("descripcion")
+                                'grupo_principal.Items.Add(item_menu)
+
+                                tag_page = cDataReader.Item("CVE_ACCESO")
+                                grupo_principal.Items.Add(item_menu)
+                                'tag_items = cDataReader.Item("CVE_ACCESO")
+                            ElseIf cDataReader.Item("BOTON") = "SC" Then
 
                                 'Dim ss As RibbonBarItemButton = item_menu
                                 SubMenu = New MenuItem
