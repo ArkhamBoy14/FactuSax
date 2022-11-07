@@ -341,6 +341,7 @@ Public Class Factura
                 If respuesta.codigo = "200" Then
 
                     System.IO.File.WriteAllText(pathxml, respuesta.timbre)
+                    Guardar_XLM(respuesta.timbre, respuesta.uuid)
                     'Guardar_XLM(respuesta.timbre, respuesta.uuid)
                     codeXml = respuesta.timbre
                     Dim comprobantex As New Comprobante

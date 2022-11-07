@@ -22,11 +22,9 @@ Partial Class Factura_Cancelacion
     'Do not modify it using the code editor.
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar1 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
-        Me.RBBSustitucion = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBSalir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.Panel1 = New Wisej.Web.Panel()
         Me.Button3 = New Wisej.Web.Button()
@@ -64,7 +62,6 @@ Partial Class Factura_Cancelacion
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.DataSet_pFACTURA_SAT_CFDI_B21 = New FactuSax.DataSet_pFACTURA_SAT_CFDI_B2()
         Me.PFACTURA_SAT_CFDI_B2TableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_B2TableAdapters.pFACTURA_SAT_CFDI_B2TableAdapter()
-        Me.Button3 = New Wisej.Web.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,16 +82,9 @@ Partial Class Factura_Cancelacion
         '
         'RibbonBarGroup1
         '
-        Me.RibbonBarGroup1.Items.Add(Me.RBBSustitucion)
         Me.RibbonBarGroup1.Items.Add(Me.RBBSalir)
         Me.RibbonBarGroup1.Name = "RibbonBarGroup1"
         Me.RibbonBarGroup1.Text = "Procesos"
-        '
-        'RBBSustitucion
-        '
-        Me.RBBSustitucion.ImageSource = "Resources\Images\Menu\64\sustitucion.png"
-        Me.RBBSustitucion.Name = "RBBSustitucion"
-        Me.RBBSustitucion.Text = "Sustitución"
         '
         'RBBSalir
         '
@@ -340,14 +330,6 @@ Partial Class Factura_Cancelacion
         '
         Me.PFACTURA_SAT_CFDI_B2TableAdapter.ClearBeforeFill = True
         '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(504, 49)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 27)
-        Me.Button3.TabIndex = 10
-        Me.Button3.Text = "Buscar UUID"
-        '
         'Factura_Cancelacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -406,6 +388,5 @@ Partial Class Factura_Cancelacion
     Friend WithEvents Button3 As Button
     Friend WithEvents RibbonBarPage1 As Ext.RibbonBar.RibbonBarPage
     Friend WithEvents RibbonBarGroup1 As Ext.RibbonBar.RibbonBarGroup
-    Friend WithEvents RBBSustitucion As Ext.RibbonBar.RibbonBarItemButton
     Friend WithEvents RBBSalir As Ext.RibbonBar.RibbonBarItemButton
 End Class

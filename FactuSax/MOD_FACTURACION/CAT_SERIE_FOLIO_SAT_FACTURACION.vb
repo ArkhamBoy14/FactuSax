@@ -13,25 +13,18 @@ Public Class CAT_SERIE_FOLIO_SAT_FACTURACION
     End Sub
     Private Sub RibbonBar1_ItemClick(sender As Object, e As Ext.RibbonBar.RibbonBarItemEventArgs) Handles RibbonBar1.ItemClick
         Select Case e.Item.Name
-            Case RBBNuevo.Name
-                LIMPIAR()
             Case RBBGuardar.Name
                 guardar()
                 CARGAR()
-                LIMPIAR()
             Case RBBSalir.Name
                 Me.Close()
         End Select
     End Sub
 
-
-    Sub LIMPIAR()
-        TBFolio.Text = Nothing
-        TBSerie.Text = Nothing
-        'CBActivado.Checked = False
-    End Sub
-
     Private Sub CAT_SERIE_FOLIO_SAT_FACTURACION_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ReDim Utilidades.ParametersX_Global(1)
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Operador", Application.Session("Cve_Operador"))
+        CbxClientes.LlenarListBox("pCAT_CLIENTES_B", "Cve_Cliente", "Nombre_Cliente", Utilidades.ParametersX_Global)
         CARGAR()
         'Utilidades.Llenar_Catalogos_Parametros("PCAT_SUCURSAL_B", "CLAVE", "descripcion", CSucursalindex, Utilidades.ParametersX_Global)
     End Sub
@@ -52,7 +45,6 @@ Public Class CAT_SERIE_FOLIO_SAT_FACTURACION
         Utilidades.ParametersX_Global(1) = New SqlClient.SqlParameter("@folio", TBFolio.Text)
         Utilidades.ParametersX_Global(2) = New SqlClient.SqlParameter("@serie", TBSerie.Text)
         Utilidades.ParametersX_Global(3) = New SqlClient.SqlParameter("@Cve_Cliente", sCve_Cliente)
-        Utilidades.ParametersX_Global(4) = New SqlClient.SqlParameter("@id", "-99")
         Dim sDevuelveId = Utilidades.EjecutarProcedure_Id("[pCAT_SERIE_FOLIO_SAT_FACTURACION_G]", "@Parametro", Utilidades.ParametersX_Global, , SqlDbType.VarChar, 50)
         If sDevuelveId = "Guardado" Then
             MessageBox.Show("Registro Guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -63,4 +55,7 @@ Public Class CAT_SERIE_FOLIO_SAT_FACTURACION
         End If
     End Sub
 
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs)
+
+    End Sub
 End Class

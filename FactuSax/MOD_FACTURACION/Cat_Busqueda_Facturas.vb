@@ -79,14 +79,16 @@ Public Class Cat_Busqueda_Facturas
     Private Sub DGV_Busqueda_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_Busqueda.CellClick
         If e.ColumnIndex <> -1 Then
             If e.ColumnIndex = cPDF.Index Then
-                Select Case DGV_Busqueda.Item(cMetodoPago.Index, e.RowIndex).Value
-                    Case "PUE"
-                        DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PUE", DGV_Busqueda.Item(cTotal.Name, e.RowIndex).Value)
+                'Select Case DGV_Busqueda.Item(cMetodoPago.Index, e.RowIndex).Value
+                '    Case "PUE"
+                '        DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PUE", DGV_Busqueda.Item(cTotal.Name, e.RowIndex).Value)
 
-                    Case "PPD"
-                        Application.Session("Historial_Pagos") = 1
-                        DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PPD", DGV_Busqueda.Item(cTotal.Name, e.RowIndex).Value)
-                End Select
+                '    Case "PPD"
+                '        Application.Session("Historial_Pagos") = 1
+                '        DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PPD", DGV_Busqueda.Item(cTotal.Name, e.RowIndex).Value)
+                'End Select
+                DocumentDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value, "PUE", DGV_Busqueda.Item(cTotal.Name, e.RowIndex).Value)
+
             End If
             If e.ColumnIndex = cXML.Index Then
                 XMLDownload(DGV_Busqueda.Item(colUUID.Name, e.RowIndex).Value)
