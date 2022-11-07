@@ -220,6 +220,7 @@ Public Class Factura
 
                 'BO = False '---------------------- Quitar pq no esta el reporte, solo para probar que guarde
                 If BO = True Then
+                    Guardar_XLM(codeXml, splitx_resp(1))
                     'MessageBox.Show("Factura timbrada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Dim GuardarTimbre As New WebService_Timbres.Timbres()
                     Dim sBody As String = String.Format("rfc={0}&movimiento={1}&valor={2}", split_e(0), "TIMBRADAS", 1)
@@ -329,7 +330,6 @@ Public Class Factura
                 If respuesta.codigo = "200" Then
 
                     System.IO.File.WriteAllText(pathxml, respuesta.timbre)
-                    Guardar_XLM(respuesta.timbre, respuesta.uuid)
                     'Guardar_XLM(respuesta.timbre, respuesta.uuid)
                     codeXml = respuesta.timbre
 
@@ -715,6 +715,8 @@ Public Class Factura
             'GUARDAR_UUID_FOLIO(splitx_resp(1))
 
             If BO = True Then
+                Guardar_XLM(codeXml, splitx_resp(1))
+
                 Dim sBody As String = String.Format("rfc={0}&movimiento={1}&valor={2}", split_e(0), "TIMBRADAS", 1)
                 Utilidades.EnviarSolicitudControlTimbre(split_e(0), "TIMBRADAS", 1)
 
@@ -1012,6 +1014,8 @@ Public Class Factura
                 'GUARDAR_UUID_FOLIO(splitx_resp(1))
 
                 If BO = True Then
+                    Guardar_XLM(codeXml, splitx_resp(1))
+
                     'MessageBox.Show("Factura timbrada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Dim XTRAREPORT As New XtraReport
                     Dim sBody As String = String.Format("rfc={0}&movimiento={1}&valor={2}", split_e(0), "TIMBRADAS", 1)
@@ -1266,6 +1270,8 @@ Public Class Factura
 
                 'BO = False '---------------------- Quitar pq no esta el reporte, solo para probar que guarde
                 If BO = True Then
+                    Guardar_XLM(codeXml, splitx_resp(1))
+
                     'MessageBox.Show("Factura timbrada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Dim GuardarTimbre As New WebService_Timbres.Timbres()
                     Dim sBody As String = String.Format("rfc={0}&movimiento={1}&valor={2}", split_e(0), "TIMBRADAS", 1)

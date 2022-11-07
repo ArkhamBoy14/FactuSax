@@ -431,8 +431,7 @@ Public Class Facturacion_Nota_Credito
                 Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@MORAL", "SI")
             End If
 
-            CBSUsoCFDI.LlenarListBox("pCAT_USOCFDI_SAT_FACTURACION_B", "c_UsoCFDI", "DescripcionX", Utilidades.ParametersX_Global)
-            CBSUsoCFDI.SelectedValue = "P01"
+            'CBSUsoCFDI.LlenarListBox("pCAT_USOCFDI_SAT_FACTURACION_B", "c_UsoCFDI", "DescripcionX", Utilidades.ParametersX_Global)
         End If
     End Sub
 
@@ -525,5 +524,29 @@ Public Class Facturacion_Nota_Credito
 
 
     'End Sub
+
+    Sub CargarRFC()
+        ReDim Utilidades.ParametersX_Global(2)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
+        Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
+        CBSReceptor.Clear()
+        CBEmisor.Clear()
+        CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+        CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+
+        If CBEmisor.Items.Count > 0 Then
+            CBEmisor.SelectedIndex = 0
+        Else
+            CBEmisor.SelectedIndex = -1
+        End If
+
+        If CBSReceptor.Items.Count > 0 Then
+            CBSReceptor.SelectedIndex = 0
+        Else
+            CBSReceptor.SelectedIndex = -1
+        End If
+
+
+    End Sub
 
 End Class

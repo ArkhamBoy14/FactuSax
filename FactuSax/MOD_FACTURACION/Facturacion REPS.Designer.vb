@@ -539,7 +539,7 @@ Partial Class Facturacion_REPS
         'colMETODOPAGO
         '
         Me.colMETODOPAGO.DataPropertyName = "METODOPAGO"
-        Me.colMETODOPAGO.HeaderText = "Método de Pago"
+        Me.colMETODOPAGO.HeaderText = "Mï¿½todo de Pago"
         Me.colMETODOPAGO.Name = "colMETODOPAGO"
         '
         'colPARCIALIDAD
@@ -706,6 +706,15 @@ Partial Class Facturacion_REPS
         Me.GroupBox3.Size = New System.Drawing.Size(414, 80)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.Text = "Emisor"
+        '
+
+        '
+        Me.CBEmisor.BackColor = System.Drawing.Color.Transparent
+        Me.CBEmisor.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBEmisor.Location = New System.Drawing.Point(3, 19)
+        Me.CBEmisor.Name = "CBEmisor"
+        Me.CBEmisor.Size = New System.Drawing.Size(360, 22)
+        Me.CBEmisor.TabIndex = 0
         '
         'BTEm
         '
