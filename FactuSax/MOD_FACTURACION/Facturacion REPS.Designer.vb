@@ -743,7 +743,6 @@ Partial Class Facturacion_REPS
         '
         Me.CBEmisor.BackColor = System.Drawing.Color.Transparent
         Me.CBEmisor.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBEmisor.Enabled = False
         Me.CBEmisor.Location = New System.Drawing.Point(3, 19)
         Me.CBEmisor.Name = "CBEmisor"
         Me.CBEmisor.Size = New System.Drawing.Size(360, 22)
