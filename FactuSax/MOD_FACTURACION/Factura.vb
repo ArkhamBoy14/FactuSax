@@ -10,6 +10,8 @@ Imports DevExpress.XtraPrinting
 
 Public Class Factura
     Dim pathxml As String
+    Dim codeXml As String
+
     Function factura_html(emisor As String, receptor As String, cuerpo_factura As Dictionary(Of String, String), certificado As String, llave As String, claveprivada As String, conceptos As List(Of String),
                        traslado As List(Of String), totaliva As String, serieactiva As String, fechafactura As DateTime, Optional totalretenciones As String = Nothing, Optional retenciones As List(Of String) = Nothing, Optional FOLIO_FACTURAS As String = Nothing)
         Try
@@ -264,7 +266,14 @@ Public Class Factura
             MessageBox.Show(ex.Message)
         End Try
     End Function
+    Sub Guardar_XLM(XML As String, UUID As String)
+        ReDim Utilidades.ParametersX_Global(1)
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@UUID", UUID)
+        Utilidades.ParametersX_Global(1) = New SqlParameter("@XML", XML)
 
+        Dim SaveXML = Utilidades.EjecutarProcedure_Id("pFACTURA_SAT_UUID_XML_G", "@Parametro", Utilidades.ParametersX_Global)
+
+    End Sub
     Function cadena_original(patxml As String)
         Try
 
