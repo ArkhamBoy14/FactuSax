@@ -10,9 +10,6 @@ Public Class Factura_Cancelacion
         Select Case e.Item.Name
             Case RBBSalir.Name
                 Me.Close()
-            Case RBBSustitucion.Name
-                Dim sustitucion As New Facturacion_Sustitucion
-                sustitucion.ShowDialogAsync()
         End Select
     End Sub
     Private Sub Factura_Cancelacion_Load(sender As Object, e As EventArgs) Handles Me.Load
