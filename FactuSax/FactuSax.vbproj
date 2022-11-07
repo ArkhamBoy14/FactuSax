@@ -1692,6 +1692,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\xpdPruebas4_0\Reference.vb" />
     <Compile Include="Window1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -1837,6 +1838,10 @@
     <None Include="Web References\XpdProduccion\TimbradoWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Web References\xpdPruebas4_0\Reference.map" />
+    <Content Include="Web References\xpdPruebas4_0\responseTimbrar.datasource" />
+    <Content Include="Web References\xpdPruebas4_0\responseValidar.datasource" />
+    <None Include="Web References\xpdPruebas4_0\TimbradoWSSoapSingle.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
