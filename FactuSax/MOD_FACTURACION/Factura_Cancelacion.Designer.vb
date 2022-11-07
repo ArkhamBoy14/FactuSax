@@ -27,7 +27,6 @@ Partial Class Factura_Cancelacion
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
         Me.RBBSalir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.Panel1 = New Wisej.Web.Panel()
-        Me.Button3 = New Wisej.Web.Button()
         Me.UUID_RELACIONADO = New Wisej.Web.TextBox()
         Me.Button1 = New Wisej.Web.Button()
         Me.Button2 = New Wisej.Web.Button()
@@ -62,8 +61,10 @@ Partial Class Factura_Cancelacion
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.DataSet_pFACTURA_SAT_CFDI_B21 = New FactuSax.DataSet_pFACTURA_SAT_CFDI_B2()
         Me.PFACTURA_SAT_CFDI_B2TableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_B2TableAdapters.pFACTURA_SAT_CFDI_B2TableAdapter()
+        Me.FiltroGrillaSax1 = New FactuSax.filtroGrillaSax()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DataGridView1.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet_pFACTURA_SAT_CFDI_B21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -94,7 +95,6 @@ Partial Class Factura_Cancelacion
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.UUID_RELACIONADO)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Button2)
@@ -106,14 +106,6 @@ Partial Class Factura_Cancelacion
         Me.Panel1.Size = New System.Drawing.Size(738, 100)
         Me.Panel1.TabIndex = 2
         Me.Panel1.TabStop = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(504, 49)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 27)
-        Me.Button3.TabIndex = 10
-        Me.Button3.Text = "Buscar UUID"
         '
         'UUID_RELACIONADO
         '
@@ -157,6 +149,7 @@ Partial Class Factura_Cancelacion
         '
         Me.DataGridView1.BorderStyle = Wisej.Web.BorderStyle.None
         Me.DataGridView1.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.Column0, Me.colUUID, Me.colFecha, Me.colTipodecomprobante, Me.colSubtotal, Me.colTotal, Me.colMoneda, Me.colFormapago, Me.colSerie, Me.colFolio, Me.colEmisor_Rfc, Me.colEmisor_Nombre, Me.colEmisro_Regimen_Fiscal, Me.colReceptor_RFC, Me.colReceptor_Usocfdi, Me.colReceptor_Nombnre, Me.colDescuento, Me.colTipocambio, Me.colCondicionespago, Me.colEstatus, Me.colMetodopago, Me.colLugarexpedicion, Me.colCadena_Original, Me.colNocertificado_Emisor, Me.colTipo_Relacion})
+        Me.DataGridView1.Controls.Add(Me.FiltroGrillaSax1)
         Me.DataGridView1.DataSource = Me.BindingSource1
         Me.DataGridView1.Dock = Wisej.Web.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 210)
@@ -330,6 +323,13 @@ Partial Class Factura_Cancelacion
         '
         Me.PFACTURA_SAT_CFDI_B2TableAdapter.ClearBeforeFill = True
         '
+        'FiltroGrillaSax1
+        '
+        Me.FiltroGrillaSax1.Dock = Wisej.Web.DockStyle.Top
+        Me.FiltroGrillaSax1.Name = "FiltroGrillaSax1"
+        Me.FiltroGrillaSax1.Size = New System.Drawing.Size(738, 30)
+        Me.FiltroGrillaSax1.TabIndex = 0
+        '
         'Factura_Cancelacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -343,6 +343,8 @@ Partial Class Factura_Cancelacion
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.DataGridView1.ResumeLayout(False)
+        Me.DataGridView1.PerformLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet_pFACTURA_SAT_CFDI_B21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -385,8 +387,8 @@ Partial Class Factura_Cancelacion
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents UUID_RELACIONADO As TextBox
-    Friend WithEvents Button3 As Button
     Friend WithEvents RibbonBarPage1 As Ext.RibbonBar.RibbonBarPage
     Friend WithEvents RibbonBarGroup1 As Ext.RibbonBar.RibbonBarGroup
     Friend WithEvents RBBSalir As Ext.RibbonBar.RibbonBarItemButton
+    Friend WithEvents FiltroGrillaSax1 As filtroGrillaSax
 End Class

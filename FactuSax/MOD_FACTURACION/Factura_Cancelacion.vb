@@ -20,6 +20,11 @@ Public Class Factura_Cancelacion
 
     Sub consultar()
         Dim myDA = New SqlClient.SqlDataAdapter("pFACTURA_SAT_CFDI_B2", Utilidades.sConexion)
+        If CbxMotivoCancelacion.SelectedValue = "01" Then
+            myDA.SelectCommand.Parameters.AddWithValue("@Estatus", "PRE-CANCELADA")
+        Else
+            myDA.SelectCommand.Parameters.AddWithValue("@Estatus", "Timbrada")
+        End If
         myDA.SelectCommand.CommandType = CommandType.StoredProcedure
         myDA.Fill(Me.DataSet_pFACTURA_SAT_CFDI_B21.pFACTURA_SAT_CFDI_B2)
         myDA.Dispose()
@@ -153,19 +158,23 @@ Public Class Factura_Cancelacion
         requestXpd.parametros = listParametrosx.ToArray
 
 
-        'verificar estatus del xml
         Dim xresponseXpd = serviceClient.cancelarCfdi(requestXpd)
         Dim respuestaa As String = xresponseXpd(0).mensaje
         Dim CANCE As Integer = 0
         If xresponseXpd.Length > 0 AndAlso xresponseXpd(0).codigo <> Nothing AndAlso xresponseXpd(0).mensaje = "Cancelada" Then
             MessageBox.Show("La factura fue cancelada")
+            CancelarOriginal(FOLIO_FISCAL_UUID)
         Else
             MessageBox.Show(xresponseXpd(0).mensaje)
         End If
 
     End Sub
+    Sub CancelarOriginal(UUID As String)
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@UUID", UUID)
+        Dim FACT = Utilidades.EjecutarProcedure_Id("pFACTURA_SAT_CANCELACION_G", "@PARAMETRO", Utilidades.ParametersX_Global)
 
-
+    End Sub
 
     Public Function Base64Encode(valor As String) As String
         Dim myByte As Byte() = System.Text.Encoding.UTF8.GetBytes(valor)
@@ -190,9 +199,12 @@ Public Class Factura_Cancelacion
         Next
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
         Dim facturacion As New Factura_Cancelacion
         facturacion.Show()
     End Sub
 
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        UUID_RELACIONADO.Text = DataGridView1.Item(colUUID, e.RowIndex).Value
+    End Sub
 End Class
