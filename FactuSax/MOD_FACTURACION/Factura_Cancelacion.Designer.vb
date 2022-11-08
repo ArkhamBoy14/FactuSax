@@ -62,11 +62,13 @@ Partial Class Factura_Cancelacion
         Me.colCadena_Original = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colNocertificado_Emisor = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.colTipo_Relacion = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.RBBEstatus = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.DataSet_pFACTURA_SAT_CFDI_B21 = New FactuSax.DataSet_pFACTURA_SAT_CFDI_B2()
         Me.PFACTURA_SAT_CFDI_B2TableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_B2TableAdapters.pFACTURA_SAT_CFDI_B2TableAdapter()
-        Me.RBBEstatus = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
+        Me.Label3 = New Wisej.Web.Label()
         Me.FiltroGrillaSax1 = New FactuSax.filtroGrillaSax()
+        Me.CbxClientes = New FactuSax.ComboWisax()
         Me.CbxMotivoCancelacion = New FactuSax.ComboWisax()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -358,6 +360,12 @@ Partial Class Factura_Cancelacion
         Me.colTipo_Relacion.HeaderText = "Tipo_Relacion"
         Me.colTipo_Relacion.Name = "colTipo_Relacion"
         '
+        'RBBEstatus
+        '
+        Me.RBBEstatus.ImageSource = "Resources\Images\Menu\64\factura_pagos.png"
+        Me.RBBEstatus.Name = "RBBEstatus"
+        Me.RBBEstatus.Text = "Consultar Estatus"
+        '
         'BindingSource1
         '
         Me.BindingSource1.DataMember = "pFACTURA_SAT_CFDI_B2"
@@ -372,11 +380,14 @@ Partial Class Factura_Cancelacion
         '
         Me.PFACTURA_SAT_CFDI_B2TableAdapter.ClearBeforeFill = True
         '
-        'RBBEstatus
+        'Label3
         '
-        Me.RBBEstatus.ImageSource = "Resources\Images\Menu\64\factura_pagos.png"
-        Me.RBBEstatus.Name = "RBBEstatus"
-        Me.RBBEstatus.Text = "Consultar Estatus"
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(326, 33)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(45, 15)
+        Me.Label3.TabIndex = 13
+        Me.Label3.Text = "Cliente"
         '
         'FiltroGrillaSax1
         '
@@ -384,6 +395,12 @@ Partial Class Factura_Cancelacion
         Me.FiltroGrillaSax1.Name = "FiltroGrillaSax1"
         Me.FiltroGrillaSax1.Size = New System.Drawing.Size(831, 30)
         Me.FiltroGrillaSax1.TabIndex = 0
+        '
+        'CbxClientes
+        '
+        Me.CbxClientes.Location = New System.Drawing.Point(326, 49)
+        Me.CbxClientes.Name = "CbxClientes"
+        Me.CbxClientes.TabIndex = 12
         '
         'CbxMotivoCancelacion
         '
@@ -396,7 +413,9 @@ Partial Class Factura_Cancelacion
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = Wisej.Web.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(831, 480)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.CbxClientes)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.RibbonBar1)
         Me.Name = "Factura_Cancelacion"
@@ -409,6 +428,7 @@ Partial Class Factura_Cancelacion
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet_pFACTURA_SAT_CFDI_B21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -458,4 +478,6 @@ Partial Class Factura_Cancelacion
     Friend WithEvents cFecha2 As DateTimePicker
     Friend WithEvents Label19 As Label
     Friend WithEvents RBBEstatus As Ext.RibbonBar.RibbonBarItemButton
+    Friend WithEvents Label3 As Label
+    Friend WithEvents CbxClientes As ComboWisax
 End Class

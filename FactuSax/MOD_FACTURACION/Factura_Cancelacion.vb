@@ -34,6 +34,18 @@ Public Class Factura_Cancelacion
         FiltroGrillaSax1.meDatagrid = DataGridView1
         cFecha1.Value = Now
         cFecha2.Value = Now
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Operador", Application.Session("Cve_Operador"))
+        CbxClientes.LlenarListBox("pCAT_CLIENTES_B", "Cve_Cliente", "Nombre_Cliente", Utilidades.ParametersX_Global)
+        If CbxClientes.Items.Count = 1 Then
+            CbxClientes.SelectedIndex = 0
+            CbxClientes.Visible = False
+            Label3.Visible = False
+        ElseIf CbxClientes.SelectedIndex > 1 Then
+            CbxClientes.Visible = True
+            Label3.Visible = True
+        End If
+
         If CbxMotivoCancelacion.SelectedIndex <> -1 Then
             consultar()
         End If
@@ -226,5 +238,10 @@ Public Class Factura_Cancelacion
 
     Private Sub CbxMotivoCancelacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxMotivoCancelacion.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub CbxClientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxClientes.SelectedIndexChanged
+        Application.Session("Facturauser") = CbxClientes.ObtenerDescripcion("FACTORUM_USER")
+        Application.Session("FacturaContrasena") = CbxClientes.ObtenerDescripcion("ContrasenaFact")
     End Sub
 End Class
