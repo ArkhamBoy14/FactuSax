@@ -72,13 +72,14 @@ Public Class Facturacion_REPS
         serieX()
     End Sub
     Sub CargarRFC()
-        ReDim Utilidades.ParametersX_Global(1)
+        ReDim Utilidades.ParametersX_Global(2)
         Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
-        'Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
+        Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
 
         CBSReceptor.Clear()
         CBEmisor.Clear()
         CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+        Utilidades.ParametersX_Global(2) = New SqlParameter("@Pordefecto", 1)
         CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
 
         If CBEmisor.Items.Count > 0 Then

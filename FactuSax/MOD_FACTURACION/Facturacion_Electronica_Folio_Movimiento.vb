@@ -173,6 +173,12 @@ Public Class Facturacion_Electronica_Folio_Movimiento
             Dim tabla_datos As DataTable = CBEmisor.dataTable()
             MTBCP.Text = tabla_datos.Rows(0).Item("Codigo_Postal")
         End If
+        Dim dt_defecto = CBEmisor.dataTable()
+        For i As Integer = 0 To dt_defecto.Rows.Count - 1
+            If dt_defecto.Rows(i).Item("pordefecto") = True Then
+                CBEmisor.SelectedValue = dt_defecto.Rows(i).Item("RFC")
+            End If
+        Next
         CBSTipoComprobante.SelectedValue = "I"
         PREDETERMINADOS()
         If FOLIO_COBRANZA <> Nothing Then
@@ -187,15 +193,17 @@ Public Class Facturacion_Electronica_Folio_Movimiento
     End Sub
 
     Sub CargarRFC()
-        ReDim Utilidades.ParametersX_Global(1)
+        ReDim Utilidades.ParametersX_Global(2)
         Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
         CbxReceptor.Clear()
         CbxReceptor.LlenarListBox("pFACTURACION_EMPRESA", "Cve_Receptor", "ReceptorX", Utilidades.ParametersX_Global)
         Utilidades.ParametersX_Global(1) = New SqlParameter("@Estatus", 1)
 
+
         CBSReceptor.Clear()
         CBEmisor.Clear()
         CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
+        Utilidades.ParametersX_Global(2) = New SqlParameter("@Pordefecto", 1)
         CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
 
         If CBEmisor.Items.Count > 0 Then
@@ -545,6 +553,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         Application.Session("Facturauser") = CbxClientes.ObtenerDescripcion("FACTORUM_USER")
         Application.Session("FacturaContrasena") = CbxClientes.ObtenerDescripcion("ContrasenaFact")
         Application.Session("Cve_Cliente") = CbxClientes.ObtenerDescripcion("Cve_Cliente")
+        Application.Session("Cve_Sistema") = CbxClientes.ObtenerDescripcion("Sistema")
         CargarRetenciones()
         Consultar(CbxClientes.SelectedValue)
         limpiar(False)
@@ -739,7 +748,14 @@ Public Class Facturacion_Electronica_Folio_Movimiento
             'ReDim parametros(7)
             Dim split As String() = dt_conceptos.Rows(i).Item("Producto").split("-")
             filaNueva(cCantidad.Name).Value = dt_conceptos.Rows(i).Item("Cantidad")
-            filaNueva(cbClaveProdServ.Name).Value = "84111506 - Servicios de facturación"
+            If Application.Session("Cve_Sistema") = "iSISLAB" Then
+                filaNueva(cbClaveProdServ.Name).Value = "85121800 - Laboratorios médicos"
+
+            Else
+
+                filaNueva(cbClaveProdServ.Name).Value = "84111506 - Servicios de facturación"
+
+            End If
             filaNueva(cbClaveUnidad.Name).Value = "E48"
             filaNueva(cDescripcion.Name).Value = split(1).Trim
             filaNueva(cValorUnitario.Name).Value = Round(dt_conceptos.Rows(i).Item("Unitario"), 4)
@@ -793,7 +809,14 @@ Public Class Facturacion_Electronica_Folio_Movimiento
 
 
         filaNueva(cCantidad.Name).Value = "1"
-        filaNueva(cbClaveProdServ.Name).Value = "84111506 - Servicios de facturación"
+        If Application.Session("Cve_Sistema") = "iSISLAB" Then
+            filaNueva(cbClaveProdServ.Name).Value = "85121800 - Laboratorios médicos"
+
+        Else
+
+            filaNueva(cbClaveProdServ.Name).Value = "84111506 - Servicios de facturación"
+
+        End If
         filaNueva(cbClaveUnidad.Name).Value = "E48"
         filaNueva(cDescripcion.Name).Value = RTBCondicionPago.Text
         filaNueva(cValorUnitario.Name).Value = Subtotal
