@@ -4,27 +4,52 @@ Imports FactuSax.mx.com.expidetufactura.cancelacionxpdv33
 Imports Wisej.Web
 
 Public Class Factura_Cancelacion
-
+    Dim ME_CARGADO = False
 
     Private Sub RibbonBar1_ItemClick(sender As Object, e As Ext.RibbonBar.RibbonBarItemEventArgs) Handles RibbonBar1.ItemClick
         Select Case e.Item.Name
             Case RBBSalir.Name
                 Me.Close()
+            Case RBBEstatus.Name
+                For i As Int16 = 0 To DataGridView1.Rows.Count - 1
+                    If (DataGridView1.Item(Column0, i).Value = True) Then
+                        consultar_cfdi(i)
+                    End If
+                Next
+            Case RBBCancelar.Name
+                For i As Int16 = 0 To DataGridView1.Rows.Count - 1
+                    If (DataGridView1.Item(Column0, i).Value = True) Then
+                        cancelarv3(i)
+                    End If
+
+                Next
+            Case RBBConsultar.Name
+                If CbxMotivoCancelacion.SelectedIndex <> -1 Then
+                    consultar()
+                End If
         End Select
     End Sub
     Private Sub Factura_Cancelacion_Load(sender As Object, e As EventArgs) Handles Me.Load
         CbxMotivoCancelacion.LlenarListBox("pCAT_MOTIVOS_CANCELACION_SAT_B", "CLAVE", "descripx")
-        consultar()
-
+        FiltroGrillaSax1.meDatagrid = DataGridView1
+        cFecha1.Value = Now
+        cFecha2.Value = Now
+        If CbxMotivoCancelacion.SelectedIndex <> -1 Then
+            consultar()
+        End If
+        ME_CARGADO = True
     End Sub
 
     Sub consultar()
+        Me.DataSet_pFACTURA_SAT_CFDI_B21.Clear()
         Dim myDA = New SqlClient.SqlDataAdapter("pFACTURA_SAT_CFDI_B2", Utilidades.sConexion)
         If CbxMotivoCancelacion.SelectedValue = "01" Then
             myDA.SelectCommand.Parameters.AddWithValue("@Estatus", "PRE-CANCELADA")
         Else
             myDA.SelectCommand.Parameters.AddWithValue("@Estatus", "Timbrada")
         End If
+        myDA.SelectCommand.Parameters.AddWithValue("@Fecha1", Format(Me.cFecha1.Value, "yyyyMMdd"))
+        myDA.SelectCommand.Parameters.AddWithValue("@Fecha2", Format(Me.cFecha2.Value, "yyyyMMdd"))
         myDA.SelectCommand.CommandType = CommandType.StoredProcedure
         myDA.Fill(Me.DataSet_pFACTURA_SAT_CFDI_B21.pFACTURA_SAT_CFDI_B2)
         myDA.Dispose()
@@ -43,8 +68,8 @@ Public Class Factura_Cancelacion
         Dim FOLIO_FISCAL_UUID As String = DataGridView1.Item(colUUID, index).Value
 
 
-        requestXpd.usuario = "MARK800129HK4"
-        requestXpd.contrasena = "NoydMPx5SblZ"
+        requestXpd.usuario = Application.Session("Facturauser")
+        requestXpd.contrasena = Application.Session("FacturaContrasena")
         requestXpd.pdfGenerar = True
         requestXpd.correo = "jose.lopez@saxsoft.com.mx" '"rousez2013@gmail.com"
 
@@ -91,8 +116,8 @@ Public Class Factura_Cancelacion
         Dim sCERTIFICADO_CSD As String = DataGridView1.Item(colNocertificado_Emisor, index).Value
         Dim FOLIO_FISCAL_UUID As String = DataGridView1.Item(colUUID, index).Value
 
-        requestXpd.usuario = "MARK800129HK4"
-        requestXpd.contrasena = "NoydMPx5SblZ"
+        requestXpd.usuario = Application.Session("Facturauser")
+        requestXpd.contrasena = Application.Session("FacturaContrasena")
 
 
         Dim listParametrosx As New List(Of mx.com.expidetufactura.cancelacionxpd.Produccion.parametrosConsultarCfdi)
@@ -136,8 +161,8 @@ Public Class Factura_Cancelacion
         Dim sCERTIFICADO_CSD As String = DataGridView1.Item(colNocertificado_Emisor, index).Value
         Dim FOLIO_FISCAL_UUID As String = DataGridView1.Item(colUUID, index).Value
 
-        requestXpd.usuario = "MARK800129HK4"
-        requestXpd.contrasena = "NoydMPx5SblZ"
+        requestXpd.usuario = Application.Session("Facturauser")
+        requestXpd.contrasena = Application.Session("FacturaContrasena")
 
 
 
@@ -182,29 +207,24 @@ Public Class Factura_Cancelacion
         Return myBase64
     End Function
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        For i As Int16 = 0 To DataGridView1.Rows.Count - 1
-            If (DataGridView1.Item(Column0, i).Value = True) Then
-                cancelarv3(i)
-            End If
 
-        Next
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        For i As Int16 = 0 To DataGridView1.Rows.Count - 1
-            If (DataGridView1.Item(Column0, i).Value = True) Then
-                consultar_cfdi(i)
-            End If
-        Next
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs)
-        Dim facturacion As New Factura_Cancelacion
-        facturacion.Show()
-    End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        UUID_RELACIONADO.Text = DataGridView1.Item(colUUID, e.RowIndex).Value
+        'UUID_RELACIONADO.Text = DataGridView1.Item(colUUID, e.RowIndex).Value
+        If (DataGridView1.Item(Column0, e.RowIndex).Value = True) Then
+            UUID_RELACIONADO.Text = DataGridView1.Item(colUUID, e.RowIndex).Value
+        End If
+    End Sub
+
+    Private Sub cFecha1_ValueChanged(sender As Object, e As EventArgs) Handles cFecha1.ValueChanged, cFecha2.ValueChanged
+        If ME_CARGADO = True Then
+            If CbxMotivoCancelacion.SelectedIndex <> -1 Then
+                consultar()
+            End If
+        End If
+    End Sub
+
+    Private Sub CbxMotivoCancelacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxMotivoCancelacion.SelectedIndexChanged
+
     End Sub
 End Class

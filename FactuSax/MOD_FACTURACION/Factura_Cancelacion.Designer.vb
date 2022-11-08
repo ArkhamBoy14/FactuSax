@@ -25,12 +25,16 @@ Partial Class Factura_Cancelacion
         Me.RibbonBar1 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
+        Me.RBBConsultar = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
+        Me.RBBCancelar = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.RBBSalir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.Panel1 = New Wisej.Web.Panel()
+        Me.Label2 = New Wisej.Web.Label()
+        Me.Label18 = New Wisej.Web.Label()
         Me.UUID_RELACIONADO = New Wisej.Web.TextBox()
-        Me.Button1 = New Wisej.Web.Button()
-        Me.Button2 = New Wisej.Web.Button()
-        Me.CbxMotivoCancelacion = New FactuSax.ComboWisax()
+        Me.cFecha1 = New Wisej.Web.DateTimePicker()
+        Me.cFecha2 = New Wisej.Web.DateTimePicker()
+        Me.Label19 = New Wisej.Web.Label()
         Me.Label1 = New Wisej.Web.Label()
         Me.DataGridView1 = New Wisej.Web.DataGridView()
         Me.Column0 = New Wisej.Web.DataGridViewCheckBoxColumn()
@@ -61,7 +65,9 @@ Partial Class Factura_Cancelacion
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.DataSet_pFACTURA_SAT_CFDI_B21 = New FactuSax.DataSet_pFACTURA_SAT_CFDI_B2()
         Me.PFACTURA_SAT_CFDI_B2TableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_B2TableAdapters.pFACTURA_SAT_CFDI_B2TableAdapter()
+        Me.RBBEstatus = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.FiltroGrillaSax1 = New FactuSax.filtroGrillaSax()
+        Me.CbxMotivoCancelacion = New FactuSax.ComboWisax()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataGridView1.SuspendLayout()
@@ -73,7 +79,7 @@ Partial Class Factura_Cancelacion
         '
         Me.RibbonBar1.Name = "RibbonBar1"
         Me.RibbonBar1.Pages.Add(Me.RibbonBarPage1)
-        Me.RibbonBar1.Size = New System.Drawing.Size(738, 110)
+        Me.RibbonBar1.Size = New System.Drawing.Size(831, 110)
         '
         'RibbonBarPage1
         '
@@ -83,9 +89,24 @@ Partial Class Factura_Cancelacion
         '
         'RibbonBarGroup1
         '
+        Me.RibbonBarGroup1.Items.Add(Me.RBBConsultar)
+        Me.RibbonBarGroup1.Items.Add(Me.RBBEstatus)
+        Me.RibbonBarGroup1.Items.Add(Me.RBBCancelar)
         Me.RibbonBarGroup1.Items.Add(Me.RBBSalir)
         Me.RibbonBarGroup1.Name = "RibbonBarGroup1"
         Me.RibbonBarGroup1.Text = "Procesos"
+        '
+        'RBBConsultar
+        '
+        Me.RBBConsultar.ImageSource = "Resources\Images\Menu\64\busqueda_facturas.png"
+        Me.RBBConsultar.Name = "RBBConsultar"
+        Me.RBBConsultar.Text = "Consultar"
+        '
+        'RBBCancelar
+        '
+        Me.RBBCancelar.ImageSource = "Resources\Images\Menu\64\cancelar_factura.png"
+        Me.RBBCancelar.Name = "RBBCancelar"
+        Me.RBBCancelar.Text = "Cancelar"
         '
         'RBBSalir
         '
@@ -95,51 +116,79 @@ Partial Class Factura_Cancelacion
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.Label18)
         Me.Panel1.Controls.Add(Me.UUID_RELACIONADO)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.cFecha1)
+        Me.Panel1.Controls.Add(Me.cFecha2)
+        Me.Panel1.Controls.Add(Me.Label19)
         Me.Panel1.Controls.Add(Me.CbxMotivoCancelacion)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = Wisej.Web.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 110)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(738, 100)
+        Me.Panel1.Size = New System.Drawing.Size(831, 157)
         Me.Panel1.TabIndex = 2
         Me.Panel1.TabStop = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(20, 107)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(36, 15)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "UUID"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(21, 13)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(35, 15)
+        Me.Label18.TabIndex = 9
+        Me.Label18.Text = "Inicio"
+        '
         'UUID_RELACIONADO
         '
-        Me.UUID_RELACIONADO.Location = New System.Drawing.Point(195, 54)
+        Me.UUID_RELACIONADO.Location = New System.Drawing.Point(20, 121)
         Me.UUID_RELACIONADO.Name = "UUID_RELACIONADO"
-        Me.UUID_RELACIONADO.Size = New System.Drawing.Size(282, 22)
+        Me.UUID_RELACIONADO.Size = New System.Drawing.Size(290, 22)
         Me.UUID_RELACIONADO.TabIndex = 9
         '
-        'Button1
+        'cFecha1
         '
-        Me.Button1.Location = New System.Drawing.Point(504, 16)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 27)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Consultar"
+        Me.cFecha1.CustomFormat = "dd/MM/yyyy"
+        Me.cFecha1.Format = Wisej.Web.DateTimePickerFormat.Custom
+        Me.cFecha1.Location = New System.Drawing.Point(20, 34)
+        Me.cFecha1.Name = "cFecha1"
+        Me.cFecha1.Size = New System.Drawing.Size(103, 22)
+        Me.cFecha1.TabIndex = 7
+        Me.cFecha1.Value = New Date(2010, 5, 4, 18, 20, 0, 0)
         '
-        'Button2
+        'cFecha2
         '
-        Me.Button2.Location = New System.Drawing.Point(610, 16)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 27)
-        Me.Button2.TabIndex = 6
-        Me.Button2.Text = "Cancelar"
+        Me.cFecha2.CustomFormat = "dd/MM/yyyy"
+        Me.cFecha2.Format = Wisej.Web.DateTimePickerFormat.Custom
+        Me.cFecha2.Location = New System.Drawing.Point(207, 34)
+        Me.cFecha2.Name = "cFecha2"
+        Me.cFecha2.Size = New System.Drawing.Size(103, 22)
+        Me.cFecha2.TabIndex = 8
+        Me.cFecha2.Value = New Date(2010, 5, 4, 18, 20, 0, 0)
         '
-        'CbxMotivoCancelacion
+        'Label19
         '
-        Me.CbxMotivoCancelacion.Location = New System.Drawing.Point(187, 24)
-        Me.CbxMotivoCancelacion.Name = "CbxMotivoCancelacion"
-        Me.CbxMotivoCancelacion.TabIndex = 4
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(207, 13)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(23, 15)
+        Me.Label19.TabIndex = 10
+        Me.Label19.Text = "Fin"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(48, 28)
+        Me.Label1.Location = New System.Drawing.Point(18, 62)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(133, 15)
         Me.Label1.TabIndex = 2
@@ -152,12 +201,12 @@ Partial Class Factura_Cancelacion
         Me.DataGridView1.Controls.Add(Me.FiltroGrillaSax1)
         Me.DataGridView1.DataSource = Me.BindingSource1
         Me.DataGridView1.Dock = Wisej.Web.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 210)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 267)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = Wisej.Web.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(738, 270)
+        Me.DataGridView1.Size = New System.Drawing.Size(831, 213)
         Me.DataGridView1.TabIndex = 5
         '
         'Column0
@@ -323,18 +372,30 @@ Partial Class Factura_Cancelacion
         '
         Me.PFACTURA_SAT_CFDI_B2TableAdapter.ClearBeforeFill = True
         '
+        'RBBEstatus
+        '
+        Me.RBBEstatus.ImageSource = "Resources\Images\Menu\64\factura_pagos.png"
+        Me.RBBEstatus.Name = "RBBEstatus"
+        Me.RBBEstatus.Text = "Consultar Estatus"
+        '
         'FiltroGrillaSax1
         '
         Me.FiltroGrillaSax1.Dock = Wisej.Web.DockStyle.Top
         Me.FiltroGrillaSax1.Name = "FiltroGrillaSax1"
-        Me.FiltroGrillaSax1.Size = New System.Drawing.Size(738, 30)
+        Me.FiltroGrillaSax1.Size = New System.Drawing.Size(831, 30)
         Me.FiltroGrillaSax1.TabIndex = 0
+        '
+        'CbxMotivoCancelacion
+        '
+        Me.CbxMotivoCancelacion.Location = New System.Drawing.Point(20, 79)
+        Me.CbxMotivoCancelacion.Name = "CbxMotivoCancelacion"
+        Me.CbxMotivoCancelacion.TabIndex = 4
         '
         'Factura_Cancelacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = Wisej.Web.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(738, 480)
+        Me.ClientSize = New System.Drawing.Size(831, 480)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.RibbonBar1)
@@ -384,11 +445,17 @@ Partial Class Factura_Cancelacion
     Friend WithEvents colNocertificado_Emisor As DataGridViewTextBoxColumn
     Friend WithEvents colTipo_Relacion As DataGridViewTextBoxColumn
     Friend WithEvents Column0 As DataGridViewCheckBoxColumn
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
     Friend WithEvents UUID_RELACIONADO As TextBox
     Friend WithEvents RibbonBarPage1 As Ext.RibbonBar.RibbonBarPage
     Friend WithEvents RibbonBarGroup1 As Ext.RibbonBar.RibbonBarGroup
     Friend WithEvents RBBSalir As Ext.RibbonBar.RibbonBarItemButton
     Friend WithEvents FiltroGrillaSax1 As filtroGrillaSax
+    Friend WithEvents RBBConsultar As Ext.RibbonBar.RibbonBarItemButton
+    Friend WithEvents RBBCancelar As Ext.RibbonBar.RibbonBarItemButton
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents cFecha1 As DateTimePicker
+    Friend WithEvents cFecha2 As DateTimePicker
+    Friend WithEvents Label19 As Label
+    Friend WithEvents RBBEstatus As Ext.RibbonBar.RibbonBarItemButton
 End Class
