@@ -131,6 +131,7 @@ Public Class Login
     End Sub
 
 
+
     Sub Configuracion_Inicial()
         'Utilidades.Conectar()
         'Dim cDataReader As Data.SqlClient.SqlDataReader
