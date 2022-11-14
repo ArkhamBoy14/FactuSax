@@ -235,9 +235,12 @@ Public Class Factura
                     BO = False
                 End If
                 If FOLIO_FACTURAS <> Nothing Then
-                    GUARDAR_UUID_FOLIO(splitx_resp(1), FOLIO_FACTURAS)
+                    If Sustitucion = False Then
+                        GUARDAR_UUID_FOLIO(splitx_resp(1), FOLIO_FACTURAS)
+                    Else
+                        GUARDAR_UUID_SUSTITUCION(splitx_resp(1), FOLIO_FACTURAS)
+                    End If
                 End If
-
 
                 'BO = False '---------------------- Quitar pq no esta el reporte, solo para probar que guarde
                 If BO = True Then
@@ -488,6 +491,17 @@ Public Class Factura
         End If
         Return True
     End Function
+    Sub GUARDAR_UUID_SUSTITUCION(UUID As String, UUID_PADRE As String)
+        ReDim Utilidades.ParametersX_Global(1)
+
+        Utilidades.ParametersX_Global(0) = New SqlParameter("@UUID_PADRE", UUID_PADRE)
+        Utilidades.ParametersX_Global(1) = New SqlParameter("@UUDI_SUST", UUID)
+
+        Dim sust = Utilidades.EjecutarProcedure_Id("pFACTURACION_SUSTITUCION_UUID_RELACIONADOS_G", "@Parametro", Utilidades.ParametersX_Global)
+        If sust = 1 Then
+
+        End If
+    End Sub
 
     Function guardar_conceptos(uuid As String, conceptos As List(Of String), IMPUESTTRASLADO As List(Of String))
 
