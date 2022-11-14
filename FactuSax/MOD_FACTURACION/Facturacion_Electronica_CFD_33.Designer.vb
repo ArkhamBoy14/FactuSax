@@ -91,10 +91,13 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.CBEmisor = New FactuSax.ComboWisax()
         Me.BTEm = New Wisej.Web.Button()
         Me.GroupBox4 = New Wisej.Web.GroupBox()
-        Me.CBSReceptor = New FactuSax.ComboWisax()
+        Me.PanelPeriodo = New Wisej.Web.Panel()
+        Me.PanelUsoCFDI = New Wisej.Web.Panel()
         Me.CBSUsoCFDI = New FactuSax.ComboWisax()
-        Me.BTRec = New Wisej.Web.Button()
         Me.Label17 = New Wisej.Web.Label()
+        Me.Panel5 = New Wisej.Web.Panel()
+        Me.CBSReceptor = New FactuSax.ComboWisax()
+        Me.BTRec = New Wisej.Web.Button()
         Me.GroupBox1 = New Wisej.Web.GroupBox()
         Me.DGV_Facturas = New Wisej.Web.DataGridView()
         Me.cCHK = New Wisej.Web.DataGridViewCheckBoxColumn()
@@ -136,9 +139,13 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.ErrorProvider1 = New Wisej.Web.ErrorProvider(Me.components)
         Me.Label30 = New Wisej.Web.Label()
         Me.AspPageBox1 = New Wisej.Web.AspNetPanel()
-        Me.CBSTipoComprobante = New FactuSax.ComboWisax()
         Me.PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter = New FactuSax.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJOTableAdapters.pFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter()
         Me.PFACTURACION_CAPTURA_EGRESOSTableAdapter = New FactuSax.DataSet_pFACTURACION_CAPTURA_EGRESOSTableAdapters.pFACTURACION_CAPTURA_EGRESOSTableAdapter()
+        Me.CBSTipoComprobante = New FactuSax.ComboWisax()
+        Me.Label8 = New Wisej.Web.Label()
+        Me.CbxPeriodo = New FactuSax.ComboWisax()
+        Me.CbxMeses = New FactuSax.ComboWisax()
+        Me.lbMeses = New Wisej.Web.Label()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -158,6 +165,9 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.SplitContainer2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.PanelPeriodo.SuspendLayout()
+        Me.PanelUsoCFDI.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DGV_Facturas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DGV_Facturas.SuspendLayout()
@@ -454,11 +464,11 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         Me.TabControl1.Controls.Add(Me.TPCONCEPTO)
         Me.TabControl1.Dock = Wisej.Web.DockStyle.Fill
-        Me.TabControl1.Location = New System.Drawing.Point(0, 296)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 345)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.PageInsets = New Wisej.Web.Padding(1, 35, 1, 1)
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1019, 295)
+        Me.TabControl1.Size = New System.Drawing.Size(1019, 246)
         Me.TabControl1.TabIndex = 6
         '
         'TPCONCEPTO
@@ -466,7 +476,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.TPCONCEPTO.Controls.Add(Me.DGVConceptos)
         Me.TPCONCEPTO.Location = New System.Drawing.Point(1, 35)
         Me.TPCONCEPTO.Name = "TPCONCEPTO"
-        Me.TPCONCEPTO.Size = New System.Drawing.Size(1017, 259)
+        Me.TPCONCEPTO.Size = New System.Drawing.Size(1017, 210)
         Me.TPCONCEPTO.Text = "CONCEPTO"
         '
         'DGVConceptos
@@ -475,7 +485,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.DGVConceptos.Dock = Wisej.Web.DockStyle.Fill
         Me.DGVConceptos.Location = New System.Drawing.Point(0, 0)
         Me.DGVConceptos.Name = "DGVConceptos"
-        Me.DGVConceptos.Size = New System.Drawing.Size(1017, 259)
+        Me.DGVConceptos.Size = New System.Drawing.Size(1017, 210)
         Me.DGVConceptos.TabIndex = 3
         '
         'dgvEliminar
@@ -653,7 +663,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.Panel2.Controls.Add(Me.RbDescuentoAplicado)
         Me.Panel2.Controls.Add(Me.RbDescuentoVisible)
         Me.Panel2.Dock = Wisej.Web.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 244)
+        Me.Panel2.Location = New System.Drawing.Point(0, 293)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1019, 52)
         Me.Panel2.TabIndex = 5
@@ -692,7 +702,7 @@ Partial Class Facturacion_Electronica_CFD_33
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox4)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1019, 94)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1019, 143)
         Me.SplitContainer2.SplitterDistance = 498
         Me.SplitContainer2.TabIndex = 1
         '
@@ -703,7 +713,7 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.GroupBox3.Dock = Wisej.Web.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(496, 92)
+        Me.GroupBox3.Size = New System.Drawing.Size(496, 141)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.Text = "Emisor"
         '
@@ -726,51 +736,86 @@ Partial Class Facturacion_Electronica_CFD_33
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.CBSReceptor)
-        Me.GroupBox4.Controls.Add(Me.CBSUsoCFDI)
-        Me.GroupBox4.Controls.Add(Me.BTRec)
-        Me.GroupBox4.Controls.Add(Me.Label17)
+        Me.GroupBox4.Controls.Add(Me.PanelPeriodo)
+        Me.GroupBox4.Controls.Add(Me.PanelUsoCFDI)
+        Me.GroupBox4.Controls.Add(Me.Panel5)
         Me.GroupBox4.Dock = Wisej.Web.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(513, 92)
+        Me.GroupBox4.Size = New System.Drawing.Size(513, 141)
         Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.Text = "Receptor"
         '
-        'CBSReceptor
+        'PanelPeriodo
         '
-        Me.CBSReceptor.BackColor = System.Drawing.Color.Transparent
-        Me.CBSReceptor.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSReceptor.Location = New System.Drawing.Point(9, 16)
-        Me.CBSReceptor.Name = "CBSReceptor"
-        Me.CBSReceptor.Size = New System.Drawing.Size(431, 22)
-        Me.CBSReceptor.TabIndex = 0
+        Me.PanelPeriodo.Controls.Add(Me.CbxMeses)
+        Me.PanelPeriodo.Controls.Add(Me.lbMeses)
+        Me.PanelPeriodo.Controls.Add(Me.CbxPeriodo)
+        Me.PanelPeriodo.Controls.Add(Me.Label8)
+        Me.PanelPeriodo.Dock = Wisej.Web.DockStyle.Top
+        Me.PanelPeriodo.Location = New System.Drawing.Point(3, 104)
+        Me.PanelPeriodo.Name = "PanelPeriodo"
+        Me.PanelPeriodo.Size = New System.Drawing.Size(507, 38)
+        Me.PanelPeriodo.TabIndex = 7
+        Me.PanelPeriodo.TabStop = True
+        Me.PanelPeriodo.Visible = False
+        '
+        'PanelUsoCFDI
+        '
+        Me.PanelUsoCFDI.Controls.Add(Me.CBSUsoCFDI)
+        Me.PanelUsoCFDI.Controls.Add(Me.Label17)
+        Me.PanelUsoCFDI.Dock = Wisej.Web.DockStyle.Top
+        Me.PanelUsoCFDI.Location = New System.Drawing.Point(3, 61)
+        Me.PanelUsoCFDI.Name = "PanelUsoCFDI"
+        Me.PanelUsoCFDI.Size = New System.Drawing.Size(507, 43)
+        Me.PanelUsoCFDI.TabIndex = 8
+        Me.PanelUsoCFDI.TabStop = True
         '
         'CBSUsoCFDI
         '
         Me.CBSUsoCFDI.BackColor = System.Drawing.Color.Transparent
         Me.CBSUsoCFDI.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSUsoCFDI.Location = New System.Drawing.Point(71, 54)
+        Me.CBSUsoCFDI.Location = New System.Drawing.Point(76, 10)
         Me.CBSUsoCFDI.Name = "CBSUsoCFDI"
         Me.CBSUsoCFDI.Size = New System.Drawing.Size(318, 22)
-        Me.CBSUsoCFDI.TabIndex = 4
-        '
-        'BTRec
-        '
-        Me.BTRec.Location = New System.Drawing.Point(446, 17)
-        Me.BTRec.Name = "BTRec"
-        Me.BTRec.Size = New System.Drawing.Size(33, 23)
-        Me.BTRec.TabIndex = 1
-        Me.BTRec.Text = "+"
+        Me.CBSUsoCFDI.TabIndex = 8
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(6, 57)
+        Me.Label17.Location = New System.Drawing.Point(11, 13)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(62, 15)
-        Me.Label17.TabIndex = 3
+        Me.Label17.TabIndex = 7
         Me.Label17.Text = "Uso CFDI"
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.CBSReceptor)
+        Me.Panel5.Controls.Add(Me.BTRec)
+        Me.Panel5.Dock = Wisej.Web.DockStyle.Top
+        Me.Panel5.Location = New System.Drawing.Point(3, 18)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(507, 43)
+        Me.Panel5.TabIndex = 9
+        Me.Panel5.TabStop = True
+        '
+        'CBSReceptor
+        '
+        Me.CBSReceptor.BackColor = System.Drawing.Color.Transparent
+        Me.CBSReceptor.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBSReceptor.Location = New System.Drawing.Point(6, 4)
+        Me.CBSReceptor.Name = "CBSReceptor"
+        Me.CBSReceptor.Size = New System.Drawing.Size(431, 22)
+        Me.CBSReceptor.TabIndex = 2
+        '
+        'BTRec
+        '
+        Me.BTRec.Location = New System.Drawing.Point(443, 5)
+        Me.BTRec.Name = "BTRec"
+        Me.BTRec.Size = New System.Drawing.Size(33, 23)
+        Me.BTRec.TabIndex = 3
+        Me.BTRec.Text = "+"
         '
         'GroupBox1
         '
@@ -1152,6 +1197,14 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.AspPageBox1.Size = New System.Drawing.Size(10, 10)
         Me.AspPageBox1.TabIndex = 11
         '
+        'PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter
+        '
+        Me.PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter.ClearBeforeFill = True
+        '
+        'PFACTURACION_CAPTURA_EGRESOSTableAdapter
+        '
+        Me.PFACTURACION_CAPTURA_EGRESOSTableAdapter.ClearBeforeFill = True
+        '
         'CBSTipoComprobante
         '
         Me.CBSTipoComprobante.BackColor = System.Drawing.Color.Transparent
@@ -1163,13 +1216,43 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.CBSTipoComprobante.TabIndex = 2
         Me.CBSTipoComprobante.Visible = False
         '
-        'PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter
+        'Label8
         '
-        Me.PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter.ClearBeforeFill = True
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(2, 11)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(76, 15)
+        Me.Label8.TabIndex = 9
+        Me.Label8.Text = "Periodicidad"
         '
-        'PFACTURACION_CAPTURA_EGRESOSTableAdapter
+        'CbxPeriodo
         '
-        Me.PFACTURACION_CAPTURA_EGRESOSTableAdapter.ClearBeforeFill = True
+        Me.CbxPeriodo.BackColor = System.Drawing.Color.Transparent
+        Me.CbxPeriodo.Cursor = Wisej.Web.Cursors.Hand
+        Me.CbxPeriodo.Location = New System.Drawing.Point(84, 7)
+        Me.CbxPeriodo.Name = "CbxPeriodo"
+        Me.CbxPeriodo.Size = New System.Drawing.Size(150, 22)
+        Me.CbxPeriodo.TabIndex = 10
+        '
+        'CbxMeses
+        '
+        Me.CbxMeses.BackColor = System.Drawing.Color.Transparent
+        Me.CbxMeses.Cursor = Wisej.Web.Cursors.Hand
+        Me.CbxMeses.Location = New System.Drawing.Point(289, 7)
+        Me.CbxMeses.Name = "CbxMeses"
+        Me.CbxMeses.Size = New System.Drawing.Size(182, 22)
+        Me.CbxMeses.TabIndex = 12
+        Me.CbxMeses.Visible = False
+        '
+        'lbMeses
+        '
+        Me.lbMeses.AutoSize = True
+        Me.lbMeses.Location = New System.Drawing.Point(240, 13)
+        Me.lbMeses.Name = "lbMeses"
+        Me.lbMeses.Size = New System.Drawing.Size(43, 15)
+        Me.lbMeses.TabIndex = 11
+        Me.lbMeses.Text = "Meses"
+        Me.lbMeses.Visible = False
         '
         'Facturacion_Electronica_CFD_33
         '
@@ -1205,7 +1288,12 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
+        Me.PanelPeriodo.ResumeLayout(False)
+        Me.PanelPeriodo.PerformLayout()
+        Me.PanelUsoCFDI.ResumeLayout(False)
+        Me.PanelUsoCFDI.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DGV_Facturas, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1236,12 +1324,8 @@ Partial Class Facturacion_Electronica_CFD_33
     Friend WithEvents Label3 As Label
     Friend WithEvents CBSTipoComprobante As ComboWisax
     Friend WithEvents CBEmisor As ComboWisax
-    Friend WithEvents CBSReceptor As ComboWisax
     Friend WithEvents DGV_Facturas As Wisej.Web.DataGridView
     Friend WithEvents BTEm As Button
-    Friend WithEvents CBSUsoCFDI As ComboWisax
-    Friend WithEvents Label17 As Label
-    Friend WithEvents BTRec As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents RDBManual As RadioButton
@@ -1336,4 +1420,15 @@ Partial Class Facturacion_Electronica_CFD_33
     Friend WithEvents colTipo_Pago As DataGridViewTextBoxColumn
     Friend WithEvents colFecha1 As DataGridViewDateTimePickerColumn
     Friend WithEvents colNombre_Receptor As DataGridViewTextBoxColumn
+    Friend WithEvents PanelPeriodo As Panel
+    Friend WithEvents PanelUsoCFDI As Panel
+    Friend WithEvents CBSUsoCFDI As ComboWisax
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents CBSReceptor As ComboWisax
+    Friend WithEvents BTRec As Button
+    Friend WithEvents CbxMeses As ComboWisax
+    Friend WithEvents lbMeses As Label
+    Friend WithEvents CbxPeriodo As ComboWisax
+    Friend WithEvents Label8 As Label
 End Class

@@ -48,7 +48,7 @@ Public Class CAT_SERIE_FOLIO_SAT_FACTURACION
         Dim sDevuelveId = Utilidades.EjecutarProcedure_Id("[pCAT_SERIE_FOLIO_SAT_FACTURACION_G]", "@Parametro", Utilidades.ParametersX_Global, , SqlDbType.VarChar, 50)
         If sDevuelveId = "Guardado" Then
             MessageBox.Show("Registro Guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        ElseIf sDevuelveId = "Actualizado" Then
+        ElseIf sDevuelveId = "Actualizado Folio" Then
             MessageBox.Show("Registro Actualizado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             MessageBox.Show("Error", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)

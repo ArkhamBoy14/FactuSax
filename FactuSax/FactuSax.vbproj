@@ -878,6 +878,7 @@
     <Content Include="Datasets\DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.xss">
       <DependentUpon>DataSet_pFACTURA_SAT_EGRESOS_CONCEPTOS.xsd</DependentUpon>
     </Content>
+    <Content Include="My Project\launchSettings.json" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="DocumentViewer.aspx" />
     <Content Include="Global.asax" />
@@ -1387,7 +1388,9 @@
     <Compile Include="MOD_CATALOGOS\Cat_Rol.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MOD_FACTURACION\catCFDI_tdCFDI_catPagos_Pagos10.vb" />
+    <Compile Include="MOD_FACTURACION\catCFDI_tdCFDI_catPagos_Pagos20.vb">
+      <SubType>code</SubType>
+    </Compile>
     <Compile Include="MOD_FACTURACION\Cat_Busqueda_Facturas.Designer.vb">
       <DependentUpon>Cat_Busqueda_Facturas.vb</DependentUpon>
     </Compile>

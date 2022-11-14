@@ -355,6 +355,8 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
         
         Private columnCadena_Original As Global.System.Data.DataColumn
         
+        Private columnRegimenFiscal_Receptor As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -679,6 +681,14 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property RegimenFiscal_ReceptorColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRegimenFiscal_Receptor
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -751,9 +761,10 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
                     ByVal FechaTimrado As String,  _
                     ByVal SelloCFD As String,  _
                     ByVal SellaSAT As String,  _
-                    ByVal Cadena_Original As String) As pREPRESENTACION_FISICA_CFDI_3_3_BRow
+                    ByVal Cadena_Original As String,  _
+                    ByVal RegimenFiscal_Receptor As String) As pREPRESENTACION_FISICA_CFDI_3_3_BRow
             Dim rowpREPRESENTACION_FISICA_CFDI_3_3_BRow As pREPRESENTACION_FISICA_CFDI_3_3_BRow = CType(Me.NewRow,pREPRESENTACION_FISICA_CFDI_3_3_BRow)
-            Dim columnValuesArray() As Object = New Object() {folio, FECHA_EMISION, LugarExpedicion, TipodeComprobante, Razon_Social, Emisor_Rfc, LN1_Direccion, LN2_DIRECCION, Regimen_Fiscal, Receptor_Nombnre, Receptor_RFC, UsoCFDI, CondicionesPago, cantidad, ClaveUnidad, ClaveProdServ, NoIndetificacion, descripcion, Valorunitario, Descuiento, Importe, Subtotal, Descuento, IMPUESTO_TRASLADO, IMPUESTO_RETENCION, TOTAL, MetodoPago, FormaPago, Moneda, NoCertificadoSAT, UUID, NoCertificado_Emisor, FechaTimrado, SelloCFD, SellaSAT, Cadena_Original}
+            Dim columnValuesArray() As Object = New Object() {folio, FECHA_EMISION, LugarExpedicion, TipodeComprobante, Razon_Social, Emisor_Rfc, LN1_Direccion, LN2_DIRECCION, Regimen_Fiscal, Receptor_Nombnre, Receptor_RFC, UsoCFDI, CondicionesPago, cantidad, ClaveUnidad, ClaveProdServ, NoIndetificacion, descripcion, Valorunitario, Descuiento, Importe, Subtotal, Descuento, IMPUESTO_TRASLADO, IMPUESTO_RETENCION, TOTAL, MetodoPago, FormaPago, Moneda, NoCertificadoSAT, UUID, NoCertificado_Emisor, FechaTimrado, SelloCFD, SellaSAT, Cadena_Original, RegimenFiscal_Receptor}
             rowpREPRESENTACION_FISICA_CFDI_3_3_BRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowpREPRESENTACION_FISICA_CFDI_3_3_BRow)
             Return rowpREPRESENTACION_FISICA_CFDI_3_3_BRow
@@ -812,6 +823,7 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
             Me.columnSelloCFD = MyBase.Columns("SelloCFD")
             Me.columnSellaSAT = MyBase.Columns("SellaSAT")
             Me.columnCadena_Original = MyBase.Columns("Cadena_Original")
+            Me.columnRegimenFiscal_Receptor = MyBase.Columns("RegimenFiscal_Receptor")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -889,13 +901,14 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
             MyBase.Columns.Add(Me.columnSellaSAT)
             Me.columnCadena_Original = New Global.System.Data.DataColumn("Cadena_Original", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCadena_Original)
+            Me.columnRegimenFiscal_Receptor = New Global.System.Data.DataColumn("RegimenFiscal_Receptor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRegimenFiscal_Receptor)
             Me.columnfolio.ReadOnly = true
             Me.columnfolio.MaxLength = 101
             Me.columnFECHA_EMISION.ReadOnly = true
             Me.columnFECHA_EMISION.MaxLength = 16
             Me.columnLugarExpedicion.MaxLength = 50
             Me.columnTipodeComprobante.MaxLength = 50
-            Me.columnRazon_Social.AllowDBNull = false
             Me.columnRazon_Social.MaxLength = 150
             Me.columnEmisor_Rfc.MaxLength = 50
             Me.columnLN1_Direccion.ReadOnly = true
@@ -908,7 +921,6 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
             Me.columnReceptor_RFC.MaxLength = 50
             Me.columnUsoCFDI.ReadOnly = true
             Me.columnUsoCFDI.MaxLength = 511
-            Me.columnCondicionesPago.AllowDBNull = false
             Me.columnCondicionesPago.MaxLength = 2147483647
             Me.columncantidad.MaxLength = 50
             Me.columnClaveUnidad.MaxLength = 50
@@ -919,7 +931,6 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
             Me.columnDescuiento.MaxLength = 50
             Me.columnImporte.MaxLength = 50
             Me.columnSubtotal.MaxLength = 50
-            Me.columnDescuento.AllowDBNull = false
             Me.columnDescuento.MaxLength = 50
             Me.columnIMPUESTO_TRASLADO.MaxLength = 50
             Me.columnIMPUESTO_RETENCION.ReadOnly = true
@@ -938,6 +949,7 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
             Me.columnSelloCFD.MaxLength = 2147483647
             Me.columnSellaSAT.MaxLength = 2147483647
             Me.columnCadena_Original.MaxLength = 2147483647
+            Me.columnRegimenFiscal_Receptor.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1150,7 +1162,12 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property Razon_Social() As String
             Get
-                Return CType(Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.Razon_SocialColumn),String)
+                Try 
+                    Return CType(Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.Razon_SocialColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Razon_Social' de la tabla 'pREPRESENTACION_FISICA_CFDI_3_"& _ 
+                            "3_B' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.Razon_SocialColumn) = value
@@ -1273,7 +1290,12 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property CondicionesPago() As String
             Get
-                Return CType(Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.CondicionesPagoColumn),String)
+                Try 
+                    Return CType(Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.CondicionesPagoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CondicionesPago' de la tabla 'pREPRESENTACION_FISICA_CFDI"& _ 
+                            "_3_3_B' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.CondicionesPagoColumn) = value
@@ -1428,7 +1450,12 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property Descuento() As String
             Get
-                Return CType(Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.DescuentoColumn),String)
+                Try 
+                    Return CType(Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.DescuentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descuento' de la tabla 'pREPRESENTACION_FISICA_CFDI_3_3_B"& _ 
+                            "' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.DescuentoColumn) = value
@@ -1645,6 +1672,22 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property RegimenFiscal_Receptor() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.RegimenFiscal_ReceptorColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RegimenFiscal_Receptor' de la tabla 'pREPRESENTACION_FISI"& _ 
+                            "CA_CFDI_3_3_B' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.RegimenFiscal_ReceptorColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsfolioNull() As Boolean
             Return Me.IsNull(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.folioColumn)
         End Function
@@ -1689,6 +1732,18 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetTipodeComprobanteNull()
             Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.TipodeComprobanteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsRazon_SocialNull() As Boolean
+            Return Me.IsNull(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.Razon_SocialColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetRazon_SocialNull()
+            Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.Razon_SocialColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1773,6 +1828,18 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetUsoCFDINull()
             Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.UsoCFDIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCondicionesPagoNull() As Boolean
+            Return Me.IsNull(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.CondicionesPagoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCondicionesPagoNull()
+            Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.CondicionesPagoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1881,6 +1948,18 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetSubtotalNull()
             Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.SubtotalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDescuentoNull() As Boolean
+            Return Me.IsNull(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.DescuentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDescuentoNull()
+            Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.DescuentoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2037,6 +2116,18 @@ Partial Public Class DataSet_pREPRESENTACION_FISICA_CFDI_3_3_B
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetCadena_OriginalNull()
             Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.Cadena_OriginalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsRegimenFiscal_ReceptorNull() As Boolean
+            Return Me.IsNull(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.RegimenFiscal_ReceptorColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetRegimenFiscal_ReceptorNull()
+            Me(Me.tablepREPRESENTACION_FISICA_CFDI_3_3_B.RegimenFiscal_ReceptorColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -2242,6 +2333,7 @@ Namespace DataSet_pREPRESENTACION_FISICA_CFDI_3_3_BTableAdapters
             tableMapping.ColumnMappings.Add("SelloCFD", "SelloCFD")
             tableMapping.ColumnMappings.Add("SellaSAT", "SellaSAT")
             tableMapping.ColumnMappings.Add("Cadena_Original", "Cadena_Original")
+            tableMapping.ColumnMappings.Add("RegimenFiscal_Receptor", "RegimenFiscal_Receptor")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         

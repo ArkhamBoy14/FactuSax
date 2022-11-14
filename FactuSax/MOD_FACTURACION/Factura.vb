@@ -11,11 +11,11 @@ Imports DevExpress.XtraPrinting
 Public Class Factura
     Dim pathxml As String
     Dim codeXml As String
+    Dim ImporteTraslado As Double
 
     Function factura_html(emisor As String, receptor As String, cuerpo_factura As Dictionary(Of String, String), certificado As String, llave As String, claveprivada As String, conceptos As List(Of String),
-                       traslado As List(Of String), totaliva As String, serieactiva As String, fechafactura As DateTime, Optional totalretenciones As String = Nothing, Optional retenciones As List(Of String) = Nothing, Optional FOLIO_FACTURAS As String = Nothing, Optional Sustitucion As Boolean = 0)
+                       traslado As List(Of String), totaliva As String, serieactiva As String, fechafactura As DateTime, Optional totalretenciones As String = Nothing, Optional retenciones As List(Of String) = Nothing, Optional FOLIO_FACTURAS As String = Nothing, Optional Sustitucion As Boolean = 0, Optional Periodicidad As List(Of String) = Nothing)
         Try
-            Try
 
             Dim sumatoria As Double
 
@@ -73,19 +73,33 @@ Public Class Factura
             Dim ce As New ComprobanteEmisor
             Dim split_e = emisor.Split("|")
             ce.Rfc = split_e(0)
-            ce.Nombre = "ESCUELA WILSON ESQUIVEL SA DE CV"
+            ce.Nombre = split_e(1)
             ce.RegimenFiscal = split_e(2)
+
+
 
             Dim cr As New ComprobanteReceptor
             Dim split_r = receptor.Split("|")
-            cr.Nombre = split_r(1)
+            cr.Nombre = Utilidades.ConvertirTextoPlano(split_r(1))
             cr.Rfc = split_r(0)
             cr.UsoCFDI = split_r(2)
-            cr.RegimenFiscalReceptor = "601"
-            'cr.ResidenciaFiscalSpecified = True
-            cr.DomicilioFiscalReceptor = "86280"
+            cr.UsoCFDI = "S01"
+
+            cr.RegimenFiscalReceptor = split_r(3)
+            cr.DomicilioFiscalReceptor = "86301"
             comprobante.Emisor = ce
             comprobante.Receptor = cr
+
+            If cr.Rfc = "XAXX010101000" Then
+                Dim split_per = Periodicidad(0).Split("|")
+                Dim infG As New ComprobanteInformacionGlobal
+                infG.Periodicidad = split_per(0)
+                infG.Meses = split_per(1)
+                infG.Año = split_per(2)
+                comprobante.InformacionGlobal = infG
+            End If
+
+
 
             Dim concepto As New ComprobanteConcepto
             Dim conceptosx As New List(Of ComprobanteConcepto)
@@ -124,13 +138,14 @@ Public Class Factura
                     imptraslados.Impuesto = splittras(0)
                     imptraslados.TipoFactor = splittras(2)
                     imptraslados.TasaOCuota = splittras(1)
+                    'imptraslados.Base = splittras()
                     'imptraslados.Importe = Round((split(5) * splittras(1)) - descuentoconcepto, 4)
                     imptraslados.Importe = Round((split(5) * splittras(1)), 4)
-
+                    ImporteTraslado = split(5)
                     Impuestotraslado.Add(split(5) - descuentoconcepto & "|" & splittras(0) & "|" & splittras(2) & "|" & splittras(1) & "|" & Round((split(5) - descuentoconcepto) * splittras(1), 4))
                     listaimptraslado.Add(imptraslados)
                     'sumatoria += Round((split(5) * splittras(1)) - descuentoconcepto, 4)
-                    sumatoria += Round((split(5) * splittras(1)), 4)
+                    sumatoria += Round((split(5) * splittras(1)), 2)
 
                 Next
                 imp.Traslados = listaimptraslado.ToArray
@@ -173,8 +188,11 @@ Public Class Factura
                 Dim splitt = traslado(0).Split("|")
                 cimt.Impuesto = splitt(0)
                 cimt.TipoFactor = splitt(2)
+                cimt.TasaOCuotaSpecified = True
                 cimt.TasaOCuota = splitt(1)
-                cimt.Importe = Round(sumatoria, 4)
+                cimt.Base = ImporteTraslado
+                cimt.ImporteSpecified = True
+                cimt.Importe = Round(sumatoria, 2)
                 cimtl.Add(cimt)
             Next
             cim.Traslados = cimtl.ToArray
@@ -297,6 +315,15 @@ Public Class Factura
     End Function
 
     Function crearxml(Comprobante As Comprobante, pathxml As String, timbrarx As Boolean, PDF As String)
+        Dim CERTIFICADO_CSD As String
+        Dim SELLO_CFDI As String
+        Dim SELLO_SAT As String
+        Dim FOLIO_FISCAL_UUID As String
+        Dim NO_SERIE_CERTIFICADO_SAT As String
+        Dim FECHA_CERTIFICACION As String
+        Dim LEYENDA As String
+        Dim RfcProvCertif As String
+
         Try
 
 
@@ -340,32 +367,54 @@ Public Class Factura
                 If respuesta.codigo = "200" Then
 
                     System.IO.File.WriteAllText(pathxml, respuesta.timbre)
-                    'Guardar_XLM(respuesta.timbre, respuesta.uuid)
                     codeXml = respuesta.timbre
 
-                    Dim comprobantex As New Comprobante
+                    Dim comprobantex = Comprobante
                     Dim serilizador As New XmlSerializer(GetType(Comprobante))
+                    'Try
+                    '    Using reader As StreamReader = New StreamReader(pathxml)
+                    '        comprobantex = serilizador.Deserialize(reader)
+                    '        For Each complementos In comprobantex.Complemento
+                    '            For Each interior In complementos.Any
+                    '                Dim seriliz As XmlSerializer = New XmlSerializer(GetType(TimbreFiscalDigital))
+                    '                Using readerx As New StringReader(interior.OuterXml)
+                    '                    comprobantex.timbrefiscaldigital = seriliz.Deserialize(readerx)
+
+                    '                End Using
+                    '            Next
+                    '        Next
+                    '    End Using
+                    'Catch ex As Exception
+
+                    'End Try
                     Try
-                        Using reader As StreamReader = New StreamReader(pathxml)
-                            comprobantex = serilizador.Deserialize(reader)
-                            For Each complementos In comprobantex.Complemento
-                                For Each interior In complementos.Any
-                                    Dim seriliz As XmlSerializer = New XmlSerializer(GetType(TimbreFiscalDigital))
-                                    Using readerx As New StringReader(interior.OuterXml)
-                                        comprobantex.timbrefiscaldigital = seriliz.Deserialize(readerx)
 
-                                    End Using
-                                Next
-                            Next
-                        End Using
+                        Dim texto As String = ""
+                        texto = codeXml
+                        CERTIFICADO_CSD = texto.Substring(texto.IndexOf("NoCertificado=""") + 15, 20)
+                        SELLO_CFDI = texto.Substring(texto.IndexOf("SelloCFD=""") + 10, 344)
+                        SELLO_SAT = texto.Substring(texto.IndexOf("SelloSAT=""") + 10, 344)
+                        FOLIO_FISCAL_UUID = texto.Substring(texto.IndexOf("""UUID=""") + 8, 36) 'se cambio a 8 porq ya existen  UUID relacionados dentro del xml y traia el anterior 
+                        NO_SERIE_CERTIFICADO_SAT = texto.Substring(texto.IndexOf("NoCertificadoSAT=""") + 18, 20)
+                        FECHA_CERTIFICACION = CType((texto.Substring(texto.IndexOf("FechaTimbrado=""") + 15, 19)), DateTime)
+                        If texto.Contains("Leyenda=""") Then
+                            Dim Inicio = (texto.IndexOf("Leyenda=""") + 9)
+                            Dim Fin = texto.IndexOf(""" NoCertificadoSAT=""")
+
+                            LEYENDA = texto.Substring(Inicio, Fin - Inicio)
+                        End If
+                        RfcProvCertif = texto.Substring(texto.IndexOf("RfcProvCertif=""") + 15, 12)
                     Catch ex As Exception
-
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try
+
                     Application.Session("total_comprobante") = comprobantex.Total
 
 
-                    GUARDAR_TIMBRE(respuesta.uuid, pathxml, PDF, comprobantex.timbrefiscaldigital.Leyenda, comprobantex.timbrefiscaldigital.NoCertificadoSAT, comprobantex.timbrefiscaldigital.RfcProvCertif, comprobantex.timbrefiscaldigital.SelloCFD, comprobantex.timbrefiscaldigital.SelloSAT, comprobantex.timbrefiscaldigital.FechaTimbrado)
-                    Application.Session("QR_SAT") = "https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=" & comprobantex.timbrefiscaldigital.UUID & "&re=" & comprobantex.Emisor.Rfc & "&fe=" & comprobantex.Receptor.Rfc & "&tt=" & comprobantex.Total & "&fe=" & comprobantex.Sello.Substring(comprobantex.Sello.Length - 9, 8)
+                    'GUARDAR_TIMBRE(respuesta.uuid, pathxml, PDF, comprobantex.timbrefiscaldigital.Leyenda, comprobantex.timbrefiscaldigital.NoCertificadoSAT, comprobantex.timbrefiscaldigital.RfcProvCertif, comprobantex.timbrefiscaldigital.SelloCFD, comprobantex.timbrefiscaldigital.SelloSAT, comprobantex.timbrefiscaldigital.FechaTimbrado)
+                    GUARDAR_TIMBRE(respuesta.uuid, pathxml, PDF, LEYENDA, SELLO_SAT, RfcProvCertif, SELLO_CFDI, SELLO_SAT, FECHA_CERTIFICACION)
+
+                    Application.Session("QR_SAT") = "https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=" & respuesta.uuid & "&re=" & comprobantex.Emisor.Rfc & "&fe=" & comprobantex.Receptor.Rfc & "&tt=" & comprobantex.Total & "&fe=" & comprobantex.Sello.Substring(comprobantex.Sello.Length - 9, 8)
                     Application.Session("UUID_SAT") = respuesta.uuid
 
 
@@ -403,7 +452,7 @@ Public Class Factura
             cuerpo_factura("Condiciones_Pago") = "NA"
         End If
         Dim sDevuelveId
-        ReDim Utilidades.ParametersX_Global(24)
+        ReDim Utilidades.ParametersX_Global(26)
         Utilidades.ParametersX_Global(1) = New SqlClient.SqlParameter("@UUID", uuid)
         Utilidades.ParametersX_Global(2) = New SqlClient.SqlParameter("@Fecha", FECHA)
         Utilidades.ParametersX_Global(3) = New SqlClient.SqlParameter("@TipodeComprobante", cuerpo_factura("Tipo_comprobante"))
@@ -428,6 +477,8 @@ Public Class Factura
         Utilidades.ParametersX_Global(22) = New SqlClient.SqlParameter("@Certificado_Emisor", NOCERTIFICADO_EMISOR)
         Utilidades.ParametersX_Global(23) = New SqlClient.SqlParameter("@Cadena_Original", CADENA_ORIGINAL)
         Utilidades.ParametersX_Global(24) = New SqlClient.SqlParameter("@TipoRelacion", cuerpo_factura("TipoRelacion"))
+        Utilidades.ParametersX_Global(25) = New SqlClient.SqlParameter("@RegimenFiscalReceptor", split_r(3))
+
 
 
 
@@ -655,12 +706,12 @@ Public Class Factura
             pdocumentor.Folio = dic("FOLIO")
             pdocumentor.IdDocumento = dic("UUUID")
             pdocumentor.ImpPagado = dic("IMPORTE_PAGADO")
-            pdocumentor.ImpPagadoSpecified = True
+            'pdocumentor.ImpPagadoSpecified = True
             pdocumentor.ImpSaldoAnt = dic("SALDO_ANTERIOR")
-            pdocumentor.ImpSaldoAntSpecified = True
+            'pdocumentor.ImpSaldoAntSpecified = True
             pdocumentor.ImpSaldoInsoluto = dic("SALDO_INSOLUTO")
-            pdocumentor.ImpSaldoInsolutoSpecified = True
-            pdocumentor.MetodoDePagoDR = dic("METODOPAGO")
+            'pdocumentor.ImpSaldoInsolutoSpecified = True
+            'pdocumentor.MetodoDePagoDR = dic("METODOPAGO")
             pdocumentor.MonedaDR = dic("MONEDA")
             pdocumentor.NumParcialidad = dic("PARCIALIDAD")
             pdocumentor.Serie = dic("SERIE")

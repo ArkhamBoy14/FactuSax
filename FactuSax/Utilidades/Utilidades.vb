@@ -987,6 +987,16 @@ Namespace Utilidades
             End If
 
         End Function
+        Function ConvertirTextoPlano(Texto As String)
+            Const conAcentos = "áàäâÁÀÄÂéèëêÉÈËÊíìïîÍÌÏÎóòöôÓÒÖÔúùüûÚÙÜÛýÿÝ"
+            Const sinAcentos = "aaaaAAAAeeeeEEEEiiiiIIIIooooOOOOuuuuUUUUyyY"
+            Dim i As Integer
+            For i = Len(conAcentos) To 1 Step -1
+                Texto = Replace(Texto, Mid(conAcentos, i, 1), Mid(sinAcentos, i, 1))
+            Next
+            ConvertirTextoPlano = Texto
+        End Function
+
         Function ConfiguracionMonedaRegionalEntrada(ByRef monedaAFormatear As String) As String
             If System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator = "," Then
                 monedaAFormatear = monedaAFormatear.Replace(",", ".")

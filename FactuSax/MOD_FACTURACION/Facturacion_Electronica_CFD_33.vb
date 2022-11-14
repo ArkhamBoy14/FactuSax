@@ -205,9 +205,19 @@ Public Class Facturacion_Electronica_CFD_33
             Me.WindowState = FormWindowState.Normal
 
         End If
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Estatus", 1)
+        CbxPeriodo.LlenarListBox("pCAT_PERIODICIDAD_SAT_FACTURACION_B", "c_Periodicidad", "Descripcion", Utilidades.ParametersX_Global)
+        CargarMeses(0)
         'serie()
     End Sub
+    Sub CargarMeses(Bimestral As Boolean)
+        CbxMeses.Clear()
+        ReDim Utilidades.ParametersX_Global(0)
+        Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@Bimestral", Bimestral)
+        CbxMeses.LlenarListBox("CAT_PERIODICIDAD_MESES_SAT_FACTURACION_B", "c_Meses", "Descripcion")
 
+    End Sub
     Sub CargarRFC()
         ReDim Utilidades.ParametersX_Global(2)
         Utilidades.ParametersX_Global(0) = New SqlParameter("@Cve_Cliente", CbxClientes.SelectedValue)
@@ -217,7 +227,6 @@ Public Class Facturacion_Electronica_CFD_33
         CBSReceptor.Clear()
         CBEmisor.Clear()
         CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
-        Utilidades.ParametersX_Global(2) = New SqlParameter("@Pordefecto", 1)
         CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
 
         If CBEmisor.Items.Count > 0 Then
@@ -251,7 +260,7 @@ Public Class Facturacion_Electronica_CFD_33
 
     End Sub
 
-    Private Sub BTRerceptor_Click(sender As Object, e As EventArgs) Handles BTEm.Click, BTRec.Click
+    Private Sub BTRerceptor_Click(sender As Object, e As EventArgs) Handles BTEm.Click
         Dim Emisor_Receptor As Boolean
         If sender.NAME = "BTEm" Then
             Emisor_Receptor = True
@@ -463,6 +472,7 @@ Public Class Facturacion_Electronica_CFD_33
         Dim cuerpo As New Dictionary(Of String, String)
         Dim conceptos As New List(Of String)
         Dim imptraslado As New List(Of String)
+        Dim periodicid As New List(Of String)
         Dim impretencciones As New List(Of String)
         Dim FACTURA As New Factura
         Dim RFC_EMISOR As String = CBEmisor.SelectedValue
@@ -472,7 +482,9 @@ Public Class Facturacion_Electronica_CFD_33
         Dim rfc_receptor As String = CBSReceptor.SelectedValue
         Dim nombre_receptor As String = CBSReceptor.ObtenerDescripcion("Razon_Social")
         Dim uso_cfdi As String = CBSUsoCFDI.SelectedValue
-        Dim receptor = rfc_receptor & "|" & nombre_receptor & "|" & uso_cfdi
+        Dim RegimenReceptor As String = CBSReceptor.ObtenerDescripcion("regimen")
+
+        Dim receptor = rfc_receptor & "|" & nombre_receptor & "|" & uso_cfdi & "|" & RegimenReceptor
         Dim llave = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("llave")
         Dim cer = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("cer")
         Dim claveprivada = CBEmisor.ObtenerDescripcion("claveprivada")
@@ -498,9 +510,12 @@ Public Class Facturacion_Electronica_CFD_33
                 conceptos.Add(DGVConceptos.Rows(i).Cells(cCantidad.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cbClaveProdServ.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cbClaveUnidad.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cDescripcion.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cValorUnitario.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cImporte.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cDescuento.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cNoIdentificacion.Name).Value)
             Next
         End If
+        If CBSReceptor.SelectedValue = "XAXX010101000" Then
+            periodicid.Add(CbxPeriodo.SelectedValue & "|" & CbxMeses.SelectedValue & "|" & Now.Year)
+        End If
 
         'If CBTraslado.Checked = True Then
-        imptraslado.Add("002" & "|" & ValorIVA & "|" & TasaIVA)
+        imptraslado.Add("002" & "|" & ValorIVA & "|" & TasaIVA & "|" & TBIva.Text.Replace("$", ""))
         'End If
 
         If AplicaISR = True Then
@@ -510,9 +525,9 @@ Public Class Facturacion_Electronica_CFD_33
 
             End If
             Dim totalretenciones = TBRISR.Text + TBRIVA.Text
-            FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, totalretenciones, impretencciones, ME_FOLIO_FACTURAS)
+            FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, totalretenciones, impretencciones, ME_FOLIO_FACTURAS,, periodicid)
         Else
-            Dim respuesta As String = FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura,,, ME_FOLIO_FACTURAS)
+            Dim respuesta As String = FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura,,, ME_FOLIO_FACTURAS,, periodicid)
             If respuesta <> Nothing Then
                 Dim UUID As String = respuesta
                 'ReDim Utilidades.ParametersX_Global(3)
@@ -584,6 +599,7 @@ Public Class Facturacion_Electronica_CFD_33
         TBTotal.Text = "$0"
 
         Me.ME_FOLIO_FACTURAS = Nothing
+        CbxPeriodo.SelectedIndex = -1
     End Sub
 
     Private Sub CBSTipoComprobante_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBSTipoComprobante.SelectedIndexChanged
@@ -661,6 +677,13 @@ Public Class Facturacion_Electronica_CFD_33
 
 
         Next
+
+        If CBSReceptor.SelectedValue = "XAXX010101000" Then
+            If CbxPeriodo.SelectedIndex = -1 Then
+                MessageBox.Show("Seleccione un periodo")
+                Return False
+            End If
+        End If
         'If Not Utilidades.TieneTimbresDisponibles(CBEmisor.SelectedValue) Then
 
         'MessageBox.Show("No quedan timbres disponibles en tu paquete contratado")
@@ -758,10 +781,21 @@ Public Class Facturacion_Electronica_CFD_33
             End If
 
             CBSUsoCFDI.LlenarListBox("pCAT_USOCFDI_SAT_FACTURACION_B", "c_UsoCFDI", "DescripcionX", Utilidades.ParametersX_Global)
-            CBSUsoCFDI.SelectedValue = "P01"
+            CBSUsoCFDI.SelectedValue = "G01"
+            CambiarPeriodo(CBSReceptor.SelectedValue)
         End If
     End Sub
 
+    Sub CambiarPeriodo(RFC As String)
+        If RFC = "XAXX010101000" Then
+            PanelUsoCFDI.Visible = False
+            PanelPeriodo.Visible = True
+            CBSUsoCFDI.SelectedValue = "S01"
+        Else
+            PanelUsoCFDI.Visible = True
+            PanelPeriodo.Visible = False
+        End If
+    End Sub
     Private Sub CheckBox1_CheckedChanged_1(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then
             For Each fila As DataGridViewRow In DGV_Facturas.Rows
@@ -786,9 +820,10 @@ Public Class Facturacion_Electronica_CFD_33
                 CBSMetodoPago.Enabled = True
             End If
             If e.ColumnIndex = cCheckPadre.Index Then
-                    DGV_Receptor.Rows(e.RowIndex).Expand()
-                End If
+                DGV_Receptor.Rows(e.RowIndex).Expand()
             End If
+        End If
+        CambiarPeriodo(CBSReceptor.SelectedValue)
     End Sub
 
     Sub CalcularMasivo()
@@ -820,6 +855,29 @@ Public Class Facturacion_Electronica_CFD_33
         End Try
     End Sub
 
+    Private Sub CbxPeriodo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxPeriodo.SelectedIndexChanged
+        If CbxPeriodo.ObtenerDescripcion("Descripcion") = "Diario" Or CbxPeriodo.ObtenerDescripcion("Descripcion") = "Semanal" Or CbxPeriodo.ObtenerDescripcion("Descripcion") = "Quincenal" Then
+            CbxMeses.Visible = False
+            lbMeses.Visible = False
+            CbxMeses.SelectedValue = Now.Month
+        ElseIf CbxPeriodo.ObtenerDescripcion("Descripcion") = "Bimestral" Then
+            CargarMeses(1)
+            CbxMeses.Visible = True
+            lbMeses.Visible = True
+            CbxMeses.SelectedValue = Now.Month
+        ElseIf CbxPeriodo.ObtenerDescripcion("Descripcion") = "Mensual" Then
+            CargarMeses(0)
+            CbxMeses.Visible = True
+            lbMeses.Visible = True
+            CbxMeses.SelectedValue = Now.Month
+        End If
+    End Sub
+
+
+
+    'Private Sub CBSReceptor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles 
+
+    'End Sub
 
     Private Sub cFecha1_ValueChanged(sender As Object, e As EventArgs) Handles cFecha1.ValueChanged
         If CbxClientes.SelectedIndex <> -1 Then
@@ -920,8 +978,8 @@ Public Class Facturacion_Electronica_CFD_33
                 End If
                 filaNueva(cbClaveUnidad.Name).Value = "E48"
                 filaNueva(cDescripcion.Name).Value = split(1).Trim
-                filaNueva(cValorUnitario.Name).Value = Round(dt_conceptos.Rows(i).Item("Unitario"), 4)
-                filaNueva(cImporte.Name).Value = Round(dt_conceptos.Rows(i).Item("IMPORTE"), 4)
+                filaNueva(cValorUnitario.Name).Value = Round(dt_conceptos.Rows(i).Item("Unitario"), 2)
+                filaNueva(cImporte.Name).Value = Round(dt_conceptos.Rows(i).Item("IMPORTE"), 2)
                 filaNueva(cDescuento.Name).Value = Round(dt_conceptos.Rows(i).Item("Descuento_Total"), 0)
                 filaNueva(cNoIdentificacion.Name).Value = split(0).Trim
                 'DGVConceptos.Rows.Add(filaNueva)
@@ -942,8 +1000,8 @@ Public Class Facturacion_Electronica_CFD_33
                 End If
                 filaNueva(cbClaveUnidad.Name).Value = "E48"
                 filaNueva(cDescripcion.Name).Value = split(1).Trim
-                filaNueva(cValorUnitario.Name).Value = Round(dt_conceptos.Rows(i).Item("Descuento_Unitario"), 4)
-                filaNueva(cImporte.Name).Value = Round(dt_conceptos.Rows(i).Item("Descuento_Aplicado"), 4)
+                filaNueva(cValorUnitario.Name).Value = Round(dt_conceptos.Rows(i).Item("Descuento_Unitario"), 2)
+                filaNueva(cImporte.Name).Value = Round(dt_conceptos.Rows(i).Item("Descuento_Aplicado"), 2)
                 filaNueva(cDescuento.Name).Value = 0
                 filaNueva(cNoIdentificacion.Name).Value = split(0).Trim
             End If
@@ -953,10 +1011,10 @@ Public Class Facturacion_Electronica_CFD_33
         Next
         For i As Integer = 0 To dt_conceptos.Rows.Count - 1
             If RbDescuentoVisible.Checked = True Then
-                total += Round(dt_conceptos.Rows(i).Item("Unitario"), 4)
+                total += Round(dt_conceptos.Rows(i).Item("Unitario"), 2)
 
             Else
-                total += Round(dt_conceptos.Rows(i).Item("Descuento_Unitario"), 4)
+                total += Round(dt_conceptos.Rows(i).Item("Descuento_Unitario"), 2)
             End If
         Next
         Dim DESCUENTOX As Double
