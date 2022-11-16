@@ -143,33 +143,6 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
                 'imprimir()
         End Select
     End Sub
-    'Sub imprimir()
-
-
-
-    '    Dim sReportName, sProcedureName, sWhere, X As String
-    '    Dim bTipoReporte As Boolean = True
-    '    sReportName = "R_RFC_DATOS"
-
-    '    sProcedureName = "pCAT_RFC_B"
-
-    '    sWhere = "@RFC='" & TxtRFC.Text & "'"
-
-
-    '    If Trim(sReportName) <> Nothing Then
-    '        AspPageBox1.Path = Nothing
-    '        Application.Session("ReportName") = sReportName
-    '        Application.Session("ProcedureName") = sProcedureName & Space(1) & sWhere
-    '        Application.Session("DocumentCached") = Nothing
-    '        AspPageBox1.Path = "ReportView.aspx"
-    '        Me.AspPageBox1.Update()
-    '    End If
-
-
-
-    ''End Sub
-
-
 
 
 
@@ -203,29 +176,18 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
     End Sub
 
     Sub SubCatalogos()
-
-        'Utilidades.Llenar_Listbox("pCAT_ESTADOS_B", "Cve_Estado", "Estado", cbbEstado, , True)
         cbbEstado.LlenarListBox("pCAT_ESTADOS_B", "Cve_Estado", "Estado")
-        'Utilidades.Llenar_Listbox("pCAT_REEGIMENFISCAL_SAT_FACTURACION", "c_RegimenFiscal", "descripcionx", CBBSRegimen, , True)
         CBBSRegimen.LlenarListBox("pCAT_REEGIMENFISCAL_SAT_FACTURACION", "c_RegimenFiscal", "descripcionx")
-
     End Sub
 
 
 
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
-
-
-
-
-
         If IsDBNull(DataGridView1.CurrentRow.Cells(2).Value) Then
             DataGridView1.ClearSelection()
             SubConsultar()
             Exit Sub
         End If
-
-
         x = ""
         x = DataGridView1.CurrentRow.Cells(2).Value
 
@@ -234,11 +196,7 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
             guardar_RFC()
         Else
             rowindex2 = -1
-
-
         End If
-
-
     End Sub
 
     Private Function existe(ByVal RFC As String) As Boolean
@@ -266,9 +224,6 @@ Public Class Cat_RFC_EMISOR_SAT_FACTURACION
     Private Sub guardar_RFC()
         Dim p As String = ""
         Try
-
-
-
             If existe(DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(2).Value.Trim) = True And Trim(Me.Tag) = Nothing Then
                 MessageBox.Show("El RFC " + DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(2).Value + " ya existe en la base de datos ")
                 DataGridView1.ClearSelection()

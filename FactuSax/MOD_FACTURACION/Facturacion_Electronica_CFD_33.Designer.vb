@@ -92,6 +92,10 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.BTEm = New Wisej.Web.Button()
         Me.GroupBox4 = New Wisej.Web.GroupBox()
         Me.PanelPeriodo = New Wisej.Web.Panel()
+        Me.CbxMeses = New FactuSax.ComboWisax()
+        Me.lbMeses = New Wisej.Web.Label()
+        Me.CbxPeriodo = New FactuSax.ComboWisax()
+        Me.Label8 = New Wisej.Web.Label()
         Me.PanelUsoCFDI = New Wisej.Web.Panel()
         Me.CBSUsoCFDI = New FactuSax.ComboWisax()
         Me.Label17 = New Wisej.Web.Label()
@@ -142,10 +146,6 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.PFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter = New FactuSax.DataSet_pFACTURACION_RECEPTOR_PADRE_HIJOTableAdapters.pFACTURACION_RECEPTOR_PADRE_HIJOTableAdapter()
         Me.PFACTURACION_CAPTURA_EGRESOSTableAdapter = New FactuSax.DataSet_pFACTURACION_CAPTURA_EGRESOSTableAdapters.pFACTURACION_CAPTURA_EGRESOSTableAdapter()
         Me.CBSTipoComprobante = New FactuSax.ComboWisax()
-        Me.Label8 = New Wisej.Web.Label()
-        Me.CbxPeriodo = New FactuSax.ComboWisax()
-        Me.CbxMeses = New FactuSax.ComboWisax()
-        Me.lbMeses = New Wisej.Web.Label()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -760,6 +760,44 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.PanelPeriodo.TabStop = True
         Me.PanelPeriodo.Visible = False
         '
+        'CbxMeses
+        '
+        Me.CbxMeses.BackColor = System.Drawing.Color.Transparent
+        Me.CbxMeses.Cursor = Wisej.Web.Cursors.Hand
+        Me.CbxMeses.Location = New System.Drawing.Point(289, 7)
+        Me.CbxMeses.Name = "CbxMeses"
+        Me.CbxMeses.Size = New System.Drawing.Size(182, 22)
+        Me.CbxMeses.TabIndex = 12
+        Me.CbxMeses.Visible = False
+        '
+        'lbMeses
+        '
+        Me.lbMeses.AutoSize = True
+        Me.lbMeses.Location = New System.Drawing.Point(240, 13)
+        Me.lbMeses.Name = "lbMeses"
+        Me.lbMeses.Size = New System.Drawing.Size(43, 15)
+        Me.lbMeses.TabIndex = 11
+        Me.lbMeses.Text = "Meses"
+        Me.lbMeses.Visible = False
+        '
+        'CbxPeriodo
+        '
+        Me.CbxPeriodo.BackColor = System.Drawing.Color.Transparent
+        Me.CbxPeriodo.Cursor = Wisej.Web.Cursors.Hand
+        Me.CbxPeriodo.Location = New System.Drawing.Point(84, 7)
+        Me.CbxPeriodo.Name = "CbxPeriodo"
+        Me.CbxPeriodo.Size = New System.Drawing.Size(150, 22)
+        Me.CbxPeriodo.TabIndex = 10
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(2, 11)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(76, 15)
+        Me.Label8.TabIndex = 9
+        Me.Label8.Text = "Periodicidad"
+        '
         'PanelUsoCFDI
         '
         Me.PanelUsoCFDI.Controls.Add(Me.CBSUsoCFDI)
@@ -1215,44 +1253,6 @@ Partial Class Facturacion_Electronica_CFD_33
         Me.CBSTipoComprobante.Size = New System.Drawing.Size(218, 22)
         Me.CBSTipoComprobante.TabIndex = 2
         Me.CBSTipoComprobante.Visible = False
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(2, 11)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(76, 15)
-        Me.Label8.TabIndex = 9
-        Me.Label8.Text = "Periodicidad"
-        '
-        'CbxPeriodo
-        '
-        Me.CbxPeriodo.BackColor = System.Drawing.Color.Transparent
-        Me.CbxPeriodo.Cursor = Wisej.Web.Cursors.Hand
-        Me.CbxPeriodo.Location = New System.Drawing.Point(84, 7)
-        Me.CbxPeriodo.Name = "CbxPeriodo"
-        Me.CbxPeriodo.Size = New System.Drawing.Size(150, 22)
-        Me.CbxPeriodo.TabIndex = 10
-        '
-        'CbxMeses
-        '
-        Me.CbxMeses.BackColor = System.Drawing.Color.Transparent
-        Me.CbxMeses.Cursor = Wisej.Web.Cursors.Hand
-        Me.CbxMeses.Location = New System.Drawing.Point(289, 7)
-        Me.CbxMeses.Name = "CbxMeses"
-        Me.CbxMeses.Size = New System.Drawing.Size(182, 22)
-        Me.CbxMeses.TabIndex = 12
-        Me.CbxMeses.Visible = False
-        '
-        'lbMeses
-        '
-        Me.lbMeses.AutoSize = True
-        Me.lbMeses.Location = New System.Drawing.Point(240, 13)
-        Me.lbMeses.Name = "lbMeses"
-        Me.lbMeses.Size = New System.Drawing.Size(43, 15)
-        Me.lbMeses.TabIndex = 11
-        Me.lbMeses.Text = "Meses"
-        Me.lbMeses.Visible = False
         '
         'Facturacion_Electronica_CFD_33
         '

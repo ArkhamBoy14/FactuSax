@@ -483,8 +483,8 @@ Public Class Facturacion_Electronica_CFD_33
         Dim nombre_receptor As String = CBSReceptor.ObtenerDescripcion("Razon_Social")
         Dim uso_cfdi As String = CBSUsoCFDI.SelectedValue
         Dim RegimenReceptor As String = CBSReceptor.ObtenerDescripcion("regimen")
-
-        Dim receptor = rfc_receptor & "|" & nombre_receptor & "|" & uso_cfdi & "|" & RegimenReceptor
+        Dim DomicilioReceptor As String = CBSReceptor.ObtenerDescripcion("Codigo_Postal")
+        Dim receptor = rfc_receptor & "|" & nombre_receptor & "|" & uso_cfdi & "|" & RegimenReceptor & "|" & DomicilioReceptor
         Dim llave = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("llave")
         Dim cer = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("cer")
         Dim claveprivada = CBEmisor.ObtenerDescripcion("claveprivada")
@@ -870,6 +870,17 @@ Public Class Facturacion_Electronica_CFD_33
             CbxMeses.Visible = True
             lbMeses.Visible = True
             CbxMeses.SelectedValue = Now.Month
+        End If
+    End Sub
+
+    Private Sub CBSMetodoPago_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBSMetodoPago.SelectedIndexChanged
+        If CBSMetodoPago.SelectedValue = "PPD" Then
+            CBSFormaPago.SelectedValue = "99"
+            CBSFormaPago.Enabled = False
+        Else
+            CBSFormaPago.SelectedValue = "01"
+            CBSFormaPago.Enabled = True
+
         End If
     End Sub
 

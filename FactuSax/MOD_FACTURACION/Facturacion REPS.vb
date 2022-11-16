@@ -57,7 +57,8 @@ Public Class Facturacion_REPS
         End If
 
         CBSUsoCFDI.LlenarListBox("pCAT_USOCFDI_SAT_FACTURACION_B", "c_UsoCFDI", "DescripcionX", Utilidades.ParametersX_Global)
-        CBSUsoCFDI.SelectedValue = "P01"
+        CBSUsoCFDI.SelectedValue = "CP01"
+        CBSUsoCFDI.Enabled = False
         Dim dt_defecto = CBEmisor.dataTable()
         For i As Integer = 0 To dt_defecto.Rows.Count - 1
             If dt_defecto.Rows(i).Item("pordefecto") = True Then
@@ -79,7 +80,6 @@ Public Class Facturacion_REPS
         CBSReceptor.Clear()
         CBEmisor.Clear()
         CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
-        Utilidades.ParametersX_Global(2) = New SqlParameter("@Pordefecto", 1)
         CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
 
         If CBEmisor.Items.Count > 0 Then
@@ -287,7 +287,10 @@ Public Class Facturacion_REPS
         Dim llave = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("llave")
         Dim cer = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("cer")
         Dim claveprivada = CBEmisor.ObtenerDescripcion("claveprivada")
-        Dim receptor = rfc_receptor & "|" & nombre_receptor & "|" & uso_cfdi
+        Dim RegimenReceptor As String = CBSReceptor.ObtenerDescripcion("regimen")
+        Dim DomicilioReceptor As String = CBSReceptor.ObtenerDescripcion("Codigo_Postal")
+
+        Dim receptor = rfc_receptor & "|" & nombre_receptor & "|" & uso_cfdi & "|" & RegimenReceptor & "|" & DomicilioReceptor
         cuerpo.Add("Folio", FOLIO)
         cuerpo.Add("Serie", SERIE)
         cuerpo.Add("Tipo_comprobante", CBSTipoComprobante.SelectedValue)
@@ -563,9 +566,12 @@ Public Class Facturacion_REPS
                     If TotalPendiente >= DGVConceptosUUID.Rows(i).Cells("colIMPORTE_PAGADO").Value Then
                         DGVConceptosUUID.Rows(i).Cells("colIMPORTE_PAGADO").Value = DGVConceptosUUID.Rows(i).Cells("colSALDO_ANTERIOR").Value
                         TotalPendiente = TotalPendiente - DGVConceptosUUID.Rows(i).Cells("colIMPORTE_PAGADO").Value
+                        TotalPendiente = Math.Round(TotalPendiente, 2)
                     Else
                         DGVConceptosUUID.Rows(i).Cells("colIMPORTE_PAGADO").Value = TotalPendiente
                         TotalPendiente = TotalPendiente - DGVConceptosUUID.Rows(i).Cells("colIMPORTE_PAGADO").Value
+                        TotalPendiente = Math.Round(TotalPendiente, 2)
+
                     End If
 
                 Next
@@ -580,7 +586,8 @@ Public Class Facturacion_REPS
                     contador = 0
                 Else
                     DGVConceptosUUID.Rows(contador - 1).Cells("colIMPORTE_PAGADO").Value = TBMonto.Text
-                    DGVConceptosUUID.Rows(contador - 1).Cells("colSALDO_INSOLUTO").Value = DGVConceptosUUID.Rows(0).Cells("colSALDO_ANTERIOR").Value - TBMonto.Text
+                    Dim Insoluto As Double = DGVConceptosUUID.Rows(0).Cells("colSALDO_ANTERIOR").Value - TBMonto.Text
+                    DGVConceptosUUID.Rows(contador - 1).Cells("colSALDO_INSOLUTO").Value = Math.Round(Insoluto, 2)
                     RBBFactura.Enabled = True
                     TBMonto.Text = 0
                 End If
@@ -605,7 +612,8 @@ Public Class Facturacion_REPS
                                 Case "IMPORTE_PAGADO"
                                     FILA(x) = TBMonto.Text
                                 Case "SALDO_INSOLUTO"
-                                    FILA(x) = DT.Rows(i).Item(x) - TBMonto.Text
+                                    Dim Insoluto As Double = DT.Rows(i).Item(x) - TBMonto.Text
+                                    FILA(x) = Math.Round(Insoluto, 2)
                                 Case "PARCIALIDAD"
                                     FILA(x) = DT.Rows(i).Item(x) + 1
                                 Case Else
