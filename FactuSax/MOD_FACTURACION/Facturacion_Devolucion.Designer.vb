@@ -1,11 +1,9 @@
-
-
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Facturacion_REPS
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class Facturacion_Devolucion
     Inherits Wisej.Web.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -19,10 +17,10 @@ Partial Class Facturacion_REPS
     'NOTE: The following procedure is required by the Visual WebGui Designer
     'It can be modified using the Visual WebGui Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar7 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
@@ -32,20 +30,16 @@ Partial Class Facturacion_REPS
         Me.RBBSalir = New Wisej.Web.Ext.RibbonBar.RibbonBarItemButton()
         Me.SplitContainer1 = New Wisej.Web.SplitContainer()
         Me.DGVUUID = New Wisej.Web.DataGridView()
-        Me.colChk = New Wisej.Web.DataGridViewCheckBoxColumn()
-        Me.colRFC = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.cPARCIALIDAD = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.DataGridViewImageColumn1 = New Wisej.Web.DataGridViewImageColumn()
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
+        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_B()
         Me.pserie = New Wisej.Web.Panel()
-        Me.RichTextBox1 = New Wisej.Web.TextBox()
+        Me.TextBox1 = New Wisej.Web.TextBox()
         Me.Label2 = New Wisej.Web.Label()
         Me.pfECHA = New Wisej.Web.Panel()
-        Me.GroupBox5 = New Wisej.Web.GroupBox()
-        Me.RbEmpresa = New Wisej.Web.RadioButton()
-        Me.RbParticular = New Wisej.Web.RadioButton()
-        Me.Label12 = New Wisej.Web.Label()
-        Me.CbxReceptor = New FactuSax.ComboWisax()
-        Me.Label16 = New Wisej.Web.Label()
+        Me.RB_Parcial = New Wisej.Web.RadioButton()
+        Me.RB_Completa = New Wisej.Web.RadioButton()
+        Me.Label10 = New Wisej.Web.Label()
         Me.CbxClientes = New FactuSax.ComboWisax()
         Me.Label19 = New Wisej.Web.Label()
         Me.cFecha2 = New Wisej.Web.DateTimePicker()
@@ -55,33 +49,29 @@ Partial Class Facturacion_REPS
         Me.GroupBox1 = New Wisej.Web.GroupBox()
         Me.RBFolio = New Wisej.Web.RadioButton()
         Me.RBFecha = New Wisej.Web.RadioButton()
-        Me.GroupBox2 = New Wisej.Web.GroupBox()
-        Me.RadioButton1 = New Wisej.Web.RadioButton()
-        Me.RadioButton2 = New Wisej.Web.RadioButton()
-        Me.DGVConceptosUUID = New Wisej.Web.DataGridView()
-        Me.colUUID_1 = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colSERIE = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colFOLIO_1 = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colMONEDA = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colMETODOPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colPARCIALIDAD = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colIMPORTE_PAGADO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colSALDO_ANTERIOR = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colSALDO_INSOLUTO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.BindingSource2 = New Wisej.Web.BindingSource(Me.components)
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B()
+        Me.DGVConceptos = New Wisej.Web.DataGridView()
+        Me.cCantidad = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cbClaveProdServ = New Wisej.Web.DataGridViewComboBoxColumn()
+        Me.cbClaveUnidad = New Wisej.Web.DataGridViewComboBoxColumn()
+        Me.cDescripcion = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cValorUnitario = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cImporte = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cDescuento = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.cNoIdentificacion = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.Panel4 = New Wisej.Web.Panel()
+        Me.Label33 = New Wisej.Web.Label()
+        Me.TBDescuento = New Wisej.Web.TextBox()
+        Me.TBTotal = New Wisej.Web.TextBox()
+        Me.TBRISR = New Wisej.Web.TextBox()
+        Me.TBRIVA = New Wisej.Web.TextBox()
+        Me.TBIva = New Wisej.Web.TextBox()
+        Me.TBSubTotal = New Wisej.Web.TextBox()
+        Me.Label28 = New Wisej.Web.Label()
+        Me.Label29 = New Wisej.Web.Label()
+        Me.Label30 = New Wisej.Web.Label()
+        Me.Label31 = New Wisej.Web.Label()
+        Me.Label32 = New Wisej.Web.Label()
         Me.Panel2 = New Wisej.Web.Panel()
-        Me.gbbANCOS = New Wisej.Web.GroupBox()
-        Me.CBSBancoEmisor = New FactuSax.ComboWisax()
-        Me.TBRFCbancoB = New Wisej.Web.TextBox()
-        Me.TBCtabeneficiario = New Wisej.Web.TextBox()
-        Me.Label15 = New Wisej.Web.Label()
-        Me.Label14 = New Wisej.Web.Label()
-        Me.Label13 = New Wisej.Web.Label()
-        Me.Label11 = New Wisej.Web.Label()
-        Me.Label10 = New Wisej.Web.Label()
-        Me.TBBRFCancoE = New Wisej.Web.TextBox()
-        Me.CBSBancoBeneficiario = New FactuSax.ComboWisax()
         Me.SplitContainer2 = New Wisej.Web.SplitContainer()
         Me.GroupBox3 = New Wisej.Web.GroupBox()
         Me.CBEmisor = New FactuSax.ComboWisax()
@@ -93,14 +83,18 @@ Partial Class Facturacion_REPS
         Me.BTRec = New Wisej.Web.Button()
         Me.Panel6 = New Wisej.Web.Panel()
         Me.BtnAnexarPago = New Wisej.Web.Button()
+        Me.Label13 = New Wisej.Web.Label()
+        Me.TBMonto = New Wisej.Web.TextBox()
+        Me.TBTipoCambio = New Wisej.Web.TextBox()
+        Me.Label9 = New Wisej.Web.Label()
+        Me.CBS_TipoRelacion = New FactuSax.ComboWisax()
+        Me.Label12 = New Wisej.Web.Label()
         Me.RTBObservaciones = New Wisej.Web.TextBox()
         Me.Label1 = New Wisej.Web.Label()
         Me.CBSFormaPago = New FactuSax.ComboWisax()
         Me.CBSTipoComprobante = New FactuSax.ComboWisax()
         Me.MTBHoraPago = New Wisej.Web.MaskedTextBox()
         Me.MTBHoraEmision = New Wisej.Web.MaskedTextBox()
-        Me.Label9 = New Wisej.Web.Label()
-        Me.TBMonto = New Wisej.Web.TextBox()
         Me.Label8 = New Wisej.Web.Label()
         Me.CBSMoneda = New FactuSax.ComboWisax()
         Me.Label6 = New Wisej.Web.Label()
@@ -113,32 +107,26 @@ Partial Class Facturacion_REPS
         Me.DTPFechaEmision = New Wisej.Web.DateTimePicker()
         Me.ErrorProvider1 = New Wisej.Web.ErrorProvider(Me.components)
         Me.Label20 = New Wisej.Web.Label()
-        Me.AspPageBox1 = New Wisej.Web.AspNetPanel()
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B1 = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_B()
-        Me.PFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter()
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_B()
-        Me.colSALDO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colCONDICIONESPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colFECHA = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colUUID = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.PFACTURA_SAT_CFDI_PAGOS_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_BTableAdapter()
         Me.colFOLIO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colUUID = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colFECHA = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colCONDICIONESPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colSALDO = New Wisej.Web.DataGridViewTextBoxColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.DGVUUID, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pserie.SuspendLayout()
         Me.pfECHA.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        CType(Me.DGVConceptosUUID, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVConceptos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.gbbANCOS.SuspendLayout()
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer2.Panel1.SuspendLayout()
         Me.SplitContainer2.Panel2.SuspendLayout()
@@ -147,8 +135,6 @@ Partial Class Facturacion_REPS
         Me.GroupBox4.SuspendLayout()
         Me.Panel6.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RibbonBar7
@@ -156,13 +142,13 @@ Partial Class Facturacion_REPS
         Me.RibbonBar7.Cursor = Wisej.Web.Cursors.Arrow
         Me.RibbonBar7.Name = "RibbonBar7"
         Me.RibbonBar7.Pages.Add(Me.RibbonBarPage1)
-        Me.RibbonBar7.Size = New System.Drawing.Size(1192, 94)
+        Me.RibbonBar7.Size = New System.Drawing.Size(1192, 81)
         '
         'RibbonBarPage1
         '
         Me.RibbonBarPage1.Groups.Add(Me.RibbonBarGroup1)
         Me.RibbonBarPage1.Name = "RibbonBarPage1"
-        Me.RibbonBarPage1.Text = "Menu"
+        Me.RibbonBarPage1.Text = "Menú"
         '
         'RibbonBarGroup1
         '
@@ -200,7 +186,7 @@ Partial Class Facturacion_REPS
         '
         Me.SplitContainer1.AutoValidate = Wisej.Web.AutoValidate.EnablePreventFocusChange
         Me.SplitContainer1.Dock = Wisej.Web.DockStyle.Fill
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 94)
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 81)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -212,9 +198,10 @@ Partial Class Facturacion_REPS
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.DGVConceptosUUID)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.DGVConceptos)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Panel4)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1192, 661)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1192, 787)
         Me.SplitContainer1.SplitterDistance = 371
         Me.SplitContainer1.TabIndex = 7
         '
@@ -222,55 +209,54 @@ Partial Class Facturacion_REPS
         '
         Me.DGVUUID.AllowUserToResizeColumns = False
         Me.DGVUUID.AllowUserToResizeRows = False
-        Me.DGVUUID.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.colChk, Me.colRFC, Me.cPARCIALIDAD})
-        Me.DGVUUID.DataMember = "pFACTURA_SAT_CFDI_PAGOS_B"
+        Me.DGVUUID.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.DataGridViewImageColumn1, Me.colFOLIO, Me.colUUID, Me.colFECHA, Me.colCONDICIONESPAGO, Me.colSALDO})
         Me.DGVUUID.DataSource = Me.BindingSource1
         Me.DGVUUID.Dock = Wisej.Web.DockStyle.Fill
-        Me.DGVUUID.Location = New System.Drawing.Point(0, 323)
+        Me.DGVUUID.Location = New System.Drawing.Point(0, 238)
         Me.DGVUUID.Name = "DGVUUID"
         Me.DGVUUID.RowHeadersVisible = False
-        Me.DGVUUID.Size = New System.Drawing.Size(369, 336)
+        Me.DGVUUID.Size = New System.Drawing.Size(369, 547)
         Me.DGVUUID.TabIndex = 1
         '
-        'colChk
+        'DataGridViewImageColumn1
         '
-        DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.NullValue = False
-        Me.colChk.DefaultCellStyle = DataGridViewCellStyle1
-        Me.colChk.HeaderText = "     "
-        Me.colChk.Name = "colChk"
-        Me.colChk.Width = 30
+        Me.DataGridViewImageColumn1.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
+        DataGridViewCellStyle2.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewImageColumn1.HeaderText = "   "
+        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
+        Me.DataGridViewImageColumn1.Width = 40
         '
-        'colRFC
+        'BindingSource1
         '
-        Me.colRFC.DataPropertyName = "Receptor_RFC"
-        Me.colRFC.HeaderText = "RFC"
-        Me.colRFC.Name = "colRFC"
+        Me.BindingSource1.DataMember = "pFACTURA_SAT_CFDI_PAGOS_B"
+        Me.BindingSource1.DataSource = Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B
         '
-        'cPARCIALIDAD
+        'DataSet_pFACTURA_SAT_CFDI_PAGOS_B
         '
-        Me.cPARCIALIDAD.DataPropertyName = "PARCIALIDAD"
-        Me.cPARCIALIDAD.HeaderText = "Parcialidad"
-        Me.cPARCIALIDAD.Name = "cPARCIALIDAD"
+        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.DataSetName = "DataSet_pFACTURA_SAT_CFDI_PAGOS_B"
+        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.EnforceConstraints = False
+        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'pserie
         '
-        Me.pserie.Controls.Add(Me.RichTextBox1)
+        Me.pserie.Controls.Add(Me.TextBox1)
         Me.pserie.Controls.Add(Me.Label2)
         Me.pserie.Dock = Wisej.Web.DockStyle.Top
-        Me.pserie.Location = New System.Drawing.Point(0, 230)
+        Me.pserie.Location = New System.Drawing.Point(0, 145)
         Me.pserie.Name = "pserie"
         Me.pserie.Size = New System.Drawing.Size(369, 93)
         Me.pserie.TabIndex = 0
         Me.pserie.TabStop = True
         Me.pserie.Visible = False
         '
-        'RichTextBox1
+        'TextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(9, 22)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(354, 22)
-        Me.RichTextBox1.TabIndex = 2
+        Me.TextBox1.Location = New System.Drawing.Point(9, 22)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(354, 22)
+        Me.TextBox1.TabIndex = 2
         '
         'Label2
         '
@@ -283,10 +269,9 @@ Partial Class Facturacion_REPS
         '
         'pfECHA
         '
-        Me.pfECHA.Controls.Add(Me.GroupBox5)
-        Me.pfECHA.Controls.Add(Me.Label12)
-        Me.pfECHA.Controls.Add(Me.CbxReceptor)
-        Me.pfECHA.Controls.Add(Me.Label16)
+        Me.pfECHA.Controls.Add(Me.RB_Parcial)
+        Me.pfECHA.Controls.Add(Me.RB_Completa)
+        Me.pfECHA.Controls.Add(Me.Label10)
         Me.pfECHA.Controls.Add(Me.CbxClientes)
         Me.pfECHA.Controls.Add(Me.Label19)
         Me.pfECHA.Controls.Add(Me.cFecha2)
@@ -295,77 +280,48 @@ Partial Class Facturacion_REPS
         Me.pfECHA.Dock = Wisej.Web.DockStyle.Top
         Me.pfECHA.Location = New System.Drawing.Point(0, 44)
         Me.pfECHA.Name = "pfECHA"
-        Me.pfECHA.Size = New System.Drawing.Size(369, 186)
+        Me.pfECHA.Size = New System.Drawing.Size(369, 101)
         Me.pfECHA.TabIndex = 0
         Me.pfECHA.TabStop = True
         Me.pfECHA.Visible = False
         '
-        'GroupBox5
+        'RB_Parcial
         '
-        Me.GroupBox5.Controls.Add(Me.RbEmpresa)
-        Me.GroupBox5.Controls.Add(Me.RbParticular)
-        Me.GroupBox5.Dock = Wisej.Web.DockStyle.Top
-        Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(369, 55)
-        Me.GroupBox5.TabIndex = 15
-        Me.GroupBox5.Text = "Tipo de Facturas"
+        Me.RB_Parcial.Location = New System.Drawing.Point(160, 51)
+        Me.RB_Parcial.Name = "RB_Parcial"
+        Me.RB_Parcial.Size = New System.Drawing.Size(140, 22)
+        Me.RB_Parcial.TabIndex = 9
+        Me.RB_Parcial.Text = "Devolución Parcial"
         '
-        'RbEmpresa
+        'RB_Completa
         '
-        Me.RbEmpresa.Location = New System.Drawing.Point(208, 26)
-        Me.RbEmpresa.Name = "RbEmpresa"
-        Me.RbEmpresa.Size = New System.Drawing.Size(91, 22)
-        Me.RbEmpresa.TabIndex = 16
-        Me.RbEmpresa.TabStop = True
-        Me.RbEmpresa.Text = "Empresas"
+        Me.RB_Completa.Checked = True
+        Me.RB_Completa.Location = New System.Drawing.Point(9, 51)
+        Me.RB_Completa.Name = "RB_Completa"
+        Me.RB_Completa.Size = New System.Drawing.Size(156, 22)
+        Me.RB_Completa.TabIndex = 8
+        Me.RB_Completa.TabStop = True
+        Me.RB_Completa.Text = "Devolución Completa"
         '
-        'RbParticular
+        'Label10
         '
-        Me.RbParticular.Checked = True
-        Me.RbParticular.Location = New System.Drawing.Point(15, 27)
-        Me.RbParticular.Name = "RbParticular"
-        Me.RbParticular.Size = New System.Drawing.Size(101, 22)
-        Me.RbParticular.TabIndex = 15
-        Me.RbParticular.TabStop = True
-        Me.RbParticular.Text = "Particulares"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(9, 106)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(57, 15)
-        Me.Label12.TabIndex = 13
-        Me.Label12.Text = "Receptor"
-        '
-        'CbxReceptor
-        '
-        Me.CbxReceptor.Location = New System.Drawing.Point(9, 122)
-        Me.CbxReceptor.Name = "CbxReceptor"
-        Me.CbxReceptor.Size = New System.Drawing.Size(354, 22)
-        Me.CbxReceptor.TabIndex = 12
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(9, 61)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(45, 15)
-        Me.Label16.TabIndex = 11
-        Me.Label16.Text = "Cliente"
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(12, 9)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(45, 15)
+        Me.Label10.TabIndex = 7
+        Me.Label10.Text = "Cliente"
         '
         'CbxClientes
         '
-        Me.CbxClientes.Location = New System.Drawing.Point(9, 77)
+        Me.CbxClientes.Location = New System.Drawing.Point(12, 25)
         Me.CbxClientes.Name = "CbxClientes"
-        Me.CbxClientes.Size = New System.Drawing.Size(354, 22)
-        Me.CbxClientes.TabIndex = 10
+        Me.CbxClientes.TabIndex = 6
         '
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(175, 160)
+        Me.Label19.Location = New System.Drawing.Point(161, 79)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(23, 15)
         Me.Label19.TabIndex = 2
@@ -375,7 +331,7 @@ Partial Class Facturacion_REPS
         '
         Me.cFecha2.CustomFormat = "dd/MM/yyyy"
         Me.cFecha2.Format = Wisej.Web.DateTimePickerFormat.Custom
-        Me.cFecha2.Location = New System.Drawing.Point(202, 156)
+        Me.cFecha2.Location = New System.Drawing.Point(185, 75)
         Me.cFecha2.Name = "cFecha2"
         Me.cFecha2.Size = New System.Drawing.Size(103, 22)
         Me.cFecha2.TabIndex = 0
@@ -385,7 +341,7 @@ Partial Class Facturacion_REPS
         '
         Me.cFecha1.CustomFormat = "dd/MM/yyyy"
         Me.cFecha1.Format = Wisej.Web.DateTimePickerFormat.Custom
-        Me.cFecha1.Location = New System.Drawing.Point(43, 156)
+        Me.cFecha1.Location = New System.Drawing.Point(44, 75)
         Me.cFecha1.Name = "cFecha1"
         Me.cFecha1.Size = New System.Drawing.Size(103, 22)
         Me.cFecha1.TabIndex = 0
@@ -393,10 +349,8 @@ Partial Class Facturacion_REPS
         '
         'Label18
         '
-        Me.Label18.Anchor = CType(((Wisej.Web.AnchorStyles.Top Or Wisej.Web.AnchorStyles.Left) _
-            Or Wisej.Web.AnchorStyles.Right), Wisej.Web.AnchorStyles)
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(9, 160)
+        Me.Label18.Location = New System.Drawing.Point(12, 79)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(35, 15)
         Me.Label18.TabIndex = 1
@@ -405,7 +359,6 @@ Partial Class Facturacion_REPS
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.GroupBox1)
-        Me.Panel3.Controls.Add(Me.GroupBox2)
         Me.Panel3.Dock = Wisej.Web.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
@@ -415,10 +368,9 @@ Partial Class Facturacion_REPS
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = CType(((Wisej.Web.AnchorStyles.Top Or Wisej.Web.AnchorStyles.Bottom) _
-            Or Wisej.Web.AnchorStyles.Left), Wisej.Web.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.RBFolio)
         Me.GroupBox1.Controls.Add(Me.RBFecha)
+        Me.GroupBox1.Dock = Wisej.Web.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(369, 44)
@@ -435,244 +387,204 @@ Partial Class Facturacion_REPS
         '
         'RBFecha
         '
-        Me.RBFecha.Checked = True
         Me.RBFecha.Location = New System.Drawing.Point(15, 17)
         Me.RBFecha.Name = "RBFecha"
         Me.RBFecha.Size = New System.Drawing.Size(69, 22)
         Me.RBFecha.TabIndex = 0
-        Me.RBFecha.TabStop = True
         Me.RBFecha.Text = "Fecha"
         '
-        'GroupBox2
+        'DGVConceptos
         '
-        Me.GroupBox2.Anchor = CType(((Wisej.Web.AnchorStyles.Top Or Wisej.Web.AnchorStyles.Bottom) _
-            Or Wisej.Web.AnchorStyles.Left), Wisej.Web.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.RadioButton1)
-        Me.GroupBox2.Controls.Add(Me.RadioButton2)
-        Me.GroupBox2.Location = New System.Drawing.Point(-125, 464)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(369, 69)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.Text = "Filtro"
+        Me.DGVConceptos.AllowUserToResizeRows = False
+        Me.DGVConceptos.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.cCantidad, Me.cbClaveProdServ, Me.cbClaveUnidad, Me.cDescripcion, Me.cValorUnitario, Me.cImporte, Me.cDescuento, Me.cNoIdentificacion})
+        Me.DGVConceptos.Dock = Wisej.Web.DockStyle.Fill
+        Me.DGVConceptos.Location = New System.Drawing.Point(0, 281)
+        Me.DGVConceptos.Name = "DGVConceptos"
+        Me.DGVConceptos.Size = New System.Drawing.Size(813, 330)
+        Me.DGVConceptos.TabIndex = 3
         '
-        'RadioButton1
+        'cCantidad
         '
-        Me.RadioButton1.Location = New System.Drawing.Point(208, 17)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(63, 22)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.Text = "Serie"
+        Me.cCantidad.HeaderText = "Cant"
+        Me.cCantidad.Name = "cCantidad"
+        Me.cCantidad.Width = 50
         '
-        'RadioButton2
+        'cbClaveProdServ
         '
-        Me.RadioButton2.Location = New System.Drawing.Point(15, 17)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(69, 22)
-        Me.RadioButton2.TabIndex = 0
-        Me.RadioButton2.Text = "Fecha"
+        Me.cbClaveProdServ.FillWeight = 200.0!
+        Me.cbClaveProdServ.HeaderText = "ClaveProdServ"
+        Me.cbClaveProdServ.Name = "cbClaveProdServ"
+        Me.cbClaveProdServ.Width = 300
         '
-        'DGVConceptosUUID
+        'cbClaveUnidad
         '
-        Me.DGVConceptosUUID.AutoGenerateColumns = False
-        Me.DGVConceptosUUID.AutoSize = True
-        Me.DGVConceptosUUID.AutoSizeColumnsMode = Wisej.Web.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DGVConceptosUUID.Columns.AddRange(New Wisej.Web.DataGridViewColumn() {Me.colUUID_1, Me.colSERIE, Me.colFOLIO_1, Me.colMONEDA, Me.colMETODOPAGO, Me.colPARCIALIDAD, Me.colIMPORTE_PAGADO, Me.colSALDO_ANTERIOR, Me.colSALDO_INSOLUTO})
-        Me.DGVConceptosUUID.DataSource = Me.BindingSource2
-        Me.DGVConceptosUUID.Dock = Wisej.Web.DockStyle.Fill
-        Me.DGVConceptosUUID.Location = New System.Drawing.Point(0, 367)
-        Me.DGVConceptosUUID.Name = "DGVConceptosUUID"
-        Me.DGVConceptosUUID.Size = New System.Drawing.Size(813, 292)
-        Me.DGVConceptosUUID.TabIndex = 1
+        Me.cbClaveUnidad.HeaderText = "Unidad"
+        Me.cbClaveUnidad.Name = "cbClaveUnidad"
+        Me.cbClaveUnidad.Width = 70
         '
-        'colUUID_1
+        'cDescripcion
         '
-        Me.colUUID_1.DataPropertyName = "UUID"
-        Me.colUUID_1.HeaderText = "UUID"
-        Me.colUUID_1.Name = "colUUID_1"
+        Me.cDescripcion.HeaderText = "Descripcion"
+        Me.cDescripcion.Name = "cDescripcion"
+        Me.cDescripcion.Width = 300
         '
-        'colSERIE
+        'cValorUnitario
         '
-        Me.colSERIE.DataPropertyName = "SERIE"
-        Me.colSERIE.HeaderText = "Serie"
-        Me.colSERIE.Name = "colSERIE"
+        Me.cValorUnitario.HeaderText = "Unitario"
+        Me.cValorUnitario.Name = "cValorUnitario"
+        Me.cValorUnitario.Width = 75
         '
-        'colFOLIO_1
+        'cImporte
         '
-        Me.colFOLIO_1.DataPropertyName = "FOLIO"
-        Me.colFOLIO_1.HeaderText = "Folio"
-        Me.colFOLIO_1.Name = "colFOLIO_1"
+        Me.cImporte.HeaderText = "Importe"
+        Me.cImporte.Name = "cImporte"
+        Me.cImporte.ReadOnly = True
+        Me.cImporte.Width = 75
         '
-        'colMONEDA
+        'cDescuento
         '
-        Me.colMONEDA.DataPropertyName = "MONEDA"
-        Me.colMONEDA.HeaderText = "Moneda"
-        Me.colMONEDA.Name = "colMONEDA"
+        Me.cDescuento.HeaderText = "Descuento"
+        Me.cDescuento.Name = "cDescuento"
         '
-        'colMETODOPAGO
+        'cNoIdentificacion
         '
-        Me.colMETODOPAGO.DataPropertyName = "METODOPAGO"
-        Me.colMETODOPAGO.HeaderText = "M�todo de Pago"
-        Me.colMETODOPAGO.Name = "colMETODOPAGO"
+        Me.cNoIdentificacion.HeaderText = "No. Id"
+        Me.cNoIdentificacion.Name = "cNoIdentificacion"
         '
-        'colPARCIALIDAD
+        'Panel4
         '
-        Me.colPARCIALIDAD.DataPropertyName = "PARCIALIDAD"
-        Me.colPARCIALIDAD.HeaderText = "No. Parcialidad"
-        Me.colPARCIALIDAD.Name = "colPARCIALIDAD"
-        Me.colPARCIALIDAD.ReadOnly = True
+        Me.Panel4.Controls.Add(Me.Label33)
+        Me.Panel4.Controls.Add(Me.TBDescuento)
+        Me.Panel4.Controls.Add(Me.TBTotal)
+        Me.Panel4.Controls.Add(Me.TBRISR)
+        Me.Panel4.Controls.Add(Me.TBRIVA)
+        Me.Panel4.Controls.Add(Me.TBIva)
+        Me.Panel4.Controls.Add(Me.TBSubTotal)
+        Me.Panel4.Controls.Add(Me.Label28)
+        Me.Panel4.Controls.Add(Me.Label29)
+        Me.Panel4.Controls.Add(Me.Label30)
+        Me.Panel4.Controls.Add(Me.Label31)
+        Me.Panel4.Controls.Add(Me.Label32)
+        Me.Panel4.Dock = Wisej.Web.DockStyle.Bottom
+        Me.Panel4.Location = New System.Drawing.Point(0, 611)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(813, 174)
+        Me.Panel4.TabIndex = 4
+        Me.Panel4.TabStop = True
         '
-        'colIMPORTE_PAGADO
+        'Label33
         '
-        Me.colIMPORTE_PAGADO.DataPropertyName = "IMPORTE_PAGADO"
-        Me.colIMPORTE_PAGADO.HeaderText = "Importe Pagado"
-        Me.colIMPORTE_PAGADO.Name = "colIMPORTE_PAGADO"
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(8, 37)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(67, 15)
+        Me.Label33.TabIndex = 0
+        Me.Label33.Text = "Descuento"
         '
-        'colSALDO_ANTERIOR
+        'TBDescuento
         '
-        Me.colSALDO_ANTERIOR.DataPropertyName = "SALDO_ANTERIOR"
-        Me.colSALDO_ANTERIOR.HeaderText = "Saldo Anterior"
-        Me.colSALDO_ANTERIOR.Name = "colSALDO_ANTERIOR"
-        Me.colSALDO_ANTERIOR.ReadOnly = True
+        Me.TBDescuento.Location = New System.Drawing.Point(127, 34)
+        Me.TBDescuento.Name = "TBDescuento"
+        Me.TBDescuento.Size = New System.Drawing.Size(166, 22)
+        Me.TBDescuento.TabIndex = 1
         '
-        'colSALDO_INSOLUTO
+        'TBTotal
         '
-        Me.colSALDO_INSOLUTO.DataPropertyName = "SALDO_INSOLUTO"
-        Me.colSALDO_INSOLUTO.HeaderText = "Saldo Insoluto"
-        Me.colSALDO_INSOLUTO.Name = "colSALDO_INSOLUTO"
-        Me.colSALDO_INSOLUTO.ReadOnly = True
+        Me.TBTotal.Location = New System.Drawing.Point(127, 138)
+        Me.TBTotal.Name = "TBTotal"
+        Me.TBTotal.Size = New System.Drawing.Size(166, 22)
+        Me.TBTotal.TabIndex = 1
         '
-        'BindingSource2
+        'TBRISR
         '
-        Me.BindingSource2.DataMember = "pFACTURA_SAT_CFDI_PAGOS_UUID_B"
-        Me.BindingSource2.DataSource = Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B
+        Me.TBRISR.Location = New System.Drawing.Point(127, 112)
+        Me.TBRISR.Name = "TBRISR"
+        Me.TBRISR.Size = New System.Drawing.Size(166, 22)
+        Me.TBRISR.TabIndex = 1
         '
-        'DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B
+        'TBRIVA
         '
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B.DataSetName = "DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B"
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.TBRIVA.Location = New System.Drawing.Point(127, 86)
+        Me.TBRIVA.Name = "TBRIVA"
+        Me.TBRIVA.Size = New System.Drawing.Size(166, 22)
+        Me.TBRIVA.TabIndex = 1
+        '
+        'TBIva
+        '
+        Me.TBIva.Location = New System.Drawing.Point(127, 60)
+        Me.TBIva.Name = "TBIva"
+        Me.TBIva.Size = New System.Drawing.Size(166, 22)
+        Me.TBIva.TabIndex = 1
+        '
+        'TBSubTotal
+        '
+        Me.TBSubTotal.Location = New System.Drawing.Point(127, 8)
+        Me.TBSubTotal.Name = "TBSubTotal"
+        Me.TBSubTotal.Size = New System.Drawing.Size(166, 22)
+        Me.TBSubTotal.TabIndex = 1
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(8, 141)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(33, 15)
+        Me.Label28.TabIndex = 0
+        Me.Label28.Text = "Total"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(8, 115)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(106, 15)
+        Me.Label29.TabIndex = 0
+        Me.Label29.Text = "Retencion de ISR"
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(8, 89)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(106, 15)
+        Me.Label30.TabIndex = 0
+        Me.Label30.Text = "Retencion de IVA"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(8, 63)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(25, 15)
+        Me.Label31.TabIndex = 0
+        Me.Label31.Text = "IVA"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(8, 11)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(52, 15)
+        Me.Label32.TabIndex = 0
+        Me.Label32.Text = "Subtotal"
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.gbbANCOS)
         Me.Panel2.Controls.Add(Me.SplitContainer2)
         Me.Panel2.Controls.Add(Me.Panel6)
         Me.Panel2.Dock = Wisej.Web.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(813, 367)
+        Me.Panel2.Size = New System.Drawing.Size(813, 281)
         Me.Panel2.TabIndex = 0
         Me.Panel2.TabStop = True
-        '
-        'gbbANCOS
-        '
-        Me.gbbANCOS.Controls.Add(Me.CBSBancoEmisor)
-        Me.gbbANCOS.Controls.Add(Me.TBRFCbancoB)
-        Me.gbbANCOS.Controls.Add(Me.TBCtabeneficiario)
-        Me.gbbANCOS.Controls.Add(Me.Label15)
-        Me.gbbANCOS.Controls.Add(Me.Label14)
-        Me.gbbANCOS.Controls.Add(Me.Label13)
-        Me.gbbANCOS.Controls.Add(Me.Label11)
-        Me.gbbANCOS.Controls.Add(Me.Label10)
-        Me.gbbANCOS.Controls.Add(Me.TBBRFCancoE)
-        Me.gbbANCOS.Controls.Add(Me.CBSBancoBeneficiario)
-        Me.gbbANCOS.Dock = Wisej.Web.DockStyle.Top
-        Me.gbbANCOS.Location = New System.Drawing.Point(0, 271)
-        Me.gbbANCOS.Name = "gbbANCOS"
-        Me.gbbANCOS.Size = New System.Drawing.Size(813, 100)
-        Me.gbbANCOS.TabIndex = 3
-        Me.gbbANCOS.Text = "Bancos"
-        Me.gbbANCOS.Visible = False
-        '
-        'CBSBancoEmisor
-        '
-        Me.CBSBancoEmisor.BackColor = System.Drawing.Color.Transparent
-        Me.CBSBancoEmisor.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSBancoEmisor.Location = New System.Drawing.Point(8, 32)
-        Me.CBSBancoEmisor.Name = "CBSBancoEmisor"
-        Me.CBSBancoEmisor.Size = New System.Drawing.Size(191, 22)
-        Me.CBSBancoEmisor.TabIndex = 0
-        '
-        'TBRFCbancoB
-        '
-        Me.TBRFCbancoB.Location = New System.Drawing.Point(237, 72)
-        Me.TBRFCbancoB.Name = "TBRFCbancoB"
-        Me.TBRFCbancoB.Size = New System.Drawing.Size(193, 22)
-        Me.TBRFCbancoB.TabIndex = 1
-        '
-        'TBCtabeneficiario
-        '
-        Me.TBCtabeneficiario.Location = New System.Drawing.Point(464, 72)
-        Me.TBCtabeneficiario.Name = "TBCtabeneficiario"
-        Me.TBCtabeneficiario.Size = New System.Drawing.Size(329, 22)
-        Me.TBCtabeneficiario.TabIndex = 1
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(5, 56)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(151, 15)
-        Me.Label15.TabIndex = 3
-        Me.Label15.Text = "Banco Benefeciario Pago"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(234, 56)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(143, 15)
-        Me.Label14.TabIndex = 3
-        Me.Label14.Text = "RFC Banco Beneficiario"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(461, 56)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(118, 15)
-        Me.Label13.TabIndex = 3
-        Me.Label13.Text = "Cuenta Beneficiario"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(234, 16)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(116, 15)
-        Me.Label11.TabIndex = 3
-        Me.Label11.Text = "RFC Banco Emisor"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(5, 16)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(119, 15)
-        Me.Label10.TabIndex = 3
-        Me.Label10.Text = "Banco Emisor Pago"
-        '
-        'TBBRFCancoE
-        '
-        Me.TBBRFCancoE.Location = New System.Drawing.Point(237, 33)
-        Me.TBBRFCancoE.Name = "TBBRFCancoE"
-        Me.TBBRFCancoE.Size = New System.Drawing.Size(193, 22)
-        Me.TBBRFCancoE.TabIndex = 1
-        '
-        'CBSBancoBeneficiario
-        '
-        Me.CBSBancoBeneficiario.BackColor = System.Drawing.Color.Transparent
-        Me.CBSBancoBeneficiario.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSBancoBeneficiario.Location = New System.Drawing.Point(8, 71)
-        Me.CBSBancoBeneficiario.Name = "CBSBancoBeneficiario"
-        Me.CBSBancoBeneficiario.Size = New System.Drawing.Size(191, 22)
-        Me.CBSBancoBeneficiario.TabIndex = 0
         '
         'SplitContainer2
         '
         Me.SplitContainer2.AutoValidate = Wisej.Web.AutoValidate.EnablePreventFocusChange
         Me.SplitContainer2.Dock = Wisej.Web.DockStyle.Top
         Me.SplitContainer2.FixedPanel = Wisej.Web.FixedPanel.Panel1
-        Me.SplitContainer2.Location = New System.Drawing.Point(0, 189)
+        Me.SplitContainer2.Location = New System.Drawing.Point(0, 200)
         Me.SplitContainer2.Name = "SplitContainer2"
         '
         'SplitContainer2.Panel1
@@ -748,7 +660,7 @@ Partial Class Facturacion_REPS
         '
         Me.CBSUsoCFDI.BackColor = System.Drawing.Color.Transparent
         Me.CBSUsoCFDI.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSUsoCFDI.Location = New System.Drawing.Point(67, 44)
+        Me.CBSUsoCFDI.Location = New System.Drawing.Point(68, 44)
         Me.CBSUsoCFDI.Name = "CBSUsoCFDI"
         Me.CBSUsoCFDI.Size = New System.Drawing.Size(311, 22)
         Me.CBSUsoCFDI.TabIndex = 4
@@ -763,14 +675,18 @@ Partial Class Facturacion_REPS
         'Panel6
         '
         Me.Panel6.Controls.Add(Me.BtnAnexarPago)
+        Me.Panel6.Controls.Add(Me.Label13)
+        Me.Panel6.Controls.Add(Me.TBMonto)
+        Me.Panel6.Controls.Add(Me.TBTipoCambio)
+        Me.Panel6.Controls.Add(Me.Label9)
+        Me.Panel6.Controls.Add(Me.CBS_TipoRelacion)
+        Me.Panel6.Controls.Add(Me.Label12)
         Me.Panel6.Controls.Add(Me.RTBObservaciones)
         Me.Panel6.Controls.Add(Me.Label1)
         Me.Panel6.Controls.Add(Me.CBSFormaPago)
         Me.Panel6.Controls.Add(Me.CBSTipoComprobante)
         Me.Panel6.Controls.Add(Me.MTBHoraPago)
         Me.Panel6.Controls.Add(Me.MTBHoraEmision)
-        Me.Panel6.Controls.Add(Me.Label9)
-        Me.Panel6.Controls.Add(Me.TBMonto)
         Me.Panel6.Controls.Add(Me.Label8)
         Me.Panel6.Controls.Add(Me.CBSMoneda)
         Me.Panel6.Controls.Add(Me.Label6)
@@ -784,30 +700,86 @@ Partial Class Facturacion_REPS
         Me.Panel6.Dock = Wisej.Web.DockStyle.Top
         Me.Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(813, 189)
+        Me.Panel6.Size = New System.Drawing.Size(813, 200)
         Me.Panel6.TabIndex = 2
         Me.Panel6.TabStop = True
         '
         'BtnAnexarPago
         '
-        Me.BtnAnexarPago.Location = New System.Drawing.Point(248, 76)
+        Me.BtnAnexarPago.Location = New System.Drawing.Point(228, 70)
         Me.BtnAnexarPago.Name = "BtnAnexarPago"
         Me.BtnAnexarPago.Size = New System.Drawing.Size(31, 27)
-        Me.BtnAnexarPago.TabIndex = 14
+        Me.BtnAnexarPago.TabIndex = 20
         Me.BtnAnexarPago.Text = "+"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label13.Location = New System.Drawing.Point(6, 71)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(49, 27)
+        Me.Label13.TabIndex = 19
+        Me.Label13.Text = "Monto a" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "pagar:"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'TBMonto
+        '
+        Me.TBMonto.BackColor = System.Drawing.SystemColors.Info
+        Me.TBMonto.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.TBMonto.Location = New System.Drawing.Point(59, 71)
+        Me.TBMonto.Name = "TBMonto"
+        Me.TBMonto.Size = New System.Drawing.Size(163, 25)
+        Me.TBMonto.TabIndex = 18
+        '
+        'TBTipoCambio
+        '
+        Me.TBTipoCambio.Location = New System.Drawing.Point(698, 42)
+        Me.TBTipoCambio.Name = "TBTipoCambio"
+        Me.TBTipoCambio.Size = New System.Drawing.Size(95, 22)
+        Me.TBTipoCambio.TabIndex = 14
+        Me.TBTipoCambio.Visible = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(606, 45)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(96, 15)
+        Me.Label9.TabIndex = 15
+        Me.Label9.Text = "Tipo de Cambio"
+        Me.Label9.Visible = False
+        '
+        'CBS_TipoRelacion
+        '
+        Me.CBS_TipoRelacion.BackColor = System.Drawing.Color.Transparent
+        Me.CBS_TipoRelacion.Cursor = Wisej.Web.Cursors.Hand
+        Me.CBS_TipoRelacion.Location = New System.Drawing.Point(93, 111)
+        Me.CBS_TipoRelacion.Name = "CBS_TipoRelacion"
+        Me.CBS_TipoRelacion.Size = New System.Drawing.Size(709, 22)
+        Me.CBS_TipoRelacion.TabIndex = 12
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(5, 115)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(84, 15)
+        Me.Label12.TabIndex = 3
+        Me.Label12.Text = "Tipo Relacion"
         '
         'RTBObservaciones
         '
         Me.RTBObservaciones.AutoSize = False
-        Me.RTBObservaciones.Location = New System.Drawing.Point(97, 117)
+        Me.RTBObservaciones.Location = New System.Drawing.Point(187, 139)
         Me.RTBObservaciones.Name = "RTBObservaciones"
-        Me.RTBObservaciones.Size = New System.Drawing.Size(710, 55)
+        Me.RTBObservaciones.Size = New System.Drawing.Size(619, 53)
         Me.RTBObservaciones.TabIndex = 13
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(5, 120)
+        Me.Label1.Location = New System.Drawing.Point(5, 142)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(91, 15)
         Me.Label1.TabIndex = 3
@@ -819,7 +791,7 @@ Partial Class Facturacion_REPS
         Me.CBSFormaPago.Cursor = Wisej.Web.Cursors.Hand
         Me.CBSFormaPago.Location = New System.Drawing.Point(319, 44)
         Me.CBSFormaPago.Name = "CBSFormaPago"
-        Me.CBSFormaPago.Size = New System.Drawing.Size(474, 22)
+        Me.CBSFormaPago.Size = New System.Drawing.Size(271, 22)
         Me.CBSFormaPago.TabIndex = 12
         '
         'CBSTipoComprobante
@@ -827,14 +799,14 @@ Partial Class Facturacion_REPS
         Me.CBSTipoComprobante.BackColor = System.Drawing.Color.Transparent
         Me.CBSTipoComprobante.Cursor = Wisej.Web.Cursors.Hand
         Me.CBSTipoComprobante.Enabled = False
-        Me.CBSTipoComprobante.Location = New System.Drawing.Point(342, 13)
+        Me.CBSTipoComprobante.Location = New System.Drawing.Point(345, 13)
         Me.CBSTipoComprobante.Name = "CBSTipoComprobante"
         Me.CBSTipoComprobante.Size = New System.Drawing.Size(245, 22)
         Me.CBSTipoComprobante.TabIndex = 11
         '
         'MTBHoraPago
         '
-        Me.MTBHoraPago.Location = New System.Drawing.Point(188, 47)
+        Me.MTBHoraPago.Location = New System.Drawing.Point(187, 47)
         Me.MTBHoraPago.Mask = "00:00"
         Me.MTBHoraPago.Name = "MTBHoraPago"
         Me.MTBHoraPago.Size = New System.Drawing.Size(40, 22)
@@ -843,37 +815,17 @@ Partial Class Facturacion_REPS
         '
         'MTBHoraEmision
         '
-        Me.MTBHoraEmision.Location = New System.Drawing.Point(188, 14)
+        Me.MTBHoraEmision.Location = New System.Drawing.Point(187, 14)
         Me.MTBHoraEmision.Mask = "00:00"
         Me.MTBHoraEmision.Name = "MTBHoraEmision"
         Me.MTBHoraEmision.Size = New System.Drawing.Size(40, 22)
         Me.MTBHoraEmision.TabIndex = 10
         Me.MTBHoraEmision.Text = "1200"
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label9.Location = New System.Drawing.Point(13, 80)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(49, 27)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "Monto a" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "pagar:"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'TBMonto
-        '
-        Me.TBMonto.BackColor = System.Drawing.SystemColors.Info
-        Me.TBMonto.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.TBMonto.Location = New System.Drawing.Point(79, 77)
-        Me.TBMonto.Name = "TBMonto"
-        Me.TBMonto.Size = New System.Drawing.Size(163, 25)
-        Me.TBMonto.TabIndex = 1
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(285, 84)
+        Me.Label8.Location = New System.Drawing.Point(295, 76)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(51, 15)
         Me.Label8.TabIndex = 3
@@ -883,15 +835,15 @@ Partial Class Facturacion_REPS
         '
         Me.CBSMoneda.BackColor = System.Drawing.Color.Transparent
         Me.CBSMoneda.Cursor = Wisej.Web.Cursors.Hand
-        Me.CBSMoneda.Location = New System.Drawing.Point(336, 80)
+        Me.CBSMoneda.Location = New System.Drawing.Point(352, 72)
         Me.CBSMoneda.Name = "CBSMoneda"
-        Me.CBSMoneda.Size = New System.Drawing.Size(474, 22)
+        Me.CBSMoneda.Size = New System.Drawing.Size(450, 22)
         Me.CBSMoneda.TabIndex = 5
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(234, 48)
+        Me.Label6.Location = New System.Drawing.Point(234, 50)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(76, 15)
         Me.Label6.TabIndex = 3
@@ -910,16 +862,16 @@ Partial Class Facturacion_REPS
         '
         Me.DTPFechaPago.CustomFormat = "dd/MM/yyyy"
         Me.DTPFechaPago.Format = Wisej.Web.DateTimePickerFormat.Custom
-        Me.DTPFechaPago.Location = New System.Drawing.Point(96, 46)
+        Me.DTPFechaPago.Location = New System.Drawing.Point(95, 46)
         Me.DTPFechaPago.Name = "DTPFechaPago"
         Me.DTPFechaPago.Size = New System.Drawing.Size(83, 22)
         Me.DTPFechaPago.TabIndex = 1
-        Me.DTPFechaPago.Value = New Date(2022, 4, 11, 16, 2, 49, 641)
+        Me.DTPFechaPago.Value = New Date(2022, 3, 28, 14, 40, 59, 453)
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(597, 18)
+        Me.Label7.Location = New System.Drawing.Point(597, 19)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(127, 15)
         Me.Label7.TabIndex = 3
@@ -937,7 +889,7 @@ Partial Class Facturacion_REPS
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(234, 17)
+        Me.Label4.Location = New System.Drawing.Point(234, 19)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(112, 15)
         Me.Label4.TabIndex = 3
@@ -956,11 +908,11 @@ Partial Class Facturacion_REPS
         '
         Me.DTPFechaEmision.CustomFormat = "dd/MM/yyyy"
         Me.DTPFechaEmision.Format = Wisej.Web.DateTimePickerFormat.Custom
-        Me.DTPFechaEmision.Location = New System.Drawing.Point(96, 13)
+        Me.DTPFechaEmision.Location = New System.Drawing.Point(95, 13)
         Me.DTPFechaEmision.Name = "DTPFechaEmision"
         Me.DTPFechaEmision.Size = New System.Drawing.Size(83, 22)
         Me.DTPFechaEmision.TabIndex = 1
-        Me.DTPFechaEmision.Value = New Date(2022, 4, 11, 16, 2, 49, 650)
+        Me.DTPFechaEmision.Value = New Date(2022, 3, 28, 14, 40, 59, 468)
         '
         'ErrorProvider1
         '
@@ -976,45 +928,16 @@ Partial Class Facturacion_REPS
         Me.Label20.TabIndex = 3
         Me.Label20.Text = "Tipo de Cambio"
         '
-        'AspPageBox1
+        'PFACTURA_SAT_CFDI_PAGOS_BTableAdapter
         '
-        Me.AspPageBox1.Location = New System.Drawing.Point(658, 38)
-        Me.AspPageBox1.Name = "AspPageBox1"
-        Me.AspPageBox1.Size = New System.Drawing.Size(10, 10)
-        Me.AspPageBox1.TabIndex = 8
+        Me.PFACTURA_SAT_CFDI_PAGOS_BTableAdapter.ClearBeforeFill = True
         '
-        'DataSet_pFACTURA_SAT_CFDI_PAGOS_B1
+        'colFOLIO
         '
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B1.DataSetName = "DataSet_pFACTURA_SAT_CFDI_PAGOS_B"
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter
-        '
-        Me.PFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter.ClearBeforeFill = True
-        '
-        'DataSet_pFACTURA_SAT_CFDI_PAGOS_B
-        '
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.DataSetName = "DataSet_pFACTURA_SAT_CFDI_PAGOS_B"
-        Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'colSALDO
-        '
-        Me.colSALDO.DataPropertyName = "SALDO"
-        Me.colSALDO.HeaderText = "Saldo"
-        Me.colSALDO.Name = "colSALDO"
-        Me.colSALDO.ReadOnly = True
-        '
-        'colCONDICIONESPAGO
-        '
-        Me.colCONDICIONESPAGO.DataPropertyName = "CONDICIONESPAGO"
-        Me.colCONDICIONESPAGO.HeaderText = "Condiciones de Pago"
-        Me.colCONDICIONESPAGO.Name = "colCONDICIONESPAGO"
-        '
-        'colFECHA
-        '
-        Me.colFECHA.DataPropertyName = "FECHA"
-        Me.colFECHA.HeaderText = "Fecha"
-        Me.colFECHA.Name = "colFECHA"
+        Me.colFOLIO.DataPropertyName = "FOLIO"
+        Me.colFOLIO.HeaderText = "FOLIO"
+        Me.colFOLIO.Name = "colFOLIO"
+        Me.colFOLIO.ReadOnly = True
         '
         'colUUID
         '
@@ -1022,45 +945,50 @@ Partial Class Facturacion_REPS
         Me.colUUID.HeaderText = "UUID"
         Me.colUUID.Name = "colUUID"
         '
-        'colFOLIO
+        'colFECHA
         '
-        Me.colFOLIO.DataPropertyName = "FOLIO"
-        Me.colFOLIO.HeaderText = "Folio"
-        Me.colFOLIO.Name = "colFOLIO"
-        Me.colFOLIO.ReadOnly = True
+        Me.colFECHA.DataPropertyName = "FECHA"
+        Me.colFECHA.HeaderText = "FECHA"
+        Me.colFECHA.Name = "colFECHA"
         '
-        'Facturacion_REPS
+        'colCONDICIONESPAGO
         '
-        Me.ClientSize = New System.Drawing.Size(1192, 755)
-        Me.Controls.Add(Me.AspPageBox1)
+        Me.colCONDICIONESPAGO.DataPropertyName = "CONDICIONESPAGO"
+        Me.colCONDICIONESPAGO.HeaderText = "CONDICIONESPAGO"
+        Me.colCONDICIONESPAGO.Name = "colCONDICIONESPAGO"
+        '
+        'colSALDO
+        '
+        Me.colSALDO.DataPropertyName = "SALDO"
+        Me.colSALDO.HeaderText = "SALDO"
+        Me.colSALDO.Name = "colSALDO"
+        Me.colSALDO.ReadOnly = True
+        '
+        'Facturacion_Devolucion
+        '
+        Me.ClientSize = New System.Drawing.Size(1192, 868)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.RibbonBar7)
-        Me.Name = "Facturacion_REPS"
-        Me.Text = "Facturacion REPS"
+        Me.Name = "Facturacion_Devolucion"
+        Me.Text = "Devolución"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
-        Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.DGVUUID, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pserie.ResumeLayout(False)
         Me.pserie.PerformLayout()
         Me.pfECHA.ResumeLayout(False)
         Me.pfECHA.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        CType(Me.DGVConceptosUUID, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVConceptos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         Me.Panel2.ResumeLayout(False)
-        Me.gbbANCOS.ResumeLayout(False)
-        Me.gbbANCOS.PerformLayout()
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1072,8 +1000,6 @@ Partial Class Facturacion_REPS
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1081,13 +1007,12 @@ Partial Class Facturacion_REPS
     Friend WithEvents RibbonBar7 As Ext.RibbonBar.RibbonBar
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents DGVUUID As Wisej.Web.DataGridView
-    Friend WithEvents DGVConceptosUUID As Wisej.Web.DataGridView
     Friend WithEvents pserie As Panel
     Friend WithEvents pfECHA As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents RBFolio As RadioButton
     Friend WithEvents RBFecha As RadioButton
-    Friend WithEvents RichTextBox1 As TextBox
+    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents cFecha2 As DateTimePicker
@@ -1112,24 +1037,11 @@ Partial Class Facturacion_REPS
     Friend WithEvents MTBCP As MaskedTextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents CBSMoneda As ComboWisax
-    Friend WithEvents TBMonto As TextBox
-    Friend WithEvents gbbANCOS As GroupBox
-    Friend WithEvents TBBRFCancoE As TextBox
-    Friend WithEvents CBSBancoBeneficiario As ComboWisax
-    Friend WithEvents Label9 As Label
-    Friend WithEvents CBSBancoEmisor As ComboWisax
-    Friend WithEvents TBRFCbancoB As TextBox
-    Friend WithEvents TBCtabeneficiario As TextBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label10 As Label
     Friend WithEvents MTBHoraPago As MaskedTextBox
     Friend WithEvents MTBHoraEmision As MaskedTextBox
     Friend WithEvents CBSTipoComprobante As ComboWisax
     Friend WithEvents CBSFormaPago As ComboWisax
-    Friend WithEvents BindingSource1 As BindingSource
+    'Friend WithEvents DataSet_pFACTURA_SAT_CFDI_PAGOS_B As DataSet_pFACTURA_SAT_CFDI_PAGOS_B
     Friend WithEvents RibbonBarPage1 As Ext.RibbonBar.RibbonBarPage
     Friend WithEvents RibbonBarGroup1 As Ext.RibbonBar.RibbonBarGroup
     Friend WithEvents RBBConsultar As Ext.RibbonBar.RibbonBarItemButton
@@ -1137,44 +1049,54 @@ Partial Class Facturacion_REPS
     Friend WithEvents RBBSalir As Ext.RibbonBar.RibbonBarItemButton
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents colChk As DataGridViewCheckBoxColumn
     Friend WithEvents Label17 As Label
     Friend WithEvents CBSUsoCFDI As ComboWisax
     Friend WithEvents Label20 As Label
     Friend WithEvents RTBObservaciones As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents AspPageBox1 As AspNetPanel
+    'Friend WithEvents DataSet_pFACTURA_SAT_CFDI_PAGOS_B1 As DataSet_pFACTURA_SAT_CFDI_PAGOS_B
+    'Friend WithEvents AspPageBox1 As Hosts.AspPageBox
     Friend WithEvents RBBNuevo As Ext.RibbonBar.RibbonBarItemButton
-    Friend WithEvents DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B As DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_B
-    Friend WithEvents colUUID_1 As DataGridViewTextBoxColumn
-    Friend WithEvents colSERIE As DataGridViewTextBoxColumn
-    Friend WithEvents colFOLIO_1 As DataGridViewTextBoxColumn
-    Friend WithEvents colMONEDA As DataGridViewTextBoxColumn
-    Friend WithEvents colMETODOPAGO As DataGridViewTextBoxColumn
-    Friend WithEvents colPARCIALIDAD As DataGridViewTextBoxColumn
-    Friend WithEvents colIMPORTE_PAGADO As DataGridViewTextBoxColumn
-    Friend WithEvents colSALDO_ANTERIOR As DataGridViewTextBoxColumn
-    Friend WithEvents colSALDO_INSOLUTO As DataGridViewTextBoxColumn
-    Friend WithEvents BindingSource2 As BindingSource
+    Friend WithEvents CBS_TipoRelacion As ComboWisax
     Friend WithEvents Label12 As Label
-    Friend WithEvents CbxReceptor As ComboWisax
-    Friend WithEvents Label16 As Label
+    Friend WithEvents DGVConceptos As Wisej.Web.DataGridView
+    Friend WithEvents cCantidad As DataGridViewTextBoxColumn
+    Friend WithEvents cbClaveProdServ As DataGridViewComboBoxColumn
+    Friend WithEvents cbClaveUnidad As DataGridViewComboBoxColumn
+    Friend WithEvents cDescripcion As DataGridViewTextBoxColumn
+    Friend WithEvents cValorUnitario As DataGridViewTextBoxColumn
+    Friend WithEvents cImporte As DataGridViewTextBoxColumn
+    Friend WithEvents cNoIdentificacion As DataGridViewTextBoxColumn
+    Friend WithEvents cDescuento As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Label33 As Label
+    Friend WithEvents TBDescuento As TextBox
+    Friend WithEvents TBTotal As TextBox
+    Friend WithEvents TBRISR As TextBox
+    Friend WithEvents TBRIVA As TextBox
+    Friend WithEvents TBIva As TextBox
+    Friend WithEvents TBSubTotal As TextBox
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label30 As Label
+    Friend WithEvents Label31 As Label
+    Friend WithEvents Label32 As Label
+    Friend WithEvents Label10 As Label
     Friend WithEvents CbxClientes As ComboWisax
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents RbEmpresa As RadioButton
-    Friend WithEvents RbParticular As RadioButton
+    Friend WithEvents RB_Parcial As RadioButton
+    Friend WithEvents RB_Completa As RadioButton
+    Friend WithEvents TBTipoCambio As TextBox
+    Friend WithEvents Label9 As Label
     Friend WithEvents BtnAnexarPago As Button
-    Friend WithEvents colRFC As DataGridViewTextBoxColumn
-    Friend WithEvents cPARCIALIDAD As DataGridViewTextBoxColumn
-    Friend WithEvents DataSet_pFACTURA_SAT_CFDI_PAGOS_B1 As DataSet_pFACTURA_SAT_CFDI_PAGOS_B
-    Friend WithEvents PFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter As DataSet_pFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_UUID_BTableAdapter
+    Friend WithEvents Label13 As Label
+    Friend WithEvents TBMonto As TextBox
+    Friend WithEvents BindingSource1 As BindingSource
     Friend WithEvents DataSet_pFACTURA_SAT_CFDI_PAGOS_B As DataSet_pFACTURA_SAT_CFDI_PAGOS_B
-    Friend WithEvents colSALDO As DataGridViewTextBoxColumn
-    Friend WithEvents colCONDICIONESPAGO As DataGridViewTextBoxColumn
-    Friend WithEvents colFECHA As DataGridViewTextBoxColumn
-    Friend WithEvents colUUID As DataGridViewTextBoxColumn
+    Friend WithEvents PFACTURA_SAT_CFDI_PAGOS_BTableAdapter As DataSet_pFACTURA_SAT_CFDI_PAGOS_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_BTableAdapter
     Friend WithEvents colFOLIO As DataGridViewTextBoxColumn
+    Friend WithEvents colUUID As DataGridViewTextBoxColumn
+    Friend WithEvents colFECHA As DataGridViewTextBoxColumn
+    Friend WithEvents colCONDICIONESPAGO As DataGridViewTextBoxColumn
+    Friend WithEvents colSALDO As DataGridViewTextBoxColumn
 End Class

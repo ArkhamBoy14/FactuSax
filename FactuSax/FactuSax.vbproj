@@ -1425,6 +1425,12 @@
     <Compile Include="MOD_FACTURACION\Facturacion REPS.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion_Devolucion.Designer.vb">
+      <DependentUpon>Facturacion_Devolucion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MOD_FACTURACION\Facturacion_Devolucion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MOD_FACTURACION\Facturacion_Electronica_CFD_33.Designer.vb">
       <DependentUpon>Facturacion_Electronica_CFD_33.vb</DependentUpon>
     </Compile>
@@ -1731,6 +1737,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MOD_FACTURACION\Facturacion REPS.resx">
       <DependentUpon>Facturacion REPS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOD_FACTURACION\Facturacion_Devolucion.resx">
+      <DependentUpon>Facturacion_Devolucion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MOD_FACTURACION\Facturacion_Electronica_CFD_33.resx">
       <DependentUpon>Facturacion_Electronica_CFD_33.vb</DependentUpon>

@@ -1,7 +1,9 @@
+﻿Imports System
+Imports Wisej.Web
 Imports System.Data
 Imports System.Data.SqlClient
 
-Public Class Facturacion_Nota_Credito
+Public Class Facturacion_Devolucion
     Dim Seria_activa As Integer
     Dim clave As String = Application.Session("Cve_Cliente")
     Dim SERIE As String
@@ -48,7 +50,7 @@ Public Class Facturacion_Nota_Credito
 
         'Utilidades.LlenarListBox("pCAT_METODOPAGO_SAT_FACTURACION_B", "c_MetodoPago", "DescripcionX", CBSMetodoPago)
         CBS_TipoRelacion.LlenarListBox("[pCAT_TIPORELACION_SAT_FACTURACION_B]", "c_TipoRelacion", "descripcionx")
-
+        CBS_TipoRelacion.SelectedValue = "03"
         CBSMoneda.SelectedValue = "MXN"
         CBSTipoComprobante.SelectedValue = "E"
         CBSFormaPago.SelectedValue = "01"
@@ -251,21 +253,24 @@ Public Class Facturacion_Nota_Credito
     Private Sub DGVUUID_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVUUID.CellClick
         Dim FOLIOS As String = ""
         If e.ColumnIndex = 0 Then
-            conceptos(DGVUUID.Rows(e.RowIndex).Cells(2).Value, DGVUUID.Rows(e.RowIndex).Cells(1).Value)
+            If RB_Completa.Checked = True Then
+                conceptos_completos(DGVUUID.Rows(e.RowIndex).Cells(2).Value, DGVUUID.Rows(e.RowIndex).Cells(1).Value, DGVUUID.Rows(e.RowIndex).Cells(5).Value)
+                TBMonto.Enabled = False
+                BtnAnexarPago.Enabled = False
+            Else
+                conceptos(DGVUUID.Rows(e.RowIndex).Cells(2).Value, DGVUUID.Rows(e.RowIndex).Cells(1).Value)
+                TBMonto.Enabled = True
+                BtnAnexarPago.Enabled = True
+            End If
             CBSReceptor.SelectedValue = DGVUUID.Rows(e.RowIndex).Cells(6).Value
         End If
-
-
-        'Utilidades.ParametersX_Global(0) = New SqlClient.SqlParameter("@UUID", FOLIOS)
-        'Dim DATATABLE_UUID As New DataTable
-        'DATATABLE_UUID = Utilidades.llenar_dt("[pFACTURA_SAT_CFDI_PAGOS_UUID_B]", Utilidades.ParametersX_Global)
-
 
 
 
     End Sub
 
-    Sub conceptos(folios As String, ID As String)
+
+    Sub conceptos(folios As String, ID As String, Optional saldo As Double = 0)
 
 
         Dim SUBTOTAL As Double
@@ -278,18 +283,72 @@ Public Class Facturacion_Nota_Credito
         DGVConceptos.Rows.Clear()
         Dim parametros As String()
         ReDim parametros(7)
-        parametros(0) = "1" : parametros(1) = "84111506 - Servicio de Facturacion" : parametros(2) = "ACT" : parametros(3) = "Descuento" : parametros(4) = "0" : parametros(5) = "0" : parametros(6) = 0 : parametros(7) = ID
+        parametros(0) = "1" : parametros(1) = "84111506 - Servicio de Facturacion" : parametros(2) = "ACT" : parametros(3) = "Devolución" : parametros(4) = saldo : parametros(5) = saldo : parametros(6) = 0 : parametros(7) = ID
         DGVConceptos.Rows.Add(parametros)
+    End Sub
 
+    Sub conceptos_completos(folios As String, ID As String, Optional saldo As Double = 0)
+
+        Dim SUBTOTAL As Double
+        RTBObservaciones.Text = CBS_TipoRelacion.SelectedItem & " Del UUID = " & folios
+        Application.Session("folios_factura") = folios
+        Dim dt As New DataTable
+        For x As Integer = 0 To DGVConceptos.Columns.Count - 1
+            dt.Columns.Add(DGVConceptos.Columns(x).HeaderText)
+        Next
+        DGVConceptos.Rows.Clear()
+        Dim parametros As String()
+        ReDim parametros(7)
+        parametros(0) = "1" : parametros(1) = "84111506 - Servicio de Facturacion" : parametros(2) = "ACT" : parametros(3) = "Devolución" : parametros(4) = saldo : parametros(5) = saldo : parametros(6) = 0 : parametros(7) = ID
+        DGVConceptos.Rows.Add(parametros)
         Try
+            Dim valor_clave = cbClaveProdServ.Items.Count - 1
+            For e As Integer = 0 To DGVConceptos.Rows.Count - 1
+                DGVConceptos(1, e).Value = "84111506 - Servicio de Facturacion"
+                DGVConceptos(2, e).Value = "ACT"
+                Dim total, iva, riva, risr, totaldesc, preciosiniva, calculoimporte As Double
+                Dim Unidad = DGVConceptos.Rows(e).Cells(4).Value
+                'Dim DescuentoUnidad = Unidad * Double.Parse(0.16)
+                Dim DescuentoUnidad = Unidad
+                'Dim ImporteDescuento = Unidad - DescuentoUnidad
+                Dim ImporteDescuento = Unidad
 
+                calculoimporte = CDbl(DGVConceptos.Rows(e).Cells(0).Value) * CDbl(DGVConceptos.Rows(e).Cells(4).Value)
 
+                DGVConceptos(5, e).Value = ImporteDescuento
+                For i As Integer = 0 To DGVConceptos.Rows.Count - 1
+                    total += DGVConceptos.Rows(i).Cells(4).Value
+                Next
+                'Dim DESCUENTOX As Double
+                'DESCUENTOX = (descuento * 100 / total) / 100
+                'For I As Integer = 0 To DGVConceptos.Rows.Count - 1
+                '    DGVConceptos.Rows(I).Cells("cDescuento").Value = Round((DGVConceptos.Rows(I).Cells("cImporte").Value * DESCUENTOX), 2)
+                'Next
 
+                ''If CBTraslado.Checked Then
+                iva = 0
+                SUBTOTAL = total
+                ''End If
+                'If CBRetencion.Checked Then
+                '    risr = SUBTOTAL * (MTBRISR.Text)
+                '    riva = SUBTOTAL * (MTBRIVA.Text)
+                'End If
+
+                TBSubTotal.Text = FormatCurrency(SUBTOTAL)
+                'TBDescuento.Text = FormatCurrency(descuento)
+                TBIva.Text = FormatCurrency(iva)
+                'TBRISR.Text = FormatCurrency(risr + 0)
+                'TBRIVA.Text = FormatCurrency(riva + 0)
+                total = SUBTOTAL + iva
+                TBTotal.Text = FormatCurrency(total)
+            Next
 
         Catch ex As Exception
 
         End Try
+
     End Sub
+
 
 
     Sub CREAR_XML()
@@ -333,7 +392,7 @@ Public Class Facturacion_Nota_Credito
         cuerpo.Add("Metodo_pago", "PUE")
         'cuerpo.Add("Lugarexpedicion", MTBCP.Text)
         'cuerpo.Add("Descuento", IIf(TBDescuento.Text.Replace("$", "") = "0", 0, TBDescuento.Text.Replace("$", "")))
-        cuerpo.Add("Tipo_Cambio", "NA")
+        cuerpo.Add("Tipo_Cambio", Nothing)
         cuerpo.Add("Condiciones_Pago", IIf(RTBObservaciones.Text = "", Nothing, RTBObservaciones.Text))
 
         ''faltantes ------------------------------------
@@ -358,7 +417,7 @@ Public Class Facturacion_Nota_Credito
         End If
 
         ''If CBTraslado.Checked = True Then
-        imptraslado.Add("002" & "|" & ValorIVA & "|" & TasaIVA & "|" & TBIva.Text.Replace("$", ""))
+        imptraslado.Add("002" & "|" & 0 & "|" & 0 & "|" & 0)
         ''End If
 
         'impretencciones.Add(CBSRISR.SelectedValue & "|" & MTBRISR.Text & "|" & TasaoCuotaISR.Text)
@@ -367,7 +426,7 @@ Public Class Facturacion_Nota_Credito
         'FACTURA.factura_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, totalretenciones, impretencciones)
         Dim FACTURAX As New Factura
 
-        Dim respuesta As String = FACTURA.factura_emisor_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, Application.Session("folios_factura"))
+        Dim respuesta As String = FACTURA.Factura_devolucion_html(emisor, receptor, cuerpo, cer, llave, claveprivada, conceptos, imptraslado, TBIva.Text, clave, fecha_factura, Application.Session("folios_factura"))
         If respuesta <> Nothing Then
             Dim split As String() = respuesta.Split("-")
             Dim asp As New Mostrar_Asp
@@ -422,32 +481,12 @@ Public Class Facturacion_Nota_Credito
         Next
     End Sub
 
-    Private Sub TBMonto_EnterKeyDown(objSender As Object, objArgs As KeyEventArgs)
-        'If DGVConceptos.Rows.Count = 1 Then
 
-        '    If DGVConceptos.Rows(0).Cells("SALDO_ANTERIOR").Value - TBMonto.Text < 0 Then
-        '        MessageBox.Show("El monto es mayor que el saldo adeudado")
-        '        RBBFactura.Enabled = False
-        '    Else
-
-        '        DGVConceptos.Rows(0).Cells("IMPORTE_PAGADO").Value = TBMonto.Text
-        '        DGVConceptos.Rows(0).Cells("SALDO_INSOLUTO").Value = DGVConceptos.Rows(0).Cells("SALDO_ANTERIOR").Value - TBMonto.Text
-        '        RBBFactura.Enabled = True
-        '    End If
-        'Else
-        '    valor = TBMonto.Text
-        'End If
-    End Sub
 
 
 
     Function verificar()
         Dim total As String
-
-        If DGVUUID.Rows(DGVUUID.CurrentCell.RowIndex).Cells(colSALDO.Index).Value < TBSubTotal.Text Then
-            Alertas.NotificacionAdvertencia("El Egreso no puede ser mayor al monto facturado")
-            Return False
-        End If
 
         If CBS_TipoRelacion.SelectedIndex = -1 Then
             Alertas.NotificacionAdvertencia("Selecccion un tipo de relacion")
@@ -484,20 +523,6 @@ Public Class Facturacion_Nota_Credito
 
             'CBSUsoCFDI.LlenarListBox("pCAT_USOCFDI_SAT_FACTURACION_B", "c_UsoCFDI", "DescripcionX", Utilidades.ParametersX_Global)
         End If
-    End Sub
-
-    Private Sub DGVConceptosUUID_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs)
-        'If DGVConceptosUUID.Columns("IMPORTE_PAGADO").Index = e.ColumnIndex Then
-        '    Try
-        '        DGVConceptosUUID.Rows(e.RowIndex + 1).Cells("IMPORTE_PAGADO").Value = valor - DGVConceptosUUID.Rows(e.RowIndex).Cells("IMPORTE_PAGADO").Value
-        '        valor = valor - DGVConceptosUUID.Rows(e.RowIndex).Cells("IMPORTE_PAGADO").Value
-        '        DGVConceptosUUID.Rows(e.RowIndex + 1).Cells("IMPORTE_PAGADO").Value = valor
-        '    Catch ex As Exception
-
-        '    End Try
-
-
-        'End If
     End Sub
 
     Private Sub CBS_TipoRelacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBS_TipoRelacion.SelectedIndexChanged
