@@ -708,6 +708,7 @@
     <Content Include="Resources\Images\Menu\16\xml.png" />
     <Content Include="Resources\Images\Menu\64\busqueda_facturas.png" />
     <Content Include="Resources\Images\Menu\64\cancelar_factura.png" />
+    <Content Include="Resources\Images\Menu\64\devolucion-de-dinero.png" />
     <Content Include="Resources\Images\Menu\64\factura_pagos.png" />
     <Content Include="Resources\Images\Menu\64\nota_credito.png" />
     <Content Include="Resources\Images\Menu\64\sustitucion.png" />

@@ -141,8 +141,8 @@ Public Class Factura
                     imptraslados.Base = split(5)
 
                     imptraslados.Impuesto = splittras(0)
-                    imptraslados.TipoFactor = splittras(2)
-                    imptraslados.TasaOCuota = splittras(1)
+                    imptraslados.TipoFactor = splittras(1)
+                    imptraslados.TasaOCuota = splittras(2)
                     'imptraslados.Base = splittras()
                     'imptraslados.Importe = Round((split(5) * splittras(1)) - descuentoconcepto, 4)
                     imptraslados.Importe = Round((split(5) * splittras(1)), 4)
@@ -162,8 +162,8 @@ Public Class Factura
                         Dim splitrentenciones = retenciones(0).Split("|")
                         impretencciones.Base = split(5) - descuentoconcepto
                         impretencciones.Impuesto = splitrentenciones(0)
-                        impretencciones.TipoFactor = splitrentenciones(2)
-                        impretencciones.TasaOCuota = splitrentenciones(1)
+                        impretencciones.TipoFactor = splitrentenciones(1)
+                        impretencciones.TasaOCuota = splitrentenciones(2)
                         impretencciones.Importe = (split(5) * splitrentenciones(1)) - descuentoconcepto
                         'Impuestoretencion.Add(split(5) - descuentoconcepto & "|" & splitrentenciones(0) splitrentenciones(2))
 
@@ -192,9 +192,9 @@ Public Class Factura
             For x As Integer = 0 To traslado.Count - 1
                 Dim splitt = traslado(0).Split("|")
                 cimt.Impuesto = splitt(0)
-                cimt.TipoFactor = splitt(2)
+                cimt.TipoFactor = splitt(1)
                 cimt.TasaOCuotaSpecified = True
-                cimt.TasaOCuota = splitt(1)
+                cimt.TasaOCuota = splitt(2)
                 cimt.Base = ImporteTraslado
                 cimt.ImporteSpecified = True
                 cimt.Importe = Round(sumatoria, 2)
