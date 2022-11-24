@@ -23,8 +23,8 @@ Public Class Facturacion_Devolucion
         Me.WindowState = FormWindowState.Maximized
         cFecha1.Value = Now
         cFecha2.Value = Now
-        MTBHoraEmision.Text = Now.Hour & ":" & Now.Minute
-        MTBHoraPago.Text = Now.Hour & ":" & Now.Minute
+        MTBHoraEmision.Text = Format(Now, "HH:mm")
+        MTBHoraPago.Text = Format(Now, "HH:mm")
 
         'CBSIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
         'CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
@@ -236,6 +236,8 @@ Public Class Facturacion_Devolucion
         myDA.Fill(Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.pFACTURA_SAT_CFDI_PAGOS_B)
         myDA.Dispose()
 
+        CBS_TipoRelacion.SelectedValue = "03"
+
     End Sub
 
 
@@ -417,7 +419,7 @@ Public Class Facturacion_Devolucion
         End If
 
         ''If CBTraslado.Checked = True Then
-        imptraslado.Add("002" & "|" & 0 & "|" & 0 & "|" & 0)
+        imptraslado.Add("002" & "|" & "Tasa" & "|" & "0.000000" & "|" & 0)
         ''End If
 
         'impretencciones.Add(CBSRISR.SelectedValue & "|" & MTBRISR.Text & "|" & TasaoCuotaISR.Text)

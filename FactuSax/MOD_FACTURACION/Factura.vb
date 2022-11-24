@@ -559,9 +559,9 @@ Public Class Factura
             Utilidades.ParametersX_Global(1) = New SqlClient.SqlParameter("@UUID", UUID)
             Utilidades.ParametersX_Global(2) = New SqlClient.SqlParameter("@TOTALIMPUESTOTRASLADO", totaliva)
             Utilidades.ParametersX_Global(3) = New SqlClient.SqlParameter("@IMPUESTO", SPLITT(0))
-            Utilidades.ParametersX_Global(4) = New SqlClient.SqlParameter("@TIPOFACTOR", SPLITT(2))
-            Utilidades.ParametersX_Global(5) = New SqlClient.SqlParameter("@TASACUOTA", SPLITT(1))
-            Utilidades.ParametersX_Global(6) = New SqlClient.SqlParameter("@IMPORTE", Round((CUERPO_FACTURA_SUBTOTAL - DESCUENTOFACTURA) * SPLITT(1), 2))
+            Utilidades.ParametersX_Global(4) = New SqlClient.SqlParameter("@TIPOFACTOR", SPLITT(1))
+            Utilidades.ParametersX_Global(5) = New SqlClient.SqlParameter("@TASACUOTA", SPLITT(2))
+            Utilidades.ParametersX_Global(6) = New SqlClient.SqlParameter("@IMPORTE", Round((CUERPO_FACTURA_SUBTOTAL - DESCUENTOFACTURA) * SPLITT(2), 2))
             sDevuelveId = Utilidades.EjecutarProcedure_Id("pFACTURA_SAT_CFDI_IMPUESTOS_G", "@Parametro", Utilidades.ParametersX_Global, , SqlDbType.VarChar, 50)
             If sDevuelveId = Nothing Then
                 Return False
@@ -1459,7 +1459,7 @@ Public Class Factura
     End Function
 
     Function Factura_devolucion_html(emisor As String, receptor As String, cuerpo_factura As Dictionary(Of String, String), certificado As String, llave As String, claveprivada As String, conceptos As List(Of String),
-                      traslado As List(Of String), totaliva As String, serieactiva As String, fechafactura As DateTime, Optional totalretenciones As String = Nothing, Optional retenciones As List(Of String) = Nothing, Optional FOLIO_FACTURAS As String = Nothing)
+                      traslado As List(Of String), totaliva As String, serieactiva As String, fechafactura As DateTime, UUID_RELACIONADO As String, Optional totalretenciones As String = Nothing, Optional retenciones As List(Of String) = Nothing)
         Try
 
             Dim sumatoria As Double
@@ -1494,6 +1494,19 @@ Public Class Factura
             comprobante.MetodoPago = cuerpo_factura("Metodo_pago")
             comprobante.LugarExpedicion = cuerpo_factura("Lugarexpedicion")
             comprobante.MetodoPagoSpecified = True
+            comprobante.Exportacion = "01"
+            Dim RELACION As New ComprobanteCfdiRelacionados
+            Dim RELACIONLIS As New ComprobanteCfdiRelacionadosCfdiRelacionado
+            Dim RELACIONLISx As New List(Of ComprobanteCfdiRelacionadosCfdiRelacionado)
+            RELACIONLIS.UUID = cuerpo_factura("RelacionUIID")
+
+            RELACIONLISx.Add(RELACIONLIS)
+            RELACION.CfdiRelacionado = RELACIONLISx.ToArray
+            RELACION.TipoRelacion = cuerpo_factura("TipoRelacion")
+
+            comprobante.CfdiRelacionados = RELACION
+            comprobante.CfdiRelacionados.TipoRelacion = cuerpo_factura("TipoRelacion")
+
 
 
             If cuerpo_factura("Descuento") <> 0 Then
@@ -1526,6 +1539,8 @@ Public Class Factura
             cr.Nombre = split_r(1)
             cr.Rfc = split_r(0)
             cr.UsoCFDI = split_r(2)
+            cr.DomicilioFiscalReceptor = split_r(4)
+            cr.RegimenFiscalReceptor = split_r(3)
             comprobante.Emisor = ce
             comprobante.Receptor = cr
 
@@ -1541,6 +1556,7 @@ Public Class Factura
                 concepto.Descripcion = split(3)
                 concepto.ValorUnitario = split(4)
                 concepto.Importe = split(5)
+                concepto.ObjetoImp = "02"
                 If split(6) <> "0" Then
                     concepto.Descuento = split(6)
                     concepto.DescuentoSpecified = True
@@ -1560,13 +1576,14 @@ Public Class Factura
                 For x As Integer = 0 To traslado.Count - 1
                     Dim splittras = traslado(0).Split("|")
                     imptraslados.Base = split(5) - descuentoconcepto
+                    ImporteTraslado = imptraslados.Base
                     imptraslados.Impuesto = splittras(0)
-                    imptraslados.TipoFactor = splittras(2)
-                    imptraslados.TasaOCuota = splittras(1)
-                    imptraslados.Importe = Round((split(5) - descuentoconcepto) * splittras(1), 4)
-                    Impuestotraslado.Add(split(5) - descuentoconcepto & "|" & splittras(0) & "|" & splittras(2) & "|" & splittras(1) & "|" & Round((split(5) - descuentoconcepto) * splittras(1), 4))
+                    imptraslados.TipoFactor = splittras(1)
+                    imptraslados.TasaOCuota = splittras(2)
+                    imptraslados.Importe = Round((split(5) - descuentoconcepto) * splittras(2), 4)
+                    Impuestotraslado.Add(split(5) - descuentoconcepto & "|" & splittras(0) & "|" & splittras(1) & "|" & splittras(2) & "|" & Round((split(5) - descuentoconcepto) * splittras(2), 4))
                     listaimptraslado.Add(imptraslados)
-                    sumatoria += Round((split(5) - descuentoconcepto) * splittras(1), 4)
+                    sumatoria += Round((split(5) - descuentoconcepto) * splittras(2), 4)
                 Next
                 imp.Traslados = listaimptraslado.ToArray
                 If Not totalretenciones = Nothing Then
@@ -1607,9 +1624,12 @@ Public Class Factura
             For x As Integer = 0 To traslado.Count - 1
                 Dim splitt = traslado(0).Split("|")
                 cimt.Impuesto = splitt(0)
-                cimt.TipoFactor = splitt(2)
-                cimt.TasaOCuota = splitt(1)
+                cimt.Base = ImporteTraslado
+                cimt.TipoFactor = splitt(1)
+                cimt.TasaOCuota = splitt(2)
+                cimt.TasaOCuotaSpecified = True
                 cimt.Importe = Round(sumatoria, 4)
+                cimt.ImporteSpecified = True
                 cimtl.Add(cimt)
             Next
             cim.Traslados = cimtl.ToArray
@@ -1651,7 +1671,7 @@ Public Class Factura
                 If Not GUARDAR_IMPUESTOS_CFDI(splitx_resp(1), traslado, totaliva, descuentofactura, cuerpo_factura("Subtotal")) = True Then
                     BO = False
                 End If
-                GUARDAR_UUID_MOVIMIENTO(splitx_resp(1), FOLIO_FACTURAS)
+                GUARDAR_UUID_RELACIONADOS_DEVOLUCION(splitx_resp(1), UUID_RELACIONADO)
 
 
 
@@ -1703,6 +1723,25 @@ Public Class Factura
         End Try
     End Function
 
+    Function GUARDAR_UUID_RELACIONADOS_DEVOLUCION(UUIDP As String, UUID_RELACIONADO As String)
 
+
+
+
+
+        ReDim Utilidades.ParametersX_Global(6)
+        Utilidades.ParametersX_Global(1) = New SqlClient.SqlParameter("@UUIDP", UUIDP)
+        Utilidades.ParametersX_Global(2) = New SqlClient.SqlParameter("@UUID_CFDI", UUID_RELACIONADO)
+        Dim sDevuelveId
+        sDevuelveId = Utilidades.EjecutarProcedure_Id("[pFACTURACION_SAT_DEVOLUCION_UUID_RELACIONADOS_G]", "@Parametro", Utilidades.ParametersX_Global, , SqlDbType.VarChar, 50)
+
+        If sDevuelveId = Nothing Then
+            Return False
+        End If
+
+
+        Return True
+
+    End Function
 
 End Class

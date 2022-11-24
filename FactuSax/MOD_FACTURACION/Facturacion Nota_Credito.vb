@@ -21,8 +21,8 @@ Public Class Facturacion_Nota_Credito
         Me.WindowState = FormWindowState.Maximized
         cFecha1.Value = Now
         cFecha2.Value = Now
-        MTBHoraEmision.Text = Now.Hour & ":" & Now.Minute
-        MTBHoraPago.Text = Now.Hour & ":" & Now.Minute
+        MTBHoraEmision.Text = Format(Now, "HH:mm")
+        MTBHoraPago.Text = Format(Now, "HH:mm")
 
         'CBSIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
         'CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
