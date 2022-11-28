@@ -20,7 +20,7 @@ Public Class MyDesktop
         'AlertBox.Show("Hola Mundo")
         Application.Title = "FactuSax"
         Application.FavIconSource = "Resources\Icons\FavIcon.ico"
-        Dim sPath = "Resources/Images/LOGOS/Wallpaper/isiscol_portada.jpeg"
+        Dim sPath = "Resources/Images/LOGOS/Wallpaper/wallpaper_facturas.jpg"
         If Application.Session("Wallpaper") = "NA" Then
             Me.Wallpaper = sPath
         Else

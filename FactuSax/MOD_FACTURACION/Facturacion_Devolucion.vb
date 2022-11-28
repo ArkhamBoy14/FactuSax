@@ -419,7 +419,7 @@ Public Class Facturacion_Devolucion
         End If
 
         ''If CBTraslado.Checked = True Then
-        imptraslado.Add("002" & "|" & "Tasa" & "|" & "0.000000" & "|" & 0)
+        imptraslado.Add("002" & "|" & "0.000000" & "|" & "Tasa" & "|" & 0)
         ''End If
 
         'impretencciones.Add(CBSRISR.SelectedValue & "|" & MTBRISR.Text & "|" & TasaoCuotaISR.Text)

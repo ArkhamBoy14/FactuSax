@@ -141,13 +141,13 @@ Public Class Factura
                     imptraslados.Base = split(5)
 
                     imptraslados.Impuesto = splittras(0)
-                    imptraslados.TipoFactor = splittras(1)
-                    imptraslados.TasaOCuota = splittras(2)
+                    imptraslados.TipoFactor = splittras(2)
+                    imptraslados.TasaOCuota = splittras(1)
                     'imptraslados.Base = splittras()
                     'imptraslados.Importe = Round((split(5) * splittras(1)) - descuentoconcepto, 4)
                     imptraslados.Importe = Round((split(5) * splittras(1)), 4)
                     ImporteTraslado = split(5)
-                    Impuestotraslado.Add(split(5) - descuentoconcepto & "|" & splittras(0) & "|" & splittras(2) & "|" & splittras(1) & "|" & Round((split(5) - descuentoconcepto) * splittras(1), 4))
+                    Impuestotraslado.Add(split(5) - descuentoconcepto & "|" & splittras(0) & "|" & splittras(1) & "|" & splittras(2) & "|" & Round((split(5) - descuentoconcepto) * splittras(1), 4))
                     listaimptraslado.Add(imptraslados)
                     'sumatoria += Round((split(5) * splittras(1)) - descuentoconcepto, 4)
                     sumatoria += Round((split(5) * splittras(1)), 2)
@@ -192,9 +192,9 @@ Public Class Factura
             For x As Integer = 0 To traslado.Count - 1
                 Dim splitt = traslado(0).Split("|")
                 cimt.Impuesto = splitt(0)
-                cimt.TipoFactor = splitt(1)
+                cimt.TipoFactor = splitt(2)
                 cimt.TasaOCuotaSpecified = True
-                cimt.TasaOCuota = splitt(2)
+                cimt.TasaOCuota = splitt(1)
                 cimt.Base = ImporteTraslado
                 cimt.ImporteSpecified = True
                 cimt.Importe = Round(sumatoria, 2)
@@ -559,9 +559,9 @@ Public Class Factura
             Utilidades.ParametersX_Global(1) = New SqlClient.SqlParameter("@UUID", UUID)
             Utilidades.ParametersX_Global(2) = New SqlClient.SqlParameter("@TOTALIMPUESTOTRASLADO", totaliva)
             Utilidades.ParametersX_Global(3) = New SqlClient.SqlParameter("@IMPUESTO", SPLITT(0))
-            Utilidades.ParametersX_Global(4) = New SqlClient.SqlParameter("@TIPOFACTOR", SPLITT(1))
-            Utilidades.ParametersX_Global(5) = New SqlClient.SqlParameter("@TASACUOTA", SPLITT(2))
-            Utilidades.ParametersX_Global(6) = New SqlClient.SqlParameter("@IMPORTE", Round((CUERPO_FACTURA_SUBTOTAL - DESCUENTOFACTURA) * SPLITT(2), 2))
+            Utilidades.ParametersX_Global(4) = New SqlClient.SqlParameter("@TIPOFACTOR", SPLITT(2))
+            Utilidades.ParametersX_Global(5) = New SqlClient.SqlParameter("@TASACUOTA", SPLITT(1))
+            Utilidades.ParametersX_Global(6) = New SqlClient.SqlParameter("@IMPORTE", Round((CUERPO_FACTURA_SUBTOTAL - DESCUENTOFACTURA) * SPLITT(1), 2))
             sDevuelveId = Utilidades.EjecutarProcedure_Id("pFACTURA_SAT_CFDI_IMPUESTOS_G", "@Parametro", Utilidades.ParametersX_Global, , SqlDbType.VarChar, 50)
             If sDevuelveId = Nothing Then
                 Return False
@@ -1578,12 +1578,12 @@ Public Class Factura
                     imptraslados.Base = split(5) - descuentoconcepto
                     ImporteTraslado = imptraslados.Base
                     imptraslados.Impuesto = splittras(0)
-                    imptraslados.TipoFactor = splittras(1)
-                    imptraslados.TasaOCuota = splittras(2)
-                    imptraslados.Importe = Round((split(5) - descuentoconcepto) * splittras(2), 4)
-                    Impuestotraslado.Add(split(5) - descuentoconcepto & "|" & splittras(0) & "|" & splittras(1) & "|" & splittras(2) & "|" & Round((split(5) - descuentoconcepto) * splittras(2), 4))
+                    imptraslados.TipoFactor = splittras(2)
+                    imptraslados.TasaOCuota = splittras(1)
+                    imptraslados.Importe = Round((split(5) - descuentoconcepto) * splittras(1), 4)
+                    Impuestotraslado.Add(split(5) - descuentoconcepto & "|" & splittras(0) & "|" & splittras(2) & "|" & splittras(1) & "|" & Round((split(5) - descuentoconcepto) * splittras(1), 4))
                     listaimptraslado.Add(imptraslados)
-                    sumatoria += Round((split(5) - descuentoconcepto) * splittras(2), 4)
+                    sumatoria += Round((split(5) - descuentoconcepto) * splittras(1), 4)
                 Next
                 imp.Traslados = listaimptraslado.ToArray
                 If Not totalretenciones = Nothing Then
@@ -1625,8 +1625,8 @@ Public Class Factura
                 Dim splitt = traslado(0).Split("|")
                 cimt.Impuesto = splitt(0)
                 cimt.Base = ImporteTraslado
-                cimt.TipoFactor = splitt(1)
-                cimt.TasaOCuota = splitt(2)
+                cimt.TipoFactor = splitt(2)
+                cimt.TasaOCuota = splitt(1)
                 cimt.TasaOCuotaSpecified = True
                 cimt.Importe = Round(sumatoria, 4)
                 cimt.ImporteSpecified = True
