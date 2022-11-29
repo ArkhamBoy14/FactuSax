@@ -1249,6 +1249,7 @@ Public Class Factura
             comprobante.MetodoPago = cuerpo_factura("Metodo_pago")
             comprobante.LugarExpedicion = cuerpo_factura("Lugarexpedicion")
             comprobante.MetodoPagoSpecified = True
+            comprobante.Exportacion = "01"
 
 
             If cuerpo_factura("Descuento") <> 0 Then
@@ -1281,8 +1282,12 @@ Public Class Factura
             cr.Nombre = split_r(1)
             cr.Rfc = split_r(0)
             cr.UsoCFDI = split_r(2)
+            cr.DomicilioFiscalReceptor = split_r(4)
+            cr.RegimenFiscalReceptor = split_r(3)
+
             comprobante.Emisor = ce
             comprobante.Receptor = cr
+
 
             Dim concepto As New ComprobanteConcepto
             Dim conceptosx As New List(Of ComprobanteConcepto)
@@ -1296,6 +1301,7 @@ Public Class Factura
                 concepto.Descripcion = split(3)
                 concepto.ValorUnitario = split(4)
                 concepto.Importe = split(5)
+                concepto.ObjetoImp = "02"
                 If split(6) <> "0" Then
                     concepto.Descuento = split(6)
                     concepto.DescuentoSpecified = True
@@ -1314,14 +1320,21 @@ Public Class Factura
 
                 For x As Integer = 0 To traslado.Count - 1
                     Dim splittras = traslado(0).Split("|")
-                    imptraslados.Base = split(5) - descuentoconcepto
+                    'imptraslados.Base = split(5) - descuentoconcepto
+                    imptraslados.Base = split(5)
+
                     imptraslados.Impuesto = splittras(0)
                     imptraslados.TipoFactor = splittras(2)
                     imptraslados.TasaOCuota = splittras(1)
-                    imptraslados.Importe = Round((split(5) - descuentoconcepto) * splittras(1), 4)
-                    Impuestotraslado.Add(split(5) - descuentoconcepto & "|" & splittras(0) & "|" & splittras(2) & "|" & splittras(1) & "|" & Round((split(5) - descuentoconcepto) * splittras(1), 4))
+                    'imptraslados.Base = splittras()
+                    'imptraslados.Importe = Round((split(5) * splittras(1)) - descuentoconcepto, 4)
+                    imptraslados.Importe = Round((split(5) * splittras(1)), 4)
+                    ImporteTraslado = split(5)
+                    Impuestotraslado.Add(split(5) - descuentoconcepto & "|" & splittras(0) & "|" & splittras(1) & "|" & splittras(2) & "|" & Round((split(5) - descuentoconcepto) * splittras(1), 4))
                     listaimptraslado.Add(imptraslados)
-                    sumatoria += Round((split(5) - descuentoconcepto) * splittras(1), 4)
+                    'sumatoria += Round((split(5) * splittras(1)) - descuentoconcepto, 4)
+                    sumatoria += Round((split(5) * splittras(1)), 2)
+
                 Next
                 imp.Traslados = listaimptraslado.ToArray
                 If Not totalretenciones = Nothing Then
@@ -1332,9 +1345,9 @@ Public Class Factura
                         Dim splitrentenciones = retenciones(0).Split("|")
                         impretencciones.Base = split(5) - descuentoconcepto
                         impretencciones.Impuesto = splitrentenciones(0)
-                        impretencciones.TipoFactor = splitrentenciones(2)
-                        impretencciones.TasaOCuota = splitrentenciones(1)
-                        impretencciones.Importe = (split(5) - descuentoconcepto) * splitrentenciones(1)
+                        impretencciones.TipoFactor = splitrentenciones(1)
+                        impretencciones.TasaOCuota = splitrentenciones(2)
+                        impretencciones.Importe = (split(5) * splitrentenciones(1)) - descuentoconcepto
                         'Impuestoretencion.Add(split(5) - descuentoconcepto & "|" & splitrentenciones(0) splitrentenciones(2))
 
                         listaretenciones.Add(impretencciones)
@@ -1363,8 +1376,11 @@ Public Class Factura
                 Dim splitt = traslado(0).Split("|")
                 cimt.Impuesto = splitt(0)
                 cimt.TipoFactor = splitt(2)
+                cimt.TasaOCuotaSpecified = True
                 cimt.TasaOCuota = splitt(1)
-                cimt.Importe = Round(sumatoria, 4)
+                cimt.Base = ImporteTraslado
+                cimt.ImporteSpecified = True
+                cimt.Importe = Round(sumatoria, 2)
                 cimtl.Add(cimt)
             Next
             cim.Traslados = cimtl.ToArray

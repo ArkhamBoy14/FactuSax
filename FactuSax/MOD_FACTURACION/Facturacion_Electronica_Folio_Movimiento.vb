@@ -133,15 +133,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
 
         CbxClientes.LlenarListBox("pCAT_CLIENTES_B", "Cve_Cliente", "Nombre_Cliente", Utilidades.ParametersX_Global)
         CbxClientes.SelectedIndex = 0
-        'CBSIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
-        'CBSRISR.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
-        'CBSRIVA.LlenarListBox("pCAT_IMPUESTOS_SAT_FACTURACION_B", "c_Impuesto", "DescripcionX")
-        'ReDim Utilidades.ParametersX_Global(0)
-        'CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX")
         SplitContainer1.Panel1MinSize = 340
-        'ReDim Utilidades.ParametersX_Global(0)
-        'CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX")
-        'CBSReceptor.SelectedIndex = 0
         CargarRFC()
         Dim TIPO_PERSONA As String = CBSReceptor.ObtenerDescripcion("Tipo_Persona")
         If TIPO_PERSONA = "FISICA" Then
@@ -203,7 +195,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         CBSReceptor.Clear()
         CBEmisor.Clear()
         CBSReceptor.LlenarListBox("pCAT_RFC_RECEPTOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
-        Utilidades.ParametersX_Global(2) = New SqlParameter("@Pordefecto", 1)
+        'Utilidades.ParametersX_Global(2) = New SqlParameter("@Pordefecto", 1)
         CBEmisor.LlenarListBox("pCAT_RFC_EMISOR_SAT_FACTURACION_B", "RFC", "RFCX", Utilidades.ParametersX_Global)
 
         If CBEmisor.Items.Count > 0 Then
@@ -356,6 +348,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         Dim cuerpo As New Dictionary(Of String, String)
         Dim conceptos As New List(Of String)
         Dim imptraslado As New List(Of String)
+        Dim periodicid As New List(Of String)
         Dim impretencciones As New List(Of String)
         Dim FACTURA As New Factura
         Dim RFC_EMISOR As String = CBEmisor.SelectedValue
@@ -365,7 +358,9 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         Dim rfc_receptor As String = CBSReceptor.SelectedValue
         Dim nombre_receptor As String = CBSReceptor.ObtenerDescripcion("Razon_Social")
         Dim uso_cfdi As String = CBSUsoCFDI.SelectedValue
-        Dim receptor = rfc_receptor & "|" & nombre_receptor & "|" & uso_cfdi
+        Dim RegimenReceptor As String = CBSReceptor.ObtenerDescripcion("regimen")
+        Dim DomicilioReceptor As String = CBSReceptor.ObtenerDescripcion("Codigo_Postal")
+        Dim receptor = rfc_receptor & "|" & nombre_receptor & "|" & uso_cfdi & "|" & RegimenReceptor & "|" & DomicilioReceptor
         Dim llave = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("llave")
         Dim cer = Application.StartupPath & "\Resources\SAT\" & RFC_EMISOR & "\" & CBEmisor.ObtenerDescripcion("cer")
         Dim claveprivada = CBEmisor.ObtenerDescripcion("claveprivada")
@@ -387,13 +382,13 @@ Public Class Facturacion_Electronica_Folio_Movimiento
         cuerpo.Add("TipoRelacion", "NA")
         If DGVConceptos.Rows.Count <> 0 Then
             For i As Integer = 0 To DGVConceptos.Rows.Count - 1
-                If DGVConceptos.Rows(i).Cells(0).Value = Nothing Then Exit For
-                conceptos.Add(DGVConceptos.Rows(i).Cells(0).Value & "|" & DGVConceptos.Rows(i).Cells(1).Value & "|" & DGVConceptos.Rows(i).Cells(2).Value & "|" & DGVConceptos.Rows(i).Cells(3).Value & "|" & DGVConceptos.Rows(i).Cells(4).Value & "|" & DGVConceptos.Rows(i).Cells(5).Value & "|" & DGVConceptos.Rows(i).Cells(6).Value & "|" & DGVConceptos.Rows(i).Cells(7).Value)
+                If DGVConceptos.Rows(i).Cells(cCantidad.Name).Value = Nothing Then Exit For
+                conceptos.Add(DGVConceptos.Rows(i).Cells(cCantidad.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cbClaveProdServ.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cbClaveUnidad.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cDescripcion.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cValorUnitario.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cImporte.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cDescuento.Name).Value & "|" & DGVConceptos.Rows(i).Cells(cNoIdentificacion.Name).Value)
             Next
         End If
 
         'If CBTraslado.Checked = True Then
-        imptraslado.Add("002" & "|" & ValorIVA & "|" & TasaIVA)
+        imptraslado.Add("002" & "|" & ValorIVA & "|" & TasaIVA & "|" & TBIva.Text.Replace("$", ""))
         'End If
 
         If AplicaISR = True Then
@@ -632,7 +627,7 @@ Public Class Facturacion_Electronica_Folio_Movimiento
             End If
 
             CBSUsoCFDI.LlenarListBox("pCAT_USOCFDI_SAT_FACTURACION_B", "c_UsoCFDI", "DescripcionX", Utilidades.ParametersX_Global)
-            CBSUsoCFDI.SelectedValue = "P01"
+            CBSUsoCFDI.SelectedValue = "G01"
         End If
     End Sub
 
@@ -838,12 +833,13 @@ Public Class Facturacion_Electronica_Folio_Movimiento
             riva = Subtotal * (ValorIEPS)
 
         End If
-        TBSubTotal.Text = FormatCurrency(total)
-        TBDescuento.Text = FormatCurrency(Descuento)
-        TBIva.Text = FormatCurrency(iva)
-        TBRISR.Text = FormatCurrency(risr + 0)
-        TBRIVA.Text = FormatCurrency(riva + 0)
+        TBSubTotal.Text = FormatCurrency((total))
+        TBDescuento.Text = FormatCurrency((Descuento))
+        TBIva.Text = FormatCurrency((iva))
+        TBRISR.Text = FormatCurrency((risr + 0))
+        TBRIVA.Text = FormatCurrency((riva + 0))
         total = Subtotal + iva - risr - riva
+        total = (total)
         TBTotal.Text = FormatCurrency(total)
     End Sub
 

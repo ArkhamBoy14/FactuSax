@@ -245,7 +245,7 @@ Partial Class Facturacion_Electronica_Folio_Movimiento
         '
         'cImporteTotal
         '
-        Me.cImporteTotal.DataPropertyName = "Importe"
+        Me.cImporteTotal.DataPropertyName = "Importe_Redondeo"
         Me.cImporteTotal.HeaderText = "Importe"
         Me.cImporteTotal.Name = "cImporteTotal"
         Me.cImporteTotal.ReadOnly = True
