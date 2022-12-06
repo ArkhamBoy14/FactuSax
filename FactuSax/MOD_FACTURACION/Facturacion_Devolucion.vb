@@ -215,7 +215,7 @@ Public Class Facturacion_Devolucion
 
         Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.Clear()
 
-        Dim myDA = New SqlClient.SqlDataAdapter("pFACTURA_SAT_CFDI_NOTA_CREDITO_B", Utilidades.sConexion)
+        Dim myDA = New SqlClient.SqlDataAdapter("[pFACTURA_SAT_CFDI_DEVOLUCION_B]", Utilidades.sConexion)
         myDA.SelectCommand.CommandType = CommandType.StoredProcedure
 
         If RBFolio.Checked Then
@@ -503,12 +503,75 @@ Public Class Facturacion_Devolucion
         Return True
     End Function
 
+    Private Sub RB_Completa_CheckedChanged(sender As Object, e As EventArgs) Handles RB_Completa.CheckedChanged
+        limpiar()
+        If CbxClientes.SelectedIndex <> -1 Then
+            CONSULTAR(CbxClientes.SelectedValue)
+        End If
+    End Sub
+
+    Private Sub BtnAnexarPago_Click(sender As Object, e As EventArgs) Handles BtnAnexarPago.Click
+        If DGVUUID.Rows(0).Cells("colSALDO").Value - TBMonto.Text < 0 Then
+            Alertas.NotificacionAdvertencia("El monto es mayor que el saldo adeudado")
+            RBBFactura.Enabled = False
+            contador = 0
+        Else
+            DGVConceptos.Rows(0).Cells("cValorUnitario").Value = TBMonto.Text
+            Dim Insoluto As Double = DGVConceptos.Rows(0).Cells("cValorUnitario").Value - TBMonto.Text
+            DGVConceptos.Rows(0).Cells("cImporte").Value = Math.Round(Insoluto, 2)
+            RBBFactura.Enabled = True
+            TBMonto.Text = 0
+
+            For i = 0 To DGVConceptos.Rows.Count - 1
+                Dim total, iva, riva, risr, totaldesc, preciosiniva, subtotal, calculoimporte As Double
+                Dim Unidad = DGVConceptos.Rows(i).Cells(4).Value
+                'Dim DescuentoUnidad = Unidad * Double.Parse(0.16)
+                Dim DescuentoUnidad = Unidad
+                'Dim ImporteDescuento = Unidad - DescuentoUnidad
+                Dim ImporteDescuento = Unidad
+
+                calculoimporte = CDbl(DGVConceptos.Rows(i).Cells(0).Value) * CDbl(DGVConceptos.Rows(i).Cells(4).Value)
+
+                DGVConceptos(5, i).Value = ImporteDescuento
+                total += DGVConceptos.Rows(i).Cells(4).Value
+                'Dim DESCUENTOX As Double
+                'DESCUENTOX = (descuento * 100 / total) / 100
+                'For I As Integer = 0 To DGVConceptos.Rows.Count - 1
+                '    DGVConceptos.Rows(I).Cells("cDescuento").Value = Round((DGVConceptos.Rows(I).Cells("cImporte").Value * DESCUENTOX), 2)
+                'Next
+
+                ''If CBTraslado.Checked Then
+                'iva = total * Double.Parse(ValorIVA)
+                subtotal = total
+                ''End If
+                'If CBRetencion.Checked Then
+                '    risr = SUBTOTAL * (MTBRISR.Text)
+                '    riva = SUBTOTAL * (MTBRIVA.Text)
+                'End If
+
+                TBSubTotal.Text = FormatCurrency(subtotal)
+                'TBDescuento.Text = FormatCurrency(descuento)
+                'TBIva.Text = FormatCurrency(iva)
+                'TBRISR.Text = FormatCurrency(risr + 0)
+                'TBRIVA.Text = FormatCurrency(riva + 0)
+                total = subtotal
+                TBTotal.Text = FormatCurrency(total)
+            Next
+
+
+        End If
+    End Sub
+
     Sub limpiar()
         DGVConceptos.DataSource = Nothing
         Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B.Clear()
         'TBMonto.Text = 0
         CBS_TipoRelacion.SelectedIndex = -1
         RTBObservaciones.Text = Nothing
+        Me.DGVConceptos.Rows.Clear()
+        TBSubTotal.Text = ""
+        TBDescuento.Text = ""
+        TBTotal.Text = ""
     End Sub
 
     Private Sub CBSReceptor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBSReceptor.SelectedIndexChanged

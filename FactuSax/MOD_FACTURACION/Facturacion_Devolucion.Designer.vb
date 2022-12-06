@@ -20,7 +20,7 @@ Partial Class Facturacion_Devolucion
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As Wisej.Web.DataGridViewCellStyle = New Wisej.Web.DataGridViewCellStyle()
         Me.RibbonBar7 = New Wisej.Web.Ext.RibbonBar.RibbonBar()
         Me.RibbonBarPage1 = New Wisej.Web.Ext.RibbonBar.RibbonBarPage()
         Me.RibbonBarGroup1 = New Wisej.Web.Ext.RibbonBar.RibbonBarGroup()
@@ -31,6 +31,11 @@ Partial Class Facturacion_Devolucion
         Me.SplitContainer1 = New Wisej.Web.SplitContainer()
         Me.DGVUUID = New Wisej.Web.DataGridView()
         Me.DataGridViewImageColumn1 = New Wisej.Web.DataGridViewImageColumn()
+        Me.colFOLIO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colUUID = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colFECHA = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colCONDICIONESPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
+        Me.colSALDO = New Wisej.Web.DataGridViewTextBoxColumn()
         Me.BindingSource1 = New Wisej.Web.BindingSource(Me.components)
         Me.DataSet_pFACTURA_SAT_CFDI_PAGOS_B = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_B()
         Me.pserie = New Wisej.Web.Panel()
@@ -108,11 +113,6 @@ Partial Class Facturacion_Devolucion
         Me.ErrorProvider1 = New Wisej.Web.ErrorProvider(Me.components)
         Me.Label20 = New Wisej.Web.Label()
         Me.PFACTURA_SAT_CFDI_PAGOS_BTableAdapter = New FactuSax.DataSet_pFACTURA_SAT_CFDI_PAGOS_BTableAdapters.pFACTURA_SAT_CFDI_PAGOS_BTableAdapter()
-        Me.colFOLIO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colUUID = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colFECHA = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colCONDICIONESPAGO = New Wisej.Web.DataGridViewTextBoxColumn()
-        Me.colSALDO = New Wisej.Web.DataGridViewTextBoxColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -221,12 +221,44 @@ Partial Class Facturacion_Devolucion
         'DataGridViewImageColumn1
         '
         Me.DataGridViewImageColumn1.CellImageAlignment = Wisej.Web.DataGridViewContentAlignment.NotSet
-        DataGridViewCellStyle2.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = Wisej.Web.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewImageColumn1.HeaderText = "   "
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         Me.DataGridViewImageColumn1.Width = 40
+        '
+        'colFOLIO
+        '
+        Me.colFOLIO.DataPropertyName = "FOLIO"
+        Me.colFOLIO.HeaderText = "FOLIO"
+        Me.colFOLIO.Name = "colFOLIO"
+        Me.colFOLIO.ReadOnly = True
+        '
+        'colUUID
+        '
+        Me.colUUID.DataPropertyName = "UUID"
+        Me.colUUID.HeaderText = "UUID"
+        Me.colUUID.Name = "colUUID"
+        '
+        'colFECHA
+        '
+        Me.colFECHA.DataPropertyName = "FECHA"
+        Me.colFECHA.HeaderText = "FECHA"
+        Me.colFECHA.Name = "colFECHA"
+        '
+        'colCONDICIONESPAGO
+        '
+        Me.colCONDICIONESPAGO.DataPropertyName = "CONDICIONESPAGO"
+        Me.colCONDICIONESPAGO.HeaderText = "CONDICIONESPAGO"
+        Me.colCONDICIONESPAGO.Name = "colCONDICIONESPAGO"
+        '
+        'colSALDO
+        '
+        Me.colSALDO.DataPropertyName = "SALDO"
+        Me.colSALDO.HeaderText = "SALDO"
+        Me.colSALDO.Name = "colSALDO"
+        Me.colSALDO.ReadOnly = True
         '
         'BindingSource1
         '
@@ -931,38 +963,6 @@ Partial Class Facturacion_Devolucion
         'PFACTURA_SAT_CFDI_PAGOS_BTableAdapter
         '
         Me.PFACTURA_SAT_CFDI_PAGOS_BTableAdapter.ClearBeforeFill = True
-        '
-        'colFOLIO
-        '
-        Me.colFOLIO.DataPropertyName = "FOLIO"
-        Me.colFOLIO.HeaderText = "FOLIO"
-        Me.colFOLIO.Name = "colFOLIO"
-        Me.colFOLIO.ReadOnly = True
-        '
-        'colUUID
-        '
-        Me.colUUID.DataPropertyName = "UUID"
-        Me.colUUID.HeaderText = "UUID"
-        Me.colUUID.Name = "colUUID"
-        '
-        'colFECHA
-        '
-        Me.colFECHA.DataPropertyName = "FECHA"
-        Me.colFECHA.HeaderText = "FECHA"
-        Me.colFECHA.Name = "colFECHA"
-        '
-        'colCONDICIONESPAGO
-        '
-        Me.colCONDICIONESPAGO.DataPropertyName = "CONDICIONESPAGO"
-        Me.colCONDICIONESPAGO.HeaderText = "CONDICIONESPAGO"
-        Me.colCONDICIONESPAGO.Name = "colCONDICIONESPAGO"
-        '
-        'colSALDO
-        '
-        Me.colSALDO.DataPropertyName = "SALDO"
-        Me.colSALDO.HeaderText = "SALDO"
-        Me.colSALDO.Name = "colSALDO"
-        Me.colSALDO.ReadOnly = True
         '
         'Facturacion_Devolucion
         '
